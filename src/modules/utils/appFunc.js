@@ -9,9 +9,11 @@ define(['framework7'], function(framework7){
 
     var hideToolbar = function() {
         window.hotelApp.hideToolbar('.toolbar');
+        $$('.toolbar').hide();
     };
 
     var showToolbar = function() {
+        $$('.toolbar').show();
         window.hotelApp.showToolbar('.toolbar');
     };
 

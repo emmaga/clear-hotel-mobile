@@ -14,10 +14,7 @@ define(['framework7','appFunc','text!service/service.tpl.html','tvModule'],
         var init = function (){
             var renderData = {};
             var output = appFunc.renderTpl(template,renderData);
-            window.view3.router.load({
-                content: output,
-                animatePages: false
-            });
+            $$('#tab3').html(output);
 
             service.bindEvents();
 

@@ -56,30 +56,27 @@ requirejs(['framework7','router'], function (framework7,router) {
             var $$ = Dom7;
 
             // Add views
-            window.view1 = hotelApp.addView('#view-1');
-            window.view2 = hotelApp.addView('#view-2');
-            window.view3 = hotelApp.addView('#view-3');
-            window.view4 = hotelApp.addView('#view-4');
+            window.viewMain = hotelApp.addView('.view-main');
 
             // 导航按钮切换
-            $$("a[href='#view-1']").on('click', function (e) {
-                router.loadView('#view-1');
+            $$("a[href='#tab1']").on('click', function (e) {
+                router.loadContent('#tab1');
             })
-            $$("a[href='#view-2']").on('click', function (e) {
-                router.loadView('#view-2');
+            $$("a[href='#tab2']").on('click', function (e) {
+                router.loadContent('#tab2');
             })
-            $$("a[href='#view-3']").on('click', function (e) {
-                router.loadView('#view-3');
+            $$("a[href='#tab3']").on('click', function (e) {
+                router.loadContent('#tab3');
             })
-            $$("a[href='#view-4']").on('click', function (e) {
-                router.loadView('#view-4');
+            $$("a[href='#tab4']").on('click', function (e) {
+                router.loadContent('#tab4');
             })
             
 
             // init app
             router.init();
-            hotelApp.showIndicator();
-            router.loadView('#view-1');
+            router.loadContent('#tab1');
+
         }
     }
 

@@ -5,10 +5,7 @@ define(['framework7','appFunc','text!room/room.tpl.html'], function(framework7,a
     var init = function (){
         var renderData = {};
         var output = appFunc.renderTpl(template,renderData);
-        window.view2.router.load({
-            content: output,
-            animatePages: false
-        });
+        $$('#tab2').html(output);
     };
     return {
         init: init
