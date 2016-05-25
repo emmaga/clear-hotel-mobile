@@ -5,10 +5,7 @@ define(['framework7','appFunc','text!hi/hi.tpl.html'], function(framework7,appFu
     var init = function (){
         var renderData = {title: "hi"};
         var output = appFunc.renderTpl(template,renderData);
-        window.view1.router.load({
-            content: output,
-            animatePages: false
-        });
+        $$('#tab1').html(output);
     };
     return {
         init: init

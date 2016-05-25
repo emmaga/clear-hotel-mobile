@@ -10,12 +10,23 @@ define(['framework7', 'appFunc', 'hiModule', 'roomModule', 'serviceModule', 'myM
                     var page = e.detail.page;
                     that.pageBeforeInit(page);
                 });
+                $$(document).on('pageBeforeAnimation', function (e) {
+                    var page = e.detail.page;
+                    that.pageBeforeAnimation(page);
+                });
             },
             pageBeforeInit: function(page) {
                 switch (page.name) {
                     case 'tv':
                         appFunc.hideToolbar();
-                        break;
+                        break; 
+                }
+            },
+            pageBeforeAnimation: function(page) {
+                switch (page.name) {
+                    case 'index':
+                        appFunc.showToolbar();
+                        break; 
                 }
             }
         }
@@ -24,24 +35,24 @@ define(['framework7', 'appFunc', 'hiModule', 'roomModule', 'serviceModule', 'myM
             router.init();
         }
 
-        var loadView = function (query){
+        var loadContent = function (query){
             switch (query) {
-                case '#view-1':
+                case '#tab1':
                     hiModule.init();
                     break;
-                case '#view-2':
+                case '#tab2':
                     roomModule.init();
                     break;
-                case '#view-3':
+                case '#tab3':
                     serviceModule.init();
                     break;
-                case '#view-4':
+                case '#tab4':
                     myModule.init();
                     break;        
             }
         };
         return {
-            loadView: loadView,
+            loadContent: loadContent,
             init: init
         };
 });

@@ -7,7 +7,7 @@ define(['framework7','appFunc','text!tv/tv.tpl.html'], function(framework7,appFu
             title: "tv"
         };
         var output = appFunc.renderTpl(template,renderData);
-        window.view3.router.load({
+        window.viewMain.router.load({
             content: output
         })
     };
