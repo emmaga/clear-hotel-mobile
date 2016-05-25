@@ -15,9 +15,15 @@ define(['framework7'], function(framework7){
         window.hotelApp.showToolbar('.toolbar');
     };
 
+    var isPhonegap = function () {
+        // http://stackoverflow.com/questions/8068052/phonegap-detect-if-running-on-desktop-browser
+        return document.URL.indexOf( 'http://' ) === -1 && document.URL.indexOf( 'https://' ) === -1;
+    };
+
     return {
         renderTpl: renderTpl,
         hideToolbar: hideToolbar,
-        showToolbar: showToolbar
+        showToolbar: showToolbar,
+        isPhonegap: isPhonegap
     };
 });

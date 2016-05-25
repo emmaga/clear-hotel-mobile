@@ -1,86 +1,49 @@
-var appFunc = require('./appFunc'),
-    networkStatus = require('../components/networkStatus');
 
-module.exports = {
+define(['i18nText'], function (i18nText) {'use strict';
 
-    search: function(code, array){
-        for (var i=0;i< array.length; i++){
-            if (array[i].code === code) {
-                return array[i];
-            }
-        }
-        return false;
-    },
-
-    getRequestURL: function(options){
-        //var host = apiServerHost || window.location.host;
-        //var port = options.port || window.location.port;
-        var query = options.query || {};
-        var func = options.func || '';
-
-        var apiServer = 'api/' + func + '.json' +
-            (appFunc.isEmpty(query) ? '' : '?');
-
-        var name;
-        for (name in query) {
-            apiServer += name + '=' + query[name] + '&';
-        }
-
-        return apiServer.replace(/&$/gi, '');
-    },
-
-    simpleCall: function(options,callback){
-        var that = this;
-
-        options = options || {};
-        options.data = options.data ? options.data : '';
-
-        //If you access your server api ,please user `post` method.
-        options.method = options.method || 'GET';
-        //options.method = options.method || 'POST';
-
-        if(appFunc.isPhonegap()){
-            //Check network connection
-            var network = networkStatus.checkConnection();
-            if(network === 'NoNetwork'){
-
-                hiApp.alert(i18n.error.no_network,function(){
-                    hiApp.hideIndicator();
-                    hiApp.hidePreloader();
-                });
-
-                return false;
-            }
-        }
-
-        $$.ajax({
-            url: that.getRequestURL(options) ,
-            method: options.method,
-            data: options.data,
-            success:function(data){
-                data = data ? JSON.parse(data) : '';
-
-                var codes = [
-                    {code:10000, message:'Your session is invalid, please login again',path:'/'},
-                    {code:10001, message:'Unknown error,please login again',path:'tpl/login.html'},
-                    {code:20001, message:'User name or password does not match',path:'/'}
-                ];
-
-                var codeLevel = that.search(data.err_code,codes);
-
-                if(!codeLevel){
-
-                    (typeof(callback) === 'function') ? callback(data) : '';
-
-                }else{
-
-                    hiApp.alert(codeLevel.message,function(){
-                        hiApp.hideIndicator();
-                        hiApp.hidePreloader();
-                    });
+    // http://stackoverflow.com/questions/1730692/jquery-ajax-how-to-detect-network-connection-error-when-making-ajax-call
+    function wrapOptions(options) {
+        options = typeof options === 'object' ? options : {};
+        if (options.suppressError !== true) {
+            var errorCallback = options.error;
+            options.error = function (xhr, status) {
+                var hotelApp = window.hotelApp,
+                    message = i18nText.error.unknown_error;
+                if (xhr.readyState === 4) {
+                    message = i18nText.error.http_error;
+                } else if (xhr.readyState === 0) {
+                    message = i18nText.error.no_network;
                 }
-            }
-        });
-
+                if (hotelApp) {
+                    hotelApp.alert(message);
+                }
+                return typeof errorCallback === 'function' && errorCallback(xhr, status);
+            };
+        }
+        return options;
     }
-};
+
+    function ajax(options) {
+        return window.Dom7.ajax(wrapOptions(options));
+    }
+    
+    function get(url, data, success) {
+        return window.Dom7.get(url, data, success);
+    }
+    
+    function post(url, data, success) {
+        return window.Dom7.post(url, data, success);
+    }
+    
+    function getJSON(url, data, success) {
+        return window.Dom7.getJSON(url, data, success);
+    }
+
+    var exports = {};
+    exports.ajax = ajax;
+    exports.get = get;
+    exports.post = post;
+    exports.getJSON = getJSON;
+    return exports;
+
+});

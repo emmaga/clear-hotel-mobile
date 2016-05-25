@@ -1,16 +1,28 @@
-requirejs.config({
-    baseUrl: 'modules',
-    paths: {
-        text : '../lib/text',
-        'framework7': '../lib/Framework7/js/framework7.min',
-        'hiModule': 'hi/hi',
-        'roomModule': 'room/room',
-        'serviceModule': 'service/service',
-        'myModule': 'my/my',
-        'tvModule': 'tv/tv',
-        'appFunc': 'utils/appFunc'
-    }
-});
+
+(function() {'use strict';
+
+    var locale = (localStorage && localStorage.getItem('lang') ||
+    navigator.language && navigator.language ||
+    'zh-cn').toLowerCase().replace(/_/g, '-');
+
+    var i18nText = 'lang/' + locale;
+    requirejs.config({
+        baseUrl: 'modules',
+        paths: {
+            'text' : '../lib/text',
+            'framework7': '../lib/Framework7/js/framework7.min',
+            'hiModule': 'hi/hi',
+            'roomModule': 'room/room',
+            'serviceModule': 'service/service',
+            'myModule': 'my/my',
+            'tvModule': 'tv/tv',
+            'appFunc': 'utils/appFunc',
+            'i18n': 'utils/i18n',
+            'i18nText': i18nText,
+            'xhr': 'utils/xhr'
+        }
+    });
+}(window.requirejs));
 
 requirejs(['framework7','router'], function (framework7,router) {
     var app = {
@@ -66,6 +78,7 @@ requirejs(['framework7','router'], function (framework7,router) {
 
             // init app
             router.init();
+            hotelApp.showIndicator();
             router.loadView('#view-1');
         }
     }
