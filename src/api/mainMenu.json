@@ -2,6 +2,7 @@
   "errInfo": "None",
   "rescode": "200",
   "data": {
+    "appTitle": "上海清鹤宾馆",
     "mainMenu": [
       {
         "name": "首页",

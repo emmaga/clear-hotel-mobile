@@ -12,6 +12,10 @@ define(['framework7', 'config', 'xhr', 'router', 'appFunc', 'text!index/index.tp
         })
       },
       loadData: function(data) {
+
+        // 修改title
+        document.title = data.data.appTitle;
+
         // 加载tabs
         var renderData = data.data;
 
