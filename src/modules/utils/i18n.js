@@ -6,14 +6,14 @@ define([], function () {'use strict';
     }
 
     function getLocale() {
-        var userLocale = localStorage && localStorage.getItem('lang');
+        var userLocale = window.clearcaneStorage && window.clearcaneStorage.getItem('lang');
         var browserLocale = navigator.language && navigator.language;
 
         return formatLocale(userLocale || browserLocale || 'zh-cn');
     }
     
     function setLocale(locale) {
-        localStorage && localStorage.setItem('lang', formatLocale(locale));
+        window.clearcaneStorage && window.clearcaneStorage.setItem('lang', formatLocale(locale));
     }
     
     var exports = {};

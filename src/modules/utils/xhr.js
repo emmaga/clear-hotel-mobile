@@ -26,24 +26,33 @@ define(['i18nText'], function (i18nText) {'use strict';
     function ajax(options) {
         return window.Dom7.ajax(wrapOptions(options));
     }
-    
-    function get(url, data, success) {
-        return window.Dom7.get(url, data, success);
-    }
-    
-    function post(url, data, success) {
-        return window.Dom7.post(url, data, success);
-    }
-    
-    function getJSON(url, data, success) {
-        return window.Dom7.getJSON(url, data, success);
+
+    function createShortcuts($) {
+        var methods = ('get post getJSON').split(' ');
+        function createMethod(method) {
+            $[method] = function (url, data, success, error, suppressError) {
+                var options = {
+                    url: url,
+                    method: method === 'post' ? 'POST' : 'GET',
+                    data: typeof data === 'function' ? undefined : data,
+                    success: typeof data === 'function' ? data : success,
+                    error: typeof data === 'function' ? success : error,
+                    dataType: method === 'getJSON' ? 'json' : undefined
+                };
+                if (typeof suppressError === 'boolean') {
+                    options.suppressError = suppressError;
+                }
+                return $.ajax(options);
+            };
+        }
+        for (var i = 0; i < methods.length; i++) {
+            createMethod(methods[i]);
+        }
     }
 
     var exports = {};
     exports.ajax = ajax;
-    exports.get = get;
-    exports.post = post;
-    exports.getJSON = getJSON;
+    createShortcuts(exports);
     return exports;
 
 });

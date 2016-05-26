@@ -1,7 +1,7 @@
 
 (function() {'use strict';
 
-    var locale = (localStorage && localStorage.getItem('lang') ||
+    var locale = (window.clearcaneStorage && window.clearcaneStorage.getItem('lang') ||
     navigator.language && navigator.language ||
     'zh-cn').toLowerCase().replace(/_/g, '-');
 
@@ -19,12 +19,14 @@
             'appFunc': 'utils/appFunc',
             'i18n': 'utils/i18n',
             'i18nText': i18nText,
-            'xhr': 'utils/xhr'
+            'xhr': 'utils/xhr',
+            'config': 'utils/config',
+            'storage': 'utils/storage'
         }
     });
 }(window.requirejs));
 
-requirejs(['framework7','router'], function (framework7,router) {
+requirejs(['framework7','router', 'config','xhr', 'storage'], function (framework7,router,config,xhr,storage) {
     var app = {
         initialize: function() {
             this.bindEvents();
@@ -47,7 +49,7 @@ requirejs(['framework7','router'], function (framework7,router) {
         },
         initFramework7: function() {
             // Initialize your app
-            hotelApp = new Framework7({   
+            window.hotelApp = new Framework7({
                 pushState:true,
                 pushStateSeparator:''
             });
@@ -61,24 +63,23 @@ requirejs(['framework7','router'], function (framework7,router) {
             // 导航按钮切换
             $$("a[href='#tab1']").on('click', function (e) {
                 router.loadContent('#tab1');
-            })
+            });
             $$("a[href='#tab2']").on('click', function (e) {
                 router.loadContent('#tab2');
-            })
+            });
             $$("a[href='#tab3']").on('click', function (e) {
                 router.loadContent('#tab3');
-            })
+            });
             $$("a[href='#tab4']").on('click', function (e) {
                 router.loadContent('#tab4');
-            })
-            
+            });
 
             // init app
             router.init();
             router.loadContent('#tab1');
 
         }
-    }
+    };
 
     app.initialize();
 })
