@@ -1,8 +1,0 @@
-{
-  "err_code": 0,
-  "err_msg": "success",
-  "data": {
-    "hotel_name": "hotel name",
-    "hotel_desc": "hotel description"
-  }
-}

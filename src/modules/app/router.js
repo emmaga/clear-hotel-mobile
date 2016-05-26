@@ -1,23 +1,22 @@
-define(['framework7', 'appFunc', 'hiModule', 'roomModule', 'serviceModule', 'myModule'], 
-    function(framework7, appFunc, hiModule, roomModule, serviceModule, myModule){
+define(['framework7', 'appFunc', 'briefModule', 'roomModule', 'serviceP1Module'], 
+    function(framework7, appFunc, briefModule, roomModule, serviceP1Module){
 
         var $$ = Dom7;
 
         var router = {
             init: function() {
-                var that = this;
                 $$(document).on('pageBeforeInit', function (e) {
                     var page = e.detail.page;
-                    that.pageBeforeInit(page);
+                    router.pageBeforeInit(page);
                 });
                 $$(document).on('pageBeforeAnimation', function (e) {
                     var page = e.detail.page;
-                    that.pageBeforeAnimation(page);
+                    router.pageBeforeAnimation(page);
                 });
             },
             pageBeforeInit: function(page) {
                 switch (page.name) {
-                    case 'tv':
+                    case 'service-p2':
                         appFunc.hideToolbar();
                         break; 
                 }
@@ -31,28 +30,21 @@ define(['framework7', 'appFunc', 'hiModule', 'roomModule', 'serviceModule', 'myM
             }
         }
 
-        var init = function() {
-            router.init();
-        }
-
-        var loadContent = function (query){
-            switch (query) {
-                case '#tab1':
-                    hiModule.init();
+        var loadPage = function (type, menuId){
+            switch (type) {
+                case '1':
+                    briefModule.init(menuId);
                     break;
-                case '#tab2':
-                    roomModule.init();
+                case '2':
+                    serviceP1Module.init(menuId);
                     break;
-                case '#tab3':
-                    serviceModule.init();
-                    break;
-                case '#tab4':
-                    myModule.init();
-                    break;        
+                case '3':
+                    roomModule.init(menuId);
+                    break;       
             }
         };
         return {
-            loadContent: loadContent,
-            init: init
+            loadPage: loadPage,
+            init: router.init
         };
 });
