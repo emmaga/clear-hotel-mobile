@@ -8,19 +8,19 @@
         "name": "首页",
         "type": "brief",
         "menuId": "1",
-        "icon": "tabbar-demo-icon-1"
+        "icon": "tabbar-icon-index"
       },
       {
         "name": "服务",
         "type": "service-p1",
         "menuId": "2",
-        "icon": "tabbar-demo-icon-2"
+        "icon": "tabbar-icon-service"
       },
       {
         "name": "预订",
         "type": "room",
         "menuId": "3",
-        "icon": "tabbar-demo-icon-3"
+        "icon": "tabbar-icon-hotel"
       }
     ]
   } 

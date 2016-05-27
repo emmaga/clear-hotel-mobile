@@ -1,5 +1,5 @@
-define(['framework7','appFunc','text!brief/brief.tpl.html','text!brief/brief.css'], 
-    function(framework7,appFunc,template,css){
+define(['framework7','appFunc','text!brief/brief.tpl.html'], 
+    function(framework7,appFunc,template){
 
     var $$ = Dom7;
 
@@ -7,6 +7,12 @@ define(['framework7','appFunc','text!brief/brief.tpl.html','text!brief/brief.css
         var renderData = {title: "hi"};
         var output = appFunc.renderTpl(template,renderData);
         $$('#tab'+'brief'+'_'+menuId).html(output);
+
+        var mySwiper = new Swiper('.swiper-container', {
+            preloadImages: false,
+            lazyLoading: true,
+            pagination: '.swiper-pagination'
+        }) 
     };
     return {
         init: init
