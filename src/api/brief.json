@@ -1,0 +1,32 @@
+{
+  "errInfo": "None",
+  "rescode": "200",
+  "brief": {
+      "img":[
+        {
+          "url":"images/2.jpg"
+        },
+        {
+          "url":"images/1.jpg"
+        },
+        {
+          "url":"images/3.jpg"
+        },
+        {
+          "url":"images/2.jpg"
+        },
+        {
+          "url":"images/2.jpg"
+        }
+      ],
+    "intro":"酒店介绍",
+    "addr":{
+      "name":"",
+      "cr":"121.632859,31.218364"
+    },
+    "tele":{
+      "name":"联系我们",
+      "number":"123456"
+    }
+  }
+}
