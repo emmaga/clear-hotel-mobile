@@ -32,13 +32,13 @@ define(['framework7', 'appFunc', 'briefModule', 'roomModule', 'serviceP1Module']
 
         var loadPage = function (type, menuId){
             switch (type) {
-                case '1':
+                case 'brief':
                     briefModule.init(menuId);
                     break;
-                case '2':
+                case 'service-p1':
                     serviceP1Module.init(menuId);
                     break;
-                case '3':
+                case 'room':
                     roomModule.init(menuId);
                     break;       
             }

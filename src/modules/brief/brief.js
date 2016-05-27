@@ -6,7 +6,7 @@ define(['framework7','appFunc','text!brief/brief.tpl.html','text!brief/brief.css
     var init = function (menuId){
         var renderData = {title: "hi"};
         var output = appFunc.renderTpl(template,renderData);
-        $$('#tab1_'+menuId).html(output);
+        $$('#tab'+'brief'+'_'+menuId).html(output);
     };
     return {
         init: init

@@ -6,19 +6,19 @@
     "mainMenu": [
       {
         "name": "首页",
-        "type": "1",
+        "type": "brief",
         "menuId": "1",
         "icon": "tabbar-demo-icon-1"
       },
       {
         "name": "服务",
-        "type": "2",
+        "type": "service-p1",
         "menuId": "2",
         "icon": "tabbar-demo-icon-2"
       },
       {
         "name": "预订",
-        "type": "3",
+        "type": "room",
         "menuId": "3",
         "icon": "tabbar-demo-icon-3"
       }

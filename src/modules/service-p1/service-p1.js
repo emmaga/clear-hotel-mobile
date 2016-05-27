@@ -14,7 +14,7 @@ define(['framework7','appFunc','text!service-p1/service-p1.tpl.html','serviceP2M
         var init = function (menuId){
             var renderData = {};
             var output = appFunc.renderTpl(template,renderData);
-            $$('#tab2_'+menuId).html(output);
+            $$('#tab'+'service-p1'+'_'+menuId).html(output);
 
             serviceP1.menuId = menuId;
             serviceP1.bindEvents();
