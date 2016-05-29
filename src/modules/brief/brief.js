@@ -9,7 +9,7 @@ define(['framework7','appFunc','text!brief/brief.tpl.html'],
         $$('#tab'+'brief'+'_'+menuId).html(output);
 
         var mySwiper = new Swiper('.swiper-container', {
-            preloadImages: false,
+            preloadImages: true,
             lazyLoading: true,
             pagination: '.swiper-pagination'
         }) 
