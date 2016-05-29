@@ -14,7 +14,7 @@ define(['framework7','config', 'xhr','appFunc','text!brief/brief.tpl.html'],
                 //初始化swiper
                 var mySwiper = myApp.swiper('.swiper-container', {
                     preloadImages: true,
-                    lazyLoading: true,
+                    lazyLoading: false,
                     pagination:'.swiper-pagination'
                 });
                 brief.bindEvents();
