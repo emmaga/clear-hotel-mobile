@@ -1,0 +1,26 @@
+{
+  "errInfo": "None",
+  "rescode": "200",
+  "brief": {
+      "img":[
+        {
+          "url":"api/1.jpg"
+        },
+        {
+          "url":"api/2.jpg"
+        },
+        {
+          "url":"api/3.jpg"
+        }
+      ],
+    "intro":"酒店介绍123",
+    "addr":{
+      "name":"祖冲之路2277弄11号楼",
+      "cr":"121.632859,31.218364"
+    },
+    "tele":{
+      "name":"联系我们",
+      "number":"123456"
+    }
+  }
+}

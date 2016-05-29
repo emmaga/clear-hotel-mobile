@@ -1,0 +1,54 @@
+{
+  "errInfo": "None",
+  "rescode": "200",
+  "serviceP1": {
+      "sp1Menu":[
+        {
+          "name":"餐饮服务",
+          "subMenu":[
+            {
+              "name":"餐厅预定",
+              "type":"restaurant",
+              "serviceId":"1",
+              "icon":""
+            },
+            {
+              "name":"客房送餐",
+              "type":"food",
+              "serviceId":"2",
+              "icon":""
+            }
+          ]
+        },
+        {
+          "name":"影视服务",
+          "subMenu":[
+            {
+              "name":"电影点播",
+              "type":"movies",
+              "serviceId":"3",
+              "icon":""
+            },
+            {
+              "name":"电视直播",
+              "type":"TVs",
+              "serviceId":"4",
+              "icon":""
+            }
+          ]
+        },
+        {
+          "name":"商务服务",
+          "subMenu":[
+            {
+              "name":"会议厅",
+              "type":"meeting",
+              "serviceId":"5",
+              "icon":""
+            }
+          ]
+        }
+      ]
+  }
+
+}

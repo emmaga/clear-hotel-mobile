@@ -3,22 +3,16 @@
 <!-- Slides wrapper -->
 <div class="swiper-wrapper">
    <!-- Slides -->
+    {{#each img}}
    <div class="swiper-slide">
-       <img data-src="api/2.jpg" class="swiper-lazy">
+       <img data-src="{{url}}" class="swiper-lazy">
        <div class="preloader"></div>
    </div>
-   <div class="swiper-slide">
-       <img data-src="api/3.jpg" class="swiper-lazy">
-       <div class="preloader"></div>
-   </div>
-   <div class="swiper-slide">
-       <img data-src="api/1.jpg" class="swiper-lazy">
-       <div class="preloader"></div>
-   </div>
+    {{/each}}
    </div>
    <!-- Pagination, if required -->
    <div class="swiper-pagination"></div>
 </div>
-<div class="intro"><p>酒店介绍</p></div>
-<p><a href="map.html" class="external button button-round">浦东新区祖冲之路</a></p>
-<p><a href="tel:10086" class="external button button-round">联系我们</a></p>
+<div class="intro"><p>{{intro}}</p></div>
+<p><a href="map.html" class="external button button-round">{{addr.name}}</a></p>
+<p><a href="tel:{{tele.number}}" class="external button button-round">{{tele.name}}</a></p>

@@ -1,20 +1,36 @@
-define(['framework7','appFunc','text!brief/brief.tpl.html'], 
-    function(framework7,appFunc,template){
+define(['framework7','config', 'xhr','appFunc','text!brief/brief.tpl.html'],
+    function(framework7,config, xhr,appFunc,template){
+        var myApp = new Framework7({});
+        var $$ = Dom7;
 
-    var $$ = Dom7;
+        var brief = {
+            bindEvents: function() {
 
-    var init = function (menuId){
-        var renderData = {title: "hi"};
-        var output = appFunc.renderTpl(template,renderData);
-        $$('#tab'+'brief'+'_'+menuId).html(output);
+            },
+            loadData: function(menuId,data) {
+                var renderData = data.brief;
+                var output = appFunc.renderTpl(template,renderData);
+                $$('#tab'+'brief'+'_'+menuId).html(output);
+                //初始化swiper
+                var mySwiper = myApp.swiper('.swiper-container', {
+                    preloadImages: true,
+                    lazyLoading: true,
+                    pagination:'.swiper-pagination'
+                });
+                brief.bindEvents();
+            }
+        }
 
-        var mySwiper = new Swiper('.swiper-container', {
-            preloadImages: true,
-            lazyLoading: true,
-            pagination: '.swiper-pagination'
-        }) 
-    };
-    return {
-        init: init
-    };
-});
+        var init = function (menuId){
+            xhr.ajax({
+                'url': config.getJSONUrl('brief'),
+                dataType: 'json',
+                'success': function(data){brief.loadData(menuId,data)}
+            });
+
+
+        };
+        return {
+            init: init
+        };
+    });
