@@ -4,24 +4,24 @@
   "brief": {
       "img":[
         {
-          "url":"images/2.jpg"
+          "url":"api/2.jpg"
         },
         {
-          "url":"images/1.jpg"
+          "url":"api/1.jpg"
         },
         {
-          "url":"images/3.jpg"
+          "url":"api/3.jpg"
         },
         {
-          "url":"images/2.jpg"
+          "url":"api/2.jpg"
         },
         {
-          "url":"images/2.jpg"
+          "url":"api/2.jpg"
         }
       ],
-    "intro":"酒店介绍",
+    "intro":"酒店介绍123",
     "addr":{
-      "name":"",
+      "name":"祖冲之路2277弄11号楼",
       "cr":"121.632859,31.218364"
     },
     "tele":{
