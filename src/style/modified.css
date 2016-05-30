@@ -1,0 +1,10 @@
+/* index */
+.button-square{
+  border-radius: 0px;
+}
+
+.big-first-letter:first-letter{
+  font-size: 2em;
+  line-height: 1;
+  text-indent: 2em;
+}

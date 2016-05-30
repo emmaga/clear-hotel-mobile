@@ -13,6 +13,11 @@
    <!-- Pagination, if required -->
    <div class="swiper-pagination"></div>
 </div>
-<div class="intro"><p>{{intro}}</p></div>
-<p><a href="map.html" class="external button button-round">{{addr.name}}</a></p>
-<p><a href="tel:{{tele.number}}" class="external button button-round">{{tele.name}}</a></p>
+
+  <div class="content-block intro big-first-letter"><p>{{intro}}</p></div>
+
+<div class="content-block">
+  <p><a href="map.html" class="external button button-big button-square">{{addr.name}}</a></p>
+  <p><a href="tel:{{tele.number}}" class="external button button-big button-fill button-square">{{tele.name}}</a></p>
+</div>
+
