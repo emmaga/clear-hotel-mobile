@@ -1,6 +1,5 @@
 define(['framework7','config', 'xhr','appFunc','router','text!intro-p2/intro-p2.tpl.html',],
     function(framework7,config, xhr,appFunc,router,template){
-        var myApp = new Framework7({});
         var $$ = Dom7;
 
         var introP2 = {
@@ -16,7 +15,7 @@ define(['framework7','config', 'xhr','appFunc','router','text!intro-p2/intro-p2.
                     content: output
                 });
                 //初始化swiper
-                var mySwiper = myApp.swiper('.swiper-container', {
+                var mySwiper = window.hotelApp.swiper('#intro-swiper', {
                     preloadImages: true,
                     lazyLoading: false,
                     pagination:'.swiper-pagination'

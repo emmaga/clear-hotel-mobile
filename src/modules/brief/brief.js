@@ -1,6 +1,5 @@
 define(['framework7','config', 'xhr','appFunc','text!brief/brief.tpl.html'],
     function(framework7,config, xhr,appFunc,template){
-        var myApp = new Framework7({});
         var $$ = Dom7;
 
         var brief = {
@@ -12,7 +11,7 @@ define(['framework7','config', 'xhr','appFunc','text!brief/brief.tpl.html'],
                 var output = appFunc.renderTpl(template,renderData);
                 $$('#tab'+'brief'+'_'+menuId).html(output);
                 //初始化swiper
-                var mySwiper = myApp.swiper('.swiper-container', {
+                var mySwiper = window.hotelApp.swiper('#brief-swiper', {
                     preloadImages: true,
                     lazyLoading: false,
                     pagination:'.swiper-pagination'
