@@ -8,13 +8,13 @@
           "subMenu":[
             {
               "name":"餐厅预定",
-              "type":"restaurant",
+              "type":"intro",
               "serviceId":"1",
               "icon":""
             },
             {
               "name":"客房送餐",
-              "type":"food",
+              "type":"intro",
               "serviceId":"2",
               "icon":""
             }
@@ -42,7 +42,7 @@
           "subMenu":[
             {
               "name":"会议厅",
-              "type":"meeting",
+              "type":"intro",
               "serviceId":"5",
               "icon":""
             }

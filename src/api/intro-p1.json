@@ -1,0 +1,34 @@
+{
+  "errInfo": "None",
+  "rescode": "200",
+  "introP1": {
+      "introMenu":[
+        {
+          "name":"中餐厅",
+          "url":"api/1.jpg",
+          "introId":"1"
+        },
+        {
+          "name":"快餐",
+          "url":"api/2.jpg",
+          "introId":"2"
+        },
+        {
+          "name":"咖啡厅",
+          "url":"api/3.jpg",
+          "introId":"3"
+        },
+        {
+          "name":"酒吧",
+          "url":"api/1.jpg",
+          "introId":"4"
+        },
+        {
+          "name":"串烤吧",
+          "url":"api/2.jpg",
+          "introId":"5"
+        }
+      ]
+  }
+
+}

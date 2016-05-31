@@ -27,8 +27,6 @@ define(['framework7','config', 'xhr','appFunc','text!brief/brief.tpl.html'],
                 dataType: 'json',
                 'success': function(data){brief.loadData(menuId,data)}
             });
-
-
         };
         return {
             init: init

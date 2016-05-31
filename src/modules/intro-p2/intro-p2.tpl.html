@@ -1,0 +1,28 @@
+<div data-page="intro-p2" class="page">
+    <div class="page-content">
+            <!-- Slider container -->
+            <div class="swiper-container">
+                <!-- Slides wrapper -->
+                <div class="swiper-wrapper">
+                    <!-- Slides -->
+                    {{#each img}}
+                    <div class="swiper-slide">
+                        <img src="{{url}}" class="swiper-lazy">
+                        <!-- <div class="preloader"></div> -->
+                    </div>
+                    {{/each}}
+                </div>
+                <!-- Pagination, if required -->
+                <div class="swiper-pagination"></div>
+            </div>
+            <div class="intro"><p>{{intro}}</p></div>
+    </div>
+    <!-- Bottom Tabbar-->
+    <div class="toolbar">
+        <div class="toolbar-inner">
+            <a href="tel:{{tele}}" class="external button bottom_button">
+                <span>预定</span>
+            </a>
+        </div>
+    </div>
+</div>

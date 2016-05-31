@@ -1,0 +1,14 @@
+<div data-page="intro-p1" class="page">
+    <div class="page-content">
+        <div class="content-block">
+            <div class="row">
+                {{#each introMenu}}
+                <div class="col-50 introMenu" data-introId="{{introId}}">
+                    <img src="{{url}}" class="lazy">
+                    <p>{{name}}</p>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+</div>

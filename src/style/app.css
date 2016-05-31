@@ -44,6 +44,48 @@ i.tabbar-icon-hotel {
   transform: translate(-50%, -50%);
 }
 
+/*service样式*/
+.list-block ul:after{
+    height:0;
+}
+
+/*intro-p1样式*/
+div[class*="col-"] {
+    background: #fff;
+    text-align: center;
+    color: #000;
+    border: 1px solid #ddd;
+    padding: 5px;
+    height:150px;
+    margin-bottom: 15px;
+    position: relative;
+}
+div[class*="col-"] img{
+    width: 100%;
+    height:100%;
+}
+div[class*="col-"] p{
+    position: absolute;
+    bottom: -9px;
+    width: 93.5%;
+    height: 13%;
+    background-color: #0c82df;
+    filter:alpha(opacity=50); /*支持 IE 浏览器*/
+    -moz-opacity:0.50; /*支持 FireFox 浏览器*/
+    opacity:0.50; /*支持 Chrome, Opera, Safari 等浏览器*/
+}
+.row {
+    margin-bottom: 15px;
+}
+
+/*intro-P2样式*/
+.bottom_button{
+    position: fixed;
+    left:0;
+    bottom: 0;
+    width: 100%;
+    background-color: white;
+}
 .icon-location{
   position: relative;
   top: -2px;

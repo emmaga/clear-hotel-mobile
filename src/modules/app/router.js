@@ -1,5 +1,5 @@
-define(['framework7', 'appFunc', 'briefModule', 'roomModule', 'serviceP1Module'], 
-    function(framework7, appFunc, briefModule, roomModule, serviceP1Module){
+define(['framework7', 'appFunc', 'briefModule', 'roomModule', 'serviceModule'],
+    function(framework7, appFunc, briefModule, roomModule, serviceModule){
 
         var $$ = Dom7;
 
@@ -16,7 +16,7 @@ define(['framework7', 'appFunc', 'briefModule', 'roomModule', 'serviceP1Module']
             },
             pageBeforeInit: function(page) {
                 switch (page.name) {
-                    case 'service-p2':
+                    case 'intro-p1':
                         appFunc.hideToolbar();
                         break; 
                 }
@@ -35,12 +35,12 @@ define(['framework7', 'appFunc', 'briefModule', 'roomModule', 'serviceP1Module']
                 case 'brief':
                     briefModule.init(menuId);
                     break;
-                case 'service-p1':
-                    serviceP1Module.init(menuId);
+                case 'service':
+                    serviceModule.init(menuId);
                     break;
                 case 'room':
                     roomModule.init(menuId);
-                    break;       
+                    break;
             }
         };
         return {
