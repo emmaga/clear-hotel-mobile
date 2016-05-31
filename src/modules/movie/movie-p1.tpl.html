@@ -1,0 +1,14 @@
+<div data-page="movie-p1" class="page">
+    <div class="page-content">
+        <div class="content-block">
+            <div class="row">
+                {{#each movies}}
+                <div class="col-100 movie-list" data-movieId="{{movieId}}">
+                    <img src="{{url}}" class="lazy">
+                    <p>{{name}}</p>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+</div>

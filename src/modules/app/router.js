@@ -18,7 +18,13 @@ define(['framework7', 'appFunc', 'briefModule', 'roomModule', 'serviceModule'],
                 switch (page.name) {
                     case 'intro-p1':
                         appFunc.hideToolbar();
-                        break; 
+                        break;
+                    case 'intro-p2':
+                        appFunc.hideToolbar();
+                        break;
+                    case 'movie-p1':
+                        appFunc.hideToolbar();
+                        break;
                 }
             },
             pageBeforeAnimation: function(page) {

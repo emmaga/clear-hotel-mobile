@@ -5,26 +5,31 @@
       "introMenu":[
         {
           "name":"中餐厅",
+          "time":"8:00-20:30",
           "url":"api/1.png",
           "introId":"1"
         },
         {
           "name":"快餐",
+          "time":"8:00-20:30",
           "url":"api/2.jpg",
           "introId":"2"
         },
         {
           "name":"咖啡厅",
+          "time":"8:00-20:30",
           "url":"api/3.jpg",
           "introId":"3"
         },
         {
           "name":"酒吧",
+          "time":"8:00-20:30",
           "url":"api/1.png",
           "introId":"4"
         },
         {
           "name":"串烤吧",
+          "time":"8:00-20:30",
           "url":"api/2.jpg",
           "introId":"5"
         }

@@ -1,5 +1,5 @@
-define(['framework7', 'config', 'xhr','appFunc','text!service/service.tpl.html','introP1Module'],
-    function(framework7,config, xhr,appFunc,template,introP1Module){
+define(['framework7', 'config', 'xhr','appFunc','text!service/service.tpl.html','introP1Module','introP2Module','movieP1Module'],
+    function(framework7,config, xhr,appFunc,template,introP1Module,introP2Module,movieP1Module){
 
         var $$ = Dom7;
 
@@ -10,8 +10,13 @@ define(['framework7', 'config', 'xhr','appFunc','text!service/service.tpl.html',
                     var type = $$(this).attr("data-serviceType");
                     if(type=="intro") {
                         introP1Module.init(menuId, serviceId);
+                    }else if(type=="introP2") {
+                        introP2Module.init(menuId, serviceId);
+                    }else if(type=="movies"){
+                        movieP1Module.init(menuId)
+                        //alert("电视/电影页面正在制作中...")
                     }else{
-                        alert("电视/电影页面正在制作中...")
+                        alert("TVs页面制作中...")
                     }
                 });
             },

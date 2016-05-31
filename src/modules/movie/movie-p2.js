@@ -1,4 +1,4 @@
-define(['framework7','config', 'xhr','appFunc','router','text!intro-p2/intro-p2.tpl.html',],
+define(['framework7','config', 'xhr','appFunc','router','text!movie/movie-p2.tpl.html'],
     function(framework7,config, xhr,appFunc,router,template){
         var $$ = Dom7;
 

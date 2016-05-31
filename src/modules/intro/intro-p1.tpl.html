@@ -3,9 +3,9 @@
         <div class="content-block">
             <div class="row">
                 {{#each introMenu}}
-                <div class="col-50 introMenu" data-introId="{{introId}}">
+                <div class="col-100 introMenu" data-introId="{{introId}}">
                     <img src="{{url}}" class="lazy">
-                    <p>{{name}}</p>
+                    <p>{{name}}<br>营业时间：{{time}}</p>
                 </div>
                 {{/each}}
             </div>
