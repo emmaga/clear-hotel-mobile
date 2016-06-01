@@ -27,7 +27,15 @@
       </div>
     </div>
     <!-- Views, and they are tabs-->
-    <div id="index-views" class="views toolbar-through">
+    <div class="views toolbar-through">
+        <!-- Your first view, it is also a .tab and should have "active" class to make it visible by default-->
+        <div class="view view-main">
+            <div id="index-pages" class="pages tabs">
+            </div>
+        </div>
+        <!-- Bottom Tabbar-->
+        <div id="index-toolbar" class="toolbar tabbar tabbar-labels">
+        </div>
     </div>
     <script data-main="modules/app/app" src="lib/require.js"></script>
 </body>

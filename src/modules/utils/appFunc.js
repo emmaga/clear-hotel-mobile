@@ -17,9 +17,35 @@ define(['framework7'], function(framework7){
         window.hotelApp.showToolbar('.toolbar');
     };
 
+    var getHashParameters = function () {
+        var queryString = window.location.hash;
+        if (queryString.length <= 1) {
+            return {};
+        }
+        queryString = queryString.substr(1);
+        var pairs = queryString.split('&');
+        var ret = {};
+        pairs.forEach(function (el, idx, arr) {
+            var i = el.indexOf('='), k, v;
+            if (i === -1) {
+                k = el;
+                v = '';
+            } else if (i === el.length - 1) {
+                k = el.substring(0, el.length - 1);
+                v = '';
+            } else {
+                k = el.substring(0, i);
+                v = el.substring(i + 1);
+            }
+            ret[k] = v;
+        });
+        return ret;
+    };
+
     return {
         renderTpl: renderTpl,
         hideToolbar: hideToolbar,
-        showToolbar: showToolbar
+        showToolbar: showToolbar,
+        getHashParameters: getHashParameters
     };
 });

@@ -1,10 +1,11 @@
-define(['framework7', 'appFunc', 'briefModule', 'roomModule', 'serviceModule'],
-    function(framework7, appFunc, briefModule, roomModule, serviceModule){
+define(['framework7', 'appFunc','indexModule', 'briefModule', 'roomModule', 'serviceModule', 'introP1Module'],
+    function(framework7, appFunc, indexModule, briefModule, roomModule, serviceModule, introP1Module){
 
         var $$ = Dom7;
 
         var router = {
             init: function() {
+                router.loadPage();
                 $$(document).on('pageBeforeInit', function (e) {
                     var page = e.detail.page;
                     router.pageBeforeInit(page);
@@ -14,7 +15,20 @@ define(['framework7', 'appFunc', 'briefModule', 'roomModule', 'serviceModule'],
                     router.pageBeforeAnimation(page);
                 });
             },
+            loadPage: function() {
+              var page = (appFunc.getHashParameters().page === undefined)?'':appFunc.getHashParameters().page;
+              if (page === '') {
+                indexModule.init();
+              }else {
+                switch(page) {
+                  case 'intro-p1':
+                    introP1Module.init(2, 1);
+                    break;
+                }
+              }
+            },
             pageBeforeInit: function(page) {
+                console.log(page.name);
                 switch (page.name) {
                     case 'intro-p1':
                         appFunc.hideToolbar();
@@ -36,21 +50,7 @@ define(['framework7', 'appFunc', 'briefModule', 'roomModule', 'serviceModule'],
             }
         }
 
-        var loadPage = function (type, menuId){
-            switch (type) {
-                case 'brief':
-                    briefModule.init(menuId);
-                    break;
-                case 'service':
-                    serviceModule.init(menuId);
-                    break;
-                case 'room':
-                    roomModule.init(menuId);
-                    break;
-            }
-        };
         return {
-            loadPage: loadPage,
             init: router.init
         };
 });
