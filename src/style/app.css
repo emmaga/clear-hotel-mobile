@@ -26,7 +26,7 @@ i.tabbar-icon-hotel {
 }
 
 /* brief */
-/*swiper*/
+/*swiper样式*/
 .swiper-container {
   height: 280px;
 }
@@ -44,47 +44,29 @@ i.tabbar-icon-hotel {
   transform: translate(-50%, -50%);
 }
 
-/*service*/
+/*service样式*/
 .list-block ul:after{
     height:0;
 }
 
-/*intro-p1*/
-.introMenu {
+/*intro-p1样式*/
+div[class*="col-"] {
     background: #fff;
     text-align: center;
     color: #000;
     /*border: 1px solid #ddd;*/
     padding: 5px;
+    
     margin-bottom: 15px;
     position: relative;
 }
-.intro-p1-img{
+div[class*="col-"] img{
     width: 100%;
     height:100%;
     border-radius: 3px;
 }
 
-.intro-p1-h3{
-    /*position: absolute;*/
-    bottom: -9px;
-    width: 97%;
-    height: 20%;
-    filter:alpha(opacity=50); /*支持 IE 浏览器*/
-    -moz-opacity:0.50; /*支持 FireFox 浏览器*/
-    opacity:0.50; /*支持 Chrome, Opera, Safari 等浏览器*/
-}
-
-.intro-p1-h3:after{
-  content: ' ';
-  position: absolute;
-  left: 25%;
-  margin-top: 1.625em;
-  height: 3px;
-  width: 50%;
-  background-color: #DCBA62;
-}
-.intro-p1-p{
+div[class*="col-"] h3{
     /*position: absolute;*/
     bottom: -9px;
     width: 97%;
@@ -93,11 +75,36 @@ i.tabbar-icon-hotel {
     -moz-opacity:0.50; /*支持 FireFox 浏览器*/
     opacity:0.50; /*支持 Chrome, Opera, Safari 等浏览器*/
 }
-.intro-p1-row {
+
+div[class*="col-"] h3:after{
+  content: ' ';
+  position: absolute;
+  left: 25%;
+  margin-top: 1.625em;
+  height: 3px;
+  width: 50%;
+  background-color: #DCBA62;
+}
+
+
+div[class*="col-"] p{
+    /*position: absolute;*/
+    bottom: -9px;
+    width: 97%;
+    height: 20%;    
+    filter:alpha(opacity=50); /*支持 IE 浏览器*/
+    -moz-opacity:0.50; /*支持 FireFox 浏览器*/
+    opacity:0.50; /*支持 Chrome, Opera, Safari 等浏览器*/
+}
+
+
+
+
+.row {
     margin-bottom: 15px;
 }
 
-/*intro-P2*/
+/*intro-P2样式*/
 .bottom_button{
     position: fixed;
     left:0;
@@ -106,44 +113,10 @@ i.tabbar-icon-hotel {
     background-color: white;
 }
 
-/*movie-P1*/
-/*影片图片*/
-.movie-p1-img{
-    width: 100%;
-    height:100%;
-    border-radius: 3px;
-}
-/*影片名称*/
-.movie-p1-h3{
-}
-/*副标题1*/
-.movie-p1-p1{
-}
-/*副标题2*/
-.movie-p1-p2{
-}
-/*加载提示符样式*/
-.infinite-scroll-preloader {
-  margin-top:-20px;
-  margin-bottom: 10px;
-  text-align: center;
-}
-.infinite-scroll-preloader .preloader {
-  width:34px;
-  height:34px;
-}
+/*movie-P1样式*/
+.movie-list img{
 
-
-/*movie-p2*/
-.movie-p2-name{
 }
-.movie-p2-intro1{
-}
-.movie-p2-intro2{
-}
-.movie-p2-intro{
-}
-
 
 /*icon*/
 .icon-location{

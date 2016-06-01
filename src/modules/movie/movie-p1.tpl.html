@@ -1,12 +1,14 @@
 <div data-page="movie-p1" class="page">
-    <div class="page-content infinite-scroll">
+    <div class="page-content">
         <div class="content-block">
             <div class="row">
+                {{#each movies}}
+                <div class="col-100 movie-list" data-movieId="{{movieId}}">
+                    <img src="{{url}}" class="lazy">
+                    <p>{{name}}</p>
+                </div>
+                {{/each}}
             </div>
-        </div>
-        <!-- 加载提示符 -->
-        <div class="infinite-scroll-preloader">
-            <div class="preloader"></div>
         </div>
     </div>
 </div>
