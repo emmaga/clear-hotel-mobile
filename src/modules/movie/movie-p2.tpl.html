@@ -1,13 +1,28 @@
-<div data-page="movie-p2" class="page">
+<div data-page="intro-p2" class="page">
     <div class="page-content">
-        <video width="100%" poster="{{imgUrl}}" controls="controls" preload="preload" webkit-playsinline load="loaded" style="display: inline-block;">
-            <source src="{{url}}" type='video/mp4' />
-        </video>
-        <div class="intro">
-            <p class="movie-p2-name">{{name}}</p>
-            <p class="movie-p2-intro1">{{intro1}}</p>
-            <p class="movie-p2-intro2">{{intro2}}</p>
-            <p class="movie-p2-intro">{{intro}}</p>
+            <!-- Slider container -->
+            <div class="swiper-container" id="intro-swiper">
+                <!-- Slides wrapper -->
+                <div class="swiper-wrapper">
+                    <!-- Slides -->
+                    {{#each img}}
+                    <div class="swiper-slide">
+                        <img src="{{url}}" class="swiper-lazy">
+                        <!-- <div class="preloader"></div> -->
+                    </div>
+                    {{/each}}
+                </div>
+                <!-- Pagination, if required -->
+                <div class="swiper-pagination"></div>
+            </div>
+            <div class="intro"><p>{{intro}}</p></div>
+    </div>
+    <!-- Bottom Tabbar-->
+    <div class="toolbar">
+        <div class="toolbar-inner">
+            <a href="tel:{{tele}}" class="external button bottom_button">
+                <span>预定</span>
+            </a>
         </div>
     </div>
 </div>
