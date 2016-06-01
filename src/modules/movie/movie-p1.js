@@ -4,6 +4,7 @@ define(['framework7','config', 'xhr','appFunc','router','text!movie/movie-p1.tpl
         var $$ = Dom7;
 
         var movieP1 = {
+            
             bindEvents: function(menuId) {
                 $$(document).on('click', '.movie-list', function (e) {
                     var movieId = $$(this).attr("data-movieId");
