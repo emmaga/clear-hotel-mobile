@@ -5,10 +5,11 @@ define(['framework7','config', 'xhr','appFunc','router','text!movie/movie-p1.tpl
 
         var movieP1 = {
             bindEvents: function(menuId) {
-                $$(document).on('click', '.introMenu', function (e) {
-                    var introId = $$(this).attr("data-introId");
-                    //console.log(introId);
-                    movieP2Module.init(menuId,introId);
+                $$(document).on('click', '.movie-list', function (e) {
+                    var movieId = $$(this).attr("data-movieId");
+                    //console.log(movieId);
+                    //获取到的movieId用于之后传参
+                    movieP2Module.init(menuId);
                 });
             },
             loadData: function(menuId,data) {
