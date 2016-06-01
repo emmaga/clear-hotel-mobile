@@ -1,12 +1,12 @@
 <div data-page="intro-p1" class="page">
     <div class="page-content">
         <div class="content-block">
-            <div class="row">
+            <div class="row intro-p1-row">
                 {{#each introMenu}}
                 <div class="col-100 introMenu" data-introId="{{introId}}">
-                    <img src="{{url}}" class="lazy">
-                    <h3>{{name}}</h3>
-                    <p>营业时间：{{time}}</p>
+                    <img src="{{url}}" class="lazy intro-p1-img">
+                    <h3 class="intro-p1-h3">{{name}}</h3>
+                    <p class="intro-p1-p">营业时间：{{time}}</p>
                 </div>
                 {{/each}}
             </div>
