@@ -178,13 +178,39 @@ i.tabbar-icon-hotel {
 
 /*movie-p2*/
 .movie-p2-name{
+  text-align: center;
 }
+.movie-p2-name:after{
+  content: ' ';
+  position: absolute;
+  left: 14px;
+  left: 25%;
+  margin-top: 1.625em;
+  height: 3px;
+  width: 50%;
+  background-color: #DCBA62;
+}
+
 .movie-p2-intro1{
+  text-align: center;
+  opacity: 0.6;
+  margin-bottom: 0px;
 }
 .movie-p2-intro2{
+  opacity: 0.6;
+  margin-top: 0.25em;
+  margin-bottom: 3em;
+  text-align: center;
 }
 .movie-p2-intro{
 }
+
+
+
+
+
+
+
 
 /*TV*/
 
