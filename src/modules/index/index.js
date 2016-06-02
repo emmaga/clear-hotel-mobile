@@ -79,7 +79,7 @@ define(['framework7', 'config', 'xhr', 'router', 'appFunc', 'briefModule', 'room
             case 'intro-p1':
               var menuId = h.menuId;
               var serviceId = h.serviceId;
-              introP1Module.init(menuId, serviceId, true);
+              introP1Module.init(menuId, serviceId, false);
               break;
             case 'index':
               var type = h.type;

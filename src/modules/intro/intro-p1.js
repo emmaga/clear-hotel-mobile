@@ -10,24 +10,24 @@ define(['framework7','config', 'xhr','appFunc','router','text!intro/intro-p1.tpl
                     introP2Module.init(menuId,introId);
                 });
             },
-            loadData: function(menuId,data,ignoreHistory) {
-                var ignoreHistory = ignoreHistory?false:true;
+            loadData: function(menuId,data,animatePages) {
+                var animatePages = (animatePages===undefined)?true:animatePages;
                 var renderData = data.introP1;
                 var output = appFunc.renderTpl(template,renderData);
                 window.viewMain.router.load({
                     content: output,
-                    pushState: ignoreHistory,
-                    animatePages: ignoreHistory
+                    pushState: false,
+                    animatePages: animatePages
                 })
                 introP1.bindEvents(menuId);
             }
         }
 
-        var init = function (menuId,serviceId,ignoreHistory){
+        var init = function (menuId,serviceId,animatePages){
             xhr.ajax({
                 'url': config.getJSONUrl('intro-p1'),
                 dataType: 'json',
-                'success': function(data){introP1.loadData(menuId,data,ignoreHistory)}
+                'success': function(data){introP1.loadData(menuId,data,animatePages)}
             })
         };
         return {
