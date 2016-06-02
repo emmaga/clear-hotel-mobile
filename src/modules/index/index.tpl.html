@@ -1,10 +1,26 @@
-<div data-page="index" class="page">
-  <div class="page-content hide-bars-on-scroll" style="background-color: #F7F7F7;">
-    <div class="tabs">
-      {{#each mainMenu}}
-      <div id="tab{{type}}_{{menuId}}" class="tab{{#if @first}} active{{/if}}">
+<!-- Your first view, it is also a .tab and should have "active" class to make it visible by default-->
+<div class="view view-main">
+  <div class="pages tabs">
+    <div data-page="index" class="page">
+      <div class="page-content hide-bars-on-scroll" style="background-color: #F7F7F7;">
+        <div id="index-tabs" class="tabs">
+          {{#each mainMenu}}
+          <div id="tab_{{type}}_{{menuId}}" class="tab{{#if @first}} active{{/if}}">
+          </div>
+          {{/each}}
+        </div>
       </div>
-      {{/each}}
     </div>
+  </div>
+</div>
+<!-- Bottom Tabbar-->
+<div id="index-toolbar" class="toolbar tabbar tabbar-labels">
+  <div class="toolbar-inner">
+      {{#each mainMenu}}
+      <a href="#tab_{{type}}_{{menuId}}" class="tab-link{{#if @first}} active{{/if}}" data-type="{{type}}" data-menuId="{{menuId}}"> 
+        <i class="icon {{icon}}"></i>
+        <span class="tabbar-label">{{name}}</span>
+      </a>
+      {{/each}}
   </div>
 </div>
