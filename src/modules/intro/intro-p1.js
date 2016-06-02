@@ -4,13 +4,14 @@ define(['framework7','config', 'xhr','appFunc','router','text!intro/intro-p1.tpl
         var $$ = Dom7;
 
         var introP1 = {
-            bindEvents: function(menuId) {
+            bindEvents: function(menuId,serviceId) {
                 $$(document).on('click', '.introMenu', function (e) {
                     var introId = $$(this).attr("data-introId");
-                    introP2Module.init(menuId,introId);
+                    window.location.hash = 'page=intro-p2&menuId='+menuId+'&serviceId='+serviceId+'&introId='+introId;
+                    introP2Module.init(menuId,serviceId,introId);
                 });
             },
-            loadData: function(menuId,data,animatePages) {
+            loadData: function(menuId,serviceId,data,animatePages) {
                 var animatePages = (animatePages===undefined)?true:animatePages;
                 var renderData = data.introP1;
                 var output = appFunc.renderTpl(template,renderData);
@@ -19,7 +20,7 @@ define(['framework7','config', 'xhr','appFunc','router','text!intro/intro-p1.tpl
                     pushState: false,
                     animatePages: animatePages
                 })
-                introP1.bindEvents(menuId);
+                introP1.bindEvents(menuId,serviceId);
             }
         }
 
@@ -27,7 +28,7 @@ define(['framework7','config', 'xhr','appFunc','router','text!intro/intro-p1.tpl
             xhr.ajax({
                 'url': config.getJSONUrl('intro-p1'),
                 dataType: 'json',
-                'success': function(data){introP1.loadData(menuId,data,animatePages)}
+                'success': function(data){introP1.loadData(menuId,serviceId,data,animatePages)}
             })
         };
         return {

@@ -7,7 +7,9 @@ define(['framework7','config', 'xhr','appFunc','router','text!TV/TV.tpl.html'],
             bindEvents: function(menuId) {
                 $$(document).on('click', '.TV-item', function (e) {
                     var TVId = $$(this).attr("data-TVId");
-                    console.log(TVId);
+                    //console.log(TVId);
+                    var video = $$(this).prev();
+                    video[0].play();
                 });
             },
             loadData: function(menuId,data) {

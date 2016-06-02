@@ -8,12 +8,16 @@ define(['framework7','config', 'xhr','appFunc','router','text!intro/intro-p2.tpl
                     //var introId = $$(this).attr("data-introId");
                 //});
             },
-            loadData: function(menuId,data) {
+            loadData: function(menuId,serviceId,introId,data,animatePages) {
+                var animatePages = (animatePages===undefined)?true:animatePages;
                 var renderData = data.introP2;
                 var output = appFunc.renderTpl(template,renderData);
                 window.viewMain.router.load({
-                    content: output
-                });
+                    content: output,
+                    pushState: false,
+                    animatePages: animatePages
+                })
+                console.log(output)
                 //初始化swiper
                 var mySwiper = window.hotelApp.swiper('#intro-swiper', {
                     preloadImages: true,
@@ -32,11 +36,11 @@ define(['framework7','config', 'xhr','appFunc','router','text!intro/intro-p2.tpl
             }
         }
 
-        var init = function (menuId,introId){
+        var init = function (menuId,serviceId,introId,animatePages){
             xhr.ajax({
                 'url': config.getJSONUrl('intro-p2'),
                 dataType: 'json',
-                'success': function(data){introP2.loadData(menuId,data)}
+                'success': function(data){introP2.loadData(menuId,serviceId,introId,data,animatePages)}
             })
         };
         return {

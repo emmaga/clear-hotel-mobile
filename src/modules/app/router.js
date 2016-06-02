@@ -25,6 +25,9 @@ define(['framework7', 'appFunc', 'briefModule', 'roomModule', 'serviceModule'],
                     case 'movie-p1':
                         appFunc.hideToolbar();
                         break;
+                    case 'TV':
+                        appFunc.hideToolbar();
+                        break;
                 }
             },
             pageBeforeAnimation: function(page) {

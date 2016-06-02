@@ -45,7 +45,7 @@ i.tabbar-icon-hotel {
 }
 
 /*service*/
-.list-block ul:after{
+.service-list ul:after{
     height:0;
 }
 
@@ -214,7 +214,15 @@ i.tabbar-icon-hotel {
 
 
 /*TV*/
-
+.TV-list-item{
+    max-height: 44px;
+}
+.video-item{
+    z-index: -1;
+}
+.TV-item{
+    margin-top:-22px;
+}
 
 /*icon*/
 .icon-location{
