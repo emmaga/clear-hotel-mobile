@@ -1,4 +1,4 @@
-<div data-page="intro-p2" class="page">
+<div data-page="intro-p2" class="page intro-p2">
     <div class="page-content">
             <!-- Slider container -->
             <div class="swiper-container" id="intro-swiper">
@@ -15,17 +15,17 @@
                 <!-- Pagination, if required -->
                 <div class="swiper-pagination"></div>
             </div>
-            <div class="intro">
-                <h4>{{title}}</h4>
-                <p>营业时间：{{time}}</p>
-                <p>{{intro}}</p>
+            <div class="intro content-block">
+                <h3>{{title}}</h3>
+                <p class="sub-title">营业时间：{{time}}</p>
+                <p class="text big-first-letter">{{intro}}</p>
             </div>
     </div>
     <!-- Bottom Tabbar-->
     <div class="toolbar" id="introP2-toolbar">
-        <div class="toolbar-inner">
-            <a href="tel:{{tele}}" class="external button bottom_button">
-                <span>预定</span>
+        <div class="toolbar-inner no-padding">
+            <a href="tel:{{tele}}" class="external button bottom_button button-max">
+                <span>电话预定</span>
             </a>
         </div>
     </div>

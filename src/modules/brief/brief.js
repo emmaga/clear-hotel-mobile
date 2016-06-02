@@ -9,7 +9,7 @@ define(['framework7','config', 'xhr','appFunc','text!brief/brief.tpl.html'],
             loadData: function(menuId,data) {
                 var renderData = data.brief;
                 var output = appFunc.renderTpl(template,renderData);
-                $$('#tab_'+'brief'+'_'+menuId).html(output);
+                $$('#tab'+'brief'+'_'+menuId).html(output);
                 //初始化swiper
                 var mySwiper = window.hotelApp.swiper('#brief-swiper', {
                     preloadImages: true,

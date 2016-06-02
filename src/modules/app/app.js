@@ -13,6 +13,7 @@
             'framework7': '../lib/Framework7/js/framework7.min',
             'router': 'app/router',
             'indexModule': 'index/index',
+            'mainMenuModule': 'index/main-menu',
             'briefModule': 'brief/brief',
             'roomModule': 'room/room',
             'serviceModule': 'service/service',
@@ -30,8 +31,8 @@
     });
 }(window.requirejs));
 
-requirejs(['framework7', 'config', 'router', 'xhr', 'storage', 'indexModule'], 
-    function (framework7,config, router, xhr,storage, indexModule) {
+requirejs(['framework7', 'config', 'router', 'xhr', 'storage', 'indexModule', 'mainMenuModule'], 
+    function (framework7,config, router, xhr,storage, indexModule, mainMenuModule) {
     
     var app = {
         initialize: function() {
@@ -64,11 +65,14 @@ requirejs(['framework7', 'config', 'router', 'xhr', 'storage', 'indexModule'],
             // Export selectors engine
             var $$ = Dom7;
 
+            // Add views
+            window.viewMain = window.hotelApp.addView('.view-main');
+
+            // init main menu
+            mainMenuModule.init();
+            
             // init router
             router.init();
-
-            // init index
-            indexModule.init();
         }
     };
 

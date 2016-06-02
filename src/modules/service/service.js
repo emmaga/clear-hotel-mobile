@@ -23,7 +23,7 @@ define(['framework7', 'config', 'xhr','appFunc','text!service/service.tpl.html',
             loadData: function(menuId,data) {
                 var renderData = data.serviceP1;
                 var output = appFunc.renderTpl(template,renderData);
-                $$('#tab_'+'service'+'_'+menuId).html(output);
+                $$('#tab'+'service'+'_'+menuId).html(output);
                 //serviceP1.menuId = menuId;   获取不到data，将menuId作为参数传递
                 service.bindEvents(menuId);
             }

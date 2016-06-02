@@ -1,5 +1,5 @@
-define(['framework7', 'config', 'xhr', 'router', 'appFunc', 'briefModule', 'roomModule', 'serviceModule','introP1Module', 'text!index/index.tpl.html'], 
-  function(framework7, config, xhr, router, appFunc, briefModule, roomModule, serviceModule,introP1Module, template){
+define(['framework7', 'config', 'xhr', 'router', 'appFunc', 'briefModule', 'roomModule', 'serviceModule', 'text!index/index.tpl.html'], 
+  function(framework7, config, xhr, router, appFunc, briefModule, roomModule, serviceModule, template){
 
     var $$ = Dom7;
 
@@ -8,26 +8,12 @@ define(['framework7', 'config', 'xhr', 'router', 'appFunc', 'briefModule', 'room
         xhr.ajax({
           'url': config.getJSONUrl('mainMenu'),
           dataType: 'json',
-          'success': function(data){index.loadData(data)}
+          'success': function(data){
+            index.loadData(data)
+          }
         })
       },
-      activeTab: function (type, menuId) {
-
-        // active menu
-        var selector = "a[href='#tab_"+type+"_"+menuId+"']";
-        $$('#index-toolbar a.active').removeClass('active');
-        $$(selector).addClass('active');
-
-        // active tab
-        selector = $$('#tab_'+type+'_'+menuId);
-        $$('#index-tabs .active').removeClass('active');
-        selector.addClass('active');
-      },
-      loadPage: function (type, menuId) {
-          
-          // add active class
-          index.activeTab(type, menuId);
-          
+      loadPage: function (type, menuId){
           switch (type) {
               case 'brief':
                   briefModule.init(menuId);
@@ -42,13 +28,11 @@ define(['framework7', 'config', 'xhr', 'router', 'appFunc', 'briefModule', 'room
       },
       loadData: function(data) {
 
-        // 修改title
-        document.title = data.data.appTitle;
-
         // 加载tabs
         var renderData = data.data;
 
         var output = appFunc.renderTpl(template,renderData);
+
         $$('#index-views').html(output);
 
         // Add views
@@ -66,34 +50,16 @@ define(['framework7', 'config', 'xhr', 'router', 'appFunc', 'briefModule', 'room
         }
 
         // init app 
-        var h = appFunc.getHashParameters();
-        var page = (h.page === undefined)?'':h.page;
-        if (page === '') {
-          if(mm.length > 0) {
-            index.loadPage(mm[0].type, mm[0].menuId);
-          }
-        }else {
-          
-          // 根据hash跳转到指定页面
-          switch(page) {
-            case 'intro-p1':
-              var menuId = h.menuId;
-              var serviceId = h.serviceId;
-              introP1Module.init(menuId, serviceId, true);
-              break;
-            case 'index':
-              var type = h.type;
-              var menuId = h.menuId;
-              index.loadPage(type, menuId);
-              break;
-          }
+        var mm = renderData.mainMenu;
+        if(mm.length > 0) {
+          index.loadPage(mm[0].type, mm[0].menuId);
         }
-        
       }
 
     };
 
     return {
-        init: index.init
+        init: index.init,
+        loadPage: index.loadPage
     };
 });

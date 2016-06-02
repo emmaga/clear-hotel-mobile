@@ -1,0 +1,8 @@
+<div class="toolbar-inner">
+    {{#each mainMenu}}
+    <a href="#tab{{type}}_{{menuId}}" class="tab-link{{#if @first}} active{{/if}}" data-type="{{type}}" data-menuId="{{menuId}}"> 
+    <i class="icon {{icon}}"></i>
+    <span class="tabbar-label">{{name}}</span>
+    </a>
+    {{/each}}
+</div>
