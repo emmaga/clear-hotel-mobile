@@ -52,7 +52,7 @@ define(['framework7', 'config', 'xhr', 'router', 'appFunc', 'briefModule', 'room
         $$('#index-views').html(output);
 
         // Add views
-        window.viewMain = hotelApp.addView('.view-main');
+        window.viewMain = hotelApp.addView('.view-main', {domCache: true});
 
         // 导航按钮切换
         var mm = renderData.mainMenu;
