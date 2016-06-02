@@ -20,6 +20,7 @@
             'introP2Module':'intro/intro-p2',
             'movieP1Module':'movie/movie-p1',
             'movieP2Module':'movie/movie-p2',
+            'TVModule':'TV/TV',
             'appFunc': 'utils/appFunc',
             'i18n': 'utils/i18n',
             'i18nText': i18nText,
