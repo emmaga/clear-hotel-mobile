@@ -1,5 +1,5 @@
 
-define(['i18nText'], function (i18nText) {'use strict';
+define(['i18nText', 'i18n'], function (i18nText, i18n) {'use strict';
 
     // http://stackoverflow.com/questions/1730692/jquery-ajax-how-to-detect-network-connection-error-when-making-ajax-call
     function wrapOptions(options) {
@@ -24,6 +24,16 @@ define(['i18nText'], function (i18nText) {'use strict';
     }
 
     function ajax(options) {
+        
+        // set lang
+        if (options.data === undefined) {
+            options.data = {};
+            options.data.lang = i18n.getLocale();
+        }
+        else {
+            options.data.lang = i18n.getLocale();
+        }
+               
         return window.Dom7.ajax(wrapOptions(options));
     }
 
@@ -42,6 +52,7 @@ define(['i18nText'], function (i18nText) {'use strict';
                 if (typeof suppressError === 'boolean') {
                     options.suppressError = suppressError;
                 }
+
                 return $.ajax(options);
             };
         }

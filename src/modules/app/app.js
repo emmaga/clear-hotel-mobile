@@ -1,9 +1,12 @@
 
 (function() {'use strict';
 
-    var locale = (window.clearcaneStorage && window.clearcaneStorage.getItem('lang') ||
+    var locale = (window.clearcraneStorage && window.clearcraneStorage.getItem('lang') ||
     navigator.language && navigator.language ||
     'zh-cn').toLowerCase().replace(/_/g, '-');
+
+    // 默认中文以外语言设置en-us
+    locale = (locale === 'zh-cn') ? locale : 'en-us';
 
     var i18nText = 'lang/' + locale;
     requirejs.config({

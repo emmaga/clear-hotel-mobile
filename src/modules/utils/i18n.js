@@ -2,18 +2,21 @@
 define([], function () {'use strict';
 
     function formatLocale(locale) {
-        return locale.toLowerCase().replace(/_/g, '-');
+        // 默认中文以外语言设置en-us
+        locale = locale.toLowerCase().replace(/_/g, '-');
+        locale = (locale === 'zh-cn') ? locale : 'en-us';
+        return locale;
     }
 
     function getLocale() {
-        var userLocale = window.clearcaneStorage && window.clearcaneStorage.getItem('lang');
-        var browserLocale = navigator.language && navigator.language;
-
+        var userLocale = window.clearcraneStorage && window.clearcraneStorage.getItem('lang');
+        var browserLocale = navigator.language;
+        
         return formatLocale(userLocale || browserLocale || 'zh-cn');
     }
     
     function setLocale(locale) {
-        window.clearcaneStorage && window.clearcaneStorage.setItem('lang', formatLocale(locale));
+        window.clearcraneStorage && window.clearcraneStorage.setItem('lang', formatLocale(locale));
     }
     
     var exports = {};
@@ -22,4 +25,3 @@ define([], function () {'use strict';
     return exports;
 
 });
-

@@ -31,21 +31,21 @@
         }
 
 
-        function ClearcaneStorage() {
+        function clearcraneStorage() {
 
         }
 
-        ClearcaneStorage.prototype.getItem = function (key) {
+        clearcraneStorage.prototype.getItem = function (key) {
             localStorage.getItem(key);
         };
 
-        ClearcaneStorage.prototype.setItem = function (key, value) {
+        clearcraneStorage.prototype.setItem = function (key, value) {
             localStorage.setItem(key, value);
         };
         
         if (!instance) {
-            instance = new ClearcaneStorage();
-            window.clearcaneStorage = instance;
+            instance = new clearcraneStorage();
+            window.clearcraneStorage = instance;
         }
 
         return instance;
