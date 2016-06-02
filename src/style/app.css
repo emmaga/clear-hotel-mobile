@@ -136,13 +136,33 @@ i.tabbar-icon-hotel {
 }
 /*影片名称*/
 .movie-p1-h3{
+  text-align: center;
+  opacity: 0.8;
+}
+.movie-p1-h3:after{
+  content: ' ';
+  position: absolute;
+  left: 14px;
+  left: 25%;
+  margin-top: 1.625em;
+  height: 3px;
+  width: 50%;
+  background-color: #DCBA62;
 }
 /*副标题1*/
 .movie-p1-p1{
+  text-align: center;
+  opacity: 0.6;
+  margin-bottom: 0px;
 }
 /*副标题2*/
 .movie-p1-p2{
+  opacity: 0.6;
+  margin-top: 0px;
+  margin-bottom: 3em;
+  text-align: center;
 }
+
 /*加载提示符样式*/
 .infinite-scroll-preloader {
   margin-top:-20px;
