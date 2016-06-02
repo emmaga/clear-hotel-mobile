@@ -66,7 +66,9 @@ requirejs(['framework7', 'config', 'router', 'xhr', 'storage', 'indexModule', 'm
             var $$ = Dom7;
 
             // Add views
-            window.viewMain = window.hotelApp.addView('.view-main');
+            window.viewMain = window.hotelApp.addView('.view-main',{
+                domCache:true
+            });
 
             // init main menu
             mainMenuModule.init();
