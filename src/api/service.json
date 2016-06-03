@@ -42,7 +42,7 @@
           "subMenu":[
             {
               "name":"会议厅",
-              "type":"intro-P2",
+              "type":"intro-p2",
               "serviceId":"5",
               "icon":""
             }
