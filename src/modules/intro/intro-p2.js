@@ -8,7 +8,7 @@ define(['framework7','config', 'xhr','appFunc','router','text!intro/intro-p2.tpl
                     //var introId = $$(this).attr("data-introId");
                 //});
             },
-            loadData: function(menuId,serviceId,introId,data,animatePages) {
+            loadData: function(menuId,serviceId,introId,data,isFirst) {
                 var animatePages = (animatePages===undefined)?true:animatePages;
                 var renderData = data.introP2;
                 var output = appFunc.renderTpl(template,renderData);
@@ -17,31 +17,41 @@ define(['framework7','config', 'xhr','appFunc','router','text!intro/intro-p2.tpl
                     pushState: false,
                     animatePages: animatePages
                 })*/
-                $$('#page-intro-p2').html(output);
-                
-                //初始化swiper
-                var mySwiper = window.hotelApp.swiper('#intro-swiper', {
-                    preloadImages: true,
-                    lazyLoading: false,
-                    pagination:'.swiper-pagination'
-                });
-                //根据开关显示/隐藏预定按钮
-                var hasToolbar = renderData.switch;
-                if(hasToolbar){
-                    $$('#introP2-toolbar').removeClass('toolbar-hidden');
-                    $$('#introP2-toolbar').css('display','block')
-                }else{
-                    return
+                if(isFirst) {
+                    window.viewMain.router.load({
+                        content: '<div data-page="intro-p2" class="page">' + output + '</div>',
+                        pushState: false,
+                        animatePages: false
+                    })
                 }
-                introP2.bindEvents(menuId);
+                else {
+                    $$('#page-intro-p2').html(output);
+
+                    //初始化swiper
+                    var mySwiper = window.hotelApp.swiper('#intro-swiper', {
+                        preloadImages: true,
+                        lazyLoading: false,
+                        pagination:'.swiper-pagination'
+                    });
+                    //根据开关显示/隐藏预定按钮
+                    var hasToolbar = renderData.switch;
+                    if(hasToolbar){
+                        $$('#introP2-toolbar').removeClass('toolbar-hidden');
+                        $$('#introP2-toolbar').css('display','block')
+                    }else{
+                        return
+                    }
+                    introP2.bindEvents(menuId);
+                }
+
             }
         }
 
-        var init = function (menuId,serviceId,introId,animatePages){
+        var init = function (menuId,serviceId,introId,isFirst){
             xhr.ajax({
                 'url': config.getJSONUrl('intro-p2'),
                 dataType: 'json',
-                'success': function(data){introP2.loadData(menuId,serviceId,introId,data,animatePages)}
+                'success': function(data){introP2.loadData(menuId,serviceId,introId,data,isFirst)}
             })
         };
         return {

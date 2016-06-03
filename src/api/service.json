@@ -8,13 +8,13 @@
           "subMenu":[
             {
               "name":"餐厅预定",
-              "type":"intro",
+              "type":"intro-p1",
               "serviceId":"1",
               "icon":""
             },
             {
               "name":"客房送餐",
-              "type":"intro",
+              "type":"intro-p1",
               "serviceId":"2",
               "icon":""
             }
@@ -25,13 +25,13 @@
           "subMenu":[
             {
               "name":"电影点播",
-              "type":"movies",
+              "type":"movie-p1",
               "serviceId":"3",
               "icon":""
             },
             {
               "name":"电视直播",
-              "type":"TVs",
+              "type":"TV",
               "serviceId":"4",
               "icon":""
             }
@@ -42,7 +42,7 @@
           "subMenu":[
             {
               "name":"会议厅",
-              "type":"introP2",
+              "type":"intro-P2",
               "serviceId":"5",
               "icon":""
             }

@@ -1,5 +1,5 @@
-define(['framework7', 'appFunc', 'indexModule', 'briefModule', 'roomModule', 'serviceModule', 'introP1Module', 'introP2Module'],
-    function(framework7, appFunc, indexModule, briefModule, roomModule, serviceModule, introP1Module, introP2Module){
+define(['framework7', 'appFunc', 'indexModule', 'briefModule', 'roomModule', 'serviceModule', 'introP1Module', 'introP2Module','movieP1Module','movieP2Module','TVModule'],
+    function(framework7, appFunc, indexModule, briefModule, roomModule, serviceModule, introP1Module, introP2Module,movieP1Module,movieP2Module,TVModule){
 
         var $$ = Dom7;
 
@@ -34,6 +34,22 @@ define(['framework7', 'appFunc', 'indexModule', 'briefModule', 'roomModule', 'se
                       var introId = h.introId;
                       introP2Module.init(menuId,serviceId,introId);
                       break;
+                    case 'movie-p1':
+                        var menuId = h.menuId;
+                        var serviceId = h.serviceId;
+                        movieP1Module.init(menuId,serviceId);
+                        break;
+                    case 'movie-p2':
+                        var menuId = h.menuId;
+                        var serviceId = h.serviceId;
+                        var movieId = h.movieId;
+                        movieP2Module.init(menuId,serviceId,movieId);
+                        break;
+                    case 'TV':
+                        var menuId = h.menuId;
+                        var serviceId = h.serviceId;;
+                        TVModule.init(menuId,serviceId);
+                        break;
                 }
             },
             pageBeforeInit: function(page) {
@@ -44,14 +60,25 @@ define(['framework7', 'appFunc', 'indexModule', 'briefModule', 'roomModule', 'se
                         appFunc.hideToolbar();
                         break;
                     case 'intro-p2':
+                        var serviceId = page.query.serviceId;
                         var introId = page.query.introId;
-                        introP2Module.init(2,1,introId);
+                        introP2Module.init(2,serviceId,introId);
                         appFunc.hideToolbar();
                         break;
                     case 'movie-p1':
+                        var serviceId = page.query.serviceId;
+                        movieP1Module.init(2, serviceId);
+                        appFunc.hideToolbar();
+                        break;
+                    case 'movie-p2':
+                        var serviceId = page.query.serviceId;
+                        var movieId = page.query.movieId;
+                        movieP2Module.init(2,serviceId,movieId);
                         appFunc.hideToolbar();
                         break;
                     case 'TV':
+                        var serviceId = page.query.serviceId;
+                        TVModule.init(2, serviceId);
                         appFunc.hideToolbar();
                         break;
                 }

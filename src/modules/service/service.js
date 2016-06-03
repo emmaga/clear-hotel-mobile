@@ -12,14 +12,14 @@ define(['framework7', 'config', 'xhr','appFunc','text!service/service.tpl.html',
                         // window.location.hash = 'page=intro-p1&menuId='+menuId+'&serviceId='+serviceId;
                         // introP1Module.init(menuId, serviceId);
                     }else if(type=="introP2") {
-                        window.location.hash = 'page=intro-p2&menuId='+menuId+'&serviceId='+serviceId;
-                        introP2Module.init(menuId, serviceId);
+                        //window.location.hash = 'page=intro-p2&menuId='+menuId+'&serviceId='+serviceId;
+                        //introP2Module.init(menuId, serviceId);
                     }else if(type=="movies"){
-                        window.location.hash = 'page=movie-p1&menuId='+menuId;
-                        movieP1Module.init(menuId)
+                        //window.location.hash = 'page=movie-p1&menuId='+menuId;
+                        //movieP1Module.init(menuId)
                     }else{
-                        window.location.hash = 'page=TV&menuId='+menuId;
-                        TVModule.init(menuId)
+                        //window.location.hash = 'page=TV&menuId='+menuId;
+                        //TVModule.init(menuId)
                     }
                 });
             },
