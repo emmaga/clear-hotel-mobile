@@ -1,5 +1,5 @@
-define(['framework7', 'config', 'xhr', 'router', 'appFunc', 'briefModule', 'roomModule', 'serviceModule','introP1Module', 'text!index/index.tpl.html'], 
-  function(framework7, config, xhr, router, appFunc, briefModule, roomModule, serviceModule,introP1Module, template){
+define(['framework7', 'config', 'xhr', 'router', 'appFunc', 'briefModule', 'roomModule', 'serviceModule','introP1Module', 'introP2Module', 'text!index/index.tpl.html'], 
+  function(framework7, config, xhr, router, appFunc, briefModule, roomModule, serviceModule,introP1Module, introP2Module, template){
 
     var $$ = Dom7;
 
@@ -79,7 +79,13 @@ define(['framework7', 'config', 'xhr', 'router', 'appFunc', 'briefModule', 'room
             case 'intro-p1':
               var menuId = h.menuId;
               var serviceId = h.serviceId;
-              introP1Module.init(menuId, serviceId, false);
+              introP1Module.init(menuId, serviceId, true);
+              break;
+            case 'intro-p2':
+              var menuId = h.menuId;
+              var serviceId = h.serviceId;
+              var introId = h.introId;
+              introP2Module.init(menuId, serviceId, introId, false);
               break;
             case 'index':
               var type = h.type;

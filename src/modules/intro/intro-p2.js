@@ -12,12 +12,13 @@ define(['framework7','config', 'xhr','appFunc','router','text!intro/intro-p2.tpl
                 var animatePages = (animatePages===undefined)?true:animatePages;
                 var renderData = data.introP2;
                 var output = appFunc.renderTpl(template,renderData);
-                window.viewMain.router.load({
+                /*window.viewMain.router.load({
                     content: output,
                     pushState: false,
                     animatePages: animatePages
-                })
-                console.log(output)
+                })*/
+                $$('#page-intro-p2').html(output);
+                
                 //初始化swiper
                 var mySwiper = window.hotelApp.swiper('#intro-swiper', {
                     preloadImages: true,

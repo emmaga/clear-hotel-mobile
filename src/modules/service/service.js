@@ -9,8 +9,8 @@ define(['framework7', 'config', 'xhr','appFunc','text!service/service.tpl.html',
                     var serviceId = $$(this).attr("data-serviceId");
                     var type = $$(this).attr("data-serviceType");
                     if(type=="intro") {
-                        window.location.hash = 'page=intro-p1&menuId='+menuId+'&serviceId='+serviceId;
-                        introP1Module.init(menuId, serviceId);
+                        // window.location.hash = 'page=intro-p1&menuId='+menuId+'&serviceId='+serviceId;
+                        // introP1Module.init(menuId, serviceId);
                     }else if(type=="introP2") {
                         window.location.hash = 'page=intro-p2&menuId='+menuId+'&serviceId='+serviceId;
                         introP2Module.init(menuId, serviceId);
