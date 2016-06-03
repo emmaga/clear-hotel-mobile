@@ -63,6 +63,7 @@ requirejs(['framework7', 'config', 'router', 'xhr', 'storage', 'indexModule'],
                 dynamicPageUrl:'{{name}}',
                 pushState:true,
                 pushStateSeparator:''
+                
             });
 
             // Export selectors engine
