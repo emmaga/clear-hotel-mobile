@@ -10,17 +10,28 @@ define(['framework7','config', 'xhr','appFunc','router','text!movie/movie-p1.tpl
                     var movieId = $$(this).attr("data-movieId");
                     //console.log(movieId);
                     //获取到的movieId用于之后传参
-                    movieP2Module.init(menuId);
+                    //movieP2Module.init(menuId);
                 });
             },
-            loadData: function(menuId,data) {
+            loadData: function(menuId,serviceId,data,isFirst) {
                 var renderData = data.movieP1;
                 var output = appFunc.renderTpl(template,renderData);
-                window.viewMain.router.load({
-                    content: output
-                });
-                movieP1.infiniteData(renderData.movies);
-                movieP1.bindEvents(menuId);
+                //window.viewMain.router.load({
+                //    content: output
+                //});
+                if(isFirst) {
+                    window.viewMain.router.load({
+                        content: '<div data-page="movie-p1" class="page">' + output + '</div>',
+                        pushState: false,
+                        animatePages: false
+                    })
+                }
+                else {
+                    $$('#page-movie-p1').html(output);
+                    movieP1.infiniteData(renderData.movies);
+                    movieP1.bindEvents(menuId);
+                }
+
             },
             infiniteData:function (infData){
                 //无限滚动
@@ -28,7 +39,7 @@ define(['framework7','config', 'xhr','appFunc','router','text!movie/movie-p1.tpl
                 var loading = false;
                 var html = '';
                 for (var i = 0; i < 10; i++) {
-                    html += "<div class='col-100 movie-list' data-movieId='"+infData[i].movieId+"'><img class='lazy movie-p1-img' src='"+infData[i].imgUrl+"'><h3 class='movie-p1-h3'>"+infData[i].name+"</h3><p class='movie-p1-p1'>"+infData[i].intro1+"</p><p class='movie-p1-p2'>"+infData[i].intro2+"</p> </div>";
+                    html += "<a href='movie-p2.html?movieId="+infData[i].movieId+"' class='col-100'><div class=movie-list' data-movieId='"+infData[i].movieId+"'><img class='lazy movie-p1-img' src='"+infData[i].imgUrl+"'><h3 class='movie-p1-h3'>"+infData[i].name+"</h3><p class='movie-p1-p1'>"+infData[i].intro1+"</p><p class='movie-p1-p2'>"+infData[i].intro2+"</p> </div></a>";
                 }
                 // 添加新条目
                 $$('.row').append(html);
@@ -65,7 +76,7 @@ define(['framework7','config', 'xhr','appFunc','router','text!movie/movie-p1.tpl
                         // 生成新条目的HTML
                         var html = '';
                         for (var i = lastIndex + 1; i <= lastIndex + itemsPerLoad; i++) {
-                            html += "<div class='col-100 movie-list' data-movieId='"+infData[i].movieId+"'><img class='lazy movie-p1-img' src='"+infData[i].imgUrl+"'><h3 class='movie-p1-h3'>"+infData[i].name+"</h3><p class='movie-p1-p1'>"+infData[i].intro1+"</p><p class='movie-p1-p2'>"+infData[i].intro2+"</p> </div>";
+                            html += "<a href='movie-p2.html?movieId="+infData[i].movieId+"' class='col-100'><div class=movie-list' data-movieId='"+infData[i].movieId+"'><img class='lazy movie-p1-img' src='"+infData[i].imgUrl+"'><h3 class='movie-p1-h3'>"+infData[i].name+"</h3><p class='movie-p1-p1'>"+infData[i].intro1+"</p><p class='movie-p1-p2'>"+infData[i].intro2+"</p> </div></a>";
                         }
 
                         // 添加新条目
@@ -78,11 +89,11 @@ define(['framework7','config', 'xhr','appFunc','router','text!movie/movie-p1.tpl
             }
         }
 
-        var init = function (menuId){
+        var init = function (menuId,serviceId,isFirst){
             xhr.ajax({
                 'url': config.getJSONUrl('movie-p1'),
                 dataType: 'json',
-                'success': function(data){movieP1.loadData(menuId,data)}
+                'success': function(data){movieP1.loadData(menuId,serviceId,data,isFirst)}
             })
         };
         return {

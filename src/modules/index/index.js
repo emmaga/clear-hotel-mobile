@@ -1,5 +1,5 @@
-define(['framework7', 'config', 'xhr', 'router', 'appFunc', 'briefModule', 'roomModule', 'serviceModule','introP1Module', 'introP2Module', 'text!index/index.tpl.html'], 
-  function(framework7, config, xhr, router, appFunc, briefModule, roomModule, serviceModule,introP1Module, introP2Module, template){
+define(['framework7', 'config', 'xhr', 'router', 'appFunc', 'briefModule', 'roomModule', 'serviceModule','introP1Module', 'introP2Module', 'movieP1Module','movieP2Module','TVModule','text!index/index.tpl.html'],
+  function(framework7, config, xhr, router, appFunc, briefModule, roomModule, serviceModule,introP1Module, introP2Module,movieP1Module, movieP2Module,TVModule,template){
 
     var $$ = Dom7;
 
@@ -73,7 +73,6 @@ define(['framework7', 'config', 'xhr', 'router', 'appFunc', 'briefModule', 'room
             index.loadPage(mm[0].type, mm[0].menuId);
           }
         }else {
-          
           // 根据hash跳转到指定页面
           switch(page) {
             case 'intro-p1':
@@ -85,7 +84,23 @@ define(['framework7', 'config', 'xhr', 'router', 'appFunc', 'briefModule', 'room
               var menuId = h.menuId;
               var serviceId = h.serviceId;
               var introId = h.introId;
-              introP2Module.init(menuId, serviceId, introId, false);
+              introP2Module.init(menuId, serviceId, introId, true);
+              break;
+            case 'movie-p1':
+              var menuId = h.menuId;
+              var serviceId = h.serviceId;
+              movieP1Module.init(menuId, serviceId, true);
+              break;
+            case 'movie-p2':
+              var menuId = h.menuId;
+              var serviceId = h.serviceId;
+              var movieId = h.movieId;
+              movieP2Module.init(menuId, serviceId, movieId, true);
+              break;
+            case 'TV':
+              var menuId = h.menuId;
+              var serviceId = h.serviceId;
+              TVModule.init(menuId, serviceId, true);
               break;
             case 'index':
               var type = h.type;

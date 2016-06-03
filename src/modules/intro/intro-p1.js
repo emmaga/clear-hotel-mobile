@@ -11,7 +11,7 @@ define(['framework7','config', 'xhr','appFunc','router','text!intro/intro-p1.tpl
                 });
             },
             loadData: function(menuId,serviceId,data,isFirst) {
-                var animatePages = (animatePages===undefined)?true:animatePages;
+                //var animatePages = (animatePages===undefined)?true:animatePages;
                 var renderData = data.introP1;
                 var output = appFunc.renderTpl(template,renderData);
 
