@@ -49,7 +49,7 @@ define(['framework7','config', 'xhr','appFunc','router','text!movie/movie-p1.tpl
                 var lastIndex = $$('.movie-list').length;
                 //alert(lastIndex);
                 // 最多可加载的条目
-                var maxItems = 40;
+                var maxItems = 30;
                 // 每次加载添加多少条目
                 var itemsPerLoad = 10;
 
