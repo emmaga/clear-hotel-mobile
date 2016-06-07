@@ -23,13 +23,6 @@ define([], function () {'use strict';
             return requestURL + k + '.json';
         },
         /**
-         * 返回服务器根目录配置地址
-         * @returns {string}
-         */
-        getrequestURL: function () {
-            return requestURL;
-        },
-        /**
          * 设置appId
          * @param k
          */
