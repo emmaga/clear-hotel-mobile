@@ -5,7 +5,6 @@ define(['framework7', 'appFunc', 'indexModule', 'briefModule', 'roomModule', 'se
 
         var router = {
             init: function() {
-                // window.onhashchange = router.onhashchange;
                 $$(document).on('pageBeforeInit', function (e) {
                     var page = e.detail.page;
                     router.pageBeforeInit(page);
@@ -14,43 +13,6 @@ define(['framework7', 'appFunc', 'indexModule', 'briefModule', 'roomModule', 'se
                     var page = e.detail.page;
                     router.pageBeforeAnimation(page);
                 });
-            },
-            onhashchange: function() {
-                var h = appFunc.getHashParameters();
-                var page = (h.page === undefined)?'':h.page;
-                
-                switch(page) {
-                    case '':
-                        indexModule.init();
-                        break;
-                    case 'intro-p1':
-                      var menuId = h.menuId;
-                      var serviceId = h.serviceId;
-                      introP1Module.init(menuId, serviceId);
-                      break;
-                    case 'intro-p2':
-                      var menuId = h.menuId;
-                      var serviceId = h.serviceId;
-                      var introId = h.introId;
-                      introP2Module.init(menuId,serviceId,introId);
-                      break;
-                    case 'movie-p1':
-                        var menuId = h.menuId;
-                        var serviceId = h.serviceId;
-                        movieP1Module.init(menuId,serviceId);
-                        break;
-                    case 'movie-p2':
-                        var menuId = h.menuId;
-                        var serviceId = h.serviceId;
-                        var movieId = h.movieId;
-                        movieP2Module.init(menuId,serviceId,movieId);
-                        break;
-                    case 'TV':
-                        var menuId = h.menuId;
-                        var serviceId = h.serviceId;;
-                        TVModule.init(menuId,serviceId);
-                        break;
-                }
             },
             pageBeforeInit: function(page) {
                 switch (page.name) {

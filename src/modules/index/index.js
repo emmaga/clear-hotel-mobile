@@ -67,7 +67,7 @@ define(['framework7', 'config', 'xhr', 'router', 'appFunc', 'briefModule', 'room
 
         // init app 
         var h = appFunc.getHashParameters();
-        var page = (h.page === undefined)?'':h.page;
+        var page = h.page ? h.page : '';
         if (page === '') {
           if(mm.length > 0) {
             index.loadPage(mm[0].type, mm[0].menuId);

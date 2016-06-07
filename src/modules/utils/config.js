@@ -4,9 +4,14 @@ define([], function () {'use strict';
     /**
      * 本地配置调试开关
      */
-    var useLocalConfig = false;
+    var useLocalConfig = true;
 
-    var requestURL = useLocalConfig ? 'api/' : 'api/';
+    var requestURL = useLocalConfig ? 'http://localhost/clear-hotel-mobile/src/api/' : 'api/';
+
+    /**
+     * 微信公众号唯一标识
+     */
+     var appId;
 
     return {
         /**
@@ -16,6 +21,20 @@ define([], function () {'use strict';
          */
         getJSONUrl: function (k) {
             return requestURL + k + '.json';
+        },
+        /**
+         * 设置appId
+         * @param k
+         */
+        setAppId: function(k) {
+            appId = k;
+        },
+        /**
+         * 获取appId
+         * @returns {string}
+         */
+        getAppId: function() {
+            return (typeof(appId) === "undefined") ? '' : appId;
         }
     };
 

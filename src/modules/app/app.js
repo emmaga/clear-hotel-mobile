@@ -67,7 +67,7 @@ requirejs(['framework7', 'config', 'router', 'xhr', 'storage', 'indexModule'],
 
             // Export selectors engine
             var $$ = Dom7;
-            
+
             // init router
             router.init();
 

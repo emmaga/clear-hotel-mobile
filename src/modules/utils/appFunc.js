@@ -19,11 +19,23 @@ define(['framework7'], function(framework7){
 
     var getHashParameters = function () {
         var queryString = window.location.hash;
+        queryString = queryString.substr(1);
+        var ret = getParameters(queryString, '&');
+        return ret;
+    };
+
+    var getSearchParameters = function () {
+        var queryString = window.location.search;
+        queryString = queryString.substr(1);
+        var ret = getParameters(queryString, '&');
+        return ret;
+    }
+
+    var getParameters = function (queryString, splitStr) {
         if (queryString.length <= 1) {
             return {};
         }
-        queryString = queryString.substr(1);
-        var pairs = queryString.split('&');
+        var pairs = queryString.split(splitStr);
         var ret = {};
         pairs.forEach(function (el, idx, arr) {
             var i = el.indexOf('='), k, v;
@@ -40,12 +52,14 @@ define(['framework7'], function(framework7){
             ret[k] = v;
         });
         return ret;
-    };
+    }
 
     return {
         renderTpl: renderTpl,
         hideToolbar: hideToolbar,
         showToolbar: showToolbar,
-        getHashParameters: getHashParameters
+        getHashParameters: getHashParameters,
+        getSearchParameters: getSearchParameters,
+        getParameters: getParameters
     };
 });
