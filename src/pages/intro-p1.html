@@ -2,6 +2,9 @@
 </div>
 <script src="util.js"></script>
 <script>
-    var appId = getSearchParameters().appId;
-    window.location.href = '../index.html?state=appId='+appId+'#page=intro-p1&serviceId=2';
+    var p = getSearchParameters();
+    var appId = p.appId;
+    var page = document.getElementById('page-intro-p1').getAttribute('data-page');
+    var serviceId = p.serviceId;
+    window.location.href = '../index.html?state=appId='+appId+'#page='+page+'&serviceId='+serviceId;
 </script>
