@@ -1,6 +1,7 @@
 <div id="page-intro-p1" data-page="intro-p1" class="page">
 </div>
+<script src="util.js"></script>
 <script>
-    // alert(window.location.search)
-    window.location.href = '../index.html#page=intro-p1&serviceId=2';
+    var appId = getSearchParameters().appId;
+    window.location.href = '../index.html?state=appId='+appId+'#page=intro-p1&serviceId=2';
 </script>
