@@ -19,7 +19,7 @@ define(['framework7','config', 'xhr','appFunc','router','text!intro/intro-p2.tpl
                 })*/
                 if(isFirst) {
                     window.viewMain.router.load({
-                        content: '<div data-page="intro-p2" class="page">' + output + '</div>',
+                        content: '<div data-page="intro-p2" class="page intro-p2">' + output + '</div>',
                         pushState: false,
                         animatePages: false
                     })
