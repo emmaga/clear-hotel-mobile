@@ -56,14 +56,14 @@ requirejs(['framework7', 'config', 'appFunc', 'router', 'xhr', 'storage', 'index
             }
         },
         setAppId: function() {
-            var state = appFunc.getSearchParameters().state ? appFunc.getParameters(appFunc.getSearchParameters().state, '|') : {};
+            var state = appFunc.getSearchParameters().state ? appFunc.getParameters(appFunc.getSearchParameters().state, '%20') : {};
             var appId = state.appid ? state.appid : '';
             if (appId !== '') {
                 config.setAppId(appId);
             }
         },
         setAppName: function() {
-            var state = appFunc.getSearchParameters().state ? appFunc.getParameters(appFunc.getSearchParameters().state, '|') : {};
+            var state = appFunc.getSearchParameters().state ? appFunc.getParameters(appFunc.getSearchParameters().state, '%20') : {};
             var appName = state.appname ? state.appname : '';
             if (appName !== '') {
                 config.setAppName(appName);

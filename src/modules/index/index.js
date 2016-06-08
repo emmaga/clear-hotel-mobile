@@ -11,13 +11,19 @@ define(['framework7', 'config', 'xhr', 'errorFunc', 'router', 'appFunc', 'briefM
         }
         
         xhr.ajax({
-          'url': config.getJSONUrl('mainMenu'),
+          'url': config.getJSONUrl('mainmenus'),
           dataType: 'json',
           data: data,
           method: 'POST',
           'success': function(data){
-            errorFunc.error(101);
-            index.loadData(data);
+            var rescode = data.rescode;
+            if (rescode == 200) {
+              index.loadData(data);
+            }
+            else {
+              errorFunc.error(rescode);
+            }
+            
           }
         })
       },

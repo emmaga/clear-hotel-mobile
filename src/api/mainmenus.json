@@ -1,0 +1,27 @@
+{
+  "data": {
+      "appTitle": "Royal International Hotel",
+      "mainMenu": [
+          {
+              "ContentModuleInstanceID": 1,
+              "ModuleName": "brief",
+              "name": "HomePage",
+              "icon": "tabbar-icon-index"
+          },
+          {
+              "ContentModuleInstanceID": 2,
+              "ModuleName": "service",
+              "name": "Service",
+              "icon": "tabbar-icon-service"
+          },
+          {
+              "ContentModuleInstanceID": 3,
+              "ModuleName": "room",
+              "name": "RoomReservation",
+              "icon": "tabbar-icon-hotel"
+          }
+      ]
+  },
+  "rescode": "200",
+  "errInfo": "None"
+}
