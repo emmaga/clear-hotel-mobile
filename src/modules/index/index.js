@@ -1,12 +1,13 @@
-define(['framework7', 'config', 'xhr', 'router', 'appFunc', 'briefModule', 'roomModule', 'serviceModule','introP1Module', 'introP2Module', 'movieP1Module','movieP2Module','TVModule','text!index/index.tpl.html'],
-  function(framework7, config, xhr, router, appFunc, briefModule, roomModule, serviceModule,introP1Module, introP2Module,movieP1Module, movieP2Module,TVModule,template){
+define(['framework7', 'config', 'xhr', 'errorFunc', 'router', 'appFunc', 'briefModule', 'roomModule', 'serviceModule','introP1Module', 'introP2Module', 'movieP1Module','movieP2Module','TVModule','text!index/index.tpl.html'],
+  function(framework7, config, xhr, errorFunc, router, appFunc, briefModule, roomModule, serviceModule,introP1Module, introP2Module,movieP1Module, movieP2Module,TVModule,template){
 
     var $$ = Dom7;
 
     var index = {
       init: function() {
         var data = {
-          appId: config.getAppId()
+          appId: config.getAppId(),
+          token: config.getClearToken()
         }
         
         xhr.ajax({
@@ -14,7 +15,10 @@ define(['framework7', 'config', 'xhr', 'router', 'appFunc', 'briefModule', 'room
           dataType: 'json',
           data: data,
           method: 'POST',
-          'success': function(data){index.loadData(data)}
+          'success': function(data){
+            errorFunc.error(101);
+            index.loadData(data);
+          }
         })
       },
       activeTab: function (type, menuId) {
