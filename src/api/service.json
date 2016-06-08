@@ -10,13 +10,13 @@
               "name":"餐厅预定",
               "type":"intro-p1",
               "serviceId":"1",
-              "icon":""
+              "icon":"api/meeting.png"
             },
             {
               "name":"客房送餐",
               "type":"intro-p1",
               "serviceId":"2",
-              "icon":""
+              "icon":"api/meeting.png"
             }
           ]
         },
@@ -27,13 +27,13 @@
               "name":"电影点播",
               "type":"movie-p1",
               "serviceId":"3",
-              "icon":""
+              "icon":"api/meeting.png"
             },
             {
               "name":"电视直播",
               "type":"TV",
               "serviceId":"4",
-              "icon":""
+              "icon":"api/meeting.png"
             }
           ]
         },
@@ -44,7 +44,7 @@
               "name":"会议厅",
               "type":"intro-p2",
               "serviceId":"5",
-              "icon":""
+              "icon":"api/meeting.png"
             }
           ]
         }
