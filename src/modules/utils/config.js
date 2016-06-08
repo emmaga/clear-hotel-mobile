@@ -31,7 +31,8 @@ define([], function () {'use strict';
          * @returns {string}
          */
         getJSONUrl: function (k) {
-            return requestURL + k + '.json';
+            var e = useLocalConfig ? '.json' : '/';
+            return requestURL + k + e;
         },
         /**
          * 设置appId
