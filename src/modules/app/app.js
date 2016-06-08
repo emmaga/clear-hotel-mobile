@@ -34,8 +34,8 @@
     });
 }(window.requirejs));
 
-requirejs(['framework7', 'config', 'router', 'xhr', 'storage', 'indexModule'], 
-    function (framework7,config, router, xhr,storage, indexModule) {
+requirejs(['framework7', 'config', 'appFunc', 'router', 'xhr', 'storage', 'indexModule'], 
+    function (framework7,config, appFunc, router, xhr, storage, indexModule) {
     
     var app = {
         initialize: function() {
@@ -54,7 +54,15 @@ requirejs(['framework7', 'config', 'router', 'xhr', 'storage', 'indexModule'],
                     break;
             }
         },
+        setAppId: function() {
+            var state = appFunc.getSearchParameters().state ? appFunc.getParameters(appFunc.getSearchParameters().state) : {};
+            var appId = state.appId ? state.appId : '';
+            if (appId !== '') {
+                config.setAppId(appId);
+            }
+        },
         initMainView: function() {
+            app.setAppId();
             app.initFramework7();
         },
         initFramework7: function() {

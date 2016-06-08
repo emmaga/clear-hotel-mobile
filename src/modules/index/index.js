@@ -5,9 +5,15 @@ define(['framework7', 'config', 'xhr', 'router', 'appFunc', 'briefModule', 'room
 
     var index = {
       init: function() {
+        var data = {
+          appId: config.getAppId()
+        }
+        
         xhr.ajax({
           'url': config.getJSONUrl('mainMenu'),
           dataType: 'json',
+          data: data,
+          method: 'POST',
           'success': function(data){index.loadData(data)}
         })
       },

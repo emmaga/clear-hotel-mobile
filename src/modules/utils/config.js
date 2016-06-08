@@ -6,7 +6,7 @@ define([], function () {'use strict';
      */
     var useLocalConfig = true;
 
-    var requestURL = useLocalConfig ? 'http://localhost:81/clear-hotel-mobile/src/api/' : 'api/';
+    var requestURL = useLocalConfig ? 'http://localhost/clear-hotel-mobile/src/api/' : 'http://mback.cleartv.cn/';
 
     /**
      * 微信公众号唯一标识

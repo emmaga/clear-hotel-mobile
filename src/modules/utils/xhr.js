@@ -33,6 +33,9 @@ define(['i18nText', 'i18n'], function (i18nText, i18n) {'use strict';
         else {
             options.data.lang = i18n.getLocale();
         }
+
+        //JSON.stringify(data)
+        options.data = JSON.stringify(options.data);
                
         return window.Dom7.ajax(wrapOptions(options));
     }
