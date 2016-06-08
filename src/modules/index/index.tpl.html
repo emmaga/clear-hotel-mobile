@@ -5,7 +5,7 @@
       <div class="page-content hide-bars-on-scroll" style="background-color: #F7F7F7;">
         <div id="index-tabs" class="tabs">
           {{#each mainMenu}}
-          <div id="tab_{{type}}_{{menuId}}" class="tab{{#if @first}} active{{/if}}">
+          <div id="tab_{{ModuleName}}_{{ContentModuleInstanceID}}" class="tab{{#if @first}} active{{/if}}">
           </div>
           {{/each}}
         </div>
@@ -17,7 +17,7 @@
 <div id="index-toolbar" class="toolbar tabbar tabbar-labels">
   <div class="toolbar-inner">
       {{#each mainMenu}}
-      <a href="#tab_{{type}}_{{menuId}}" class="tab-link{{#if @first}} active{{/if}}" data-type="{{type}}" data-menuId="{{menuId}}"> 
+      <a href="#tab_{{ModuleName}}_{{ContentModuleInstanceID}}" class="tab-link{{#if @first}} active{{/if}}" data-type="{{ModuleName}}" data-menuId="{{ContentModuleInstanceID}}"> 
         <i class="icon {{icon}}"></i>
         <span class="tabbar-label">{{name}}</span>
       </a>

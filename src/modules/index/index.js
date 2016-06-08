@@ -6,7 +6,8 @@ define(['framework7', 'config', 'xhr', 'errorFunc', 'router', 'appFunc', 'briefM
     var index = {
       init: function() {
         var data = {
-          appId: config.getAppId(),
+          project_name: config.getAppId(),
+          action: "Get",
           token: config.getClearToken()
         }
         
@@ -73,7 +74,7 @@ define(['framework7', 'config', 'xhr', 'errorFunc', 'router', 'appFunc', 'briefM
         // 导航按钮切换
         var mm = renderData.mainMenu;
         for(var i = 0; i < mm.length; i++) {
-          var selector = "a[href='#tab_"+mm[i].type+"_"+mm[i].menuId+"']";
+          var selector = "a[href='#tab_"+mm[i].ModuleName+"_"+mm[i].ContentModuleInstanceID+"']";
           $$(document).on('click', selector, function (e) {
               var type = $$("a[href='"+this.hash+"']").data('type');
               var menuId = $$("a[href='"+this.hash+"']").data('menuId');
@@ -86,7 +87,7 @@ define(['framework7', 'config', 'xhr', 'errorFunc', 'router', 'appFunc', 'briefM
         var page = h.page ? h.page : '';
         if (page === '') {
           if(mm.length > 0) {
-            index.loadPage(mm[0].type, mm[0].menuId);
+            index.loadPage(mm[0].ModuleName, mm[0].ContentModuleInstanceID);
           }
         }else {
           // 根据hash跳转到指定页面
