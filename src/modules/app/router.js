@@ -1,5 +1,5 @@
-define(['framework7', 'appFunc', 'indexModule', 'briefModule', 'roomModule', 'serviceModule', 'hotelIntroListModule', 'hotelIntroListDetailModule','movieListModule','movieListDetailModule','TVModule'],
-    function(framework7, appFunc, indexModule, briefModule, roomModule, serviceModule, hotelIntroListModule, hotelIntroListDetailModule,movieListModule,movieListDetailModule,TVModule){
+define(['framework7', 'appFunc', 'indexModule', 'briefModule', 'roomModule', 'serviceModule', 'hotelIntroListModule', 'hotelIntroListDetailModule', 'hotelIntroDetailModule', 'movieListModule','movieListDetailModule','TVModule'],
+    function(framework7, appFunc, indexModule, briefModule, roomModule, serviceModule, hotelIntroListModule, hotelIntroListDetailModule, hotelIntroDetailModule, movieListModule,movieListDetailModule,TVModule){
 
         var $$ = Dom7;
 
@@ -26,6 +26,11 @@ define(['framework7', 'appFunc', 'indexModule', 'briefModule', 'roomModule', 'se
                         hotelIntroListDetailModule.init(introListDetailID);
                         appFunc.hideToolbar();
                         break;
+                    case 'hotel-intro-detail':
+                        var moduleId = page.query.moduleId;
+                        hotelIntroDetailModule.init(moduleId);
+                        appFunc.hideToolbar();
+                        break;   
                     case 'movie-list':
                         var moduleId = page.query.moduleId;
                         movieListModule.init(moduleId);

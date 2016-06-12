@@ -1,5 +1,5 @@
-define(['framework7', 'config', 'xhr', 'errorFunc', 'router', 'appFunc', 'briefModule', 'roomModule', 'serviceModule','hotelIntroListModule', 'hotelIntroListDetailModule', 'movieListModule','movieListDetailModule','TVModule','text!index/index.tpl.html'],
-  function(framework7, config, xhr, errorFunc, router, appFunc, briefModule, roomModule, serviceModule,hotelIntroListModule, hotelIntroListDetailModule,movieListModule, movieListDetailModule,TVModule,template){
+define(['framework7', 'config', 'xhr', 'errorFunc', 'router', 'appFunc', 'briefModule', 'roomModule', 'serviceModule','hotelIntroListModule', 'hotelIntroListDetailModule', 'hotelIntroDetailModule', 'movieListModule','movieListDetailModule','TVModule','text!index/index.tpl.html'],
+  function(framework7, config, xhr, errorFunc, router, appFunc, briefModule, roomModule, serviceModule,hotelIntroListModule, hotelIntroListDetailModule, hotelIntroDetailModule, movieListModule, movieListDetailModule,TVModule,template){
 
     var $$ = Dom7;
 
@@ -99,6 +99,10 @@ define(['framework7', 'config', 'xhr', 'errorFunc', 'router', 'appFunc', 'briefM
             case 'hotel-intro-list-detail':
               var introListDetailID = h.introListDetailID;
               hotelIntroListDetailModule.init(introListDetailID, true);
+              break;
+            case 'hotel-intro-detail':
+              var moduleId = h.moduleId;
+              hotelIntroDetailModule.init(moduleId, true);
               break;
             case 'movie-list':
               var moduleId = h.moduleId;

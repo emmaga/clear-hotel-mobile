@@ -1,0 +1,32 @@
+<!-- <div data-page="hotel-intro-list-detail" class="page intro-p2"> -->
+    <div class="page-content">
+            <!-- Slider container -->
+            <div class="swiper-container" id="intro-swiper">
+                <!-- Slides wrapper -->
+                <div class="swiper-wrapper">
+                    <!-- Slides -->
+                    {{#each img}}
+                    <div class="swiper-slide">
+                        <img src="{{url}}" class="swiper-lazy">
+                        <!-- <div class="preloader"></div> -->
+                    </div>
+                    {{/each}}
+                </div>
+                <!-- Pagination, if required -->
+                <div class="swiper-pagination"></div>
+            </div>
+            <div class="intro content-block">
+                <h3>{{title}}</h3>
+                <p class="sub-title">营业时间：{{time}}</p>
+                <p class="text big-first-letter">{{intro}}</p>
+            </div>
+    </div>
+    <!-- Bottom Tabbar-->
+    <div class="toolbar" id="introP2-toolbar">
+        <div class="toolbar-inner no-padding">
+            <a href="tel:{{tele}}" class="external button bottom_button button-max">
+                <span>电话预定</span>
+            </a>
+        </div>
+    </div>
+<!-- </div> -->

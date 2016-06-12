@@ -22,6 +22,7 @@
             'serviceModule': 'service/service',
             'hotelIntroListModule': 'hotel-intro-list/hotel-intro-list',
             'hotelIntroListDetailModule':'hotel-intro-list/hotel-intro-list-detail',
+            'hotelIntroDetailModule': 'hotel-intro-detail/hotel-intro-detail',
             'movieListModule':'movie-list/movie-list',
             'movieListDetailModule':'movie-list/movie-list-detail',
             'TVModule':'TV/TV',
