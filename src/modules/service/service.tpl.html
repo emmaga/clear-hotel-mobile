@@ -1,4 +1,4 @@
-<div class="list-block service-list">
+<div class="list-block service-list" style="margin: 15px 0">
     {{#each menu}}
     <!-- First group-->
     <div class="list-group">
@@ -6,7 +6,7 @@
             {{#each subMenu}}
               <li>
                 <a href="pages/{{ModuleName}}.html?moduleId={{ContentModuleInstanceID}}&appId={{../../appId}}" class="item-link item-content">
-                    <div class="item-media"><i class="icon icon-f7"></i></div>
+                    <div class="item-media service-list-icon"><i class="icon icon-f7" style="background-image: url({{icon}})"></i></div>
                     <div class="item-inner">
                       <div class="item-title">{{name}}</div>
                       <div class="item-after"></div>
@@ -16,6 +16,6 @@
             {{/each}}
         </ul>
      </div>
-    <li class="item-divider" style="list-style: none;">&nbsp;</li>
+    <li class="item-divider" style="list-style: none;height:20px;">&nbsp;</li>
     {{/each}}
 </div>
