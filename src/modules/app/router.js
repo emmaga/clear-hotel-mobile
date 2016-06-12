@@ -47,6 +47,9 @@ define(['framework7', 'appFunc', 'indexModule', 'briefModule', 'roomModule', 'se
                         TVModule.init(moduleId);
                         appFunc.hideToolbar();
                         break;
+                    case 'room-reserve':
+                        appFunc.hideToolbar();
+                        break;
                 }
             },
             pageBeforeAnimation: function(page) {

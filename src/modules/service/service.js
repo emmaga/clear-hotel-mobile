@@ -1,5 +1,5 @@
-define(['framework7', 'config', 'xhr', 'appFunc', 'text!service/service.tpl.html'],
-    function(framework7, config, xhr, appFunc, template){
+define(['framework7', 'config', 'xhr', 'appFunc','errorFunc', 'text!service/service.tpl.html'],
+    function(framework7, config, xhr, appFunc, errorFunc, template){
 
         var $$ = Dom7;
 

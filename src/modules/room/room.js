@@ -9,6 +9,9 @@ define(['framework7','config', 'xhr','appFunc','text!room/room.tpl.html','roomRe
     var roomPriceArray = [];
     //选定的时间段数组
     var dayArray = [];
+    //入住和离店时间
+    var date1;
+    var date2;
 
     var room = {
         bindEvents: function(menuId) {
@@ -20,7 +23,7 @@ define(['framework7','config', 'xhr','appFunc','text!room/room.tpl.html','roomRe
                 //当前room在当前选定时间段内的价格数组
                 var reservePriceArray = roomPriceArray[roomId-1];
                 //console.log(reservePriceArray+"..........."+dayArray)
-                roomReserveModule.init(menuId,roomId,roomName,avePrice,reservePriceArray,dayArray);
+                roomReserveModule.init(menuId,roomId,roomName,avePrice,reservePriceArray,dayArray,date1,date2);
             }
             $$(document).on('click', '.reserve', getMessage);
         },
@@ -80,7 +83,7 @@ define(['framework7','config', 'xhr','appFunc','text!room/room.tpl.html','roomRe
             var price = $$('.price');
             for(var n=0;n<price.length;n++){
                 price[n].setAttribute('data-price',avePriceArray[n])
-                price[n].innerText = "均："+avePriceArray[n];
+                price[n].innerText = "均：￥"+avePriceArray[n];
             }
         },
         //初始化日历控件
@@ -92,6 +95,8 @@ define(['framework7','config', 'xhr','appFunc','text!room/room.tpl.html','roomRe
             var yesterday = new Date().setDate(today.getDate() - 1);
             var dateIn =  appFunc.timeToDate(today,'yyyy/MM/dd');
             var dateOut = appFunc.timeToDate(tomorrow,'yyyy/MM/dd')
+            date1 = dateIn;
+            date2 = dateOut;
             $$('#date-in').html("入住："+dateIn).attr('date',dateIn);
             $$('#date-out').html("离店："+dateOut).attr('date',dateOut);
             room.changePrice(menuId,priceLength,priceData,dateIn,dateOut);
@@ -110,7 +115,7 @@ define(['framework7','config', 'xhr','appFunc','text!room/room.tpl.html','roomRe
                         }
                     }],
                 disabled: function (date) {
-                    if (date < today || date > monthLater) {
+                    if (date < yesterday || date > monthLater) {
                         return true;
                     }
                     else {
@@ -159,6 +164,8 @@ define(['framework7','config', 'xhr','appFunc','text!room/room.tpl.html','roomRe
                             $$('#date-in').html("入住："+dateInChoose).attr('date',dateInChoose);
                             $$('#date-out').html("离店："+dateOutChoose).attr('date',dateOutChoose);
                             room.changePrice(menuId,priceLength,priceData,dateInChoose,dateOutChoose);
+                            date1 = dateInChoose;
+                            date2 = dateOutChoose;
                             calendar.close();
                             confirm=[];
                         }else{
