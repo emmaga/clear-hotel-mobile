@@ -18,6 +18,7 @@
             'indexModule': 'index/index',
             'briefModule': 'brief/brief',
             'roomModule': 'room/room',
+            'roomReserveModule': 'room/room-reserve',
             'serviceModule': 'service/service',
             'introP1Module': 'intro/intro-p1',
             'introP2Module':'intro/intro-p2',

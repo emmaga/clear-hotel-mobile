@@ -37,7 +37,7 @@
         {
           "name":"咖啡厅",
           "time":"7:00-22:00",
-          "url":"../src/api/restaurant-0.jpg",
+          "url":"../api/restaurant-0.jpg",
           "introId":"1"
         }
 

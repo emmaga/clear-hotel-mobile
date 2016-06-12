@@ -1,28 +1,32 @@
-<div class="content-block">
-  <p>This is a second view. Lets, for example, have here some internal pages with navbar navigation</p>
-</div>
 <div class="list-block">
   <ul>
-    <li><a href="http://www.baidu.com" class="item-link external">
-        <div class="item-content">
-          <div class="item-inner"> 
-            <div class="item-title">baidu</div>
-          </div>
-        </div></a></li>
-    <li><a href="services.html" class="item-link">
-        <div class="item-content"> 
-          <div class="item-inner">
-            <div class="item-title">Services</div>
-          </div>
-        </div></a></li>
-      <li>
+      <li style="position: relative;">
           <div class="item-content">
-              <div class="item-inner">
-                  <div class="item-input">
-                      <input type="text" placeholder="Select dates" readonly id="calendar-disabled">
-                  </div>
+              <div class="item-inner row">
+                  <span class="col-50" id="date-in">入住：</span>
+                  <span class="col-50" id="date-out">离店：</span>
               </div>
           </div>
+          <div class="roo-calendar" id="calendar"></div>
       </li>
   </ul>
+    <ul id="room-list">
+        {{#each roomList}}
+        <li  class="col-100" style="margin-top: 10px">
+            <div class="room" data-roomId="{{roomId}}" data-roomName="{{name}}">
+                <img src="{{url}}" class="lazy room-img">
+                <h3>{{name}}</h3>
+                <!--<p>{{join tips delimiter=", "}}</p>-->
+                {{#each tips}}
+                <span style="border: 1px solid grey;border-radius: 3px">{{tip}}</span>
+                {{/each}}
+                <p class="price">价格</p>
+                <button class="reserve">{{js "this.soldOut ? '已订完' : '预定'"}} </button>
+            </div>
+        </li>
+        {{/each}}
+    </ul>
+</div>
+<div class="list-block">
+
 </div>
