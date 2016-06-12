@@ -26,6 +26,7 @@ define(['framework7', 'config', 'xhr', 'appFunc', 'text!service/service.tpl.html
 
             xhr.ajax({
                 'url': config.getJSONUrl('services'),
+                data: data,
                 dataType: 'json',
                 'success': function(data){
                     var rescode = data.rescode;

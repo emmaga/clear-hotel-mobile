@@ -31,6 +31,15 @@ define([], function () {'use strict';
          */
         getJSONUrl: function (k) {
             var e = useLocalConfig ? '.json' : '/';
+
+            if (!useLocalConfig) {
+                switch(k) {
+                    case 'hotel_intro_list-detail':
+                        k = 'hotel_intro_lists';
+                        break;
+                }
+            }
+
             return requestURL + k + e;
         },
         /**

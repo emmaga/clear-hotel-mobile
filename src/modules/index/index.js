@@ -1,5 +1,5 @@
-define(['framework7', 'config', 'xhr', 'errorFunc', 'router', 'appFunc', 'briefModule', 'roomModule', 'serviceModule','introP1Module', 'introP2Module', 'movieP1Module','movieP2Module','TVModule','text!index/index.tpl.html'],
-  function(framework7, config, xhr, errorFunc, router, appFunc, briefModule, roomModule, serviceModule,introP1Module, introP2Module,movieP1Module, movieP2Module,TVModule,template){
+define(['framework7', 'config', 'xhr', 'errorFunc', 'router', 'appFunc', 'briefModule', 'roomModule', 'serviceModule','hotelIntroListModule', 'hotelIntroListDetailModule', 'movieListModule','movieListDetailModule','TVModule','text!index/index.tpl.html'],
+  function(framework7, config, xhr, errorFunc, router, appFunc, briefModule, roomModule, serviceModule,hotelIntroListModule, hotelIntroListDetailModule,movieListModule, movieListDetailModule,TVModule,template){
 
     var $$ = Dom7;
 
@@ -92,32 +92,26 @@ define(['framework7', 'config', 'xhr', 'errorFunc', 'router', 'appFunc', 'briefM
         }else {
           // 根据hash跳转到指定页面
           switch(page) {
-            case 'intro-p1':
+            case 'hotel-intro-list':
               var moduleId = h.moduleId;
-              var serviceId = h.serviceId;
-              introP1Module.init(moduleId, serviceId, true);
+              hotelIntroListModule.init(moduleId, true);
               break;
-            case 'intro-p2':
-              var moduleId = h.moduleId;
-              var serviceId = h.serviceId;
-              var introId = h.introId;
-              introP2Module.init(moduleId, serviceId, introId, true);
+            case 'hotel-intro-list-detail':
+              var introListDetailID = h.introListDetailID;
+              hotelIntroListDetailModule.init(introListDetailID, true);
               break;
-            case 'movie-p1':
+            case 'movie-list':
               var moduleId = h.moduleId;
-              var serviceId = h.serviceId;
-              movieP1Module.init(moduleId, serviceId, true);
+              movieListModule.init(moduleId, true);
               break;
-            case 'movie-p2':
+            case 'movie-list-detail':
               var moduleId = h.moduleId;
-              var serviceId = h.serviceId;
               var movieId = h.movieId;
-              movieP2Module.init(moduleId, serviceId, movieId, true);
+              movieListDetailModule.init(moduleId, movieId, true);
               break;
             case 'TV':
               var moduleId = h.moduleId;
-              var serviceId = h.serviceId;
-              TVModule.init(moduleId, serviceId, true);
+              TVModule.init(moduleId, true);
               break;
             case 'index':
               var type = h.type;

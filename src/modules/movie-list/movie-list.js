@@ -1,45 +1,35 @@
-define(['framework7','config', 'xhr','appFunc','router','text!movie/movie-p1.tpl.html','movieP2Module'],
-    function(framework7,config, xhr,appFunc,router,template,movieP2Module){
+define(['framework7','config', 'xhr', 'appFunc', 'router', 'text!movie-list/movie-list.tpl.html'],
+    function(framework7,config, xhr, appFunc, router, template){
 
         var $$ = Dom7;
 
-        var movieP1 = {
+        var movieList = {
             
-            bindEvents: function(menuId) {
-                $$(document).on('click', '.movie-list', function (e) {
-                    var movieId = $$(this).attr("data-movieId");
-                    //console.log(movieId);
-                    //获取到的movieId用于之后传参
-                    //movieP2Module.init(menuId);
-                });
+            bindEvents: function() {
             },
-            loadData: function(menuId,serviceId,data,isFirst) {
-                var renderData = data.movieP1;
+            loadData: function(moduleId, data, isFirst) {
+                var renderData = data.movielist;
                 var output = appFunc.renderTpl(template,renderData);
-                //window.viewMain.router.load({
-                //    content: output
-                //});
                 if(isFirst) {
                     window.viewMain.router.load({
-                        content: '<div data-page="movie-p1" class="page"><div class="page-content infinite-scroll">' + output + '</div></div>',
+                        content: '<div data-page="movie-list" class="page"><div class="page-content infinite-scroll">' + output + '</div></div>',
                         pushState: false,
                         animatePages: false
                     })
                 }
                 else {
-                    $$('#page-movie-p1').html(output);
-                    movieP1.infiniteData(renderData.movies);
-                    //movieP1.bindEvents(menuId);
+                    $$('#page-movie-list').html(output);
+                    movieList.infiniteData(renderData.movies, moduleId);
                 }
 
             },
-            infiniteData:function (infData){
+            infiniteData:function (infData, moduleId){
                 //无限滚动
                 // 加载flag
                 var loading = false;
                 var html = '';
                 for (var i = 0; i < 10; i++) {
-                    html += "<a href='movie-p2.html?movieId="+infData[i].movieId+"' class='col-100'><div class='movie-list' data-movieId='"+infData[i].movieId+"'><img class='lazy movie-p1-img' src='"+infData[i].imgUrl+"'><h3 class='movie-p1-h3'>"+infData[i].name+"</h3><p class='movie-p1-p1'>"+infData[i].intro1+"</p><p class='movie-p1-p2'>"+infData[i].intro2+"</p> </div></a>";
+                    html += "<a href='movie-list-detail.html?moduleId="+moduleId+"&movieId="+infData[i].movieId+"' class='col-100'><div class='movie-list'><img class='lazy movie-p1-img' src='"+infData[i].imgUrl+"'><h3 class='movie-p1-h3'>"+infData[i].name+"</h3><p class='movie-p1-p1'>"+infData[i].intro1+"</p><p class='movie-p1-p2'>"+infData[i].intro2+"</p> </div></a>";
                 console.log()
                 }
                 // 添加新条目
@@ -89,12 +79,55 @@ define(['framework7','config', 'xhr','appFunc','router','text!movie/movie-p1.tpl
             }
         }
 
-        var init = function (menuId,serviceId,isFirst){
+        var init = function (moduleId, isFirst){
+
+            var data = {
+              project_name: config.getAppId(),
+              action: "GET",
+              token: config.getClearToken(),
+              ModuleInstanceID: moduleId
+            }
+
             xhr.ajax({
-                'url': config.getJSONUrl('movie-p1'),
+                'url': config.getJSONUrl('movie_lists'),
                 dataType: 'json',
-                'success': function(data){movieP1.loadData(menuId,serviceId,data,isFirst)}
+                data: data,
+                'success': function(data){
+                    var rescode = data.rescode;
+                    if (rescode == 200) {
+                      var url = data.redirect_url;
+                      var moduleId = data.ModuleInstanceID;
+                      loadMovieList(url, moduleId);
+                    }
+                    else {
+                      errorFunc.error(rescode);
+                    }
+                }
             })
+
+            function loadMovieList(url, moduleId) {
+                var data = {
+                  project_name: config.getAppId(),
+                  action: "GET",
+                  token: config.getClearToken(),
+                  ModuleInstanceID: moduleId
+                }
+
+                xhr.ajax({
+                    'url': url,
+                    dataType: 'json',
+                    data: data,
+                    'success': function(data){
+                        var rescode = data.rescode;
+                        if (rescode == 200) {
+                          movieList.loadData(moduleId, data, isFirst);
+                        }
+                        else {
+                          errorFunc.error(rescode);
+                        }
+                    }
+                })
+            }
         };
         return {
             init: init

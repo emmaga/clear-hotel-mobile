@@ -1,5 +1,5 @@
-define(['framework7', 'appFunc', 'indexModule', 'briefModule', 'roomModule', 'serviceModule', 'introP1Module', 'introP2Module','movieP1Module','movieP2Module','TVModule'],
-    function(framework7, appFunc, indexModule, briefModule, roomModule, serviceModule, introP1Module, introP2Module,movieP1Module,movieP2Module,TVModule){
+define(['framework7', 'appFunc', 'indexModule', 'briefModule', 'roomModule', 'serviceModule', 'hotelIntroListModule', 'hotelIntroListDetailModule','movieListModule','movieListDetailModule','TVModule'],
+    function(framework7, appFunc, indexModule, briefModule, roomModule, serviceModule, hotelIntroListModule, hotelIntroListDetailModule,movieListModule,movieListDetailModule,TVModule){
 
         var $$ = Dom7;
 
@@ -16,31 +16,30 @@ define(['framework7', 'appFunc', 'indexModule', 'briefModule', 'roomModule', 'se
             },
             pageBeforeInit: function(page) {
                 switch (page.name) {
-                    case 'intro-p1':
+                    case 'hotel-intro-list':
                         var moduleId = page.query.moduleId;
-                        introP1Module.init(2, moduleId);
+                        hotelIntroListModule.init(moduleId);
                         appFunc.hideToolbar();
                         break;
-                    case 'intro-p2':
-                        var moduleId = page.query.moduleId;
-                        var introId = page.query.introId;
-                        introP2Module.init(2,moduleId,introId);
+                    case 'hotel-intro-list-detail':
+                        var introListDetailID = page.query.introListDetailID;
+                        hotelIntroListDetailModule.init(introListDetailID);
                         appFunc.hideToolbar();
                         break;
-                    case 'movie-p1':
+                    case 'movie-list':
                         var moduleId = page.query.moduleId;
-                        movieP1Module.init(2, moduleId);
+                        movieListModule.init(moduleId);
                         appFunc.hideToolbar();
                         break;
-                    case 'movie-p2':
+                    case 'movie-list-detail':
                         var moduleId = page.query.moduleId;
                         var movieId = page.query.movieId;
-                        movieP2Module.init(2,moduleId,movieId);
+                        movieListDetailModule.init(moduleId, movieId);
                         appFunc.hideToolbar();
                         break;
                     case 'TV':
                         var moduleId = page.query.moduleId;
-                        TVModule.init(2, moduleId);
+                        TVModule.init(moduleId);
                         appFunc.hideToolbar();
                         break;
                 }

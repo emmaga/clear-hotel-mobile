@@ -1,6 +1,9 @@
 <div id="page-TV" data-page="TV" class="page">
 </div>
+<script src="util.js"></script>
 <script>
-    //alert(window.location.search)
-    window.location.href = '../index.html#page=TV&serviceId=4';
+    var p = getSearchParameters();
+    var appId = p.appId;
+    var moduleId = p.moduleId;
+    window.location.href = 'index.html#page=TV&moduleId='+moduleId;
 </script>

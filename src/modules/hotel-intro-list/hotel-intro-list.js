@@ -1,30 +1,25 @@
-define(['framework7','config', 'xhr','appFunc','router','text!TV/TV.tpl.html'],
+define(['framework7','config', 'xhr','appFunc','router','text!hotel-intro-list/hotel-intro-list.tpl.html'],
     function(framework7,config, xhr,appFunc,router,template){
 
         var $$ = Dom7;
 
-        var TV = {
-            bindEvents: function() {
-                $$(document).on('click', '.TV-item', function (e) {
-                    var TVId = $$(this).attr("data-TVId");
-                    //console.log(TVId);
-                    var video = $$(this).prev();
-                    video[0].play();
-                });
+        var hotelIntroList = {
+            bindEvents: function(menuId,serviceId) {
+
             },
             loadData: function(moduleId, data, isFirst) {
-                var renderData = data.TV;
-                var output = appFunc.renderTpl(template,renderData);
+                var renderData = data.intro;
+                var output = appFunc.renderTpl(template, renderData);
+
                 if(isFirst) {
                     window.viewMain.router.load({
-                        content: '<div data-page="TV" class="page">' + output + '</div>',
+                        content: '<div data-page="hotel-intro-list" class="page">' + output + '</div>',
                         pushState: false,
                         animatePages: false
                     })
                 }
                 else {
-                    $$('#page-TV').html(output);
-                    TV.bindEvents();
+                    $$('#page-hotel-intro-list').html(output);
                 }
             }
         }
@@ -39,13 +34,13 @@ define(['framework7','config', 'xhr','appFunc','router','text!TV/TV.tpl.html'],
             }
 
             xhr.ajax({
-                'url': config.getJSONUrl('tv-lists'),
-                data: data,
+                'url': config.getJSONUrl('hotel_intro_lists'),
                 dataType: 'json',
+                data: data,
                 'success': function(data){
                     var rescode = data.rescode;
                     if (rescode == 200) {
-                        TV.loadData(moduleId, data, isFirst);
+                      hotelIntroList.loadData(moduleId, data, isFirst);
                     }
                     else {
                       errorFunc.error(rescode);
@@ -56,4 +51,5 @@ define(['framework7','config', 'xhr','appFunc','router','text!TV/TV.tpl.html'],
         return {
             init: init
         };
-    });
+    }
+);

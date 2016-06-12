@@ -10,7 +10,7 @@
 
     var i18nText = 'lang/' + locale;
     requirejs.config({
-        baseUrl: 'modules',
+        baseUrl: '../modules',
         paths: {
             'text' : '../lib/text',
             'framework7': '../lib/Framework7/js/framework7.min',
@@ -20,10 +20,10 @@
             'roomModule': 'room/room',
             'roomReserveModule': 'room/room-reserve',
             'serviceModule': 'service/service',
-            'introP1Module': 'intro/intro-p1',
-            'introP2Module':'intro/intro-p2',
-            'movieP1Module':'movie/movie-p1',
-            'movieP2Module':'movie/movie-p2',
+            'hotelIntroListModule': 'hotel-intro-list/hotel-intro-list',
+            'hotelIntroListDetailModule':'hotel-intro-list/hotel-intro-list-detail',
+            'movieListModule':'movie-list/movie-list',
+            'movieListDetailModule':'movie-list/movie-list-detail',
             'TVModule':'TV/TV',
             'appFunc': 'utils/appFunc',
             'errorFunc': 'utils/errorFunc',

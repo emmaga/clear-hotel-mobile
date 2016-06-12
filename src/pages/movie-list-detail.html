@@ -1,0 +1,10 @@
+<div id="page-movie-list-detail" data-page="movie-list-detail" class="page">
+</div>
+<script src="util.js"></script>
+<script>
+    var p = getSearchParameters();
+    var appId = p.appId;
+    var movieId = p.movieId;
+    var moduleId = p.moduleId;
+    window.location.href = 'index.html#page=movie-list-detail&moduleId='+moduleId+'&movieId='+movieId;
+</script>
