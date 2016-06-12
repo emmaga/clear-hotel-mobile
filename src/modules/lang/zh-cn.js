@@ -91,7 +91,10 @@ define([], function () {'use strict';
             unknown_error: '未知错误',
             no_network: '无网络连接',
             http_error: '网络错误',
-            phonegap_only: '该模块只支持在PhoneGap中使用'
+            error_text: '抱歉，出错了',
+            error_expired: '抱歉，该页面已过期，你可以重新访问该页面，通过关注公众号：',
+            phonegap_only: '该模块只支持在PhoneGap中使用',
+
         }
     }
 });

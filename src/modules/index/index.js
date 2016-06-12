@@ -1,20 +1,31 @@
-define(['framework7', 'config', 'xhr', 'router', 'appFunc', 'briefModule', 'roomModule', 'serviceModule','introP1Module', 'introP2Module', 'movieP1Module','movieP2Module','TVModule','text!index/index.tpl.html'],
-  function(framework7, config, xhr, router, appFunc, briefModule, roomModule, serviceModule,introP1Module, introP2Module,movieP1Module, movieP2Module,TVModule,template){
+define(['framework7', 'config', 'xhr', 'errorFunc', 'router', 'appFunc', 'briefModule', 'roomModule', 'serviceModule','introP1Module', 'introP2Module', 'movieP1Module','movieP2Module','TVModule','text!index/index.tpl.html'],
+  function(framework7, config, xhr, errorFunc, router, appFunc, briefModule, roomModule, serviceModule,introP1Module, introP2Module,movieP1Module, movieP2Module,TVModule,template){
 
     var $$ = Dom7;
 
     var index = {
       init: function() {
         var data = {
-          appId: config.getAppId()
+          project_name: config.getAppId(),
+          action: "Get",
+          token: config.getClearToken()
         }
         
         xhr.ajax({
-          'url': config.getJSONUrl('mainMenu'),
+          'url': config.getJSONUrl('mainmenus'),
           dataType: 'json',
           data: data,
           method: 'POST',
-          'success': function(data){index.loadData(data)}
+          'success': function(data){
+            var rescode = data.rescode;
+            if (rescode == 200) {
+              index.loadData(data);
+            }
+            else {
+              errorFunc.error(rescode);
+            }
+            
+          }
         })
       },
       activeTab: function (type, menuId) {
@@ -63,7 +74,7 @@ define(['framework7', 'config', 'xhr', 'router', 'appFunc', 'briefModule', 'room
         // 导航按钮切换
         var mm = renderData.mainMenu;
         for(var i = 0; i < mm.length; i++) {
-          var selector = "a[href='#tab_"+mm[i].type+"_"+mm[i].menuId+"']";
+          var selector = "a[href='#tab_"+mm[i].ModuleName+"_"+mm[i].ContentModuleInstanceID+"']";
           $$(document).on('click', selector, function (e) {
               var type = $$("a[href='"+this.hash+"']").data('type');
               var menuId = $$("a[href='"+this.hash+"']").data('menuId');
@@ -76,7 +87,7 @@ define(['framework7', 'config', 'xhr', 'router', 'appFunc', 'briefModule', 'room
         var page = h.page ? h.page : '';
         if (page === '') {
           if(mm.length > 0) {
-            index.loadPage(mm[0].type, mm[0].menuId);
+            index.loadPage(mm[0].ModuleName, mm[0].ContentModuleInstanceID);
           }
         }else {
           // 根据hash跳转到指定页面

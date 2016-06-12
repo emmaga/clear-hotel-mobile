@@ -91,6 +91,8 @@ define([], function () {'use strict';
             unknown_error:'Unknown error',
             no_network:'No network connection',
             http_error: 'network error',
+            error_text: 'oops, something went wrong',
+            error_expired: 'Sorry, this page has expired , you can re- access this page , by focusing public number : ',
             phonegap_only:'PhoneGap Only'
         }
     };

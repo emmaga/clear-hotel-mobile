@@ -26,6 +26,7 @@
             'movieP2Module':'movie/movie-p2',
             'TVModule':'TV/TV',
             'appFunc': 'utils/appFunc',
+            'errorFunc': 'utils/errorFunc',
             'i18n': 'utils/i18n',
             'i18nText': i18nText,
             'xhr': 'utils/xhr',
@@ -56,14 +57,29 @@ requirejs(['framework7', 'config', 'appFunc', 'router', 'xhr', 'storage', 'index
             }
         },
         setAppId: function() {
-            var state = appFunc.getSearchParameters().state ? appFunc.getParameters(appFunc.getSearchParameters().state) : {};
-            var appId = state.appId ? state.appId : '';
+            var state = appFunc.getSearchParameters().state ? appFunc.getParameters(appFunc.getSearchParameters().state, '%20') : {};
+            var appId = state.appid ? state.appid : '';
             if (appId !== '') {
                 config.setAppId(appId);
             }
         },
+        setAppName: function() {
+            var state = appFunc.getSearchParameters().state ? appFunc.getParameters(appFunc.getSearchParameters().state, '%20') : {};
+            var appName = state.appname ? state.appname : '';
+            if (appName !== '') {
+                config.setAppName(appName);
+            }
+        },
+        setClearToken: function() {
+            var clearToken = appFunc.getSearchParameters().cleartoken ? appFunc.getSearchParameters().cleartoken : '';
+            if (clearToken !== '') {
+                config.setClearToken(clearToken);
+            }
+        },
         initMainView: function() {
             app.setAppId();
+            app.setAppName();
+            app.setClearToken();
             app.initFramework7();
         },
         initFramework7: function() {
