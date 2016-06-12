@@ -57,8 +57,7 @@ define(['framework7','config', 'xhr','appFunc','router','text!movie-list/movie-l
                 }
 
                 xhr.ajax({
-                    // 'url': url,
-                    'url': 'http://localhost/clear-hotel-mobile/src/api/movie_list_detail_private.json',
+                    'url': config.getFullJSONUrl(url, 'http://localhost/clear-hotel-mobile/src/api/movie_list_detail_private.json'),
                     dataType: 'json',
                     data: data,
                     'success': function(data){

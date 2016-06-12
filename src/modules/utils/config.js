@@ -43,6 +43,15 @@ define([], function () {'use strict';
             return requestURL + k + e;
         },
         /**
+         * 返回JSON地址
+         * @param s, l
+         * @returns {string}
+         */
+        getFullJSONUrl: function (s, l) {
+            var url = useLocalConfig ? l : s;
+            return url;
+        },
+        /**
          * 设置appId
          * @param k
          */
