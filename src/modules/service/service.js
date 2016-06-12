@@ -1,5 +1,5 @@
-define(['framework7', 'config', 'xhr','appFunc','text!service/service.tpl.html','introP1Module','introP2Module','movieP1Module','TVModule'],
-    function(framework7,config, xhr,appFunc,template,introP1Module,introP2Module,movieP1Module,TVModule){
+define(['framework7', 'config', 'xhr', 'appFunc', 'text!service/service.tpl.html'],
+    function(framework7, config, xhr, appFunc, template){
 
         var $$ = Dom7;
 
@@ -7,19 +7,35 @@ define(['framework7', 'config', 'xhr','appFunc','text!service/service.tpl.html',
             bindEvents: function() {
                 
             },
-            loadData: function(menuId,data) {
-                var renderData = data.serviceP1;
+            loadData: function(moduleId,data) {
+                var renderData = data.services;
                 renderData.appId = config.getAppId();
                 var output = appFunc.renderTpl(template,renderData);
-                $$('#tab_'+'service'+'_'+menuId).html(output);
+                $$('#tab_'+'service'+'_'+moduleId).html(output);
             }
         }
 
-        var init = function (menuId){
+        var init = function (moduleId){
+
+            var data = {
+              project_name: config.getAppId(),
+              action: "GET",
+              token: config.getClearToken(),
+              ModuleInstanceID: moduleId
+            }
+
             xhr.ajax({
-                'url': config.getJSONUrl('service'),
+                'url': config.getJSONUrl('services'),
                 dataType: 'json',
-                'success': function(data){service.loadData(menuId,data)}
+                'success': function(data){
+                    var rescode = data.rescode;
+                    if (rescode == 200) {
+                      service.loadData(moduleId,data)
+                    }
+                    else {
+                      errorFunc.error(rescode);
+                    }
+                }
             })
 
         };

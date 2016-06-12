@@ -17,30 +17,30 @@ define(['framework7', 'appFunc', 'indexModule', 'briefModule', 'roomModule', 'se
             pageBeforeInit: function(page) {
                 switch (page.name) {
                     case 'intro-p1':
-                        var serviceId = page.query.serviceId;
-                        introP1Module.init(2, serviceId);
+                        var moduleId = page.query.moduleId;
+                        introP1Module.init(2, moduleId);
                         appFunc.hideToolbar();
                         break;
                     case 'intro-p2':
-                        var serviceId = page.query.serviceId;
+                        var moduleId = page.query.moduleId;
                         var introId = page.query.introId;
-                        introP2Module.init(2,serviceId,introId);
+                        introP2Module.init(2,moduleId,introId);
                         appFunc.hideToolbar();
                         break;
                     case 'movie-p1':
-                        var serviceId = page.query.serviceId;
-                        movieP1Module.init(2, serviceId);
+                        var moduleId = page.query.moduleId;
+                        movieP1Module.init(2, moduleId);
                         appFunc.hideToolbar();
                         break;
                     case 'movie-p2':
-                        var serviceId = page.query.serviceId;
+                        var moduleId = page.query.moduleId;
                         var movieId = page.query.movieId;
-                        movieP2Module.init(2,serviceId,movieId);
+                        movieP2Module.init(2,moduleId,movieId);
                         appFunc.hideToolbar();
                         break;
                     case 'TV':
-                        var serviceId = page.query.serviceId;
-                        TVModule.init(2, serviceId);
+                        var moduleId = page.query.moduleId;
+                        TVModule.init(2, moduleId);
                         appFunc.hideToolbar();
                         break;
                 }

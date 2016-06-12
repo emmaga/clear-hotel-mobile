@@ -1,11 +1,11 @@
 <div class="list-block service-list">
-    {{#each sp1Menu}}
+    {{#each menu}}
     <!-- First group-->
     <div class="list-group">
         <ul>
             {{#each subMenu}}
               <li>
-                <a href="pages/{{type}}.html?serviceId={{serviceId}}&appId={{../../appId}}" class="item-link item-content" data-serviceId="{{serviceId}}" data-serviceType="{{type}}">
+                <a href="pages/{{ModuleName}}.html?moduleId={{ContentModuleInstanceID}}&appId={{../../appId}}" class="item-link item-content">
                     <div class="item-media"><i class="icon icon-f7"></i></div>
                     <div class="item-inner">
                       <div class="item-title">{{name}}</div>

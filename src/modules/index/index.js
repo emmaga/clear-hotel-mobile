@@ -7,7 +7,7 @@ define(['framework7', 'config', 'xhr', 'errorFunc', 'router', 'appFunc', 'briefM
       init: function() {
         var data = {
           project_name: config.getAppId(),
-          action: "Get",
+          action: "GET",
           token: config.getClearToken()
         }
         
@@ -28,32 +28,32 @@ define(['framework7', 'config', 'xhr', 'errorFunc', 'router', 'appFunc', 'briefM
           }
         })
       },
-      activeTab: function (type, menuId) {
+      activeTab: function (type, moduleId) {
 
         // active menu
-        var selector = "a[href='#tab_"+type+"_"+menuId+"']";
+        var selector = "a[href='#tab_"+type+"_"+moduleId+"']";
         $$('#index-toolbar a.active').removeClass('active');
         $$(selector).addClass('active');
 
         // active tab
-        selector = $$('#tab_'+type+'_'+menuId);
+        selector = $$('#tab_'+type+'_'+moduleId);
         $$('#index-tabs .active').removeClass('active');
         selector.addClass('active');
       },
-      loadPage: function (type, menuId) {
+      loadPage: function (type, moduleId) {
           
           // add active class
-          index.activeTab(type, menuId);
+          index.activeTab(type, moduleId);
           
           switch (type) {
               case 'brief':
-                  briefModule.init(menuId);
+                  briefModule.init(moduleId);
                   break;
               case 'service':
-                  serviceModule.init(menuId);
+                  serviceModule.init(moduleId);
                   break;
               case 'room':
-                  roomModule.init(menuId);
+                  roomModule.init(moduleId);
                   break;
           }
       },
@@ -77,8 +77,8 @@ define(['framework7', 'config', 'xhr', 'errorFunc', 'router', 'appFunc', 'briefM
           var selector = "a[href='#tab_"+mm[i].ModuleName+"_"+mm[i].ContentModuleInstanceID+"']";
           $$(document).on('click', selector, function (e) {
               var type = $$("a[href='"+this.hash+"']").data('type');
-              var menuId = $$("a[href='"+this.hash+"']").data('menuId');
-              index.loadPage(type, menuId);
+              var moduleId = $$("a[href='"+this.hash+"']").data('moduleId');
+              index.loadPage(type, moduleId);
           });
         }
 
@@ -93,36 +93,36 @@ define(['framework7', 'config', 'xhr', 'errorFunc', 'router', 'appFunc', 'briefM
           // 根据hash跳转到指定页面
           switch(page) {
             case 'intro-p1':
-              var menuId = h.menuId;
+              var moduleId = h.moduleId;
               var serviceId = h.serviceId;
-              introP1Module.init(menuId, serviceId, true);
+              introP1Module.init(moduleId, serviceId, true);
               break;
             case 'intro-p2':
-              var menuId = h.menuId;
+              var moduleId = h.moduleId;
               var serviceId = h.serviceId;
               var introId = h.introId;
-              introP2Module.init(menuId, serviceId, introId, true);
+              introP2Module.init(moduleId, serviceId, introId, true);
               break;
             case 'movie-p1':
-              var menuId = h.menuId;
+              var moduleId = h.moduleId;
               var serviceId = h.serviceId;
-              movieP1Module.init(menuId, serviceId, true);
+              movieP1Module.init(moduleId, serviceId, true);
               break;
             case 'movie-p2':
-              var menuId = h.menuId;
+              var moduleId = h.moduleId;
               var serviceId = h.serviceId;
               var movieId = h.movieId;
-              movieP2Module.init(menuId, serviceId, movieId, true);
+              movieP2Module.init(moduleId, serviceId, movieId, true);
               break;
             case 'TV':
-              var menuId = h.menuId;
+              var moduleId = h.moduleId;
               var serviceId = h.serviceId;
-              TVModule.init(menuId, serviceId, true);
+              TVModule.init(moduleId, serviceId, true);
               break;
             case 'index':
               var type = h.type;
-              var menuId = h.menuId;
-              index.loadPage(type, menuId);
+              var moduleId = h.moduleId;
+              index.loadPage(type, moduleId);
               break;
           }
         }

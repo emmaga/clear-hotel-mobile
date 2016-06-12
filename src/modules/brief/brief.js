@@ -6,12 +6,13 @@ define(['framework7','config', 'xhr','appFunc','text!brief/brief.tpl.html'],
             bindEvents: function() {
 
             },
-            loadData: function(menuId,data) {
+            loadData: function(moduleId,data) {
                 var renderData = data.brief;
+                renderData.moduleId = moduleId;
                 var output = appFunc.renderTpl(template,renderData);
-                $$('#tab_'+'brief'+'_'+menuId).html(output);
+                $$('#tab_'+'brief'+'_'+moduleId).html(output);
                 //初始化swiper
-                var mySwiper = window.hotelApp.swiper('#brief-swiper', {
+                var mySwiper = window.hotelApp.swiper('#brief-swiper_'+moduleId, {
                     preloadImages: true,
                     lazyLoading: false,
                     pagination:'.swiper-pagination'
@@ -20,11 +21,28 @@ define(['framework7','config', 'xhr','appFunc','text!brief/brief.tpl.html'],
             }
         }
 
-        var init = function (menuId){
+        var init = function (moduleId){
+
+            var data = {
+              project_name: config.getAppId(),
+              action: "GET",
+              token: config.getClearToken(),
+              ModuleInstanceID: moduleId
+            }
+
             xhr.ajax({
-                'url': config.getJSONUrl('brief'),
+                'url': config.getJSONUrl('briefs'),
                 dataType: 'json',
-                'success': function(data){brief.loadData(menuId,data)}
+                data: data,
+                'success': function(data){
+                    var rescode = data.rescode;
+                    if (rescode == 200) {
+                      brief.loadData(moduleId,data);
+                    }
+                    else {
+                      errorFunc.error(rescode);
+                    }
+                }
             });
         };
         return {

@@ -1,21 +1,21 @@
 {
   "errInfo": "None",
   "rescode": "200",
-  "serviceP1": {
-      "sp1Menu":[
+  "services": {
+      "menu":[
         {
           "name":"餐饮服务",
           "subMenu":[
             {
               "name":"餐厅预定",
-              "type":"intro-p1",
-              "serviceId":"1",
+              "ModuleName":"intro-p1",
+              "ContentModuleInstanceID":"1",
               "icon":""
             },
             {
               "name":"客房送餐",
-              "type":"intro-p1",
-              "serviceId":"2",
+              "ModuleName":"intro-p1",
+              "ContentModuleInstanceID":"2",
               "icon":""
             }
           ]
@@ -25,14 +25,14 @@
           "subMenu":[
             {
               "name":"电影点播",
-              "type":"movie-p1",
-              "serviceId":"3",
+              "ModuleName":"movie-p1",
+              "ContentModuleInstanceID":"3",
               "icon":""
             },
             {
               "name":"电视直播",
-              "type":"TV",
-              "serviceId":"4",
+              "ModuleName":"TV",
+              "ContentModuleInstanceID":"4",
               "icon":""
             }
           ]
@@ -42,8 +42,8 @@
           "subMenu":[
             {
               "name":"会议厅",
-              "type":"intro-p2",
-              "serviceId":"5",
+              "ModuleName":"intro-p2",
+              "ContentModuleInstanceID":"5",
               "icon":""
             }
           ]
