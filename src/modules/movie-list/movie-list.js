@@ -9,6 +9,7 @@ define(['framework7','config', 'xhr', 'appFunc', 'router', 'text!movie-list/movi
             },
             loadData: function(moduleId, data, isFirst) {
                 var renderData = data.movielist;
+                renderData.moduleId = moduleId;
                 var output = appFunc.renderTpl(template,renderData);
                 if(isFirst) {
                     window.viewMain.router.load({
@@ -34,7 +35,7 @@ define(['framework7','config', 'xhr', 'appFunc', 'router', 'text!movie-list/movi
                     html += "<a href='movie-list-detail.html?moduleId="+moduleId+"&movieId="+infData[i].movieId+"' class='col-100'><div class='movie-list'><img class='lazy movie-p1-img' src='"+infData[i].imgUrl+"'><h3 class='movie-p1-h3'>"+infData[i].name+"</h3><p class='movie-p1-p1'>"+infData[i].intro1+"</p><p class='movie-p1-p2'>"+infData[i].intro2+"</p> </div></a>";
                 }
                 // 添加新条目
-                $$('.row').append(html);
+                $$('#movie-list-row_'+moduleId).append(html);
 
                 // 上次加载的序号
                 var lastIndex = $$('.movie-list').length;
@@ -71,7 +72,7 @@ define(['framework7','config', 'xhr', 'appFunc', 'router', 'text!movie-list/movi
                         }
 
                         // 添加新条目
-                        $$('.row').append(html);
+                        $$('#movie-list-row_'+moduleId).append(html);
 
                         // 更新最后加载的序号
                         lastIndex = $$('.movie-list').length;

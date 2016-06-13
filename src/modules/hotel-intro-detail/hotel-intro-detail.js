@@ -8,6 +8,7 @@ define(['framework7','config', 'xhr','appFunc','router','text!hotel-intro-detail
             },
             loadData: function(moduleId, data, isFirst) {
                 var renderData = data.introDetail;
+                renderData.moduleId = moduleId;
                 var output = appFunc.renderTpl(template,renderData);
 
                 if(isFirst) {
@@ -22,7 +23,7 @@ define(['framework7','config', 'xhr','appFunc','router','text!hotel-intro-detail
                     $$("div[data-page='hotel-intro-detail']").attr('data-page', 'hotel-intro-detail_'+moduleId);
 
                     //初始化swiper
-                    var mySwiper = window.hotelApp.swiper('#intro-swiper', {
+                    var mySwiper = window.hotelApp.swiper('#hotel-intro-detail-swiper_'+moduleId, {
                         preloadImages: true,
                         lazyLoading: false,
                         pagination:'.swiper-pagination'
@@ -30,8 +31,8 @@ define(['framework7','config', 'xhr','appFunc','router','text!hotel-intro-detail
                     //根据开关显示/隐藏预定按钮
                     var hasToolbar = renderData.switch;
                     if(hasToolbar){
-                        $$('#introP2-toolbar').removeClass('toolbar-hidden');
-                        $$('#introP2-toolbar').css('display','block');
+                        $$('#hotel-intro-detail-toolbar_'+moduleId).removeClass('toolbar-hidden');
+                        $$('#hotel-intro-detail-toolbar_'+moduleId).css('display','block');
                     }else{
                         return;
                     }
