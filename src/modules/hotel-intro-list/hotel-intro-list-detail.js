@@ -12,13 +12,14 @@ define(['framework7','config', 'xhr','appFunc','router','text!hotel-intro-list/h
 
                 if(isFirst) {
                     window.viewMain.router.load({
-                        content: '<div data-page="hotel-intro-list-detail" class="page intro-p2">' + output + '</div>',
+                        content: '<div data-page="hotel-intro-list-detail_'+introListDetailID+'" class="page intro-p2">' + output + '</div>',
                         pushState: false,
                         animatePages: false
                     })
                 }
                 else {
-                    $$('#hotel-intro-list-detail').html(output);
+                    $$('#page-hotel-intro-list-detail_'+introListDetailID).html(output);
+                    $$("div[data-page='page-hotel-intro-list-detail']").attr('data-page', 'page-hotel-intro-list-detail_'+introListDetailID);
 
                     //初始化swiper
                     var mySwiper = window.hotelApp.swiper('#intro-swiper', {
@@ -40,6 +41,8 @@ define(['framework7','config', 'xhr','appFunc','router','text!hotel-intro-list/h
         }
 
         var init = function (introListDetailID ,isFirst){
+            
+            $$('#page-hotel-intro-list-detail').attr('id', 'page-hotel-intro-list-detail_'+introListDetailID);
 
             var data = {
               project_name: config.getAppId(),

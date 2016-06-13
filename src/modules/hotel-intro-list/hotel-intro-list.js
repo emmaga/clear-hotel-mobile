@@ -4,7 +4,7 @@ define(['framework7','config', 'xhr','appFunc','router','text!hotel-intro-list/h
         var $$ = Dom7;
 
         var hotelIntroList = {
-            bindEvents: function(menuId,serviceId) {
+            bindEvents: function() {
 
             },
             loadData: function(moduleId, data, isFirst) {
@@ -13,18 +13,21 @@ define(['framework7','config', 'xhr','appFunc','router','text!hotel-intro-list/h
 
                 if(isFirst) {
                     window.viewMain.router.load({
-                        content: '<div data-page="hotel-intro-list" class="page">' + output + '</div>',
+                        content: '<div data-page="hotel-intro-list_'+moduleId+'" class="page">' + output + '</div>',
                         pushState: false,
                         animatePages: false
                     })
                 }
                 else {
-                    $$('#page-hotel-intro-list').html(output);
+                    $$('#page-hotel-intro-list_'+moduleId).html(output);
+                    $$("div[data-page='hotel-intro-list']").attr('data-page', 'hotel-intro-list_'+moduleId);
                 }
             }
         }
 
         var init = function (moduleId, isFirst){
+
+            $$('#page-hotel-intro-list').attr('id', 'page-hotel-intro-list_'+moduleId);
 
             var data = {
               project_name: config.getAppId(),

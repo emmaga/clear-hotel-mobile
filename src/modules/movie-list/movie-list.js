@@ -12,13 +12,15 @@ define(['framework7','config', 'xhr', 'appFunc', 'router', 'text!movie-list/movi
                 var output = appFunc.renderTpl(template,renderData);
                 if(isFirst) {
                     window.viewMain.router.load({
-                        content: '<div data-page="movie-list" class="page"><div class="page-content infinite-scroll">' + output + '</div></div>',
+                        content: '<div data-page="movie-list_'+moduleId+'" class="page"><div class="page-content infinite-scroll">' + output + '</div></div>',
                         pushState: false,
                         animatePages: false
                     })
                 }
                 else {
-                    $$('#page-movie-list').html(output);
+                    $$('#page-movie-list_'+moduleId).html(output);
+                    $$("div[data-page='movie-list']").attr('data-page', 'movie-list_'+moduleId);
+
                     movieList.infiniteData(renderData.movies, moduleId);
                 }
 
@@ -30,7 +32,6 @@ define(['framework7','config', 'xhr', 'appFunc', 'router', 'text!movie-list/movi
                 var html = '';
                 for (var i = 0; i < 10; i++) {
                     html += "<a href='movie-list-detail.html?moduleId="+moduleId+"&movieId="+infData[i].movieId+"' class='col-100'><div class='movie-list'><img class='lazy movie-p1-img' src='"+infData[i].imgUrl+"'><h3 class='movie-p1-h3'>"+infData[i].name+"</h3><p class='movie-p1-p1'>"+infData[i].intro1+"</p><p class='movie-p1-p2'>"+infData[i].intro2+"</p> </div></a>";
-                console.log()
                 }
                 // 添加新条目
                 $$('.row').append(html);
@@ -81,6 +82,8 @@ define(['framework7','config', 'xhr', 'appFunc', 'router', 'text!movie-list/movi
 
         var init = function (moduleId, isFirst){
 
+            $$('#page-movie-list').attr('id', 'page-movie-list_'+moduleId);
+
             var data = {
               project_name: config.getAppId(),
               action: "GET",
@@ -96,7 +99,7 @@ define(['framework7','config', 'xhr', 'appFunc', 'router', 'text!movie-list/movi
                     var rescode = data.rescode;
                     if (rescode == 200) {
                       var url = data.redirect_url;
-                      var moduleId = data.ModuleInstanceID;
+                      // var moduleId = data.ModuleInstanceID;
                       loadMovieList(url, moduleId);
                     }
                     else {

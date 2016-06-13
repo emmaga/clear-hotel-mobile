@@ -5,24 +5,27 @@ define(['framework7','config', 'xhr','appFunc','router','text!movie-list/movie-l
         var movieListDetail = {
             bindEvents: function() {
             },
-            loadData: function(data, isFirst) {
+            loadData: function(data, isFirst, moduleId) {
                 var renderData = data.movie;
                 var output = appFunc.renderTpl(template,renderData);
                 
                 if(isFirst) {
                     window.viewMain.router.load({
-                        content: '<div data-page="movie-list-detail" class="page">' + output + '</div>',
+                        content: '<div data-page="movie-list-detail_'+moduleId+'" class="page">' + output + '</div>',
                         pushState: false,
                         animatePages: false
                     })
                 }
                 else {
-                    $$('#page-movie-list-detail').html(output);
+                    $$('#page-movie-list-detail_'+moduleId).html(output);
+                    $$("div[data-page='movie-list-detail']").attr('data-page', 'movie-list-detail_'+moduleId);
                 }
             }
         }
 
         var init = function (moduleId, movieId, isFirst){
+
+            $$('#page-movie-list-detail').attr('id', 'page-movie-list-detail_'+moduleId);
 
             var data = {
               project_name: config.getAppId(),
@@ -39,7 +42,7 @@ define(['framework7','config', 'xhr','appFunc','router','text!movie-list/movie-l
                     var rescode = data.rescode;
                     if (rescode == 200) {
                       var url = data.redirect_url;
-                      var moduleId = data.ModuleInstanceID;
+                      // var moduleId = data.ModuleInstanceID;
                       loadMovieDetail(url, moduleId);
                     }
                     else {
@@ -63,7 +66,7 @@ define(['framework7','config', 'xhr','appFunc','router','text!movie-list/movie-l
                     'success': function(data){
                         var rescode = data.rescode;
                         if (rescode == 200) {
-                          movieListDetail.loadData(data, isFirst)
+                          movieListDetail.loadData(data, isFirst, moduleId)
                         }
                         else {
                           errorFunc.error(rescode);

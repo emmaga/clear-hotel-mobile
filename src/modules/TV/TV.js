@@ -17,19 +17,22 @@ define(['framework7','config', 'xhr','appFunc','router','text!TV/TV.tpl.html'],
                 var output = appFunc.renderTpl(template,renderData);
                 if(isFirst) {
                     window.viewMain.router.load({
-                        content: '<div data-page="TV" class="page">' + output + '</div>',
+                        content: '<div data-page="TV_'+moduleId+'" class="page">' + output + '</div>',
                         pushState: false,
                         animatePages: false
                     })
                 }
                 else {
-                    $$('#page-TV').html(output);
+                    $$('#page-TV_'+moduleId).html(output);
+                    $$("div[data-page='TV']").attr('data-page', 'TV_'+moduleId);
                     TV.bindEvents();
                 }
             }
         }
 
         var init = function (moduleId, isFirst){
+
+            $$('#page-TV').attr('id', 'page-TV_'+moduleId);
 
             var data = {
               project_name: config.getAppId(),

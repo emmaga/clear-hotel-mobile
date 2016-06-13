@@ -90,6 +90,26 @@ define(['framework7', 'config', 'xhr', 'errorFunc', 'router', 'appFunc', 'briefM
             index.loadPage(mm[0].ModuleName, mm[0].ContentModuleInstanceID);
           }
         }else {
+
+          if (page.indexOf("hotel-intro-list-detail") >= 0) {
+              page = "hotel-intro-list-detail";
+          }
+          else if (page.indexOf("hotel-intro-list") >= 0) {
+              page = "hotel-intro-list";
+          }
+          else if (page.indexOf("hotel-intro-detail") >= 0) {
+              page = "hotel-intro-detail";
+          }
+          else if (page.indexOf("movie-list-detail") >= 0) {
+              page = "movie-list-detail";
+          }
+          else if (page.indexOf("movie-list") >= 0) {
+              page = "movie-list";
+          }
+          else if (page.indexOf("TV") >= 0) {
+              page = "TV";
+          }
+
           // 根据hash跳转到指定页面
           switch(page) {
             case 'hotel-intro-list':
