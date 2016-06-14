@@ -26,8 +26,9 @@ define(['framework7', 'config', 'xhr', 'appFunc','errorFunc', 'text!service/serv
 
             xhr.ajax({
                 'url': config.getJSONUrl('services'),
-                data: data,
                 dataType: 'json',
+                data: data,
+                method: 'POST',
                 'success': function(data){
                     var rescode = data.rescode;
                     if (rescode == 200) {

@@ -40,6 +40,7 @@ define(['framework7','config', 'xhr','appFunc','router','text!hotel-intro-list/h
                 'url': config.getJSONUrl('hotel_intro_lists'),
                 dataType: 'json',
                 data: data,
+                method: 'POST',
                 'success': function(data){
                     var rescode = data.rescode;
                     if (rescode == 200) {

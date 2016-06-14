@@ -34,6 +34,7 @@ define(['framework7','config', 'xhr','appFunc','text!brief/brief.tpl.html'],
                 'url': config.getJSONUrl('briefs'),
                 dataType: 'json',
                 data: data,
+                method: 'POST',
                 'success': function(data){
                     var rescode = data.rescode;
                     if (rescode == 200) {

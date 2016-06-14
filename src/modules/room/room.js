@@ -41,6 +41,7 @@ define(['framework7','config', 'xhr','appFunc','text!room/room.tpl.html','roomRe
             xhr.ajax({
                 'url': config.getJSONUrl('room-price'),
                 dataType: 'json',
+                method: 'POST',
                 'success': function(priceData){room.initCalendar(menuId,priceData)}
             })
         },
@@ -193,6 +194,7 @@ define(['framework7','config', 'xhr','appFunc','text!room/room.tpl.html','roomRe
         xhr.ajax({
             'url': config.getJSONUrl('room'),
             dataType: 'json',
+            method: 'POST',
             'success': function(data){room.loadData(menuId,data)}
         })
     };

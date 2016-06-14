@@ -1,5 +1,5 @@
-define(['framework7', 'config', 'xhr', 'errorFunc', 'router', 'appFunc', 'briefModule', 'roomModule', 'serviceModule','hotelIntroListModule', 'hotelIntroListDetailModule', 'hotelIntroDetailModule', 'movieListModule','movieListDetailModule','TVModule','text!index/index.tpl.html'],
-  function(framework7, config, xhr, errorFunc, router, appFunc, briefModule, roomModule, serviceModule,hotelIntroListModule, hotelIntroListDetailModule, hotelIntroDetailModule, movieListModule, movieListDetailModule,TVModule,template){
+define(['framework7', 'config', 'xhr', 'errorFunc', 'router', 'appFunc', 'briefModule', 'roomModule', 'serviceModule','hotelIntroListModule', 'hotelIntroListDetailModule', 'hotelIntroDetailModule', 'movieListModule','movieListDetailModule','tvListModule','text!index/index.tpl.html'],
+  function(framework7, config, xhr, errorFunc, router, appFunc, briefModule, roomModule, serviceModule,hotelIntroListModule, hotelIntroListDetailModule, hotelIntroDetailModule, movieListModule, movieListDetailModule,tvListModule,template){
 
     var $$ = Dom7;
 
@@ -106,8 +106,8 @@ define(['framework7', 'config', 'xhr', 'errorFunc', 'router', 'appFunc', 'briefM
           else if (page.indexOf("movie-list") >= 0) {
               page = "movie-list";
           }
-          else if (page.indexOf("TV") >= 0) {
-              page = "TV";
+          else if (page.indexOf("tv-list") >= 0) {
+              page = "tv-list";
           }
 
           // 根据hash跳转到指定页面
@@ -133,9 +133,9 @@ define(['framework7', 'config', 'xhr', 'errorFunc', 'router', 'appFunc', 'briefM
               var movieId = h.movieId;
               movieListDetailModule.init(moduleId, movieId, true);
               break;
-            case 'TV':
+            case 'tv-list':
               var moduleId = h.moduleId;
-              TVModule.init(moduleId, true);
+              tvListModule.init(moduleId, true);
               break;
             case 'index':
               var type = h.type;

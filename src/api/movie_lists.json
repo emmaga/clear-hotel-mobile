@@ -1,6 +1,6 @@
 {
   "errInfo": "None",
   "rescode": "200",
-  "ModuleInstanceID":"1",
+  "ModuleInstanceID": 1,
   "redirect_url":"http://m.cleartv.cn/wx/api/movie_list_private.json"
 }

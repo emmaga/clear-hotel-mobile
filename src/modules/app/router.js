@@ -1,5 +1,5 @@
-define(['framework7', 'appFunc', 'indexModule', 'briefModule', 'roomModule', 'serviceModule', 'hotelIntroListModule', 'hotelIntroListDetailModule', 'hotelIntroDetailModule', 'movieListModule','movieListDetailModule','TVModule'],
-    function(framework7, appFunc, indexModule, briefModule, roomModule, serviceModule, hotelIntroListModule, hotelIntroListDetailModule, hotelIntroDetailModule, movieListModule,movieListDetailModule,TVModule){
+define(['framework7', 'appFunc', 'indexModule', 'briefModule', 'roomModule', 'serviceModule', 'hotelIntroListModule', 'hotelIntroListDetailModule', 'hotelIntroDetailModule', 'movieListModule','movieListDetailModule','tvListModule'],
+    function(framework7, appFunc, indexModule, briefModule, roomModule, serviceModule, hotelIntroListModule, hotelIntroListDetailModule, hotelIntroDetailModule, movieListModule,movieListDetailModule,tvListModule){
 
         var $$ = Dom7;
 
@@ -31,8 +31,8 @@ define(['framework7', 'appFunc', 'indexModule', 'briefModule', 'roomModule', 'se
                 else if (pageName.indexOf("movie-list") >= 0) {
                     pageName = "movie-list";
                 }
-                else if (pageName.indexOf("TV") >= 0) {
-                    pageName = "TV";
+                else if (pageName.indexOf("tv-list") >= 0) {
+                    pageName = "tv-list";
                 }
                 
                 var h = appFunc.getHashParameters();
@@ -76,11 +76,11 @@ define(['framework7', 'appFunc', 'indexModule', 'briefModule', 'roomModule', 'se
                         movieListDetailModule.init(moduleId, movieId);
                         appFunc.hideToolbar();
                         break;
-                    case 'TV':
+                    case 'tv-list':
                         var moduleId = page.query.moduleId;
                         moduleId = typeof(moduleId) === 'undefined' ? h.moduleId : moduleId;
                         
-                        TVModule.init(moduleId);
+                        tvListModule.init(moduleId);
                         appFunc.hideToolbar();
                         break;
                     case 'room-reserve':

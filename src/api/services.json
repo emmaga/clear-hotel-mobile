@@ -31,7 +31,7 @@
           },
           {
             "name":"电视直播",
-            "ModuleName":"tv",
+            "ModuleName":"tv-list",
             "ContentModuleInstanceID":"4",
             "icon":"http://m.cleartv.cn/wx/api/meeting.png"
           }

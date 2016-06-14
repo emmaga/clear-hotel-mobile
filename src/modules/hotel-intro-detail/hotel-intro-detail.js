@@ -56,6 +56,7 @@ define(['framework7','config', 'xhr','appFunc','router','text!hotel-intro-detail
                 'url': config.getJSONUrl('hotel_intro_details'),
                 dataType: 'json',
                 data: data,
+                method: 'POST',
                 'success': function(data){
                     var rescode = data.rescode;
                     if (rescode == 200) {

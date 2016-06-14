@@ -1,31 +1,38 @@
-define(['framework7','config', 'xhr','appFunc','router','text!movie-list/movie-list-detail.tpl.html'],
+define(['framework7','config', 'xhr','appFunc','router','text!tv-list/tv-list.tpl.html'],
     function(framework7,config, xhr,appFunc,router,template){
+
         var $$ = Dom7;
 
-        var movieListDetail = {
+        var tvList = {
             bindEvents: function() {
+                $$(document).on('click', '.TV-item', function (e) {
+                    var TVId = $$(this).attr("data-TVId");
+                    //console.log(TVId);
+                    var video = $$(this).prev();
+                    video[0].play();
+                });
             },
-            loadData: function(data, isFirst, moduleId) {
-                var renderData = data.movie;
+            loadData: function(moduleId, data, isFirst) {
+                var renderData = data.TV;
                 var output = appFunc.renderTpl(template,renderData);
-                
                 if(isFirst) {
                     window.viewMain.router.load({
-                        content: '<div data-page="movie-list-detail_'+moduleId+'" class="page">' + output + '</div>',
+                        content: '<div data-page="tv-list_'+moduleId+'" class="page">' + output + '</div>',
                         pushState: false,
                         animatePages: false
                     })
                 }
                 else {
-                    $$('#page-movie-list-detail_'+moduleId).html(output);
-                    $$("div[data-page='movie-list-detail']").attr('data-page', 'movie-list-detail_'+moduleId);
+                    $$('#page-tv-list_'+moduleId).html(output);
+                    $$("div[data-page='tv-list']").attr('data-page', 'tv-list_'+moduleId);
+                    tvList.bindEvents();
                 }
             }
         }
 
-        var init = function (moduleId, movieId, isFirst){
+        var init = function (moduleId, isFirst){
 
-            $$('#page-movie-list-detail').attr('id', 'page-movie-list-detail_'+moduleId);
+            $$('#page-tv-list').attr('id', 'page-tv-list_'+moduleId);
 
             var data = {
               project_name: config.getAppId(),
@@ -35,16 +42,15 @@ define(['framework7','config', 'xhr','appFunc','router','text!movie-list/movie-l
             }
 
             xhr.ajax({
-                'url': config.getJSONUrl('movie_lists'),
+                'url': config.getJSONUrl('tv_lists'),
                 dataType: 'json',
                 data: data,
                 method: 'POST',
                 'success': function(data){
                     var rescode = data.rescode;
                     if (rescode == 200) {
-                      var url = data.redirect_url;
-                      // var moduleId = data.ModuleInstanceID;
-                      loadMovieDetail(url);
+                        var url = data.redirect_url;
+                        loadTVLists(url);
                     }
                     else {
                       errorFunc.error(rescode);
@@ -52,23 +58,23 @@ define(['framework7','config', 'xhr','appFunc','router','text!movie-list/movie-l
                 }
             })
 
-            function loadMovieDetail(url) {
+            function loadTVLists(url) {
                 var data = {
                   project_name: config.getAppId(),
-                  action: "GETDetail",
+                  action: "GET",
                   token: config.getClearToken(),
-                  movieId: Number(movieId)
+                  ModuleInstanceID: moduleId
                 }
 
                 xhr.ajax({
-                    'url': config.getFullJSONUrl(url, 'http://m.cleartv.cn/wx/api/movie_list_detail_private.json'),
+                    'url': url,
                     dataType: 'json',
                     data: data,
                     method: 'POST',
                     'success': function(data){
                         var rescode = data.rescode;
                         if (rescode == 200) {
-                          movieListDetail.loadData(data, isFirst, moduleId)
+                            tvList.loadData(moduleId, data, isFirst);
                         }
                         else {
                           errorFunc.error(rescode);

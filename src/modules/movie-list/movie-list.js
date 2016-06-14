@@ -31,7 +31,8 @@ define(['framework7','config', 'xhr', 'appFunc', 'router', 'text!movie-list/movi
                 // 加载flag
                 var loading = false;
                 var html = '';
-                for (var i = 0; i < 10; i++) {
+                var pageSize = infData.length < 10 ? infData.length : 10;
+                for (var i = 0; i < pageSize; i++) {
                     html += "<a href='movie-list-detail.html?moduleId="+moduleId+"&movieId="+infData[i].movieId+"' class='col-100'><div class='movie-list'><img class='lazy movie-p1-img' src='"+infData[i].imgUrl+"'><h3 class='movie-p1-h3'>"+infData[i].name+"</h3><p class='movie-p1-p1'>"+infData[i].intro1+"</p><p class='movie-p1-p2'>"+infData[i].intro2+"</p> </div></a>";
                 }
                 // 添加新条目
@@ -97,12 +98,13 @@ define(['framework7','config', 'xhr', 'appFunc', 'router', 'text!movie-list/movi
                 'url': config.getJSONUrl('movie_lists'),
                 dataType: 'json',
                 data: data,
+                method: 'POST',
                 'success': function(data){
                     var rescode = data.rescode;
                     if (rescode == 200) {
                       var url = data.redirect_url;
                       // var moduleId = data.ModuleInstanceID;
-                      loadMovieList(url, moduleId);
+                      loadMovieList(url);
                     }
                     else {
                       errorFunc.error(rescode);
@@ -110,7 +112,7 @@ define(['framework7','config', 'xhr', 'appFunc', 'router', 'text!movie-list/movi
                 }
             })
 
-            function loadMovieList(url, moduleId) {
+            function loadMovieList(url) {
                 var data = {
                   project_name: config.getAppId(),
                   action: "GET",
@@ -122,6 +124,7 @@ define(['framework7','config', 'xhr', 'appFunc', 'router', 'text!movie-list/movi
                     'url': url,
                     dataType: 'json',
                     data: data,
+                    method: 'POST',
                     'success': function(data){
                         var rescode = data.rescode;
                         if (rescode == 200) {

@@ -25,7 +25,7 @@
             'hotelIntroDetailModule': 'hotel-intro-detail/hotel-intro-detail',
             'movieListModule':'movie-list/movie-list',
             'movieListDetailModule':'movie-list/movie-list-detail',
-            'TVModule':'TV/TV',
+            'tvListModule':'tv-list/tv-list',
             'appFunc': 'utils/appFunc',
             'errorFunc': 'utils/errorFunc',
             'i18n': 'utils/i18n',
