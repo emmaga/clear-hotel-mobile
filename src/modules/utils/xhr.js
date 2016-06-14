@@ -35,8 +35,7 @@ define(['i18nText', 'i18n'], function (i18nText, i18n) {'use strict';
         }
 
         //JSON.stringify(data)
-        options.data = JSON.stringify(options.data);
-               
+        options.data = JSON.stringify(options.data);   
         return window.Dom7.ajax(wrapOptions(options));
     }
 
