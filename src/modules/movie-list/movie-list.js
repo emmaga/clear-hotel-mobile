@@ -67,7 +67,8 @@ define(['framework7','config', 'xhr', 'appFunc', 'router', 'text!movie-list/movi
 
                         // 生成新条目的HTML
                         var html = '';
-                        for (var i = lastIndex + 1; i <= lastIndex + itemsPerLoad; i++) {
+                        for (var i = lastIndex ; i < lastIndex + itemsPerLoad; i++) {
+                            //console.log(infData[i].movieId)
                             html += "<a href='movie-p2.html?movieId="+infData[i].movieId+"' class='col-100'><div class='movie-list' data-movieId='"+infData[i].movieId+"'><img class='lazy movie-p1-img' src='"+infData[i].imgUrl+"'><h3 class='movie-p1-h3'>"+infData[i].name+"</h3><p class='movie-p1-p1'>"+infData[i].intro1+"</p><p class='movie-p1-p2'>"+infData[i].intro2+"</p> </div></a>";
                         }
 

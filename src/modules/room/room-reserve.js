@@ -16,7 +16,7 @@ define(['framework7','config','appFunc','text!room/room-reserve.tpl.html'], func
             window.viewMain.router.load({
                 content: output,
                 pushState: true,
-                animatePages: true
+                animatePages: false
             });
             var dayLength = dayArray.length;
             $$('.room-name').text(roomName);

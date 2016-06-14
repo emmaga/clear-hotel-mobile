@@ -52,6 +52,7 @@ define(['framework7','config', 'xhr','appFunc','text!room/room.tpl.html','roomRe
             //        dayList[p].setAttribute('class','picker-calendar-day-selected');
             //    }
             //}
+            dayArray=[];
             //价格的二维数组
             var priceArray = [];
             //计算后的房间均价数组
