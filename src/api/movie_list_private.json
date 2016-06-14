@@ -5,182 +5,182 @@
       "movies":[
         {
           "name":"钢铁侠3",
-          "imgUrl":"http://localhost/clear-hotel-mobile/src/api/movie-1.jpg",
+          "imgUrl":"http://m.cleartv.cn/wx/api/movie-1.jpg",
           "intro1":"动作,科幻",
           "intro2":"美国/134分钟",
           "movieId":"1"
         },{
           "name":"美国队长3：内战",
-          "imgUrl":"http://localhost/clear-hotel-mobile/src/api/movie-2.jpg",
+          "imgUrl":"http://m.cleartv.cn/wx/api/movie-2.jpg",
           "intro1":"动作,科幻,冒险",
           "intro2":"美国/148分钟",
           "movieId":"2"
         },{
           "name":"星球大战：原力觉醒",
-          "imgUrl":"http://localhost/clear-hotel-mobile/src/api/movie-3.jpg",
+          "imgUrl":"http://m.cleartv.cn/wx/api/movie-3.jpg",
           "intro1":"奇幻,科幻,冒险",
           "intro2":"美国/136分钟",
           "movieId":"3"
         },{
           "name":"蜘蛛侠3",
-          "imgUrl":"http://localhost/clear-hotel-mobile/src/api/movie-4.jpg",
+          "imgUrl":"http://m.cleartv.cn/wx/api/movie-4.jpg",
           "intro1":"动作,奇幻",
           "intro2":"美国/140分钟",
           "movieId":"4"
         },{
           "name":"飞屋环游记",
-          "imgUrl":"http://localhost/clear-hotel-mobile/src/api/movie-5.jpg",
+          "imgUrl":"http://m.cleartv.cn/wx/api/movie-5.jpg",
           "intro1":"动作,动画",
           "intro2":"美国/96分钟",
           "movieId":"5"
         },{
           "name":"地心引力",
-          "imgUrl":"http://localhost/clear-hotel-mobile/src/api/movie-6.jpg",
+          "imgUrl":"http://m.cleartv.cn/wx/api/movie-6.jpg",
           "intro1":"惊悚,科幻,冒险",
           "intro2":"美国,英国/91分钟",
           "movieId":"6"
         },
         {
           "name":"超能陆战队",
-          "imgUrl":"http://localhost/clear-hotel-mobile/src/api/movie-7.jpg",
+          "imgUrl":"http://m.cleartv.cn/wx/api/movie-7.jpg",
           "intro1":"动作,动画,喜剧",
           "intro2":"美国/102分钟",
           "movieId":"7"
         },{
           "name":"复仇者联盟",
-          "imgUrl":"http://localhost/clear-hotel-mobile/src/api/movie-8.jpg",
+          "imgUrl":"http://m.cleartv.cn/wx/api/movie-8.jpg",
           "intro1":"动作,科幻,冒险",
           "intro2":"美国/142分钟",
           "movieId":"8"
         },{
           "name":"普罗米修斯",
-          "imgUrl":"http://localhost/clear-hotel-mobile/src/api/movie-9.jpg",
+          "imgUrl":"http://m.cleartv.cn/wx/api/movie-9.jpg",
           "intro1":"动作,科幻,惊悚",
           "intro2":"美国/124分钟",
           "movieId":"9"
         },{
           "name":"007：天幕危机",
-          "imgUrl":"http://localhost/clear-hotel-mobile/src/api/movie-10.jpg",
+          "imgUrl":"http://m.cleartv.cn/wx/api/movie-10.jpg",
           "intro1":"动作,惊悚,冒险",
           "intro2":"美国/143分钟",
           "movieId":"10"
         },{
           "name":"星际穿越",
-          "imgUrl":"http://localhost/clear-hotel-mobile/src/api/movie-11.jpg",
+          "imgUrl":"http://m.cleartv.cn/wx/api/movie-11.jpg",
           "intro1":"科幻,悬疑,冒险",
           "intro2":"美国/169分钟",
           "movieId":"11"
         },{
           "name":"星际穿越",
-          "imgUrl":"http://localhost/clear-hotel-mobile/src/api/movie-11.jpg",
+          "imgUrl":"http://m.cleartv.cn/wx/api/movie-11.jpg",
           "intro1":"科幻,悬疑,冒险",
           "intro2":"美国/169分钟",
           "movieId":"12"
         },{
           "name":"星际穿越",
-          "imgUrl":"http://localhost/clear-hotel-mobile/src/api/movie-11.jpg",
+          "imgUrl":"http://m.cleartv.cn/wx/api/movie-11.jpg",
           "intro1":"科幻,悬疑,冒险",
           "intro2":"美国/169分钟",
           "movieId":"13"
         },{
           "name":"星际穿越",
-          "imgUrl":"http://localhost/clear-hotel-mobile/src/api/movie-11.jpg",
+          "imgUrl":"http://m.cleartv.cn/wx/api/movie-11.jpg",
           "intro1":"科幻,悬疑,冒险",
           "intro2":"美国/169分钟",
           "movieId":"14"
         },{
           "name":"星际穿越",
-          "imgUrl":"http://localhost/clear-hotel-mobile/src/api/movie-11.jpg",
+          "imgUrl":"http://m.cleartv.cn/wx/api/movie-11.jpg",
           "intro1":"科幻,悬疑,冒险",
           "intro2":"美国/169分钟",
           "movieId":"15"
         },{
           "name":"星际穿越",
-          "imgUrl":"http://localhost/clear-hotel-mobile/src/api/movie-11.jpg",
+          "imgUrl":"http://m.cleartv.cn/wx/api/movie-11.jpg",
           "intro1":"科幻,悬疑,冒险",
           "intro2":"美国/169分钟",
           "movieId":"16"
         },{
           "name":"星际穿越",
-          "imgUrl":"http://localhost/clear-hotel-mobile/src/api/movie-11.jpg",
+          "imgUrl":"http://m.cleartv.cn/wx/api/movie-11.jpg",
           "intro1":"科幻,悬疑,冒险",
           "intro2":"美国/169分钟",
           "movieId":"17"
         },{
           "name":"星际穿越",
-          "imgUrl":"http://localhost/clear-hotel-mobile/src/api/movie-11.jpg",
+          "imgUrl":"http://m.cleartv.cn/wx/api/movie-11.jpg",
           "intro1":"科幻,悬疑,冒险",
           "intro2":"美国/169分钟",
           "movieId":"18"
         },{
           "name":"星际穿越",
-          "imgUrl":"http://localhost/clear-hotel-mobile/src/api/movie-11.jpg",
+          "imgUrl":"http://m.cleartv.cn/wx/api/movie-11.jpg",
           "intro1":"科幻,悬疑,冒险",
           "intro2":"美国/169分钟",
           "movieId":"19"
         },{
           "name":"星际穿越",
-          "imgUrl":"http://localhost/clear-hotel-mobile/src/api/movie-11.jpg",
+          "imgUrl":"http://m.cleartv.cn/wx/api/movie-11.jpg",
           "intro1":"科幻,悬疑,冒险",
           "intro2":"美国/169分钟",
           "movieId":"20"
         },{
           "name":"星际穿越",
-          "imgUrl":"http://localhost/clear-hotel-mobile/src/api/movie-11.jpg",
+          "imgUrl":"http://m.cleartv.cn/wx/api/movie-11.jpg",
           "intro1":"科幻,悬疑,冒险",
           "intro2":"美国/169分钟",
           "movieId":"21"
         },{
           "name":"星际穿越",
-          "imgUrl":"http://localhost/clear-hotel-mobile/src/api/movie-11.jpg",
+          "imgUrl":"http://m.cleartv.cn/wx/api/movie-11.jpg",
           "intro1":"科幻,悬疑,冒险",
           "intro2":"美国/169分钟",
           "movieId":"22"
         },{
           "name":"星际穿越",
-          "imgUrl":"http://localhost/clear-hotel-mobile/src/api/movie-11.jpg",
+          "imgUrl":"http://m.cleartv.cn/wx/api/movie-11.jpg",
           "intro1":"科幻,悬疑,冒险",
           "intro2":"美国/169分钟",
           "movieId":"23"
         },{
           "name":"星际穿越",
-          "imgUrl":"http://localhost/clear-hotel-mobile/src/api/movie-11.jpg",
+          "imgUrl":"http://m.cleartv.cn/wx/api/movie-11.jpg",
           "intro1":"科幻,悬疑,冒险",
           "intro2":"美国/169分钟",
           "movieId":"24"
         },{
           "name":"星际穿越",
-          "imgUrl":"http://localhost/clear-hotel-mobile/src/api/movie-11.jpg",
+          "imgUrl":"http://m.cleartv.cn/wx/api/movie-11.jpg",
           "intro1":"科幻,悬疑,冒险",
           "intro2":"美国/169分钟",
           "movieId":"25"
         },{
           "name":"星际穿越",
-          "imgUrl":"http://localhost/clear-hotel-mobile/src/api/movie-11.jpg",
+          "imgUrl":"http://m.cleartv.cn/wx/api/movie-11.jpg",
           "intro1":"科幻,悬疑,冒险",
           "intro2":"美国/169分钟",
           "movieId":"26"
         },{
           "name":"星际穿越",
-          "imgUrl":"http://localhost/clear-hotel-mobile/src/api/movie-11.jpg",
+          "imgUrl":"http://m.cleartv.cn/wx/api/movie-11.jpg",
           "intro1":"科幻,悬疑,冒险",
           "intro2":"美国/169分钟",
           "movieId":"27"
         },{
           "name":"星际穿越",
-          "imgUrl":"http://localhost/clear-hotel-mobile/src/api/movie-11.jpg",
+          "imgUrl":"http://m.cleartv.cn/wx/api/movie-11.jpg",
           "intro1":"科幻,悬疑,冒险",
           "intro2":"美国/169分钟",
           "movieId":"28"
         },{
           "name":"星际穿越",
-          "imgUrl":"http://localhost/clear-hotel-mobile/src/api/movie-11.jpg",
+          "imgUrl":"http://m.cleartv.cn/wx/api/movie-11.jpg",
           "intro1":"科幻,悬疑,冒险",
           "intro2":"美国/169分钟",
           "movieId":"29"
         },{
           "name":"星际穿越",
-          "imgUrl":"http://localhost/clear-hotel-mobile/src/api/movie-11.jpg",
+          "imgUrl":"http://m.cleartv.cn/wx/api/movie-11.jpg",
           "intro1":"科幻,悬疑,冒险",
           "intro2":"美国/169分钟",
           "movieId":"30"

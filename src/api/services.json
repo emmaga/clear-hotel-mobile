@@ -10,13 +10,13 @@
             "name":"餐厅预定",
             "ModuleName":"hotel-intro-list",
             "ContentModuleInstanceID":"1",
-            "icon":"http://localhost/clear-hotel-mobile/src/api/meeting.png"
+            "icon":"http://m.cleartv.cn/wx/api/meeting.png"
           },
           {
             "name":"客房送餐",
             "ModuleName":"hotel-intro-list",
             "ContentModuleInstanceID":"2",
-            "icon":"http://localhost/clear-hotel-mobile/src/api/meeting.png"
+            "icon":"http://m.cleartv.cn/wx/api/meeting.png"
           }
         ]
       },
@@ -27,13 +27,13 @@
             "name":"电影点播",
             "ModuleName":"movie-list",
             "ContentModuleInstanceID":"3",
-            "icon":"http://localhost/clear-hotel-mobile/src/api/meeting.png"
+            "icon":"http://m.cleartv.cn/wx/api/meeting.png"
           },
           {
             "name":"电视直播",
             "ModuleName":"tv",
             "ContentModuleInstanceID":"4",
-            "icon":"http://localhost/clear-hotel-mobile/src/api/meeting.png"
+            "icon":"http://m.cleartv.cn/wx/api/meeting.png"
           }
         ]
       },
@@ -44,7 +44,7 @@
             "name":"会议厅",
             "ModuleName":"hotel-intro-detail",
             "ContentModuleInstanceID":"5",
-            "icon":"http://localhost/clear-hotel-mobile/src/api/meeting.png"
+            "icon":"http://m.cleartv.cn/wx/api/meeting.png"
           }
         ]
       }
