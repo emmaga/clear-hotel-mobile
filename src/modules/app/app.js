@@ -26,6 +26,7 @@
             'movieListModule':'movie-list/movie-list',
             'movieListDetailModule':'movie-list/movie-list-detail',
             'tvListModule':'tv-list/tv-list',
+            'myModule':'my/my',
             'appFunc': 'utils/appFunc',
             'errorFunc': 'utils/errorFunc',
             'i18n': 'utils/i18n',

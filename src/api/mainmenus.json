@@ -19,6 +19,12 @@
               "ModuleName": "room",
               "name": "RoomReservation",
               "icon": "tabbar-icon-hotel"
+          },
+          {
+              "ContentModuleInstanceID": 4,
+              "ModuleName": "my",
+              "name": "My",
+              "icon": "tabbar-icon-my"
           }
       ]
   },
