@@ -1,4 +1,4 @@
-define(['framework7','config', 'xhr','appFunc','text!room/room.tpl.html','roomReserveModule'], function(framework7,config,xhr,appFunc,template,roomReserveModule){
+define(['framework7','config', 'xhr','appFunc','i18nText','text!room/room.tpl.html','roomReserveModule'], function(framework7,config,xhr,appFunc,i18nText,template,roomReserveModule){
 
     var $$ = Dom7;
     var monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August' , 'September' , 'October', 'November', 'December'];
@@ -20,9 +20,11 @@ define(['framework7','config', 'xhr','appFunc','text!room/room.tpl.html','roomRe
                 var roomId = self.parent().data("roomId");
                 var roomName = self.parent().data("roomName");
                 var avePrice = self.prev().data("price");
-                //当前room在当前选定时间段内的价格数组
+                //当前room在当前选定时间段内的价格数组（ID与价格数组相对应，ID从1开始，数组从0开始，因此ID需要减1）
                 var reservePriceArray = roomPriceArray[roomId-1];
-                //console.log(reservePriceArray+"..........."+dayArray)
+                var orderData = {
+
+                }
                 roomReserveModule.init(menuId,roomId,roomName,avePrice,reservePriceArray,dayArray,date1,date2);
             }
             $$(document).on('click', '.reserve', getMessage);
@@ -31,12 +33,12 @@ define(['framework7','config', 'xhr','appFunc','text!room/room.tpl.html','roomRe
             var renderData = data.room;
             var output = appFunc.renderTpl(template,renderData);
             $$('#tab_'+'room'+'_'+menuId).html(output);
-            var reserve = $$('.reserve');
-            for(var i=0;i<reserve.length;i++){
-                if(reserve[i].innerText=="已订完"){
-                    reserve[i].setAttribute('disabled','disabled')
-                }
-            }
+            //var reserve = $$('.reserve');
+            //for(var i=0;i<reserve.length;i++){
+            //    if(reserve[i].innerText=="已订完"){
+            //        reserve[i].setAttribute('disabled','disabled')
+            //    }
+            //}
             room.bindEvents(menuId);
             xhr.ajax({
                 'url': config.getJSONUrl('room-price'),
@@ -99,8 +101,8 @@ define(['framework7','config', 'xhr','appFunc','text!room/room.tpl.html','roomRe
             var dateOut = appFunc.timeToDate(tomorrow,'yyyy/MM/dd')
             date1 = dateIn;
             date2 = dateOut;
-            $$('#date-in').html("入住："+dateIn).attr('date',dateIn);
-            $$('#date-out').html("离店："+dateOut).attr('date',dateOut);
+            $$('#date-in').html(i18nText.room.date_in+dateIn).attr('date',dateIn);
+            $$('#date-out').html(i18nText.room.date_out+dateOut).attr('date',dateOut);
             room.changePrice(menuId,priceLength,priceData,dateIn,dateOut);
             var calendar = window.hotelApp.calendar({
                 input: '#calendar',
@@ -163,15 +165,15 @@ define(['framework7','config', 'xhr','appFunc','text!room/room.tpl.html','roomRe
                             var lateDate = confirm[1];
                             var dateInChoose =  appFunc.timeToDate(earlyDate,'yyyy/MM/dd');
                             var dateOutChoose = appFunc.timeToDate(lateDate,'yyyy/MM/dd')
-                            $$('#date-in').html("入住："+dateInChoose).attr('date',dateInChoose);
-                            $$('#date-out').html("离店："+dateOutChoose).attr('date',dateOutChoose);
+                            $$('#date-in').html(i18nText.room.date_in+dateInChoose).attr('date',dateInChoose);
+                            $$('#date-out').html(i18nText.room.date_out+dateOutChoose).attr('date',dateOutChoose);
                             room.changePrice(menuId,priceLength,priceData,dateInChoose,dateOutChoose);
                             date1 = dateInChoose;
                             date2 = dateOutChoose;
                             calendar.close();
                             confirm=[];
                         }else{
-                            alert("请选择入住和离店时间");
+                            alert(i18nText.room.calendar_error);
                         }
                     });
                 },

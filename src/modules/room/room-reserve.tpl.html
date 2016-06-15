@@ -2,14 +2,15 @@
     <div class="page-content">
         <div class="content-block">
             <div class="content-block-inner room-name">
+                {{roomName}}
             </div>
             <div class="content-block-inner date row">
-                <span class="col-40 date-in"></span>
-                <span class="col-40 date-out"></span>
-                <span class="col-20" id="days"></span>
+                <span class="col-40 date-in">{{date1}}</span>
+                <span class="col-40 date-out">{{date2}}</span>
+                <span class="col-20" id="days">{{dayLength}}</span>
             </div>
             <div class="content-block-inner roomNum">
-                <span>房间数</span>
+                <span>{{roomNum}}</span>
             </div>
         </div>
         <form id="reserve-form" class="list-block">
@@ -18,9 +19,9 @@
                     <div class="item-content">
                         <div class="item-media"><i class="icon icon-form-name"></i></div>
                         <div class="item-inner">
-                            <div class="item-title label">姓名</div>
+                            <div class="item-title label">{{name}}</div>
                             <div class="item-input">
-                                <input type="text" name="name" placeholder="预定人姓名">
+                                <input type="text" name="name" placeholder="{{preName}}">
                             </div>
                         </div>
                     </div>
@@ -29,9 +30,9 @@
                     <div class="item-content">
                         <div class="item-media"><i class="icon icon-form-tel"></i></div>
                         <div class="item-inner">
-                            <div class="item-title label">电话</div>
+                            <div class="item-title label">{{tel}}</div>
                             <div class="item-input">
-                                <input type="text" name="tel" placeholder="预定人电话">
+                                <input type="text" name="tel" placeholder="{{preTel}}">
                             </div>
                         </div>
                     </div>
@@ -40,6 +41,7 @@
         </form>
         <div class="content-block">
             <div class="content-block-inner price-detail">
+                {{priceList}}
             </div>
             <div class="content-block-inner total-price">
             </div>
@@ -48,7 +50,7 @@
      <div class="toolbar" id="room-reserve-toolbar">
          <div class="toolbar-inner no-padding">
              <a href="" class="external button bottom_button button-max submit">
-                 <span>提交订单</span>
+                 <span>{{submit}}</span>
              </a>
          </div>
      </div>

@@ -3,8 +3,8 @@
       <li style="position: relative;">
           <div class="item-content">
               <div class="item-inner row">
-                  <span class="col-50" id="date-in">入住：</span>
-                  <span class="col-50" id="date-out">离店：</span>
+                  <span class="col-50" id="date-in"></span>
+                  <span class="col-50" id="date-out"></span>
               </div>
           </div>
           <div class="roo-calendar" id="calendar"></div>
@@ -21,7 +21,7 @@
                 <span style="border: 1px solid grey;border-radius: 3px">{{tip}}</span>
                 {{/each}}
                 <p class="price">价格</p>
-                <button class="reserve">{{js "this.soldOut ? '已订完' : '预定'"}} </button>
+                <button class="reserve"{{#if this.soldOut}}disabled="disabled"{{/if}}>{{js "this.soldOut ? '已订完' : '预定'"}} </button>
             </div>
         </li>
         {{/each}}
