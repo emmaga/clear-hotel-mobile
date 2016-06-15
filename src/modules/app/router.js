@@ -1,5 +1,5 @@
-define(['framework7', 'appFunc', 'indexModule', 'briefModule', 'roomModule', 'serviceModule', 'hotelIntroListModule', 'hotelIntroListDetailModule', 'hotelIntroDetailModule', 'movieListModule','movieListDetailModule','tvListModule'],
-    function(framework7, appFunc, indexModule, briefModule, roomModule, serviceModule, hotelIntroListModule, hotelIntroListDetailModule, hotelIntroDetailModule, movieListModule,movieListDetailModule,tvListModule){
+define(['framework7', 'appFunc', 'indexModule', 'briefModule', 'roomModule','roomReserveModule', 'serviceModule', 'hotelIntroListModule', 'hotelIntroListDetailModule', 'hotelIntroDetailModule', 'movieListModule','movieListDetailModule','tvListModule'],
+    function(framework7, appFunc, indexModule, briefModule, roomModule,roomReserveModule, serviceModule, hotelIntroListModule, hotelIntroListDetailModule, hotelIntroDetailModule, movieListModule,movieListDetailModule,tvListModule){
 
         var $$ = Dom7;
 
@@ -33,6 +33,9 @@ define(['framework7', 'appFunc', 'indexModule', 'briefModule', 'roomModule', 'se
                 }
                 else if (pageName.indexOf("tv-list") >= 0) {
                     pageName = "tv-list";
+                }
+                else if (pageName.indexOf("room-reserve") >= 0) {
+                    pageName = "room-reserve";
                 }
                 
                 var h = appFunc.getHashParameters();
@@ -84,6 +87,13 @@ define(['framework7', 'appFunc', 'indexModule', 'briefModule', 'roomModule', 'se
                         appFunc.hideToolbar();
                         break;
                     case 'room-reserve':
+                        var moduleId = page.query.moduleId;
+                        moduleId = typeof(moduleId) === 'undefined' ? h.moduleId : moduleId;
+
+                        var roomId = page.query.roomId;
+                        roomId = typeof(roomId) === 'undefined' ? h.roomId : roomId;
+
+                        roomReserveModule.init(moduleId);
                         appFunc.hideToolbar();
                         break;
                 }

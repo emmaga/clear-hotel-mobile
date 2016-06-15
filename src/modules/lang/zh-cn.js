@@ -95,6 +95,23 @@ define([], function () {'use strict';
             error_expired: '抱歉，该页面已过期，你可以重新访问该页面，通过关注公众号：',
             phonegap_only: '该模块只支持在PhoneGap中使用',
 
+        },
+        room:{
+            date_in:'入住:',
+            date_out:'离店:',
+            calendar_error:'请选择入住和离店时间',
+            price:'均:￥',
+            day1:'共',
+            day2:'晚',
+            total_price:'总价',
+            room_num:'房间数',
+            name:'姓名',
+            pre_name:'预定人姓名',
+            tel:'电话',
+            pre_tel:'预定人电话',
+            submit:'提交订单',
+            reserve:'预定',
+            soldOut:'已订完',
         }
     }
 });

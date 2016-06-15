@@ -17,20 +17,32 @@ define(['framework7','config', 'xhr','appFunc','i18nText','text!room/room.tpl.ht
         bindEvents: function(menuId) {
             var getMessage = function(){
                 var self = $$(this);
-                var roomId = self.parent().data("roomId");
-                var roomName = self.parent().data("roomName");
-                var avePrice = self.prev().data("price");
+                var roomId = self.parent().parent().data("roomId");
+                var roomName = self.parent().parent().data("roomName");
+                var avePrice = self.parent().prev().data("price");
                 //当前room在当前选定时间段内的价格数组（ID与价格数组相对应，ID从1开始，数组从0开始，因此ID需要减1）
                 var reservePriceArray = roomPriceArray[roomId-1];
                 var orderData = {
-
-                }
-                roomReserveModule.init(menuId,roomId,roomName,avePrice,reservePriceArray,dayArray,date1,date2);
+                    roomId:roomId,
+                    roomName:roomName,
+                    avePrice:avePrice,
+                    reservePriceArray:reservePriceArray,
+                    dayArray:dayArray,
+                    date1:date1,
+                    date2:date2
+                };
+                var orderDataStr = JSON.stringify(orderData);
+                sessionStorage.setItem('orderData',orderDataStr);
+                //roomReserveModule.init(menuId,roomId,roomName,avePrice,reservePriceArray,dayArray,date1,date2);
             }
             $$(document).on('click', '.reserve', getMessage);
         },
         loadData:function(menuId,data){
-            var renderData = data.room;
+            var renderData = {
+                data:data.room,
+                reserve:i18nText.room.reserve,
+                soldOut:i18nText.room.soldOut
+            };
             var output = appFunc.renderTpl(template,renderData);
             $$('#tab_'+'room'+'_'+menuId).html(output);
             //var reserve = $$('.reserve');
@@ -39,6 +51,7 @@ define(['framework7','config', 'xhr','appFunc','i18nText','text!room/room.tpl.ht
             //        reserve[i].setAttribute('disabled','disabled')
             //    }
             //}
+
             room.bindEvents(menuId);
             xhr.ajax({
                 'url': config.getJSONUrl('room-price'),
@@ -87,7 +100,7 @@ define(['framework7','config', 'xhr','appFunc','i18nText','text!room/room.tpl.ht
             var price = $$('.price');
             for(var n=0;n<price.length;n++){
                 price[n].setAttribute('data-price',avePriceArray[n])
-                price[n].innerText = "均：￥"+avePriceArray[n];
+                price[n].innerText = i18nText.room.price+avePriceArray[n];
             }
         },
         //初始化日历控件

@@ -1,0 +1,33 @@
+{
+  "action":"GET",
+  "lang":"en-us",
+  "project_name":"wx966d7c1152bbb8ad",
+  "token":"b7888d02-9287-40bd-8fcb-fc70a61642f32194db1f-96f9-480c-a29c-c0c6649a0388",
+  "openId":"10086",
+  "check_in":"2016/06/17",
+  "check_out":"2016/06/20",
+  "roomId":"2",
+  "roomName":"豪华大床房",
+  "totalPrice":"1805",
+  "roomNumber":"3",
+  "tel":"1008611",
+  "name":"张三",
+  "priceList":[
+    {
+      "date":"2016/06/17",
+      "price":"300"
+    },
+    {
+      "date":"2016/06/18",
+      "price":"330"
+    },
+    {
+      "date":"2016/06/19",
+      "price":"310"
+    },
+    {
+      "date":"2016/06/20",
+      "price":"320"
+    }
+  ]
+}

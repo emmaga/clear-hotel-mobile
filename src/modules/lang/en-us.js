@@ -94,6 +94,24 @@ define([], function () {'use strict';
             error_text: 'oops, something went wrong',
             error_expired: 'Sorry, this page has expired , you can re- access this page , by focusing public number : ',
             phonegap_only:'PhoneGap Only'
+        },
+        room:{
+            date_in:'check in:',
+            date_out:'check out:',
+            calendar_error:'Dates for check in and check out are both need',
+            price:'average:￥',
+            day1:'total',
+            day2:'day/days',
+            total_price:'total price',
+            room_num:'room number',
+            name:'name',
+            pre_name:'name for reserved person',
+            tel:'tel number',
+            pre_tel:'tel number for reserved person',
+            submit:'submit',
+            reserve:'reserve',
+            soldOut:'sold out',
+            price_detail:'price detail'
         }
     };
 });

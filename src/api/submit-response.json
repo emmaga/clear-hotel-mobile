@@ -1,0 +1,36 @@
+{
+  "errInfo": "None",
+  "rescode": "200",
+  "data": {
+    "orderId":"12345",
+    "orderTime":"2016/06/16",
+    "orderState":"1",
+    "openId":"10086",
+    "check_in":"2016/06/17",
+    "check_out":"2016/06/20",
+    "roomId":"2",
+    "roomName":"豪华大床房",
+    "totalPrice":"1805",
+    "roomNumber":"3",
+    "tel":"1008611",
+    "name":"张三",
+    "priceList":[
+      {
+        "date":"2016/06/17",
+        "price":"300"
+      },
+      {
+        "date":"2016/06/18",
+        "price":"330"
+      },
+      {
+        "date":"2016/06/19",
+        "price":"310"
+      },
+      {
+        "date":"2016/06/20",
+        "price":"320"
+      }
+    ]
+  }
+}

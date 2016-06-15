@@ -1,5 +1,8 @@
 /* index */
 /* Tab bar icons */
+.page{
+    background-color: #F7F7F7;
+}
 i.tabbar-icon-index {
   width: 25px;
   height: 30px;
