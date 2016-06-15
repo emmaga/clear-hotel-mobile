@@ -40,9 +40,8 @@ define(['framework7','config', 'xhr', 'appFunc', 'router', 'text!movie-list/movi
 
                 // 上次加载的序号
                 var lastIndex = $$('.movie-list').length;
-                //alert(lastIndex);
                 // 最多可加载的条目
-                var maxItems = 30;
+                var maxItems =infData.length < 10 ? infData.length : 30;
                 // 每次加载添加多少条目
                 var itemsPerLoad = 10;
 
@@ -54,8 +53,6 @@ define(['framework7','config', 'xhr', 'appFunc', 'router', 'text!movie-list/movi
                     // 设置flag
                     loading = true;
 
-                    // 模拟1s的加载过程
-                    setTimeout(function () {
                         // 重置加载flag
                         loading = false;
                         if (lastIndex >= maxItems) {
@@ -78,7 +75,6 @@ define(['framework7','config', 'xhr', 'appFunc', 'router', 'text!movie-list/movi
 
                         // 更新最后加载的序号
                         lastIndex = $$('.movie-list').length;
-                    }, 1000);
                 });
             }
         }
