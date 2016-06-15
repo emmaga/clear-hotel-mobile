@@ -226,6 +226,10 @@ i.tabbar-icon-hotel {
 
 
 /*room*/
+.room{
+  margin-bottom: 70px;
+}
+
 .roo-calendar{
     height: 100%;
     width: 100%;
@@ -240,6 +244,41 @@ i.tabbar-icon-hotel {
     width: 100%;
     height:100%;
     border-radius: 3px;
+}
+
+.room-info-txt{
+  position: relative;
+
+}
+
+.room-title{
+  margin-top:14px;
+  margin-bottom: 0px;
+  color: rgb(51,51,51);
+  font-weight: normal;
+}
+
+.room-tip{
+    border: 0.5px solid grey;
+    border-radius: 3px ;
+    font-size: 9px;
+    padding:3px 6px;
+}
+
+.room .price{
+   position: absolute;
+    top: 0px;
+    right: 14px;
+    margin: 0px;
+    background-color: #DCBA62;
+    color: white;
+    padding: 3px 12px 3px 9px;
+}
+
+.room .reserve{
+  float: right;
+  background:none;
+  border: none;
 }
 
 /*icon*/
