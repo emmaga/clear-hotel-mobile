@@ -112,6 +112,7 @@ define([], function () {'use strict';
             submit:'提交订单',
             reserve:'预定',
             soldOut:'已订完',
+            price_detail:'价格详情'
         }
     }
 });
