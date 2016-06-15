@@ -94,6 +94,7 @@ define([], function () {'use strict';
             error_text: '抱歉，出错了',
             error_expired: '抱歉，该页面已过期，你可以重新访问该页面，通过关注公众号：',
             phonegap_only: '该模块只支持在PhoneGap中使用',
+            not_found: '404, 页面未找到'
 
         },
         room:{

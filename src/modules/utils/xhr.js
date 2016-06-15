@@ -1,5 +1,5 @@
 
-define(['i18nText', 'i18n'], function (i18nText, i18n) {'use strict';
+define(['errorFunc', 'i18n'], function (errorFunc, i18n) {'use strict';
 
     // http://stackoverflow.com/questions/1730692/jquery-ajax-how-to-detect-network-connection-error-when-making-ajax-call
     function wrapOptions(options) {
@@ -7,15 +7,20 @@ define(['i18nText', 'i18n'], function (i18nText, i18n) {'use strict';
         if (options.suppressError !== true) {
             var errorCallback = options.error;
             options.error = function (xhr, status) {
-                var hotelApp = window.hotelApp,
-                    message = i18nText.error.unknown_error;
                 if (xhr.readyState === 4) {
-                    message = i18nText.error.http_error;
-                } else if (xhr.readyState === 0) {
-                    message = i18nText.error.no_network;
-                }
-                if (hotelApp) {
-                    hotelApp.alert(message);
+                    switch (xhr.status) {
+                        case 404:
+                            // 404, 页面未找到
+                            errorFunc.error(100404);
+                            break; 
+                        default:
+                            // 网络错误
+                            errorFunc.error(100002);
+                            break;    
+                    }
+                } else {
+                    // 未知错误
+                    errorFunc.error(100001);
                 }
                 return typeof errorCallback === 'function' && errorCallback(xhr, status);
             };
@@ -25,17 +30,23 @@ define(['i18nText', 'i18n'], function (i18nText, i18n) {'use strict';
 
     function ajax(options) {
         
+        // 判断是否联网
+        if (!navigator.onLine) {
+            
+            // 无网络连接
+            errorFunc.error(100003);
+            return;
+        }
+
         // set lang
         if (options.data === undefined) {
             options.data = {};
-            options.data.lang = i18n.getLocale();
         }
-        else {
-            options.data.lang = i18n.getLocale();
-        }
+        options.data.lang = i18n.getLocale();
 
-        //JSON.stringify(data)
-        options.data = JSON.stringify(options.data);   
+        // JSON.stringify(data)
+        options.data = JSON.stringify(options.data); 
+
         return window.Dom7.ajax(wrapOptions(options));
     }
 

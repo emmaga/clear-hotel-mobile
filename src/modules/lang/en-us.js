@@ -93,7 +93,8 @@ define([], function () {'use strict';
             http_error: 'network error',
             error_text: 'oops, something went wrong',
             error_expired: 'Sorry, this page has expired , you can re- access this page , by focusing public number : ',
-            phonegap_only:'PhoneGap Only'
+            phonegap_only:'PhoneGap Only',
+            not_found: '404, page not found'
         },
         room:{
             date_in:'check in:',

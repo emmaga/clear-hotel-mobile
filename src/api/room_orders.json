@@ -1,0 +1,35 @@
+  {
+  "errInfo": "None",
+  "rescode": "200",
+  "data": {
+    "orders": [
+      {
+        "orderId": "123456",
+        "roomName": "大床SPA房",
+        "check_in": "2016/06/08",
+        "check_out": "2016/06/09",
+        "totalPrice": "222",
+        "orderStatus": 1,
+        "roomNumber": 2
+      },
+      {
+        "orderId": "123456",
+        "roomName": "大床房",
+        "check_in": "2016/06/08",
+        "check_out": "2016/06/09",
+        "totalPrice": "222",
+        "orderStatus": 1,
+        "roomNumber": 1
+      },
+      {
+        "orderId": "123456",
+        "roomName": "标准房",
+        "check_in": "2016/06/08",
+        "check_out": "2016/06/09",
+        "totalPrice": "222",
+        "orderStatus": 1,
+        "roomNumber": 3
+      }
+    ]
+  }
+}

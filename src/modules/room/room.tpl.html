@@ -1,4 +1,4 @@
-<div class="list-block">
+<div class="list-block" >
   <ul>
       <li style="position: relative;">
           <div class="item-content">
@@ -15,19 +15,22 @@
         <li  class="col-100" style="margin-top: 10px">
             <div class="room" data-roomId="{{roomId}}" data-roomName="{{name}}">
                 <img src="{{url}}" class="lazy room-img">
-                <h3>{{name}}</h3>
-                <!--<p>{{join tips delimiter=", "}}</p>-->
-                {{#each tips}}
-                <span style="border: 1px solid grey;border-radius: 3px">{{tip}}</span>
-                {{/each}}
-                <p class="price"></p>
-                <a href="room-reserve.html?moduleId=9&roomId={{roomId}}">
-                    <button class="reserve"{{#if this.soldOut}}disabled="disabled"{{/if}}>{{js "this.soldOut ? '已订完' : '预定'"}} </button>
-                </a>
+                <div class="room-info-txt">
+                    <h3 class="room-title">{{name}}</h3>
+                    <!--<p>{{join tips delimiter=", "}}</p>-->
+                    {{#each tips}}
+                    <span class="room-tip">{{tip}}</span>
+                    {{/each}}
+                    <p class="price"></p>
+                    <a href="room-reserve.html?moduleId=9&roomId={{roomId}}">
+                        <button class="reserve"{{#if this.soldOut}}disabled="disabled"{{/if}}>{{js "this.soldOut ? '已订完' : '预定'"}} </button>
+                    </a>
+                </div>
             </div>
         </li>
         {{/each}}
     </ul>
+  </div>
 </div>
 <div class="list-block">
 
