@@ -27,3 +27,24 @@ var getParameters = function (queryString, splitStr) {
     });
     return ret;
 }
+
+var getWxUrl = function(appId, stateRedirectUriCode) {
+    var appId = appId,
+        stateRedirectUriCode = stateRedirectUriCode,
+        redirectUri = encodeURIComponent('http://mback.cleartv.cn/backend_terminal/v1/callbackentry');
+    var url = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + appId +
+              '&redirect_uri=' + redirectUri +
+              '&response_type=code&scope=snsapi_base' +
+              '&state=ai=' + appId + 
+              '+redirect_uri=' + stateRedirectUriCode + '#wechat_redirect';
+    return url;
+
+}
+
+
+
+
+
+
+
+

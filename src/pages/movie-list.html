@@ -6,5 +6,7 @@
     var p = getSearchParameters();
     var appId = p.appId;
     var moduleId = p.moduleId;
-    window.location.href = 'index.html?state=appId='+appId+'#page=movie-list&moduleId='+moduleId;
+    // window.location.href = 'index.html?state=appId='+appId+'#page=movie-list&moduleId='+moduleId;
+    var stateRedirectUriCode = '5,' + moduleId;
+    window.location.href = getWxUrl(appId, stateRedirectUriCode);
 </script>
