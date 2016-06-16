@@ -78,10 +78,17 @@ requirejs(['framework7', 'config', 'appFunc', 'router', 'xhr', 'storage', 'index
                 config.setClearToken(clearToken);
             }
         },
+        setOpenId: function() {
+            var openId = appFunc.getSearchParameters().openid ? appFunc.getSearchParameters().openid : '';
+            if (openId !== '') {
+                config.setOpenId(openId);
+            }
+        },
         initMainView: function() {
             app.setAppId();
             app.setAppName();
             app.setClearToken();
+            app.setOpenId();
             app.initFramework7();
         },
         initFramework7: function() {

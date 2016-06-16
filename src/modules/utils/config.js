@@ -22,6 +22,11 @@ define([], function () {'use strict';
      */
     var clearToken; 
 
+    /**
+     * 微信用户唯一标识
+     */
+    var openId;
+
     return {
         /**
          * 返回JSON地址
@@ -91,6 +96,20 @@ define([], function () {'use strict';
          */
         getClearToken: function() {
             return (typeof(clearToken) === "undefined") ? '' : clearToken;
+        },
+        /**
+         * 设置openId
+         * @param k
+         */
+        setOpenId: function(k) {
+            openId = k;
+        },
+        /**
+         * 获取openId
+         * @returns {string}
+         */
+        getOpenId: function() {
+            return (typeof(openId) === "undefined") ? '' : openId;
         }
     };
 
