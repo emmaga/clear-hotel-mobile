@@ -2,5 +2,5 @@
   "errInfo": "None",
   "rescode": "200",
   "ModuleInstanceID": 1,
-  "redirect_url":"http://localhost/clear-hotel-mobile/src/api/movie_list_private.json"
+  "redirect_url":"http://m.cleartv.cn/wx/clear-hotel-mobile/src/api/movie_list_private.json"
 }
