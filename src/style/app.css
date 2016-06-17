@@ -48,9 +48,99 @@ i.tabbar-icon-hotel {
 }
 
 /*service*/
-.service-list ul:after{
-    height:0;
+
+.service-list{
+  margin: 15px 0;
 }
+.service-list-order-content{
+  margin-top: 0;
+  padding-top: 10px;
+  padding-bottom: 14px;
+  color: #6d6d72;
+}
+.service-list-order-id{
+  /*margin-bottom: -13px;*/
+ }
+.service-list-order-name{
+  position: relative;
+  font-weight: normal;
+  display: inline;
+ }
+
+.service-list-order-num{
+  position: relative;
+  display: inline;
+}
+.service-list-order-time0{
+  position: relative;
+  top: 7px;
+  margin: 0;
+  margin-top: 7px;
+  font-size: 12px;
+}
+
+.service-list-order-time1{
+  position: relative;
+  top: 7px;
+  display: inline;
+  margin: 0;
+  margin-left: -8px;
+  font-size: 12px;
+}
+
+.service-list-order-time2{
+  position: relative;
+  top: 7px;
+  display: inline;
+  margin: 0;
+  font-size: 12px;
+}
+
+
+.service-list-order-status{
+  position: relative;
+  display: inline;
+  float: right;
+  font-size: 12px;
+  margin-top: 0px;
+}
+
+.service-list-order-status:after{
+  content:' ';
+  position: absolute;
+  top: 5px;
+  right: 2px;
+  width: 6px;
+  height: 6px;
+  border-right:solid 1px #6d6d72;
+  border-top:solid 1px #6d6d72;
+  transform: rotateZ(45deg);
+}
+
+.order-status1:before{
+  content: '...等待处理';
+  opacity: .5;
+  margin-right: 14px;
+ }
+.order-status2:before{
+  content: '订房成功';
+  color: rgb(0,200,50);
+ margin-right: 14px;
+ }
+.order-status3:before{
+  content: '订房失败';
+  color: rgb(200,50,50);
+  margin-right: 14px;
+ }
+
+ .service-list-order-price{
+  float: right;
+  position: relative;
+  top: 4px;
+  margin: 0;
+ }
+
+
 
 /*intro-p1*/
 .introMenu {
