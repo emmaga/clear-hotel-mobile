@@ -1,28 +1,28 @@
-<div class="list-block" >
+<div class="list-block" id="room-list">
   <ul>
       <li style="position: relative;">
           <div class="item-content">
               <div class="item-inner row">
-                  <span class="col-50" id="date-in"></span>
-                  <span class="col-50" id="date-out"></span>
+                  <span class="col-50" id="date-in">{{date_in}}{{data.check_in}}</span>
+                  <span class="col-50" id="date-out">{{date_out}}{{data.check_out}}</span>
               </div>
           </div>
           <div class="roo-calendar" id="calendar"></div>
       </li>
   </ul>
-    <ul id="room-list">
+    <ul>
         {{#each data.roomList}}
         <li  class="col-100" style="margin-top: 10px">
-            <div class="room" data-roomId="{{roomId}}" data-roomName="{{name}}">
-                <img src="{{url}}" class="lazy room-img">
+            <div class="room" data-roomId="{{roomId}}" data-roomName="{{name}}" data-price="{{averagePrice}}">
+                <img src="{{img[0].url}}" class="lazy room-img">
                 <div class="room-info-txt">
                     <h3 class="room-title">{{name}}</h3>
                     <!--<p>{{join tips delimiter=", "}}</p>-->
                     {{#each tips}}
                     <span class="room-tip">{{tip}}</span>
                     {{/each}}
-                    <p class="price"></p>
-                    <a href="room-reserve.html?moduleId=9&roomId={{roomId}}">
+                    <p class="price">￥{{averagePrice}}</p>
+                    <a class="reserve-href" href="room-reserve.html?type=room&roomId={{roomId}}&moduleId={{../moduleId}}">
                         <button class="reserve"{{#if this.soldOut}}disabled="disabled"{{/if}}>{{js "this.soldOut ? '已订完' : '预定'"}} </button>
                     </a>
                 </div>

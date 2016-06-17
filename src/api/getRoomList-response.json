@@ -9,10 +9,10 @@
         "name":"高级大床房",
         "roomId":"1",
         "img":[
-          {"url":"http://m.cleartv.cn/wx/api/restaurant-0.jpg"},
-          {"url":"http://m.cleartv.cn/wx/api/restaurant-1.jpg"},
-          {"url":"http://m.cleartv.cn/wx/api/restaurant-2.jpg"},
-          {"url":"http://m.cleartv.cn/wx/api/restaurant-3.jpg"}
+          {"url":"http://localhost/clear-hotel-mobile/src/api/restaurant-0.jpg"},
+          {"url":"http://localhost/clear-hotel-mobile/src/api/restaurant-1.jpg"},
+          {"url":"http://localhost/clear-hotel-mobile/src/api/restaurant-2.jpg"},
+          {"url":"http://localhost/clear-hotel-mobile/src/api/restaurant-3.jpg"}
         ],
         "tips":[
           {"tip":"无早"},
@@ -27,10 +27,10 @@
         "name":"豪华大床房",
         "roomId":"2",
         "img":[
-          {"url":"http://m.cleartv.cn/wx/api/restaurant-0.jpg"},
-          {"url":"http://m.cleartv.cn/wx/api/restaurant-1.jpg"},
-          {"url":"http://m.cleartv.cn/wx/api/restaurant-2.jpg"},
-          {"url":"http://m.cleartv.cn/wx/api/restaurant-3.jpg"}
+          {"url":"http://localhost/clear-hotel-mobile/src/api/restaurant-0.jpg"},
+          {"url":"http://localhost/clear-hotel-mobile/src/api/restaurant-1.jpg"},
+          {"url":"http://localhost/clear-hotel-mobile/src/api/restaurant-2.jpg"},
+          {"url":"http://localhost/clear-hotel-mobile/src/api/restaurant-3.jpg"}
         ],
         "tips":[
           {"tip":"无早"},
@@ -45,10 +45,10 @@
         "name":"景观大床房",
         "roomId":"3",
         "img":[
-          {"url":"http://m.cleartv.cn/wx/api/restaurant-0.jpg"},
-          {"url":"http://m.cleartv.cn/wx/api/restaurant-1.jpg"},
-          {"url":"http://m.cleartv.cn/wx/api/restaurant-2.jpg"},
-          {"url":"http://m.cleartv.cn/wx/api/restaurant-3.jpg"}
+          {"url":"http://localhost/clear-hotel-mobile/src/api/restaurant-0.jpg"},
+          {"url":"http://localhost/clear-hotel-mobile/src/api/restaurant-3.jpg"},
+          {"url":"http://localhost/clear-hotel-mobile/src/api/restaurant-2.jpg"},
+          {"url":"http://localhost/clear-hotel-mobile/src/api/restaurant-1.jpg"}
         ],
         "tips":[
           {"tip":"无早"},
@@ -63,10 +63,10 @@
         "name":"商务套房",
         "roomId":"4",
         "img":[
-          {"url":"http://m.cleartv.cn/wx/api/restaurant-0.jpg"},
-          {"url":"http://m.cleartv.cn/wx/api/restaurant-1.jpg"},
-          {"url":"http://m.cleartv.cn/wx/api/restaurant-2.jpg"},
-          {"url":"http://m.cleartv.cn/wx/api/restaurant-3.jpg"}
+          {"url":"http://localhost/clear-hotel-mobile/src/api/restaurant-0.jpg"},
+          {"url":"http://localhost/clear-hotel-mobile/src/api/restaurant-1.jpg"},
+          {"url":"http://localhost/clear-hotel-mobile/src/api/restaurant-2.jpg"},
+          {"url":"http://localhost/clear-hotel-mobile/src/api/restaurant-3.jpg"}
         ],
         "tips":[
           {"tip":"无早"},
@@ -81,10 +81,10 @@
         "name":"行政套房",
         "roomId":"5",
         "img":[
-          {"url":"http://m.cleartv.cn/wx/api/restaurant-0.jpg"},
-          {"url":"http://m.cleartv.cn/wx/api/restaurant-1.jpg"},
-          {"url":"http://m.cleartv.cn/wx/api/restaurant-2.jpg"},
-          {"url":"http://m.cleartv.cn/wx/api/restaurant-3.jpg"}
+          {"url":"http://localhost/clear-hotel-mobile/src/api/restaurant-0.jpg"},
+          {"url":"http://localhost/clear-hotel-mobile/src/api/restaurant-1.jpg"},
+          {"url":"http://localhost/clear-hotel-mobile/src/api/restaurant-2.jpg"},
+          {"url":"http://localhost/clear-hotel-mobile/src/api/restaurant-3.jpg"}
         ],
         "tips":[
           {"tip":"无早"},
@@ -99,10 +99,10 @@
         "name":"行政豪华房",
         "roomId":"6",
         "img":[
-          {"url":"http://m.cleartv.cn/wx/api/restaurant-0.jpg"},
-          {"url":"http://m.cleartv.cn/wx/api/restaurant-1.jpg"},
-          {"url":"http://m.cleartv.cn/wx/api/restaurant-2.jpg"},
-          {"url":"http://m.cleartv.cn/wx/api/restaurant-3.jpg"}
+          {"url":"http://localhost/clear-hotel-mobile/src/api/restaurant-0.jpg"},
+          {"url":"http://localhost/clear-hotel-mobile/src/api/restaurant-1.jpg"},
+          {"url":"http://localhost/clear-hotel-mobile/src/api/restaurant-2.jpg"},
+          {"url":"http://localhost/clear-hotel-mobile/src/api/restaurant-3.jpg"}
         ],
         "tips":[
           {"tip":"无早"},
@@ -117,10 +117,10 @@
         "name":"总统套房",
         "roomId":"7",
         "img":[
-          {"url":"http://m.cleartv.cn/wx/api/restaurant-0.jpg"},
-          {"url":"http://m.cleartv.cn/wx/api/restaurant-1.jpg"},
-          {"url":"http://m.cleartv.cn/wx/api/restaurant-2.jpg"},
-          {"url":"http://m.cleartv.cn/wx/api/restaurant-3.jpg"}
+          {"url":"http://localhost/clear-hotel-mobile/src/api/restaurant-0.jpg"},
+          {"url":"http://localhost/clear-hotel-mobile/src/api/restaurant-1.jpg"},
+          {"url":"http://localhost/clear-hotel-mobile/src/api/restaurant-2.jpg"},
+          {"url":"http://localhost/clear-hotel-mobile/src/api/restaurant-3.jpg"}
         ],
         "tips":[
           {"tip":"无早"},

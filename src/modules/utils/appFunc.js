@@ -86,6 +86,14 @@ define(['framework7'], function(framework7){
         })
     }
 
+    var addClass = function(ele,newClass){
+        if(ele.className == ''){
+            ele.className = newClass;
+        } else{
+            ele.className += ' ' + newClass;
+        }
+    }
+
     return {
         renderTpl: renderTpl,
         hideToolbar: hideToolbar,
@@ -94,6 +102,7 @@ define(['framework7'], function(framework7){
         getSearchParameters: getSearchParameters,
         getParameters: getParameters,
         dateToTime:dateToTime,
-        timeToDate:timeToDate
+        timeToDate:timeToDate,
+        addClass:addClass
     };
 });

@@ -19,6 +19,7 @@
             'briefModule': 'brief/brief',
             'roomModule': 'room/room',
             'roomReserveModule': 'room/room-reserve',
+            'orderDetail':'room/order-detail',
             'serviceModule': 'service/service',
             'hotelIntroListModule': 'hotel-intro-list/hotel-intro-list',
             'hotelIntroListDetailModule':'hotel-intro-list/hotel-intro-list-detail',

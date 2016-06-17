@@ -1,5 +1,23 @@
- <div data-page="room-reserve" class="page">
+ <!--<div data-page="room-reserve" class="page">-->
     <div class="page-content">
+        <!-- Slider container -->
+        <div class="swiper-container" id="room-reserve-swiper_{{roomId}}">
+            <!-- Slides wrapper -->
+            <div class="swiper-wrapper">
+                <!-- Slides -->
+                {{#each img}}
+                <div class="swiper-slide">
+                    <img src="{{url}}" class="swiper-lazy">
+                    <!-- <div class="preloader"></div> -->
+                </div>
+                {{/each}}
+            </div>
+            <!-- Pagination, if required -->
+            <div class="swiper-pagination"></div>
+        </div>
+        <div class="intro content-block">
+            <p class="text big-first-letter">{{intro}}</p>
+        </div>
         <div class="content-block">
             <div class="content-block-inner room-name">
                 {{roomName}}
@@ -11,6 +29,9 @@
             </div>
             <div class="content-block-inner roomNum">
                 <span>{{roomNum}}</span>
+                <button id="number-sub">-</button>
+                <input class="number" value="1" readonly="true"></span>
+                <button id="number-add">+</button>
             </div>
         </div>
         <form id="reserve-form" class="list-block">
@@ -41,17 +62,24 @@
         </form>
         <div class="content-block">
             <div class="content-block-inner price-detail">
-                {{priceList}}
+                {{#each priceList}}
+                <div>
+                    <span>{{date}}</span>
+                    <span>  ￥</span>
+                    <span class="each-price" data-price="{{price}}">{{price}}</span>
+                </div>
+                {{/each}}
             </div>
-            <div class="content-block-inner total-price">
+            <div class="content-block-inner total-price" data-total-price="{{totalPriceNum}}">
+                {{totalPrice}}
             </div>
         </div>
     </div>
      <div class="toolbar" id="room-reserve-toolbar">
          <div class="toolbar-inner no-padding">
-             <a href="" class="external button bottom_button button-max submit">
+             <a href="" class="button bottom_button button-max submit">
                  <span>{{submit}}</span>
              </a>
          </div>
      </div>
- </div>
+ <!--</div>-->

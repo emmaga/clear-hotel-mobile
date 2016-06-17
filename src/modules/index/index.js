@@ -4,13 +4,13 @@ define(['framework7', 'config', 'xhr', 'errorFunc', 'router', 'appFunc', 'briefM
     var $$ = Dom7;
 
     var index = {
-      init: function() {
+      init: function(type,moduleId) {
         var data = {
           project_name: config.getAppId(),
           action: "GET",
           token: config.getClearToken()
         }
-        
+
         xhr.ajax({
           'url': config.getJSONUrl('mainmenus'),
           dataType: 'json',
@@ -19,12 +19,16 @@ define(['framework7', 'config', 'xhr', 'errorFunc', 'router', 'appFunc', 'briefM
           'success': function(data){
             var rescode = data.rescode;
             if (rescode == 200) {
-              index.loadData(data);
+                if(type===undefined){
+                    index.loadData(type, moduleId, data);
+                }else {
+                    index.loadSelfData(type, moduleId, data);
+                }
             }
             else {
               errorFunc.error(rescode);
             }
-            
+
           }
         })
       },
@@ -41,10 +45,10 @@ define(['framework7', 'config', 'xhr', 'errorFunc', 'router', 'appFunc', 'briefM
         selector.addClass('active');
       },
       loadPage: function (type, moduleId) {
-          
+
           // add active class
           index.activeTab(type, moduleId);
-          
+
           switch (type) {
               case 'brief':
                   briefModule.init(moduleId);
@@ -57,11 +61,27 @@ define(['framework7', 'config', 'xhr', 'errorFunc', 'router', 'appFunc', 'briefM
                   break;
               case 'my':
                   myModule.init(moduleId);
-                  break;    
+                  break;
           }
       },
-      loadData: function(data) {
+        loadSelfData: function(type,moduleId,data) {
+            // 修改title
+            document.title = data.data.appTitle;
 
+            // 加载tabs
+            var renderData = data.data;
+
+            var output = appFunc.renderTpl(template, renderData);
+            $$('#index-views').html(output);
+
+            // Add views
+            window.viewMain = hotelApp.addView('.view-main', {domCache: true});
+
+            // 导航按钮切换
+            index.loadPage(type, moduleId);
+
+        },
+      loadData: function(type,moduleId,data) {
         // 修改title
         document.title = data.data.appTitle;
 
@@ -79,13 +99,15 @@ define(['framework7', 'config', 'xhr', 'errorFunc', 'router', 'appFunc', 'briefM
         for(var i = 0; i < mm.length; i++) {
           var selector = "a[href='#tab_"+mm[i].ModuleName+"_"+mm[i].ContentModuleInstanceID+"']";
           $$(document).on('click', selector, function (e) {
-              var type = $$("a[href='"+this.hash+"']").data('type');
-              var moduleId = $$("a[href='"+this.hash+"']").data('moduleId');
+              var click_type = $$("a[href='"+this.hash+"']").data('type');
+              var click_moduleId = $$("a[href='"+this.hash+"']").data('moduleId');
+              var type = type ? type : click_type;
+              var moduleId = moduleId ? moduleId : click_moduleId;
               index.loadPage(type, moduleId);
           });
         }
 
-        // init app 
+        // init app
         var h = appFunc.getHashParameters();
         var page = h.page ? h.page : '';
         if (page === '') {
@@ -149,12 +171,12 @@ define(['framework7', 'config', 'xhr', 'errorFunc', 'router', 'appFunc', 'briefM
               index.loadPage(type, moduleId);
               break;
             case 'room-reserve':
-              var moduleId = h.moduleId;
-                roomReserveModule.init(moduleId, true);
+              //var moduleId = h.moduleId;
+                index.loadPage("room", 3);
               break;
           }
         }
-        
+
       }
 
     };

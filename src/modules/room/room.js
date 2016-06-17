@@ -4,32 +4,33 @@ define(['framework7','config', 'xhr','appFunc','i18nText','text!room/room.tpl.ht
     var monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August' , 'September' , 'October', 'November', 'December'];
     //日历选择的日期数组
     var confirm = [];
-    var dayLength;
-    //生成的选定时间段内的房间的价格数组
-    var roomPriceArray = [];
-    //选定的时间段数组
-    var dayArray = [];
-    //入住和离店时间
-    var date1;
-    var date2;
 
     var room = {
-        bindEvents: function(menuId) {
+        bindEvents: function(moduleId,data) {
             var getMessage = function(){
+                if(sessionStorage.getItem('orderData')) {
+                    sessionStorage.removeItem('orderData');
+                }
                 var self = $$(this);
-                var roomId = self.parent().parent().data("roomId");
-                var roomName = self.parent().parent().data("roomName");
-                var avePrice = self.parent().prev().data("price");
+                var roomId = self.parent().parent().parent().data("roomId");
+                var roomName = self.parent().parent().parent().data("roomName");
+                var avePrice = self.parent().parent().parent().data("price");
+                var img,intro;
+                for(var i=0;i<data.data.roomList.length;i++){
+                    if(data.data.roomList[i].roomId == roomId){
+                        img = data.data.roomList[i].img;
+                        intro = data.data.roomList[i].intro;
+                    }
+                }
                 //当前room在当前选定时间段内的价格数组（ID与价格数组相对应，ID从1开始，数组从0开始，因此ID需要减1）
-                var reservePriceArray = roomPriceArray[roomId-1];
                 var orderData = {
                     roomId:roomId,
                     roomName:roomName,
                     avePrice:avePrice,
-                    reservePriceArray:reservePriceArray,
-                    dayArray:dayArray,
-                    date1:date1,
-                    date2:date2
+                    date1:data.data.check_in,
+                    date2:data.data.check_out,
+                    img:img,
+                    intro:intro
                 };
                 var orderDataStr = JSON.stringify(orderData);
                 sessionStorage.setItem('orderData',orderDataStr);
@@ -37,86 +38,32 @@ define(['framework7','config', 'xhr','appFunc','i18nText','text!room/room.tpl.ht
             }
             $$(document).on('click', '.reserve', getMessage);
         },
-        loadData:function(menuId,data){
+        loadData:function(moduleId,data){
             var renderData = {
-                data:data.room,
+                data:data.data,
                 reserve:i18nText.room.reserve,
-                soldOut:i18nText.room.soldOut
+                soldOut:i18nText.room.soldOut,
+                date_in:i18nText.room.date_in,
+                date_out:i18nText.room.date_out,
+                moduleId:moduleId
             };
             var output = appFunc.renderTpl(template,renderData);
-            $$('#tab_'+'room'+'_'+menuId).html(output);
-            //var reserve = $$('.reserve');
-            //for(var i=0;i<reserve.length;i++){
-            //    if(reserve[i].innerText=="已订完"){
-            //        reserve[i].setAttribute('disabled','disabled')
-            //    }
-            //}
+            $$('#tab_'+'room'+'_'+moduleId).html(output);
 
-            room.bindEvents(menuId);
-            xhr.ajax({
-                'url': config.getJSONUrl('room-price'),
-                dataType: 'json',
-                method: 'POST',
-                'success': function(priceData){room.initCalendar(menuId,priceData)}
-            })
-        },
-        //动态获取、计算并修改房间的价格
-        changePrice:function(menuId,priceLength,priceData,dateIn,dateOut){
-            //var dayList = $$('.picker-calendar-day');
-            //for(var p;p<dayList.length;p++){
-            //    if(dayList[p].getAttribute('data-date')>=dateIn && dayList[p].getAttribute('data-date')<dateOut){
-            //        dayList[p].setAttribute('class','picker-calendar-day-selected');
-            //    }
-            //}
-            dayArray=[];
-            //价格的二维数组
-            var priceArray = [];
-            //计算后的房间均价数组
-            var avePriceArray = [];
-            var priceListLength;
-            for(var i = 0;i < priceLength; i++){
-                if(priceData.price.dateList[i].date>=dateIn && priceData.price.dateList[i].date<dateOut){
-                    dayArray.push(priceData.price.dateList[i].date)
-                    priceArray.push(priceData.price.dateList[i].priceList);
-                    priceListLength=priceData.price.dateList[i].priceList.length;
-                }
-            }
-            for(var j=0;j<priceListLength;j++){
-                var temArr = [];
-                for(var k=0;k<priceArray.length;k++) {
-                    temArr.push(priceArray[k][j]);
-                }
-                roomPriceArray.push(temArr);
-            }
-            for(var k=0;k<roomPriceArray.length;k++){
-                dayLength = roomPriceArray[k].length;
-                var sum = 0;
-                for(var m=0;m<dayLength;m++){
-                    sum += roomPriceArray[k][m];
-                }
-                var averagePrice = sum/dayLength;
-                avePriceArray.push(averagePrice)
-            }
-            var price = $$('.price');
-            for(var n=0;n<price.length;n++){
-                price[n].setAttribute('data-price',avePriceArray[n])
-                price[n].innerText = i18nText.room.price+avePriceArray[n];
-            }
+            //room.bindEvents(moduleId,data);
+            room.initCalendar(moduleId,data);
         },
         //初始化日历控件
-        initCalendar:function(menuId,priceData){
-            var priceLength = priceData.price.dateList.length;
+        initCalendar:function(moduleId,data){
+            //设置日历中多少天之后不可选中
+            var priceLength = 100;
             var today = new Date();
             var tomorrow = new Date().setDate(today.getDate() + 1);
-            var monthLater = new Date().setDate(today.getDate() + priceLength - 1);
+            var daysLater = new Date().setDate(today.getDate() + priceLength - 1);
             var yesterday = new Date().setDate(today.getDate() - 1);
-            var dateIn =  appFunc.timeToDate(today,'yyyy/MM/dd');
-            var dateOut = appFunc.timeToDate(tomorrow,'yyyy/MM/dd')
-            date1 = dateIn;
-            date2 = dateOut;
-            $$('#date-in').html(i18nText.room.date_in+dateIn).attr('date',dateIn);
-            $$('#date-out').html(i18nText.room.date_out+dateOut).attr('date',dateOut);
-            room.changePrice(menuId,priceLength,priceData,dateIn,dateOut);
+            var dateIn = appFunc.dateToTime(data.data.check_in);
+            var dateOut = appFunc.dateToTime(data.data.check_out);
+            //room.changePrice(moduleId,priceLength,dateIn,dateOut);
             var calendar = window.hotelApp.calendar({
                 input: '#calendar',
                 dateFormat: 'M dd yyyy',
@@ -127,12 +74,12 @@ define(['framework7','config', 'xhr','appFunc','i18nText','text!room/room.tpl.ht
                     {
                         cssClass: 'picker-calendar-day-selected',
                         range: {
-                            from: yesterday,
-                            to: tomorrow
+                            from: dateIn,
+                            to: dateOut
                         }
                     }],
                 disabled: function (date) {
-                    if (date < yesterday || date > monthLater) {
+                    if (date < yesterday || date > daysLater) {
                         return true;
                     }
                     else {
@@ -161,28 +108,24 @@ define(['framework7','config', 'xhr','appFunc','i18nText','text!room/room.tpl.ht
                     $$('.picker-calendar').css('height',"100%");
                     $$('.calendar-custom-toolbar .current-value').text(monthNames[p.currentMonth] +', ' + p.currentYear);
                     $$('.calendar-custom-toolbar .right').on('click', function (){
-                        //var oldTime = appFunc.dateToTime('2016-5-9');
-                        //alert(oldTime);
                         //var daySelected = $$('.picker-calendar-day-selected');
                         if(confirm.length==0){
-                            //$$('#date-in').html("入住："+dateIn).attr('date',dateIn);
-                            //$$('#date-out').html("离店："+dateOut).attr('date',dateOut);
-                            //room.changePrice(priceLength,priceData,dateIn,dateOut);
                             calendar.close();
                         }
                         else if(confirm.length==2){
                             roomPriceArray=[];
                             dayArray=[];
-                            confirm.sort();
+                            //confirm.sort();
                             var earlyDate = confirm[0];
                             var lateDate = confirm[1];
                             var dateInChoose =  appFunc.timeToDate(earlyDate,'yyyy/MM/dd');
-                            var dateOutChoose = appFunc.timeToDate(lateDate,'yyyy/MM/dd')
+                            var dateOutChoose = appFunc.timeToDate(lateDate,'yyyy/MM/dd');
                             $$('#date-in').html(i18nText.room.date_in+dateInChoose).attr('date',dateInChoose);
                             $$('#date-out').html(i18nText.room.date_out+dateOutChoose).attr('date',dateOutChoose);
-                            room.changePrice(menuId,priceLength,priceData,dateInChoose,dateOutChoose);
-                            date1 = dateInChoose;
-                            date2 = dateOutChoose;
+                            //将dateInChoose/dateOutChoose作为参数，再次请求ajax并执行lodaData（）函数
+
+
+
                             calendar.close();
                             confirm=[];
                         }else{
@@ -196,7 +139,20 @@ define(['framework7','config', 'xhr','appFunc','i18nText','text!room/room.tpl.ht
                 onChange:function(p,values){
                     //var daySelected = $$('.picker-calendar-day-selected');
                     var result = calendar.value;
+                    result.sort();
                     confirm = result;
+                    if(result.length==2){
+                        var time1 = appFunc.dateToTime(result[0]);
+                        var time2 = appFunc.dateToTime(result[1]);
+                        var days = $$('.picker-calendar-day');
+                        for(var i=0;i<days.length;i++){
+                            var date = days[i].getAttribute('data-date');
+                            var time = appFunc.dateToTime(date);
+                            if(time1<=time&&time<time2){
+                                days[i].setAttribute('class','picker-calendar-day picker-calendar-day-selected');
+                            }
+                        }
+                    };
                     if(result.length>=2) {
                         calendar.value = [];
                     }
@@ -205,12 +161,12 @@ define(['framework7','config', 'xhr','appFunc','i18nText','text!room/room.tpl.ht
         }
     }
 
-    var init = function (menuId){
+    var init = function (moduleId){
         xhr.ajax({
-            'url': config.getJSONUrl('room'),
+            'url': config.getJSONUrl('getRoomList-response'),
             dataType: 'json',
             method: 'POST',
-            'success': function(data){room.loadData(menuId,data)}
+            'success': function(data){room.loadData(moduleId,data)}
         })
     };
     return {

@@ -1,0 +1,104 @@
+ <div data-page="order-detail" class="page">
+    <div class="page-content" id="order-detail">
+        <div class="list-block">
+            <h3 style="margin: 0 auto;text-align: center">{{state}}</h3>
+            <!-- First group-->
+            <div class="list-group">
+                <ul>
+                    <li class="list-group-title">{{order_message}}</li>
+                    <li class="item-content">
+                        <div class="item-media"><i class="icon"></i></div>
+                        <div class="item-inner">
+                            <div class="item-title">{{order_id}}</div>
+                            <div class="item-after">{{data.orderId}}</div>
+                        </div>
+                    </li>
+                    <li class="item-content">
+                        <div class="item-media"><i class="icon"></i></div>
+                        <div class="item-inner">
+                            <div class="item-title">{{order_time}}</div>
+                            <div class="item-after">{{data.orderTime}}</div>
+                        </div>
+                    </li>
+                    <li class="item-content">
+                        <div class="item-media"><i class="icon"></i></div>
+                        <div class="item-inner">
+                            <div class="item-title">{{total_price}}</div>
+                            <div class="item-after">￥:{{data.totalPrice}}</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!-- Second group-->
+            <div class="list-group">
+                <ul>
+                    <li class="list-group-title">{{room_message}}</li>
+                    <li class="item-content">
+                        <div class="item-media"><i class="icon"></i></div>
+                        <div class="item-inner">
+                            <div class="item-title">{{room_type}}</div>
+                            <div class="item-after">{{data.roomName}}</div>
+                        </div>
+                    </li>
+                    <li class="item-content">
+                        <div class="item-media"><i class="icon"></i></div>
+                        <div class="item-inner">
+                            <div class="item-title">{{date}}</div>
+                            <div class="item-after">{{data.check_in}} to {{data.check_out}}</div>
+                        </div>
+                    </li>
+                    <li class="item-content">
+                        <div class="item-media"><i class="icon"></i></div>
+                        <div class="item-inner">
+                            <div class="item-title">{{room_num}}</div>
+                            <div class="item-after">{{data.roomNumber}}</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!-- third group-->
+            <div class="list-group">
+                <ul>
+                    <li class="list-group-title">{{price_detail}}</li>
+                    {{#each data.priceList}}
+                    <li class="item-content">
+                        <div class="item-media"><i class="icon"></i></div>
+                        <div class="item-inner">
+                            <div class="item-title">{{date}}</div>
+                            <div class="item-after">￥:{{price}}</div>
+                        </div>
+                    </li>
+                    {{/each}}
+                    <li class="item-content">
+                        <div class="item-media"><i class="icon"></i></div>
+                        <div class="item-inner">
+                            <div class="item-title">{{total_price}}</div>
+                            <div class="item-after">￥:{{data.totalPrice}}</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!-- fourth group-->
+            <div class="list-group">
+                <ul>
+                    <li class="list-group-title">{{contacts}}</li>
+                    <li class="item-content">
+                        <div class="item-media"><i class="icon"></i></div>
+                        <div class="item-inner">
+                            <div class="item-title">{{name}}</div>
+                            <div class="item-after">{{data.name}}</div>
+                        </div>
+                    </li>
+                    <li class="item-content">
+                        <div class="item-media"><i class="icon"></i></div>
+                        <div class="item-inner">
+                            <div class="item-title">{{telephone}}</div>
+                            <div class="item-after">{{data.tel}}</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!--<li class="item-divider" style="list-style: none;height:20px;">&nbsp;</li>-->
+        </div>
+     </div>
+ </div>

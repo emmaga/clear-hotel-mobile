@@ -93,7 +93,7 @@ define(['framework7', 'appFunc', 'indexModule', 'briefModule', 'roomModule','roo
                         var roomId = page.query.roomId;
                         roomId = typeof(roomId) === 'undefined' ? h.roomId : roomId;
 
-                        roomReserveModule.init(moduleId);
+                        roomReserveModule.init(moduleId,roomId);
                         appFunc.hideToolbar();
                         break;
                 }

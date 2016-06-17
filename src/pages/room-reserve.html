@@ -3,7 +3,8 @@
 <script src="util.js"></script>
 <script>
     var p = getSearchParameters();
+    var type = p.type;
+    var moduleId = p.moduleId;
     var roomId = p.roomId;
-    var roomName = p.roomName;
-    window.location.href = 'index.html?state=appId='+appId+'#page=room-reserve&roomId='+roomId;
+    window.location.href = 'index.html?state=#page=index&type=room&moduleId='+moduleId+'&roomId='+roomId+'';
 </script>

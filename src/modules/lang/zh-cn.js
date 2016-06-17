@@ -104,7 +104,7 @@ define([], function () {'use strict';
             price:'均:￥',
             day1:'共',
             day2:'晚',
-            total_price:'总价',
+            total_price:'总价:￥',
             room_num:'房间数',
             name:'姓名',
             pre_name:'预定人姓名',
@@ -114,6 +114,20 @@ define([], function () {'use strict';
             reserve:'预定',
             soldOut:'已订完',
             price_detail:'价格详情'
+        },
+        order:{
+            order_message:'订单信息',
+            order_id:'订单号',
+            order_time:'下单时间',
+            total_price:'总额',
+            room_message:'客房信息',
+            room_type:'房型',
+            date:'日期',
+            room_num:'房间数',
+            price_detail:'房价明细',
+            contacts:'联系人',
+            telephone:'电话',
+            name:'姓名'
         }
     }
 });
