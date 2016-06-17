@@ -36,7 +36,7 @@ var getWxUrl = function(appId, stateRedirectUriCode) {
               '&redirect_uri=' + redirectUri +
               '&response_type=code&scope=snsapi_base' +
               '&state=ai=' + appId + 
-              '+redirect_uri=' + stateRedirectUriCode + '#wechat_redirect';
+              '+ru=' + stateRedirectUriCode + '#wechat_redirect';
     return url;
 
 }

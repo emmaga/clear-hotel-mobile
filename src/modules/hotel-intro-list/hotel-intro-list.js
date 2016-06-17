@@ -9,6 +9,7 @@ define(['framework7','config', 'xhr','appFunc','router','text!hotel-intro-list/h
             },
             loadData: function(moduleId, data, isFirst) {
                 var renderData = data.intro;
+                renderData.appId = config.getAppId();
                 var output = appFunc.renderTpl(template, renderData);
 
                 if(isFirst) {

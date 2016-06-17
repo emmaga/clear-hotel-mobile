@@ -5,7 +5,7 @@
                 <ul>
                     {{#each TVList}}
                     <li class="TV-list-item">
-                        <video width="100%" load="loaded" height="0" class="video-item">
+                        <video width="100%" preload="none" height="0" class="video-item">
                             <source src="{{url}}" type='video/mp4' />
                         </video>
                         <a class="item-link item-content external TV-item" data-TVId="{{TVId}}">
