@@ -5,13 +5,13 @@
     "ModuleInstanceID": 3,
     "img":[
       {
-        "url":"http://m.cleartv.cn/wx/clear-hotel-mobile/src/api/1.png"
+        "url":"http://localhost/clear-hotel-mobile/src/api/1.png"
       },
       {
-        "url":"http://m.cleartv.cn/wx/clear-hotel-mobile/src/api/2.jpg"
+        "url":"http://localhost/clear-hotel-mobile/src/api/2.jpg"
       },
       {
-        "url":"http://m.cleartv.cn/wx/clear-hotel-mobile/src/api/3.jpg"
+        "url":"http://localhost/clear-hotel-mobile/src/api/3.jpg"
       }
     ],
     "title":"介绍标题",

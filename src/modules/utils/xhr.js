@@ -15,7 +15,9 @@ define(['errorFunc', 'i18n'], function (errorFunc, i18n) {'use strict';
                             break; 
                         default:
                             // 网络错误
-                            errorFunc.error(100002);
+                            if (xhr.status !== 200) {
+                                errorFunc.error(100002);
+                            }
                             break;    
                     }
                 } else {

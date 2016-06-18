@@ -128,6 +128,9 @@ define([], function () {'use strict';
             contacts:'联系人',
             telephone:'电话',
             name:'姓名'
+        },
+        confirm:{
+            network_state:'当前网络不是wifi状态，继续播放将会消耗您的流量，确定继续观看？'
         }
     }
 });

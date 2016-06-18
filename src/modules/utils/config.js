@@ -5,7 +5,7 @@ define([], function () {'use strict';
      * 本地配置调试开关
      */
     var useLocalConfig = false;
-    var requestURL = useLocalConfig ? 'http://m.cleartv.cn/wx/clear-hotel-mobile/src/api/' : 'http://mback.cleartv.cn/backend_terminal/v1/';
+    var requestURL = useLocalConfig ? 'http://localhost/clear-hotel-mobile/src/api/' : 'http://mback.cleartv.cn/backend_terminal/v1/';
 
     /**
      * 微信公众号唯一标识
@@ -27,25 +27,27 @@ define([], function () {'use strict';
      */
     var openId;
 
-    return {
-        /**
-         * 返回JSON地址
-         * @param k
-         * @returns {string}
-         */
-        getJSONUrl: function (k) {
-            var e = useLocalConfig ? '.json' : '/';
+    /**
+     * 返回JSON地址
+     * @param k
+     * @returns {string}
+     */
+    function getJSONUrl (k) {
+        var e = useLocalConfig ? '.json' : '/';
 
-            if (!useLocalConfig) {
-                switch(k) {
-                    case 'hotel_intro_list-detail':
-                        k = 'hotel_intro_lists';
-                        break;
-                }
+        if (!useLocalConfig) {
+            switch(k) {
+                case 'hotel_intro_list-detail':
+                    k = 'hotel_intro_lists';
+                    break;
             }
+        }
 
-            return requestURL + k + e;
-        },
+        return requestURL + k + e;
+    }
+
+    return {
+        getJSONUrl: getJSONUrl,
         /**
          * 返回JSON地址
          * @param s, l

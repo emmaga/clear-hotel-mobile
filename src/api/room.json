@@ -6,7 +6,7 @@
         {
           "name":"高级大床房",
           "roomId":"1",
-          "url":"http://m.cleartv.cn/wx/clear-hotel-mobile/src/api/restaurant-0.jpg",
+          "url":"http://localhost/clear-hotel-mobile/src/api/restaurant-0.jpg",
           "tips":[
             {"tip":"无早"},
             {"tip":"wifi"},
@@ -17,7 +17,7 @@
         {
           "name":"豪华大床房",
           "roomId":"2",
-          "url":"http://m.cleartv.cn/wx/clear-hotel-mobile/src/api/restaurant-1.jpg",
+          "url":"http://localhost/clear-hotel-mobile/src/api/restaurant-1.jpg",
           "tips":[
             {"tip":"无早"},
             {"tip":"wifi"},
@@ -28,7 +28,7 @@
         {
           "name":"景观大床房",
           "roomId":"3",
-          "url":"http://m.cleartv.cn/wx/clear-hotel-mobile/src/api/restaurant-2.jpg",
+          "url":"http://localhost/clear-hotel-mobile/src/api/restaurant-2.jpg",
           "tips":[
             {"tip":"无早"},
             {"tip":"wifi"},
@@ -39,7 +39,7 @@
         {
           "name":"商务套房",
           "roomId":"4",
-          "url":"http://m.cleartv.cn/wx/clear-hotel-mobile/src/api/restaurant-3.jpg",
+          "url":"http://localhost/clear-hotel-mobile/src/api/restaurant-3.jpg",
           "tips":[
             {"tip":"无早"},
             {"tip":"wifi"},
@@ -50,7 +50,7 @@
         {
           "name":"行政套房",
           "roomId":"5",
-          "url":"http://m.cleartv.cn/wx/clear-hotel-mobile/src/api/restaurant-4.jpg",
+          "url":"http://localhost/clear-hotel-mobile/src/api/restaurant-4.jpg",
           "tips":[
             {"tip":"无早"},
             {"tip":"wifi"},
@@ -61,7 +61,7 @@
         {
           "name":"行政豪华房",
           "roomId":"6",
-          "url":"http://m.cleartv.cn/wx/clear-hotel-mobile/src/api/restaurant-5.jpg",
+          "url":"http://localhost/clear-hotel-mobile/src/api/restaurant-5.jpg",
           "tips":[
             {"tip":"无早"},
             {"tip":"wifi"},
@@ -72,7 +72,7 @@
         {
           "name":"总统套房",
           "roomId":"7",
-          "url":"http://m.cleartv.cn/wx/clear-hotel-mobile/src/api/restaurant-0.jpg",
+          "url":"http://localhost/clear-hotel-mobile/src/api/restaurant-0.jpg",
           "tips":[
             {"tip":"无早"},
             {"tip":"wifi"},

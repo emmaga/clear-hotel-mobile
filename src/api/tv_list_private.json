@@ -5,122 +5,122 @@
       "TVList":[
         {
           "name":"CCTV1",
-          "icon":"http://m.cleartv.cn/wx/clear-hotel-mobile/src/api/台标/播放_台标-17.png",
-          "url":"http://m.cleartv.cn/wx/clear-hotel-mobile/src/api/demo.mp4",
+          "icon":"http://localhost/clear-hotel-mobile/src/api/台标/播放_台标-17.png",
+          "url":"http://localhost/clear-hotel-mobile/src/api/demo.mp4",
           "TVId":"1"
         },
         {
           "name":"CCTV2",
-          "icon":"http://m.cleartv.cn/wx/clear-hotel-mobile/src/api/台标/播放_台标-13.png",
-          "url":"http://m.cleartv.cn/wx/clear-hotel-mobile/src/api/demo.mp4",
+          "icon":"http://localhost/clear-hotel-mobile/src/api/台标/播放_台标-13.png",
+          "url":"http://localhost/clear-hotel-mobile/src/api/demo.mp4",
           "TVId":"2"
         },
         {
           "name":"CCTV3",
-          "icon":"http://m.cleartv.cn/wx/clear-hotel-mobile/src/api/台标/播放_台标-15.png",
-          "url":"http://m.cleartv.cn/wx/clear-hotel-mobile/src/api/demo.mp4",
+          "icon":"http://localhost/clear-hotel-mobile/src/api/台标/播放_台标-15.png",
+          "url":"http://localhost/clear-hotel-mobile/src/api/demo.mp4",
           "TVId":"3"
         },
         {
           "name":"CCTV4",
-          "icon":"http://m.cleartv.cn/wx/clear-hotel-mobile/src/api/台标/播放_台标-15.png",
-          "url":"http://m.cleartv.cn/wx/clear-hotel-mobile/src/api/demo.mp4",
+          "icon":"http://localhost/clear-hotel-mobile/src/api/台标/播放_台标-15.png",
+          "url":"http://localhost/clear-hotel-mobile/src/api/demo.mp4",
           "TVId":"4"
         },
         {
           "name":"CCTV5",
-          "icon":"http://m.cleartv.cn/wx/clear-hotel-mobile/src/api/台标/播放_台标-15.png",
-          "url":"http://m.cleartv.cn/wx/clear-hotel-mobile/src/api/demo.mp4",
+          "icon":"http://localhost/clear-hotel-mobile/src/api/台标/播放_台标-15.png",
+          "url":"http://localhost/clear-hotel-mobile/src/api/demo.mp4",
           "TVId":"5"
         },
         {
           "name":"CCTV6",
-          "icon":"http://m.cleartv.cn/wx/clear-hotel-mobile/src/api/台标/播放_台标-15.png",
-          "url":"http://m.cleartv.cn/wx/clear-hotel-mobile/src/api/demo.mp4",
+          "icon":"http://localhost/clear-hotel-mobile/src/api/台标/播放_台标-15.png",
+          "url":"http://localhost/clear-hotel-mobile/src/api/demo.mp4",
           "TVId":"6"
         },
         {
           "name":"CCTV7",
-          "icon":"http://m.cleartv.cn/wx/clear-hotel-mobile/src/api/台标/播放_台标-15.png",
-          "url":"http://m.cleartv.cn/wx/clear-hotel-mobile/src/api/demo.mp4",
+          "icon":"http://localhost/clear-hotel-mobile/src/api/台标/播放_台标-15.png",
+          "url":"http://localhost/clear-hotel-mobile/src/api/demo.mp4",
           "TVId":"7"
         },
         {
           "name":"CCTV8",
-          "icon":"http://m.cleartv.cn/wx/clear-hotel-mobile/src/api/台标/播放_台标-15.png",
-          "url":"http://m.cleartv.cn/wx/clear-hotel-mobile/src/api/demo.mp4",
+          "icon":"http://localhost/clear-hotel-mobile/src/api/台标/播放_台标-15.png",
+          "url":"http://localhost/clear-hotel-mobile/src/api/demo.mp4",
           "TVId":"8"
         },
         {
           "name":"CCTV9",
-          "icon":"http://m.cleartv.cn/wx/clear-hotel-mobile/src/api/台标/播放_台标-15.png",
-          "url":"http://m.cleartv.cn/wx/clear-hotel-mobile/src/api/demo.mp4",
+          "icon":"http://localhost/clear-hotel-mobile/src/api/台标/播放_台标-15.png",
+          "url":"http://localhost/clear-hotel-mobile/src/api/demo.mp4",
           "TVId":"9"
         },
         {
           "name":"CCTV10",
-          "icon":"http://m.cleartv.cn/wx/clear-hotel-mobile/src/api/台标/播放_台标-15.png",
-          "url":"http://m.cleartv.cn/wx/clear-hotel-mobile/src/api/demo.mp4",
+          "icon":"http://localhost/clear-hotel-mobile/src/api/台标/播放_台标-15.png",
+          "url":"http://localhost/clear-hotel-mobile/src/api/demo.mp4",
           "TVId":"10"
         },
         {
           "name":"CCTV11",
-          "icon":"http://m.cleartv.cn/wx/clear-hotel-mobile/src/api/台标/播放_台标-15.png",
-          "url":"http://m.cleartv.cn/wx/clear-hotel-mobile/src/api/demo.mp4",
+          "icon":"http://localhost/clear-hotel-mobile/src/api/台标/播放_台标-15.png",
+          "url":"http://localhost/clear-hotel-mobile/src/api/demo.mp4",
           "TVId":"11"
         },
         {
           "name":"CCTV12",
-          "icon":"http://m.cleartv.cn/wx/clear-hotel-mobile/src/api/台标/播放_台标-15.png",
-          "url":"http://m.cleartv.cn/wx/clear-hotel-mobile/src/api/demo.mp4",
+          "icon":"http://localhost/clear-hotel-mobile/src/api/台标/播放_台标-15.png",
+          "url":"http://localhost/clear-hotel-mobile/src/api/demo.mp4",
           "TVId":"12"
         },
         {
           "name":"CCTV13",
-          "icon":"http://m.cleartv.cn/wx/clear-hotel-mobile/src/api/台标/播放_台标-15.png",
-          "url":"http://m.cleartv.cn/wx/clear-hotel-mobile/src/api/demo.mp4",
+          "icon":"http://localhost/clear-hotel-mobile/src/api/台标/播放_台标-15.png",
+          "url":"http://localhost/clear-hotel-mobile/src/api/demo.mp4",
           "TVId":"13"
         },
         {
           "name":"CCTV14",
-          "icon":"http://m.cleartv.cn/wx/clear-hotel-mobile/src/api/台标/播放_台标-15.png",
-          "url":"http://m.cleartv.cn/wx/clear-hotel-mobile/src/api/demo.mp4",
+          "icon":"http://localhost/clear-hotel-mobile/src/api/台标/播放_台标-15.png",
+          "url":"http://localhost/clear-hotel-mobile/src/api/demo.mp4",
           "TVId":"14"
         },
         {
           "name":"CCTV15",
-          "icon":"http://m.cleartv.cn/wx/clear-hotel-mobile/src/api/台标/播放_台标-15.png",
-          "url":"http://m.cleartv.cn/wx/clear-hotel-mobile/src/api/demo.mp4",
+          "icon":"http://localhost/clear-hotel-mobile/src/api/台标/播放_台标-15.png",
+          "url":"http://localhost/clear-hotel-mobile/src/api/demo.mp4",
           "TVId":"15"
         },
         {
           "name":"CCTV16",
-          "icon":"http://m.cleartv.cn/wx/clear-hotel-mobile/src/api/台标/播放_台标-15.png",
-          "url":"http://m.cleartv.cn/wx/clear-hotel-mobile/src/api/demo.mp4",
+          "icon":"http://localhost/clear-hotel-mobile/src/api/台标/播放_台标-15.png",
+          "url":"http://localhost/clear-hotel-mobile/src/api/demo.mp4",
           "TVId":"16"
         },
         {
           "name":"CCTV17",
-          "icon":"http://m.cleartv.cn/wx/clear-hotel-mobile/src/api/台标/播放_台标-15.png",
-          "url":"http://m.cleartv.cn/wx/clear-hotel-mobile/src/api/demo.mp4",
+          "icon":"http://localhost/clear-hotel-mobile/src/api/台标/播放_台标-15.png",
+          "url":"http://localhost/clear-hotel-mobile/src/api/demo.mp4",
           "TVId":"17"
         },
         {
           "name":"CCTV18",
-          "icon":"http://m.cleartv.cn/wx/clear-hotel-mobile/src/api/台标/播放_台标-15.png",
-          "url":"http://m.cleartv.cn/wx/clear-hotel-mobile/src/api/demo.mp4",
+          "icon":"http://localhost/clear-hotel-mobile/src/api/台标/播放_台标-15.png",
+          "url":"http://localhost/clear-hotel-mobile/src/api/demo.mp4",
           "TVId":"18"
         },
         {
           "name":"CCTV19",
-          "icon":"http://m.cleartv.cn/wx/clear-hotel-mobile/src/api/台标/播放_台标-15.png",
-          "url":"http://m.cleartv.cn/wx/clear-hotel-mobile/src/api/demo.mp4",
+          "icon":"http://localhost/clear-hotel-mobile/src/api/台标/播放_台标-15.png",
+          "url":"http://localhost/clear-hotel-mobile/src/api/demo.mp4",
           "TVId":"19"
         },
         {
           "name":"CCTV20",
-          "icon":"http://m.cleartv.cn/wx/clear-hotel-mobile/src/api/台标/播放_台标-15.png",
-          "url":"http://m.cleartv.cn/wx/clear-hotel-mobile/src/api/demo.mp4",
+          "icon":"http://localhost/clear-hotel-mobile/src/api/台标/播放_台标-15.png",
+          "url":"http://localhost/clear-hotel-mobile/src/api/demo.mp4",
           "TVId":"20"
         }
       ]

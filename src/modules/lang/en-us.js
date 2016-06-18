@@ -113,6 +113,9 @@ define([], function () {'use strict';
             reserve:'reserve',
             soldOut:'sold out',
             price_detail:'price detail'
+        },
+        confirm:{
+            network_state:'The current network status is not wifi, go on？'
         }
     };
 });

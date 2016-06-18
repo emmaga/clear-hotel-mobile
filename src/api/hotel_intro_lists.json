@@ -7,37 +7,37 @@
         {
           "name":"自助餐厅",
           "time":"7:00-20:30",
-          "url":"http://m.cleartv.cn/wx/clear-hotel-mobile/src/api/restaurant-2.jpg",
+          "url":"http://localhost/clear-hotel-mobile/src/api/restaurant-2.jpg",
           "IntroListDetailID":"1"
         },
         {
           "name":"西餐厅",
           "time":"8:00-20:30",
-          "url":"http://m.cleartv.cn/wx/clear-hotel-mobile/src/api/restaurant-3.jpg",
+          "url":"http://localhost/clear-hotel-mobile/src/api/restaurant-3.jpg",
           "IntroListDetailID":"2"
         },
         {
           "name":"中餐厅",
           "time":"8:00-20:30",
-          "url":"http://m.cleartv.cn/wx/clear-hotel-mobile/src/api/restaurant-1.jpg",
+          "url":"http://localhost/clear-hotel-mobile/src/api/restaurant-1.jpg",
           "IntroListDetailID":"3"
         },
         {
           "name":"日式餐厅",
           "time":"8:00-20:30",
-          "url":"http://m.cleartv.cn/wx/clear-hotel-mobile/src/api/restaurant-5.jpg",
+          "url":"http://localhost/clear-hotel-mobile/src/api/restaurant-5.jpg",
           "IntroListDetailID":"3"
         },
         {
           "name":"酒吧",
           "time":"5:30-3:30",
-          "url":"http://m.cleartv.cn/wx/clear-hotel-mobile/src/api/restaurant-4.jpg",
+          "url":"http://localhost/clear-hotel-mobile/src/api/restaurant-4.jpg",
           "IntroListDetailID":"4"
         },
         {
           "name":"咖啡厅",
           "time":"7:00-22:00",
-          "url":"http://m.cleartv.cn/wx/clear-hotel-mobile/src/api/restaurant-0.jpg",
+          "url":"http://localhost/clear-hotel-mobile/src/api/restaurant-0.jpg",
           "IntroListDetailID":"1"
         }
 
