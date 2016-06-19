@@ -11,6 +11,7 @@ define(['framework7', 'i18nText', 'config', 'wxJDK', 'xhr', 'appFunc', 'router',
 
                 // play()和autoplay开始播放时触发
                 Media.addEventListener('play', function() {
+                    movieListDetail.startCheckNetworkInterval();
                     movieListDetail.checkNetWork();
                 });
             },
@@ -19,7 +20,7 @@ define(['framework7', 'i18nText', 'config', 'wxJDK', 'xhr', 'appFunc', 'router',
                     clearInterval(checkNetWorkInterval);
                 }
                 checkNetWorkInterval = setInterval(function() {
-                    if(window.pageName == 'movie-list-detail') {
+                    if(window.pageName === 'movie-list-detail') {
                         movieListDetail.checkNetWork();
                     }
                     else {
@@ -33,8 +34,6 @@ define(['framework7', 'i18nText', 'config', 'wxJDK', 'xhr', 'appFunc', 'router',
                 }
             },
             checkNetWork: function() {
-
-                movieListDetail.startCheckNetworkInterval();
 
                 //判断是否联网
                 if(!navigator.onLine) {

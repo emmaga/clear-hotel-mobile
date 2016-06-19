@@ -3,15 +3,18 @@ define(['xhr', 'config'], function (xhr, config) {'use strict';
 
     return {        
         /**
-         * 当网络环境不是wifi时，do callback
-         * @param callback
+         * 当网络环境不是wifi时，do callback_t, else do callback_f
+         * @param callback_t, @param callback_f
          */
-        isNetworkTypeNotWifi: function(callback) {
+        isNetworkTypeNotWifi: function(callback_t, callback_f) {
             wx.getNetworkType({
                 success: function (res) {
                     var networkType = res.networkType; // 返回网络类型2g，3g，4g，wifi
                     if(networkType !== 'wifi') {
-                        callback();
+                        callback_t();
+                    }
+                    else {
+                        callback_f();
                     }
                 }
             });

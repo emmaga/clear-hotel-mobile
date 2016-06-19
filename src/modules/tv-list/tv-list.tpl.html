@@ -2,11 +2,12 @@
     <div class="page-content">
         <div class="list-block">
             <div class="list-group">
-                <ul>
+                <ul id="tv-list_{{moduleId}}">
                     {{#each TVList}}
                     <li class="TV-list-item">
                         <video width="100%" preload="none" height="0" class="video-item">
-                            <source src="{{url}}" type='video/mp4' />
+                            <!-- <source src="{{url}}" type='video/mp4' /> -->
+                            <source src="http://m.cleartv.cn/wx/demo_source/demo.mp4" type='video/mp4' />
                         </video>
                         <a class="item-link item-content external TV-item" data-TVId="{{TVId}}">
                             <div class="item-media"><i class="icon icon-f7" style="background-image: url({{icon}})"></i></div>
