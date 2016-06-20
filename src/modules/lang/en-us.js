@@ -129,6 +129,9 @@ define([], function () {'use strict';
             contacts:'contacts',
             telephone:'telephone number',
             name:'name'
+        },
+        confirm:{
+            network_state:'The current network status is not wifi, go on？'
         }
     };
 });

@@ -1,5 +1,5 @@
-define(['framework7', 'appFunc', 'indexModule', 'briefModule', 'roomModule','roomReserveModule', 'serviceModule', 'hotelIntroListModule', 'hotelIntroListDetailModule', 'hotelIntroDetailModule', 'movieListModule','movieListDetailModule','tvListModule'],
-    function(framework7, appFunc, indexModule, briefModule, roomModule,roomReserveModule, serviceModule, hotelIntroListModule, hotelIntroListDetailModule, hotelIntroDetailModule, movieListModule,movieListDetailModule,tvListModule){
+define(['framework7', 'wxJDK', 'config', 'appFunc', 'indexModule', 'briefModule', 'roomModule','roomReserveModule', 'serviceModule', 'hotelIntroListModule', 'hotelIntroListDetailModule', 'hotelIntroDetailModule', 'movieListModule','movieListDetailModule','tvListModule'],
+    function(framework7, wxJDK, config, appFunc, indexModule, briefModule, roomModule,roomReserveModule, serviceModule, hotelIntroListModule, hotelIntroListDetailModule, hotelIntroDetailModule, movieListModule,movieListDetailModule,tvListModule){
 
         var $$ = Dom7;
 
@@ -37,6 +37,8 @@ define(['framework7', 'appFunc', 'indexModule', 'briefModule', 'roomModule','roo
                 else if (pageName.indexOf("room-reserve") >= 0) {
                     pageName = "room-reserve";
                 }
+
+                window.pageName = pageName;
                 
                 var h = appFunc.getHashParameters();
                 
@@ -70,6 +72,7 @@ define(['framework7', 'appFunc', 'indexModule', 'briefModule', 'roomModule','roo
                         appFunc.hideToolbar();
                         break;
                     case 'movie-list-detail':
+                        wxJDK.wxConfig();
                         var moduleId = page.query.moduleId;
                         moduleId = typeof(moduleId) === 'undefined' ? h.moduleId : moduleId;
 
@@ -80,6 +83,7 @@ define(['framework7', 'appFunc', 'indexModule', 'briefModule', 'roomModule','roo
                         appFunc.hideToolbar();
                         break;
                     case 'tv-list':
+                        wxJDK.wxConfig();
                         var moduleId = page.query.moduleId;
                         moduleId = typeof(moduleId) === 'undefined' ? h.moduleId : moduleId;
                         

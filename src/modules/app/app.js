@@ -34,6 +34,7 @@
             'i18nText': i18nText,
             'xhr': 'utils/xhr',
             'config': 'utils/config',
+            'wxJDK': 'utils/wxJDK',
             'storage': 'utils/storage'
         }
     });
