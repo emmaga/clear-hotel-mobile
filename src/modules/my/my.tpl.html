@@ -1,22 +1,26 @@
 <div class="service-list">
-    {{#each orders}}
-    <div class="content-block-title service-list-order-id" data-orderId="{{orderId}}">订单号&nbsp{{orderId}}</div>
-    <div class="list-block order-detail">
-    	<ul>
-     		<li class="service-list-order">
-     	   		<a>
-                    <div class="content-block service-list-order-content ">
-                        <h4 class="service-list-order-name">{{roomName}}</h4>
-                        <p class="service-list-order-num">×{{roomNumber}}</p>
-                        <p class="service-list-order-status order-status{{orderStatus}}"></p> 
-                        <p class="service-list-order-time0">入住时间</p>
-                        <p class="service-list-order-time1 big-first-letter"><i style="opacity:0">d</i>{{check_in}}</p>
-                        <p class="service-list-order-time2">~&nbsp{{check_out}}</p>
-                        <p class="service-list-order-price"><b style="font-weight:normal; font-size:12px;">合计</b>￥{{totalPrice}}</p>
-                    </div>
-        		</a>
-        	</li>
-        </ul>
-    </div>
-    {{/each}}
+    {{#if hasOrder}}
+        {{#each orders}}
+        <div class="content-block-title service-list-order-id" data-orderId="{{orderId}}">订单号&nbsp{{orderId}}</div>
+        <div class="list-block order-detail">
+        	<ul>
+         		<li class="service-list-order">
+         	   		<a>
+                        <div class="content-block service-list-order-content ">
+                            <h4 class="service-list-order-name">{{roomName}}</h4>
+                            <p class="service-list-order-num">×{{roomNumber}}</p>
+                            <p class="service-list-order-status order-status{{orderStatus}}"></p> 
+                            <p class="service-list-order-time0">入住时间</p>
+                            <p class="service-list-order-time1 big-first-letter"><i style="opacity:0">d</i>{{check_in}}</p>
+                            <p class="service-list-order-time2">~&nbsp{{check_out}}</p>
+                            <p class="service-list-order-price"><b style="font-weight:normal; font-size:12px;">合计</b>￥{{totalPrice}}</p>
+                        </div>
+            		</a>
+            	</li>
+            </ul>
+        </div>
+        {{/each}}
+    {{else}}
+    查无订单
+    {{/if}}
 </div>

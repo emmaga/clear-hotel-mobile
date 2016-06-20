@@ -1,21 +1,16 @@
-define(['framework7', 'config', 'xhr', 'appFunc','errorFunc','orderDetail', 'text!my/my.tpl.html'],
-    function(framework7, config, xhr, appFunc, errorFunc,orderDetail, template){
+define(['framework7', 'config', 'xhr', 'appFunc','errorFunc', 'text!my/my.tpl.html'],
+    function(framework7, config, xhr, appFunc, errorFunc, template){
 
         var $$ = Dom7;
 
         var my = {
-            bindEvents: function(moduleId) {
-                $$('.order-detail').on('click', function(){
-                    var self = $$(this);
-                    var orderId = self.prev().data('orderId');
-                    orderDetail.init(moduleId,orderId);
-                });
+            bindEvents: function() {
+                
             },
             loadData: function(moduleId,data) {
                 var renderData = data.data;
                 var output = appFunc.renderTpl(template,renderData);
                 $$('#tab_'+'my'+'_'+moduleId).html(output);
-                my.bindEvents(moduleId)
             }
         }
 
@@ -36,12 +31,9 @@ define(['framework7', 'config', 'xhr', 'appFunc','errorFunc','orderDetail', 'tex
                 'success': function(data){
                     var rescode = data.rescode;
                     if (rescode == 200) {
-                        if (data.data.orders.length === 0) {
-                            // 无订单
-                        }
-                        else{
-                            my.loadData(moduleId,data);
-                        }
+                        var renderdata = data;
+                        renderdata.hasOrder = data.data.orders.length === 0 ? false : true;
+                        my.loadData(moduleId, renderdata);
                     }
                     else {
                       errorFunc.error(rescode);
