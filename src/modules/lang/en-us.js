@@ -112,7 +112,23 @@ define([], function () {'use strict';
             submit:'submit',
             reserve:'reserve',
             soldOut:'sold out',
-            price_detail:'price detail'
+            price_detail:'price detail',
+            tel_error:'Please input the correct phone number',
+            name_error:'The name of the booking person cannot be empty.'
+        },
+        order:{
+            order_message:'order message',
+            order_id:'order id',
+            order_time:'order time',
+            total_price:'total price',
+            room_message:'room message',
+            room_type:'room type',
+            date:'date',
+            room_num:'room number',
+            price_detail:'price detail',
+            contacts:'contacts',
+            telephone:'telephone number',
+            name:'name'
         }
     };
 });

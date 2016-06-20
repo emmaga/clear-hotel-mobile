@@ -5,7 +5,7 @@ define(['framework7','config','xhr','appFunc','i18nText','text!room/order-detail
     var orderDetail = {
         bindEvents: function(moduleId) {
         },
-        loadData:function(moduleId,data,orderId){
+        loadData:function(moduleId,data){
             var orderState = data.data.orderState;
             var stateText;
             switch (orderState){
@@ -58,11 +58,33 @@ define(['framework7','config','xhr','appFunc','i18nText','text!room/order-detail
     //};
     var init = function (moduleId,orderId){
         //$$('#page-room-reserve').attr('id', 'page-room-reserve_'+moduleId);
+        //xhr.ajax({
+        //    'url': config.getJSONUrl('submit-response'),
+        //    dataType: 'json',
+        //    method: 'POST',
+        //    'success': function(data){orderDetail.loadData(moduleId,data,orderId)}
+        //})
+        var data = {
+            project_name: config.getAppId(),
+            action: "GETByID",
+            lang:"en-us",
+            token: config.getClearToken(),
+            RoomOrderID:orderId
+        }
         xhr.ajax({
-            'url': config.getJSONUrl('submit-response'),
+            'url': config.getJSONUrl('room_orders'),
             dataType: 'json',
+            data: data,
             method: 'POST',
-            'success': function(data){orderDetail.loadData(moduleId,data,orderId)}
+            'success': function(data){
+                var rescode = data.rescode;
+                if (rescode == 200) {
+                    orderDetail.loadData(moduleId,data)
+                }
+                else {
+                    errorFunc.error(rescode);
+                }
+            }
         })
     };
     return {

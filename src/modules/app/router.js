@@ -93,7 +93,13 @@ define(['framework7', 'appFunc', 'indexModule', 'briefModule', 'roomModule','roo
                         var roomId = page.query.roomId;
                         roomId = typeof(roomId) === 'undefined' ? h.roomId : roomId;
 
-                        roomReserveModule.init(moduleId,roomId);
+                        var checkIn = page.query.checkIn;
+                        checkIn = typeof(checkIn) === 'undefined' ? h.checkIn : checkIn;
+
+                        var checkOut = page.query.checkOut;
+                        checkOut = typeof(checkOut) === 'undefined' ? h.checkOut : checkOut;
+
+                        roomReserveModule.init(moduleId,roomId,checkIn,checkOut);
                         appFunc.hideToolbar();
                         break;
                 }

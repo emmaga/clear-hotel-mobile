@@ -1,16 +1,21 @@
-define(['framework7', 'config', 'xhr', 'appFunc','errorFunc', 'text!my/my.tpl.html'],
-    function(framework7, config, xhr, appFunc, errorFunc, template){
+define(['framework7', 'config', 'xhr', 'appFunc','errorFunc','orderDetail', 'text!my/my.tpl.html'],
+    function(framework7, config, xhr, appFunc, errorFunc,orderDetail, template){
 
         var $$ = Dom7;
 
         var my = {
-            bindEvents: function() {
-                
+            bindEvents: function(moduleId) {
+                $$('.order-detail').on('click', function(){
+                    var self = $$(this);
+                    var orderId = self.prev().data('orderId');
+                    orderDetail.init(moduleId,orderId);
+                });
             },
             loadData: function(moduleId,data) {
                 var renderData = data.data;
                 var output = appFunc.renderTpl(template,renderData);
                 $$('#tab_'+'my'+'_'+moduleId).html(output);
+                my.bindEvents(moduleId)
             }
         }
 

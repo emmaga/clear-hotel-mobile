@@ -1,7 +1,7 @@
 <div class="service-list">
     {{#each orders}}
-    <div class="content-block-title service-list-order-id">订单号&nbsp{{orderId}}</div>
-    <div class="list-block">
+    <div class="content-block-title service-list-order-id" data-orderId="{{orderId}}">订单号&nbsp{{orderId}}</div>
+    <div class="list-block order-detail">
     	<ul>
      		<li class="service-list-order">
      	   		<a>

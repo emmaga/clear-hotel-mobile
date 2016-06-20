@@ -1,4 +1,4 @@
-define(['framework7','config', 'xhr','appFunc','i18nText','text!room/room.tpl.html','roomReserveModule'], function(framework7,config,xhr,appFunc,i18nText,template,roomReserveModule){
+define(['framework7','config', 'xhr','appFunc','errorFunc','i18nText','text!room/room.tpl.html','roomReserveModule'], function(framework7,config,xhr,appFunc,errorFunc,i18nText,template,roomReserveModule){
 
     var $$ = Dom7;
     var monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August' , 'September' , 'October', 'November', 'December'];
@@ -7,36 +7,7 @@ define(['framework7','config', 'xhr','appFunc','i18nText','text!room/room.tpl.ht
 
     var room = {
         bindEvents: function(moduleId,data) {
-            var getMessage = function(){
-                if(sessionStorage.getItem('orderData')) {
-                    sessionStorage.removeItem('orderData');
-                }
-                var self = $$(this);
-                var roomId = self.parent().parent().parent().data("roomId");
-                var roomName = self.parent().parent().parent().data("roomName");
-                var avePrice = self.parent().parent().parent().data("price");
-                var img,intro;
-                for(var i=0;i<data.data.roomList.length;i++){
-                    if(data.data.roomList[i].roomId == roomId){
-                        img = data.data.roomList[i].img;
-                        intro = data.data.roomList[i].intro;
-                    }
-                }
-                //当前room在当前选定时间段内的价格数组（ID与价格数组相对应，ID从1开始，数组从0开始，因此ID需要减1）
-                var orderData = {
-                    roomId:roomId,
-                    roomName:roomName,
-                    avePrice:avePrice,
-                    date1:data.data.check_in,
-                    date2:data.data.check_out,
-                    img:img,
-                    intro:intro
-                };
-                var orderDataStr = JSON.stringify(orderData);
-                sessionStorage.setItem('orderData',orderDataStr);
-                //roomReserveModule.init(menuId,roomId,roomName,avePrice,reservePriceArray,dayArray,date1,date2);
-            }
-            $$(document).on('click', '.reserve', getMessage);
+
         },
         loadData:function(moduleId,data){
             var renderData = {
@@ -66,8 +37,7 @@ define(['framework7','config', 'xhr','appFunc','i18nText','text!room/room.tpl.ht
             //room.changePrice(moduleId,priceLength,dateIn,dateOut);
             var calendar = window.hotelApp.calendar({
                 input: '#calendar',
-                dateFormat: 'M dd yyyy',
-                onlyOnPopover:true,
+                dateFormat: 'yyyy/MM/dd',
                 toolbar:true,
                 multiple:true,
                 rangesClasses: [
@@ -113,19 +83,38 @@ define(['framework7','config', 'xhr','appFunc','i18nText','text!room/room.tpl.ht
                             calendar.close();
                         }
                         else if(confirm.length==2){
-                            roomPriceArray=[];
-                            dayArray=[];
                             //confirm.sort();
                             var earlyDate = confirm[0];
                             var lateDate = confirm[1];
                             var dateInChoose =  appFunc.timeToDate(earlyDate,'yyyy/MM/dd');
                             var dateOutChoose = appFunc.timeToDate(lateDate,'yyyy/MM/dd');
-                            $$('#date-in').html(i18nText.room.date_in+dateInChoose).attr('date',dateInChoose);
-                            $$('#date-out').html(i18nText.room.date_out+dateOutChoose).attr('date',dateOutChoose);
+                            var data = {
+                                project_name: config.getAppId(),
+                                action: "GET",
+                                lang:"en-us",
+                                check_in:dateInChoose,
+                                check_out:dateOutChoose,
+                                token: config.getClearToken(),
+                                ModuleInstanceID:moduleId
+                            }
+                            xhr.ajax({
+                                'url':config.getJSONUrl('room_lists'),
+                                dataType: 'json',
+                                data: data,
+                                method: 'POST',
+                                'success': function(data){
+                                    var rescode = data.rescode;
+                                    if (rescode == 200) {
+                                        room.loadData(moduleId,data);
+                                    }
+                                    else {
+                                        errorFunc.error(rescode);
+                                    }
+                                }
+                            })
+                            //$$('#date-in').html(i18nText.room.date_in+dateInChoose).attr('date',dateInChoose);
+                            //$$('#date-out').html(i18nText.room.date_out+dateOutChoose).attr('date',dateOutChoose);
                             //将dateInChoose/dateOutChoose作为参数，再次请求ajax并执行lodaData（）函数
-
-
-
                             calendar.close();
                             confirm=[];
                         }else{
@@ -142,13 +131,20 @@ define(['framework7','config', 'xhr','appFunc','i18nText','text!room/room.tpl.ht
                     result.sort();
                     confirm = result;
                     if(result.length==2){
-                        var time1 = appFunc.dateToTime(result[0]);
-                        var time2 = appFunc.dateToTime(result[1]);
+                        //先将选中日期的值（毫秒数）转为日期格式
+                        var clickDate1 = appFunc.timeToDate(result[0],'yyyy/MM/dd');
+                        var clickDate2 = appFunc.timeToDate(result[1],'yyyy/MM/dd');
+                        //将获取到的日期格式转换为日历上的日期格式
+                        var calendarDate1 = appFunc.toCalendarDate(clickDate1);
+                        var calendarDate2 = appFunc.toCalendarDate(clickDate2);
+                        //再转换为毫秒数以作比较判断
+                        var time1 = appFunc.dateToTime(calendarDate1);
+                        var time2 = appFunc.dateToTime(calendarDate2);
                         var days = $$('.picker-calendar-day');
                         for(var i=0;i<days.length;i++){
                             var date = days[i].getAttribute('data-date');
                             var time = appFunc.dateToTime(date);
-                            if(time1<=time&&time<time2){
+                            if(time1<time&&time<time2){
                                 days[i].setAttribute('class','picker-calendar-day picker-calendar-day-selected');
                             }
                         }
@@ -162,12 +158,42 @@ define(['framework7','config', 'xhr','appFunc','i18nText','text!room/room.tpl.ht
     }
 
     var init = function (moduleId){
+        var today = new Date();
+        var tomorrow = new Date().setDate(today.getDate() + 1);
+        var todayTime = appFunc.dateToTime(today);
+        var tomorrowTime = appFunc.dateToTime(tomorrow);
+        var checkIn = appFunc.timeToDate(todayTime,'yyyy/MM/dd');
+        var checkOut = appFunc.timeToDate(tomorrowTime,'yyyy/MM/dd');
+        var data = {
+            project_name: config.getAppId(),
+            action: "GET",
+            lang:"en-us",
+            check_in:checkIn,
+            check_out:checkOut,
+            token: config.getClearToken(),
+            ModuleInstanceID:moduleId
+        }
         xhr.ajax({
-            'url': config.getJSONUrl('getRoomList-response'),
+            'url': config.getJSONUrl('room_lists'),
             dataType: 'json',
+            data: data,
             method: 'POST',
-            'success': function(data){room.loadData(moduleId,data)}
+            'success': function(data){
+                var rescode = data.rescode;
+                if (rescode == 200) {
+                    room.loadData(moduleId,data);
+                }
+                else {
+                    errorFunc.error(rescode);
+                }
+            }
         })
+        //xhr.ajax({
+        //    'url': config.getJSONUrl('getRoomList-response'),
+        //    dataType: 'json',
+        //    method: 'POST',
+        //    'success': function(data){room.loadData(moduleId,data)}
+        //})
     };
     return {
         init: init

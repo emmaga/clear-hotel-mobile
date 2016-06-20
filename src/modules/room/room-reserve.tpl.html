@@ -42,7 +42,7 @@
                         <div class="item-inner">
                             <div class="item-title label">{{name}}</div>
                             <div class="item-input">
-                                <input type="text" name="name" placeholder="{{preName}}">
+                                <input type="text" name="name" placeholder="{{preName}}" onkeyup="this.value=this.value.replace(/^ +| +$/g,'')">
                             </div>
                         </div>
                     </div>

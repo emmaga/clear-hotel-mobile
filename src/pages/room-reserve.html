@@ -6,5 +6,7 @@
     var type = p.type;
     var moduleId = p.moduleId;
     var roomId = p.roomId;
-    window.location.href = 'index.html?state=#page=index&type=room&moduleId='+moduleId+'&roomId='+roomId+'';
+
+    var stateRedirectUriCode = '1,2' + moduleId;
+    window.location.href = getWxUrl(appId, stateRedirectUriCode);
 </script>

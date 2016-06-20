@@ -54,11 +54,17 @@ define(['framework7'], function(framework7){
         return ret;
     }
 
+    /*
+    任意格式的时间转换为毫秒数
+    */
     var dateToTime = function(date){
         var time = (new Date(date)).getTime();
         return time;
     }
 
+    /*
+    毫秒数转换为时间，格式为format（例如‘yyyy/MM/dd’）
+    */
     var timeToDate = function(time,format){
         var t = new Date(time);
         var tf = function(i){return (i < 10 ? '0' : '') + i};
@@ -86,11 +92,37 @@ define(['framework7'], function(framework7){
         })
     }
 
+    /*
+    将普通日期转换为日历上的日期格式（即月份为0-11）
+    */
+    var toCalendarDate = function(date){
+        var stringArr = date.split('/');
+        stringArr[1] = Number(stringArr[1]) - 1;
+        var calendarDate = stringArr.join('/');
+        return calendarDate;
+    }
+
+    /*
+    为DOM元素手写的addClass方法
+    */
     var addClass = function(ele,newClass){
         if(ele.className == ''){
             ele.className = newClass;
         } else{
             ele.className += ' ' + newClass;
+        }
+    }
+
+    /*
+    手机号的正则检测（是否以数字1开头，是否是11位数字）
+    */
+    var checkMobile = function(str) {
+        var
+            re = /^1\d{10}$/
+        if (re.test(str)) {
+            return true;
+        } else {
+            return false;
         }
     }
 
@@ -103,6 +135,8 @@ define(['framework7'], function(framework7){
         getParameters: getParameters,
         dateToTime:dateToTime,
         timeToDate:timeToDate,
-        addClass:addClass
+        addClass:addClass,
+        checkMobile:checkMobile,
+        toCalendarDate:toCalendarDate
     };
 });

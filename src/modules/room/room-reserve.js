@@ -6,12 +6,40 @@ define(['framework7','config','xhr','appFunc','i18nText','orderDetail','text!roo
         bindEvents: function(moduleId,orderData) {
             $$('.submit').on('click', function(){
                 var formData = window.hotelApp.formToJSON('#reserve-form');
+                if(formData.name==""){
+                    alert(i18nText.room.name_error)
+                    return
+                };
+                if(!appFunc.checkMobile(formData.tel)){
+                    alert(i18nText.room.tel_error)
+                    return;
+                };
                 orderData.tel = formData.tel;
                 orderData.name = formData.name;
                 orderData.roomNumber = Number($$('.number').attr('value'));
                 orderData.totalPrice = Number(orderData.totalPrice)*Number($$('.number').attr('value'));
-
-                orderDetail.init(moduleId);
+                orderData.project_name= config.getAppId();
+                orderData.action= "GET";
+                orderData.lang="en-us";
+                orderData.token = config.getClearToken();
+                orderData.openId = "10086";
+                xhr.ajax({
+                        'url': config.getJSONUrl('room_orders'),
+                        dataType: 'json',
+                        data: orderData,
+                        method: 'POST',
+                        'success': function(data){
+                             var rescode = data.rescode;
+                             if (rescode == 200) {
+                                    var orderId = data.data.orderId;
+                                    orderDetail.init(moduleId,orderId);
+                                            }
+                                           else {
+                                                errorFunc.error(rescode);
+                                            }
+                                        }
+                })
+                //orderDetail.init(moduleId);
             });
             $$('#number-add').on('click',function(){
                 var number = Number($$('.number').attr('value'));
@@ -127,22 +155,69 @@ define(['framework7','config','xhr','appFunc','i18nText','orderDetail','text!roo
     //var init = function (menuId,roomId,roomName,avePrice,reservePriceArray,dayArray,date1,date2){
     //    roomReserve.loadData(menuId,roomId,roomName,avePrice,reservePriceArray,dayArray,date1,date2)
     //};
-    var init = function (moduleId,roomId,isFirst){
+    var init = function (moduleId,roomId,checkIn,checkOut,isFirst){
         $$('#page-room-reserve').attr('id', 'page-room-reserve_'+moduleId);
+        var data = {
+            project_name: config.getAppId(),
+            action: "GET",
+            lang:"en-us",
+            check_in:checkIn,
+            check_out:checkOut,
+            token: config.getClearToken(),
+            ModuleInstanceID:moduleId
+        }
         xhr.ajax({
-            'url': config.getJSONUrl('getRoomList-response'),
+            'url': config.getJSONUrl('room_lists'),
             dataType: 'json',
+            data: data,
             method: 'POST',
-            'success': function(data){
-                //获取价格列表数据
-                xhr.ajax({
-                    'url': config.getJSONUrl('getPriceList-response'),
-                    dataType: 'json',
-                    method: 'POST',
-                    'success': function(priceData){roomReserve.loadData(moduleId,roomId,data,priceData,isFirst)}
-                })
+            'success': function(roomData){
+                var rescode = roomData.rescode;
+                if (rescode == 200) {
+                    var data = {
+                        project_name: config.getAppId(),
+                        action: "GETPrice",
+                        lang:"en-us",
+                        check_in:checkIn,
+                        check_out:checkOut,
+                        token: config.getClearToken(),
+                        roomId:roomId
+                    }
+                    xhr.ajax({
+                        'url': config.getJSONUrl('room_lists'),
+                        dataType: 'json',
+                        data: data,
+                        method: 'POST',
+                        'success': function(priceData){
+                            var rescode = priceData.rescode;
+                            if (rescode == 200) {
+                                roomReserve.loadData(moduleId,roomId,roomData,priceData,isFirst)
+                            }
+                            else {
+                                errorFunc.error(rescode);
+                            }
+                        }
+                    })
+                }
+                else {
+                    errorFunc.error(rescode);
+                }
             }
         })
+    //    xhr.ajax({
+    //        'url': config.getJSONUrl('getRoomList-response'),
+    //        dataType: 'json',
+    //        method: 'POST',
+    //        'success': function(data){
+    //            //获取价格列表数据
+    //            xhr.ajax({
+    //                'url': config.getJSONUrl('getPriceList-response'),
+    //                dataType: 'json',
+    //                method: 'POST',
+    //                'success': function(priceData){roomReserve.loadData(moduleId,roomId,data,priceData,isFirst)}
+    //            })
+    //        }
+    //    })
     };
     return {
         init: init

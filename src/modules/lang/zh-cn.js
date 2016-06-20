@@ -108,12 +108,14 @@ define([], function () {'use strict';
             room_num:'房间数',
             name:'姓名',
             pre_name:'预定人姓名',
-            tel:'电话',
-            pre_tel:'预定人电话',
+            tel:'手机号',
+            pre_tel:'预定人手机号',
             submit:'提交订单',
             reserve:'预定',
             soldOut:'已订完',
-            price_detail:'价格详情'
+            price_detail:'价格详情',
+            tel_error:'请输入正确的手机号',
+            name_error:'预订人姓名不能为空'
         },
         order:{
             order_message:'订单信息',
@@ -126,7 +128,7 @@ define([], function () {'use strict';
             room_num:'房间数',
             price_detail:'房价明细',
             contacts:'联系人',
-            telephone:'电话',
+            telephone:'手机号',
             name:'姓名'
         }
     }

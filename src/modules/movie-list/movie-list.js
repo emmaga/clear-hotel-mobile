@@ -1,5 +1,5 @@
-define(['framework7','config', 'xhr', 'appFunc','errorFunc', 'router', 'text!movie-list/movie-list.tpl.html'],
-    function(framework7,config, xhr, appFunc,errorFunc, router, template){
+define(['framework7','config', 'xhr', 'appFunc','errorFunc', 'router','text!movie-list/movie-list-part.tpl.html', 'text!movie-list/movie-list.tpl.html',],
+    function(framework7,config, xhr, appFunc,errorFunc, router,templatePart,template){
 
         var $$ = Dom7;
 
@@ -30,29 +30,32 @@ define(['framework7','config', 'xhr', 'appFunc','errorFunc', 'router', 'text!mov
                 //无限滚动
                 // 加载flag
                 var loading = false;
-                var html = '';
+                var firstRenderData={
+                    data:[],
+                    moduleId:moduleId,
+                    appId:config.getAppId()
+                };
                 var pageSize = infData.length < 10 ? infData.length : 10;
                 for (var i = 0; i < pageSize; i++) {
-                    html += "<a href='movie-list-detail.html?appId="+config.getAppId()+"&moduleId="+moduleId+"&movieId="+infData[i].movieId+"' class='col-100'><div class='movie-list'><img class='lazy movie-p1-img' src='"+infData[i].imgUrl+"'><h3 class='movie-p1-h3'>"+infData[i].name+"</h3><p class='movie-p1-p1'>"+infData[i].intro1+"</p><p class='movie-p1-p2'>"+infData[i].intro2+"</p> </div></a>";
+                    firstRenderData.data[i] = infData[i];
+                    //html += "<a href='movie-list-detail.html?appId="+config.getAppId()+"&moduleId="+moduleId+"&movieId="+infData[i].movieId+"' class='col-100'><div class='movie-list'><img class='lazy movie-p1-img' src='"+infData[i].imgUrl+"'><h3 class='movie-p1-h3'>"+infData[i].name+"</h3><p class='movie-p1-p1'>"+infData[i].intro1+"</p><p class='movie-p1-p2'>"+infData[i].intro2+"</p> </div></a>";
                 }
+                console.log(firstRenderData);
+                var html = appFunc.renderTpl(templatePart,firstRenderData);
                 // 添加新条目
                 $$('#movie-list-row_'+moduleId).append(html);
-
                 // 上次加载的序号
                 var lastIndex = $$('.movie-list').length;
                 // 最多可加载的条目
                 var maxItems =infData.length < 10 ? infData.length : 30;
                 // 每次加载添加多少条目
                 var itemsPerLoad = 10;
-
                 // 注册'infinite'事件处理函数
                 $$(document).on('infinite','.infinite-scroll', function () {
                     // 如果正在加载，则退出
                     if (loading) return;
-
                     // 设置flag
                     loading = true;
-
                         // 重置加载flag
                         loading = false;
                         if (lastIndex >= maxItems) {
@@ -62,17 +65,26 @@ define(['framework7','config', 'xhr', 'appFunc','errorFunc', 'router', 'text!mov
                             $$('.infinite-scroll-preloader').remove();
                             return;
                         }
-
                         // 生成新条目的HTML
-                        var html = '';
-                        for (var i = lastIndex ; i < lastIndex + itemsPerLoad; i++) {
-                            //console.log(infData[i].movieId)
-                            html += "<a href='movie-p2.html?appId="+config.getAppId()+"&movieId="+infData[i].movieId+"' class='col-100'><div class='movie-list' data-movieId='"+infData[i].movieId+"'><img class='lazy movie-p1-img' src='"+infData[i].imgUrl+"'><h3 class='movie-p1-h3'>"+infData[i].name+"</h3><p class='movie-p1-p1'>"+infData[i].intro1+"</p><p class='movie-p1-p2'>"+infData[i].intro2+"</p> </div></a>";
+                        //var html = '';
+                        var restItems = maxItems - lastIndex;
+                        var moreNumber = restItems>itemsPerLoad ? itemsPerLoad:restItems;
+                        //for (var i = lastIndex ; i < lastIndex + moreNumber; i++) {
+                        //    //console.log(infData[i].movieId)
+                        //    html += "<a href='movie-p2.html?appId="+config.getAppId()+"&movieId="+infData[i].movieId+"' class='col-100'><div class='movie-list' data-movieId='"+infData[i].movieId+"'><img class='lazy movie-p1-img' src='"+infData[i].imgUrl+"'><h3 class='movie-p1-h3'>"+infData[i].name+"</h3><p class='movie-p1-p1'>"+infData[i].intro1+"</p><p class='movie-p1-p2'>"+infData[i].intro2+"</p> </div></a>";
+                        //}
+                        var moreRenderData={
+                            data:{},
+                            moduleId:moduleId,
+                            appId:config.getAppId()
+                        };
+                        for (var i = lastIndex; i < lastIndex + moreNumber; i++) {
+                            moreRenderData.data[i] = infData[i];
+                            //html += "<a href='movie-list-detail.html?appId="+config.getAppId()+"&moduleId="+moduleId+"&movieId="+infData[i].movieId+"' class='col-100'><div class='movie-list'><img class='lazy movie-p1-img' src='"+infData[i].imgUrl+"'><h3 class='movie-p1-h3'>"+infData[i].name+"</h3><p class='movie-p1-p1'>"+infData[i].intro1+"</p><p class='movie-p1-p2'>"+infData[i].intro2+"</p> </div></a>";
                         }
-
+                        var moreHtml = appFunc.renderTpl(templatePart,moreRenderData);
                         // 添加新条目
-                        $$('#movie-list-row_'+moduleId).append(html);
-
+                        $$('#movie-list-row_'+moduleId).append(moreHtml);
                         // 更新最后加载的序号
                         lastIndex = $$('.movie-list').length;
                 });

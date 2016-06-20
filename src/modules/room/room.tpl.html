@@ -22,7 +22,7 @@
                     <span class="room-tip">{{tip}}</span>
                     {{/each}}
                     <p class="price">￥{{averagePrice}}</p>
-                    <a class="reserve-href" href="room-reserve.html?type=room&roomId={{roomId}}&moduleId={{../moduleId}}">
+                    <a class="reserve-href" href="room-reserve.html?type=room&roomId={{roomId}}&moduleId={{../moduleId}}&checkIn={{../data.check_in}}&checkOut={{../data.check_out}}">
                         <button class="reserve"{{#if this.soldOut}}disabled="disabled"{{/if}}>{{js "this.soldOut ? '已订完' : '预定'"}} </button>
                     </a>
                 </div>
