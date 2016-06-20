@@ -10,13 +10,13 @@ define(['framework7','config','xhr','appFunc','i18nText','text!room/order-detail
             var stateText;
             switch (orderState){
                 case '1':
-                    stateText = "等待处理";
+                    stateText = i18nText.order.stateText1;
                     break;
                 case '2':
-                    stateText = "订房成功";
+                    stateText = i18nText.order.stateText2;
                     break;
                 case '3':
-                    stateText = "订房失败";
+                    stateText = i18nText.order.stateText3;
                     break;
             }
             var renderData = {

@@ -129,7 +129,10 @@ define([], function () {'use strict';
             price_detail:'房价明细',
             contacts:'联系人',
             telephone:'手机号',
-            name:'姓名'
+            name:'姓名',
+            stateText1:'等待处理',
+            stateText2:'订房成功',
+            stateText3:'订房失败'
         },
         confirm:{
             network_state:'当前网络不是wifi状态，继续播放可能会产生流量，确定继续观看？'

@@ -128,7 +128,10 @@ define([], function () {'use strict';
             price_detail:'price detail',
             contacts:'contacts',
             telephone:'telephone number',
-            name:'name'
+            name:'name',
+            stateText1:'waiting for dispose',
+            stateText2:'order succeed',
+            stateText3:'order failed'
         },
         confirm:{
             network_state:'The current network status is not wifi, go on？'

@@ -85,7 +85,14 @@
      <div class="toolbar" id="room-reserve-toolbar">
          <div class="toolbar-inner no-padding">
              <a href="" class="button bottom_button button-max">
-                 <button class="reserve submit"{{#if this.soldOut}}disabled="disabled"{{/if}}>{{js "this.soldOut ? '已订完' : '提交订单'"}} </button>
+                 <button class="reserve submit"{{#if this.soldOut}}disabled="disabled"{{/if}}>
+                 {{#if this.soldOut}}
+                 {{unSubmit}}
+                 {{else}}
+                 {{submit}}
+                 {{/if}}
+
+                 </button>
              </a>
          </div>
      </div>
