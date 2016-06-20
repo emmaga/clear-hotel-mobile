@@ -23,9 +23,9 @@ define(['framework7', 'config', 'xhr', 'appFunc','errorFunc','orderDetail', 'tex
 
             var data = {
               project_name: config.getAppId(),
-              action: "GET",
+              action: "GETUserList",
               token: config.getClearToken(),
-              ModuleInstanceID: moduleId
+              OpenID: config.getOpenId()
             }
 
             xhr.ajax({
@@ -36,7 +36,12 @@ define(['framework7', 'config', 'xhr', 'appFunc','errorFunc','orderDetail', 'tex
                 'success': function(data){
                     var rescode = data.rescode;
                     if (rescode == 200) {
-                      my.loadData(moduleId,data);
+                        if (data.data.orders.length === 0) {
+                            // 无订单
+                        }
+                        else{
+                            my.loadData(moduleId,data);
+                        }
                     }
                     else {
                       errorFunc.error(rescode);
