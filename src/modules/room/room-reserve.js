@@ -1,4 +1,4 @@
-define(['framework7','config','xhr','appFunc','i18nText','orderDetail','text!room/room-reserve.tpl.html'], function(framework7,config,xhr,appFunc,i18nText,orderDetail,template){
+define(['framework7','config','xhr','appFunc','errorFunc','i18nText','orderDetail','text!room/room-reserve.tpl.html'], function(framework7,config,xhr,appFunc,errorFunc,i18nText,orderDetail,template){
 
     var $$ = Dom7;
 
@@ -7,12 +7,14 @@ define(['framework7','config','xhr','appFunc','i18nText','orderDetail','text!roo
             $$('.submit').on('click', function(){
                 var formData = window.hotelApp.formToJSON('#reserve-form');
                 if(formData.name==""){
-                    hotelApp.alert(i18nText.room.name_error)
+                    hotelApp.alert(i18nText.room.name_error);
+                    $$(".name-input").focus();
                     return
                 };
                 if(!appFunc.checkMobile(formData.tel)){
-                    hotelApp.alert(i18nText.room.tel_error)
-                    return;
+                    hotelApp.alert(i18nText.room.tel_error);
+                    $$(".tel-input").focus();
+                    return
                 };
                 orderData.tel = formData.tel;
                 orderData.name = formData.name;
