@@ -12,6 +12,7 @@
   </ul>
     <ul>
         {{#each data.roomList}}
+        <a class="reserve-href" href="room-reserve.html?type=room&roomId={{roomId}}&moduleId={{../moduleId}}&checkIn={{../data.check_in}}&checkOut={{../data.check_out}}">
         <li  class="col-100" style="margin-top: 10px">
             <div class="room" data-roomId="{{roomId}}" data-roomName="{{name}}" data-price="{{averagePrice}}">
                 <img src="{{img[0].url}}" class="lazy room-img">
@@ -22,12 +23,12 @@
                     <span class="room-tip">{{tip}}</span>
                     {{/each}}
                     <p class="price">￥{{averagePrice}}</p>
-                    <a class="reserve-href" href="room-reserve.html?type=room&roomId={{roomId}}&moduleId={{../moduleId}}&checkIn={{../data.check_in}}&checkOut={{../data.check_out}}">
+
                         <button class="reserve"{{#if this.soldOut}}disabled="disabled"{{/if}}>{{js "this.soldOut ? '已订完' : '预定'"}} </button>
-                    </a>
                 </div>
             </div>
         </li>
+        </a>
         {{/each}}
     </ul>
   </div>

@@ -16,7 +16,14 @@
             <div class="swiper-pagination"></div>
         </div>
         <div class="intro content-block">
+            <h3 class="room-title">{{roomName}}</h3>
+            <!--<p>{{join tips delimiter=", "}}</p>-->
+            {{#each tips}}
+            <span class="room-tip">{{tip}}</span>
+            {{/each}}
+            <p class="price">￥{{averagePrice}}</p>
             <p class="text big-first-letter">{{intro}}</p>
+            <p>{{order_message}}</p>
         </div>
         <div class="content-block">
             <div class="content-block-inner room-name">
@@ -77,8 +84,8 @@
     </div>
      <div class="toolbar" id="room-reserve-toolbar">
          <div class="toolbar-inner no-padding">
-             <a href="" class="button bottom_button button-max submit">
-                 <span>{{submit}}</span>
+             <a href="" class="button bottom_button button-max">
+                 <button class="reserve submit"{{#if this.soldOut}}disabled="disabled"{{/if}}>{{js "this.soldOut ? '已订完' : '提交订单'"}} </button>
              </a>
          </div>
      </div>

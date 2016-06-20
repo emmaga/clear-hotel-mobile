@@ -7,11 +7,11 @@ define(['framework7','config','xhr','appFunc','i18nText','orderDetail','text!roo
             $$('.submit').on('click', function(){
                 var formData = window.hotelApp.formToJSON('#reserve-form');
                 if(formData.name==""){
-                    alert(i18nText.room.name_error)
+                    hotelApp.alert(i18nText.room.name_error)
                     return
                 };
                 if(!appFunc.checkMobile(formData.tel)){
-                    alert(i18nText.room.tel_error)
+                    hotelApp.alert(i18nText.room.tel_error)
                     return;
                 };
                 orderData.tel = formData.tel;
@@ -22,7 +22,7 @@ define(['framework7','config','xhr','appFunc','i18nText','orderDetail','text!roo
                 orderData.action= "GET";
                 orderData.lang="en-us";
                 orderData.token = config.getClearToken();
-                orderData.openId = "10086";
+                orderData.openId = config.getOpenId();
                 xhr.ajax({
                         'url': config.getJSONUrl('room_orders'),
                         dataType: 'json',
@@ -103,19 +103,24 @@ define(['framework7','config','xhr','appFunc','i18nText','orderDetail','text!roo
                 roomId:roomId,
                 img:roomData.img,
                 intro:roomData.intro,
+                tips:roomData.tips,
+                averagePrice:roomData.averagePrice,
                 date1:i18nText.room.date_in+data.data.check_in,
                 date2:i18nText.room.date_out+data.data.check_out,
                 dayLength:i18nText.room.day1+dayLength+i18nText.room.day2,
                 roomName:roomData.name,
                 priceList:priceList,
                 totalPriceNum:totalPrice,
+                soldOut:roomData.soldOut,
                 totalPrice:i18nText.room.total_price+totalPrice,
                 roomNum:i18nText.room.room_num,
                 name:i18nText.room.name,
                 preName:i18nText.room.pre_name,
                 tel:i18nText.room.tel,
                 preTel:i18nText.room.pre_tel,
-                submit:i18nText.room.submit
+                submit:i18nText.room.submit,
+                order_message:i18nText.order.order_message,
+                unSubmit:i18nText.room.soldOut
             };
             var orderData = {
                 "check_in":data.data.check_in,
