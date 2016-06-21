@@ -12,7 +12,7 @@
   </ul>
     <ul>
         {{#each data.roomList}}
-        <a class="reserve-href" href="room-reserve.html?type=room&roomId={{roomId}}&moduleId={{../moduleId}}&checkIn={{../data.check_in}}&checkOut={{../data.check_out}}">
+        <a class="reserve-href" href="room-reserve.html?appId={{../appId}}&type=room&roomId={{roomId}}&moduleId={{../moduleId}}&checkIn={{../data.check_in}}&checkOut={{../data.check_out}}">
         <li  class="col-100" style="margin-top: 10px">
             <div class="room" data-roomId="{{roomId}}" data-roomName="{{name}}" data-price="{{averagePrice}}">
                 <img src="{{img[0].url}}" class="lazy room-img">

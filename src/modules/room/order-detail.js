@@ -44,6 +44,7 @@ define(['framework7','config','xhr','appFunc','i18nText','text!room/order-detail
                     pushState: true,
                     animatePages: true
                 });
+                appFunc.hideToolbar();
             //}
             //else {
             //    $$('#page-room-reserve_'+moduleId).html(output);

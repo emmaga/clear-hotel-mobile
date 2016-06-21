@@ -42,7 +42,7 @@ define(['framework7', 'i18nText', 'config', 'wxJDK', 'xhr', 'appFunc', 'router',
                     movieListDetail.stopCheckNetworkInterval();
 
                     if(hotelApp) {
-                        hotelApp.alert(message); 
+                        hotelApp.alert('', message); 
                     }
 
                 }

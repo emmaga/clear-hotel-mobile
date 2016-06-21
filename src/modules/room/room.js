@@ -16,7 +16,8 @@ define(['framework7','config', 'xhr','appFunc','errorFunc','i18nText','text!room
                 soldOut:i18nText.room.soldOut,
                 date_in:i18nText.room.date_in,
                 date_out:i18nText.room.date_out,
-                moduleId:moduleId
+                moduleId:moduleId,
+                appId: config.getAppId()
             };
             var output = appFunc.renderTpl(template,renderData);
             $$('#tab_'+'room'+'_'+moduleId).html(output);
