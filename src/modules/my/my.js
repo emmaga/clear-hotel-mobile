@@ -1,14 +1,18 @@
-define(['framework7', 'config', 'i18nText', 'xhr', 'appFunc','errorFunc', 'text!my/my.tpl.html'],
-    function(framework7, config, i18nText, xhr, appFunc, errorFunc, template){
+define(['framework7', 'config', 'orderDetail', 'i18nText', 'xhr', 'appFunc','errorFunc', 'text!my/my.tpl.html'],
+    function(framework7, config, orderDetail, i18nText, xhr, appFunc, errorFunc, template){
 
         var $$ = Dom7;
 
         var my = {
-            bindEvents: function() {
-                
+            bindEvents: function(moduleId) {
+                $$('#my-orderlist-'+moduleId).off('click', 'a').on('click', 'a', function() {
+                    var orderId = $$(this).attr('data-orderId');
+                    orderDetail.init(moduleId, orderId);
+                });
             },
             loadData: function(moduleId,data) {
                 var renderData = data.data;
+                renderData.moduleId = moduleId;
                 renderData.hasOrder = renderData.orders.length === 0 ? false : true;
                 renderData.stateText1 = i18nText.order.stateText1;
                 renderData.stateText2 = i18nText.order.stateText2;
@@ -39,6 +43,7 @@ define(['framework7', 'config', 'i18nText', 'xhr', 'appFunc','errorFunc', 'text!
                     var rescode = data.rescode;
                     if (rescode == 200) {
                         my.loadData(moduleId, data);
+                        my.bindEvents(moduleId);
                     }
                     else {
                       errorFunc.error(rescode);

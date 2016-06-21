@@ -41,8 +41,8 @@ define(['framework7','config','xhr','appFunc','i18nText','text!room/order-detail
             //if(isFirst) {
                 window.viewMain.router.load({
                     content:output,
-                    pushState: false,
-                    animatePages: false
+                    pushState: true,
+                    animatePages: true
                 });
             //}
             //else {

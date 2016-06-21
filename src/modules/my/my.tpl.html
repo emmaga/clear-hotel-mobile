@@ -1,11 +1,11 @@
-<div class="service-list">
+<div id="my-orderlist-{{moduleId}}" class="service-list">
     {{#if hasOrder}}
         {{#each orders}}
-        <div class="content-block-title service-list-order-id" data-orderId="{{orderId}}">{{../../order_id}}&nbsp{{orderId}}</div>
+        <div class="content-block-title service-list-order-id">{{../../order_id}}&nbsp{{orderId}}</div>
         <div class="list-block order-detail">
         	<ul>
          		<li class="service-list-order">
-         	   		<a>
+         	   		<a data-orderId="{{orderId}}">
                         <div class="content-block service-list-order-content ">
                             <h4 class="service-list-order-name">{{roomName}}</h4>
                             <p class="service-list-order-num">×{{roomNumber}}</p>
