@@ -1,10 +1,10 @@
-define(['framework7','config', 'xhr', 'appFunc','errorFunc', 'router','text!movie-list/movie-list-part.tpl.html', 'text!movie-list/movie-list.tpl.html',],
-    function(framework7,config, xhr, appFunc,errorFunc, router,templatePart,template){
+define(['framework7','config', 'xhr', 'appFunc', 'router', 'text!movie-list/movie-list.tpl.html'],
+    function(framework7,config, xhr, appFunc, router, template){
 
         var $$ = Dom7;
 
         var movieList = {
-            
+
             bindEvents: function() {
             },
             loadData: function(moduleId, data, isFirst) {
@@ -30,63 +30,51 @@ define(['framework7','config', 'xhr', 'appFunc','errorFunc', 'router','text!movi
                 //无限滚动
                 // 加载flag
                 var loading = false;
-                var firstRenderData={
-                    data:[],
-                    moduleId:moduleId,
-                    appId:config.getAppId()
-                };
+                var html = '';
                 var pageSize = infData.length < 10 ? infData.length : 10;
                 for (var i = 0; i < pageSize; i++) {
-                    firstRenderData.data[i] = infData[i];
-                    //html += "<a href='movie-list-detail.html?appId="+config.getAppId()+"&moduleId="+moduleId+"&movieId="+infData[i].movieId+"' class='col-100'><div class='movie-list'><img class='lazy movie-p1-img' src='"+infData[i].imgUrl+"'><h3 class='movie-p1-h3'>"+infData[i].name+"</h3><p class='movie-p1-p1'>"+infData[i].intro1+"</p><p class='movie-p1-p2'>"+infData[i].intro2+"</p> </div></a>";
+                    html += "<a href='movie-list-detail.html?moduleId="+moduleId+"&movieId="+infData[i].movieId+"' class='col-100'><div class='movie-list'><img class='lazy movie-p1-img' src='"+infData[i].imgUrl+"'><h3 class='movie-p1-h3'>"+infData[i].name+"</h3><p class='movie-p1-p1'>"+infData[i].intro1+"</p><p class='movie-p1-p2'>"+infData[i].intro2+"</p> </div></a>";
                 }
-                console.log(firstRenderData);
-                var html = appFunc.renderTpl(templatePart,firstRenderData);
                 // 添加新条目
                 $$('#movie-list-row_'+moduleId).append(html);
+
                 // 上次加载的序号
                 var lastIndex = $$('.movie-list').length;
                 // 最多可加载的条目
                 var maxItems =infData.length < 10 ? infData.length : 30;
                 // 每次加载添加多少条目
                 var itemsPerLoad = 10;
+
                 // 注册'infinite'事件处理函数
                 $$(document).on('infinite','.infinite-scroll', function () {
                     // 如果正在加载，则退出
                     if (loading) return;
+
                     // 设置flag
                     loading = true;
-                        // 重置加载flag
-                        loading = false;
-                        if (lastIndex >= maxItems) {
-                            // 加载完毕，则注销无限加载事件，以防不必要的加载
-                            window.hotelApp.detachInfiniteScroll($$('.infinite-scroll'));
-                            // 删除加载提示符
-                            $$('.infinite-scroll-preloader').remove();
-                            return;
-                        }
-                        // 生成新条目的HTML
-                        //var html = '';
-                        var restItems = maxItems - lastIndex;
-                        var moreNumber = restItems>itemsPerLoad ? itemsPerLoad:restItems;
-                        //for (var i = lastIndex ; i < lastIndex + moreNumber; i++) {
-                        //    //console.log(infData[i].movieId)
-                        //    html += "<a href='movie-p2.html?appId="+config.getAppId()+"&movieId="+infData[i].movieId+"' class='col-100'><div class='movie-list' data-movieId='"+infData[i].movieId+"'><img class='lazy movie-p1-img' src='"+infData[i].imgUrl+"'><h3 class='movie-p1-h3'>"+infData[i].name+"</h3><p class='movie-p1-p1'>"+infData[i].intro1+"</p><p class='movie-p1-p2'>"+infData[i].intro2+"</p> </div></a>";
-                        //}
-                        var moreRenderData={
-                            data:{},
-                            moduleId:moduleId,
-                            appId:config.getAppId()
-                        };
-                        for (var i = lastIndex; i < lastIndex + moreNumber; i++) {
-                            moreRenderData.data[i] = infData[i];
-                            //html += "<a href='movie-list-detail.html?appId="+config.getAppId()+"&moduleId="+moduleId+"&movieId="+infData[i].movieId+"' class='col-100'><div class='movie-list'><img class='lazy movie-p1-img' src='"+infData[i].imgUrl+"'><h3 class='movie-p1-h3'>"+infData[i].name+"</h3><p class='movie-p1-p1'>"+infData[i].intro1+"</p><p class='movie-p1-p2'>"+infData[i].intro2+"</p> </div></a>";
-                        }
-                        var moreHtml = appFunc.renderTpl(templatePart,moreRenderData);
-                        // 添加新条目
-                        $$('#movie-list-row_'+moduleId).append(moreHtml);
-                        // 更新最后加载的序号
-                        lastIndex = $$('.movie-list').length;
+
+                    // 重置加载flag
+                    loading = false;
+                    if (lastIndex >= maxItems) {
+                        // 加载完毕，则注销无限加载事件，以防不必要的加载
+                        window.hotelApp.detachInfiniteScroll($$('.infinite-scroll'));
+                        // 删除加载提示符
+                        $$('.infinite-scroll-preloader').remove();
+                        return;
+                    }
+
+                    // 生成新条目的HTML
+                    var html = '';
+                    for (var i = lastIndex ; i < lastIndex + itemsPerLoad; i++) {
+                        //console.log(infData[i].movieId)
+                        html += "<a href='movie-p2.html?movieId="+infData[i].movieId+"' class='col-100'><div class='movie-list' data-movieId='"+infData[i].movieId+"'><img class='lazy movie-p1-img' src='"+infData[i].imgUrl+"'><h3 class='movie-p1-h3'>"+infData[i].name+"</h3><p class='movie-p1-p1'>"+infData[i].intro1+"</p><p class='movie-p1-p2'>"+infData[i].intro2+"</p> </div></a>";
+                    }
+
+                    // 添加新条目
+                    $$('#movie-list-row_'+moduleId).append(html);
+
+                    // 更新最后加载的序号
+                    lastIndex = $$('.movie-list').length;
                 });
             }
         }
@@ -96,10 +84,10 @@ define(['framework7','config', 'xhr', 'appFunc','errorFunc', 'router','text!movi
             $$('#page-movie-list').attr('id', 'page-movie-list_'+moduleId);
 
             var data = {
-              project_name: config.getAppId(),
-              action: "GET",
-              token: config.getClearToken(),
-              ModuleInstanceID: moduleId
+                project_name: config.getAppId(),
+                action: "GET",
+                token: config.getClearToken(),
+                ModuleInstanceID: moduleId
             }
 
             xhr.ajax({
@@ -110,22 +98,22 @@ define(['framework7','config', 'xhr', 'appFunc','errorFunc', 'router','text!movi
                 'success': function(data){
                     var rescode = data.rescode;
                     if (rescode == 200) {
-                      var url = data.redirect_url;
-                      // var moduleId = data.ModuleInstanceID;
-                      loadMovieList(url);
+                        var url = data.redirect_url;
+                        // var moduleId = data.ModuleInstanceID;
+                        loadMovieList(url);
                     }
                     else {
-                      errorFunc.error(rescode);
+                        errorFunc.error(rescode);
                     }
                 }
             })
 
             function loadMovieList(url) {
                 var data = {
-                  project_name: config.getAppId(),
-                  action: "GET",
-                  token: config.getClearToken(),
-                  ModuleInstanceID: moduleId
+                    project_name: config.getAppId(),
+                    action: "GET",
+                    token: config.getClearToken(),
+                    ModuleInstanceID: moduleId
                 }
 
                 xhr.ajax({
@@ -136,10 +124,10 @@ define(['framework7','config', 'xhr', 'appFunc','errorFunc', 'router','text!movi
                     'success': function(data){
                         var rescode = data.rescode;
                         if (rescode == 200) {
-                          movieList.loadData(moduleId, data, isFirst);
+                            movieList.loadData(moduleId, data, isFirst);
                         }
                         else {
-                          errorFunc.error(rescode);
+                            errorFunc.error(rescode);
                         }
                     }
                 })
