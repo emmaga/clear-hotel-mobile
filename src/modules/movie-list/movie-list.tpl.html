@@ -3,7 +3,7 @@
         <div class="content-block">
             <div id="movie-list-row_{{moduleId}}">
                 {{#each data}}
-                <a href='movie-list-detail.html?appId=""&moduleId="{{../moduleId}}"&movieId="{{data[i].movieId}}"' class='col-100'>
+                <a href='movie-list-detail.html?appId="+config.getAppId()+"&moduleId="{{../moduleId}}"&movieId="{{data[i].movieId}}"' class='col-100'>
                     <div class='movie-list'>
                         <img class='lazy movie-p1-img' src='{{data[i].imgUrl}}'>
                         <h3 class='movie-p1-h3'>{{data[i].name}}</h3>

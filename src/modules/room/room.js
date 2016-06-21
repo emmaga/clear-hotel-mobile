@@ -10,6 +10,7 @@ define(['framework7','config', 'xhr','appFunc','errorFunc','i18nText','text!room
 
         },
         loadData:function(moduleId,data){
+            console.log(data);
             var renderData = {
                 data:data.data,
                 reserve:i18nText.room.reserve,
@@ -168,8 +169,8 @@ define(['framework7','config', 'xhr','appFunc','errorFunc','i18nText','text!room
             project_name: config.getAppId(),
             action: "GET",
             lang:"en-us",
-            check_in:checkIn,
-            check_out:checkOut,
+            check_in:"",
+            check_out:"",
             token: config.getClearToken(),
             ModuleInstanceID:moduleId
         }
