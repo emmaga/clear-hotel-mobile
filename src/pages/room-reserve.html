@@ -8,6 +8,6 @@
     var moduleId = p.moduleId;
     var roomId = p.roomId;
 
-    var stateRedirectUriCode = '1,2' + moduleId;
+    var stateRedirectUriCode = '1,2,' + moduleId;
     window.location.href = getWxUrl(appId, stateRedirectUriCode);
 </script>

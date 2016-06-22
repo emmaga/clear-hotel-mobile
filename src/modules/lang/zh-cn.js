@@ -122,7 +122,7 @@ define([], function () {'use strict';
             order_message:'订单信息',
             order_id:'订单号',
             order_time:'下单时间',
-            total_price:'总额',
+            total_price:'总价',
             room_message:'客房信息',
             room_type:'房型',
             date:'日期',
@@ -133,7 +133,8 @@ define([], function () {'use strict';
             name:'姓名',
             stateText1:'等待处理',
             stateText2:'订房成功',
-            stateText3:'订房失败'
+            stateText3:'订房失败',
+            check_in_check_out: '入住时间'
         },
         confirm:{
             network_state:'当前网络不是wifi状态，继续播放可能会产生流量，确定继续观看？'

@@ -7,14 +7,17 @@ define(['framework7','config','xhr','appFunc','errorFunc','i18nText','orderDetai
             $$('.submit').on('click', function(){
                 var formData = window.hotelApp.formToJSON('#reserve-form');
                 if(formData.name==""){
-                    hotelApp.alert('', i18nText.room.name_error);
-                    $$(".name-input").focus();
-                    return
+                    hotelApp.alert('', i18nText.room.name_error, function () {
+                        $$(".name-input").focus();
+                    });
+                    
+                    return;
                 };
                 if(!appFunc.checkMobile(formData.tel)){
-                    hotelApp.alert('', i18nText.room.tel_error);
-                    $$(".tel-input").focus();
-                    return
+                    hotelApp.alert('', i18nText.room.tel_error, function () {
+                        $$(".tel-input").focus();
+                    });
+                    return;
                 };
                 orderData.tel = formData.tel;
                 orderData.name = formData.name;
@@ -33,13 +36,13 @@ define(['framework7','config','xhr','appFunc','errorFunc','i18nText','orderDetai
                         'success': function(data){
                              var rescode = data.rescode;
                              if (rescode == 200) {
-                                    var orderId = data.data.orderId;
-                                    orderDetail.init(moduleId,orderId);
-                                            }
-                                           else {
-                                                errorFunc.error(rescode);
-                                            }
-                                        }
+                                var orderId = data.data.orderId;
+                                orderDetail.init(moduleId,orderId);
+                            }
+                           else {
+                                errorFunc.error(rescode);
+                            }
+                        }
                 })
                 //orderDetail.init(moduleId);
             });
