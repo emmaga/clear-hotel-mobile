@@ -20,6 +20,7 @@ define(['framework7', 'config', 'orderDetail', 'i18nText', 'xhr', 'appFunc','err
                 renderData.total_price = i18nText.order.total_price;
                 renderData.check_in_check_out = i18nText.order.check_in_check_out;
                 renderData.order_id = i18nText.order.order_id;
+                renderData.no_orders = i18nText.order.no_orders;
                 var output = appFunc.renderTpl(template,renderData);
                 $$('#tab_'+'my'+'_'+moduleId).html(output);
             }

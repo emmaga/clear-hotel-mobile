@@ -133,7 +133,8 @@ define([], function () {'use strict';
             stateText1:'waiting for dispose',
             stateText2:'order succeed',
             stateText3:'order failed',
-            check_in_check_out:'Check In ~ Check Out'
+            check_in_check_out:'Check In ~ Check Out',
+            no_orders: 'No orders'
         },
         confirm:{
             network_state:'The current network status is not wifi, go on？'

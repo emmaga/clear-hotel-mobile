@@ -134,7 +134,8 @@ define([], function () {'use strict';
             stateText1:'等待处理',
             stateText2:'订房成功',
             stateText3:'订房失败',
-            check_in_check_out: '入住时间'
+            check_in_check_out: '入住时间',
+            no_orders: '无订单'
         },
         confirm:{
             network_state:'当前网络不是wifi状态，继续播放可能会产生流量，确定继续观看？'
