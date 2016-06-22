@@ -10,7 +10,6 @@ define(['framework7','config', 'xhr','appFunc','errorFunc','i18nText','text!room
 
         },
         loadData:function(moduleId,data){
-            console.log(data);
             var renderData = {
                 data:data.data,
                 reserve:i18nText.room.reserve,

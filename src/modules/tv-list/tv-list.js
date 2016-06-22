@@ -45,7 +45,7 @@ define(['framework7','config', 'wxJDK', 'i18nText', 'xhr','appFunc','router','te
                     tvList.stopCheckNetworkInterval();
 
                     if(hotelApp) {
-                        hotelApp.alert(message); 
+                        hotelApp.alert('', message); 
                     }
 
                 }
@@ -85,7 +85,7 @@ define(['framework7','config', 'wxJDK', 'i18nText', 'xhr','appFunc','router','te
                     tvList.stopCheckNetworkInterval();
 
                     if(hotelApp) {
-                        hotelApp.alert(message); 
+                        hotelApp.alert('', message); 
                     }
 
                 }

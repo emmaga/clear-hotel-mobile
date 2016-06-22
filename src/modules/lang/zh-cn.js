@@ -92,7 +92,8 @@ define([], function () {'use strict';
             no_network: '无网络连接',
             http_error: '网络错误',
             error_text: '抱歉，出错了',
-            error_expired: '抱歉，该页面已过期，你可以重新访问该页面，通过关注公众号：',
+            error_expired: '抱歉，页面已过期，你可以关注公众号“',
+            error_expired2: '”继续访问',
             phonegap_only: '该模块只支持在PhoneGap中使用',
             not_found: '404, 页面未找到'
 

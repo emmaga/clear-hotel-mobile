@@ -92,7 +92,8 @@ define([], function () {'use strict';
             no_network:'No network connection',
             http_error: 'network error',
             error_text: 'oops, something went wrong',
-            error_expired: 'Sorry, this page has expired , you can re- access this page , by focusing public number : ',
+            error_expired: 'Sorry, this page has expired , you can re-access this page , by focusing public number : ',
+            error_expired2: '',
             phonegap_only:'PhoneGap Only',
             not_found: '404, page not found'
         },

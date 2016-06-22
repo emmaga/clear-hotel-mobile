@@ -7,12 +7,12 @@ define(['framework7','config','xhr','appFunc','errorFunc','i18nText','orderDetai
             $$('.submit').on('click', function(){
                 var formData = window.hotelApp.formToJSON('#reserve-form');
                 if(formData.name==""){
-                    hotelApp.alert(i18nText.room.name_error);
+                    hotelApp.alert('', i18nText.room.name_error);
                     $$(".name-input").focus();
                     return
                 };
                 if(!appFunc.checkMobile(formData.tel)){
-                    hotelApp.alert(i18nText.room.tel_error);
+                    hotelApp.alert('', i18nText.room.tel_error);
                     $$(".tel-input").focus();
                     return
                 };

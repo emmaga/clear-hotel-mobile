@@ -26,7 +26,7 @@ define(['framework7', 'config', 'xhr', 'errorFunc', 'router', 'appFunc', 'briefM
                 }
             }
             else {
-              errorFunc.error(rescode);
+                errorFunc.error(rescode);
             }
 
           }
