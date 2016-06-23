@@ -8,6 +8,10 @@ define([], function () {'use strict';
 
     var requestURL = useLocalConfig ? 'http://localhost/clear-hotel-mobile/src/api/' : 'http://mback.cleartv.cn/backend_terminal/v1/';
 
+    /**
+     * 清鹤服务器入口地址
+     */
+    var callBackEntryUrl = 'http://mback.cleartv.cn/backend_terminal/v1/callbackentry';
 
     /**
      * 微信公众号唯一标识
@@ -114,6 +118,13 @@ define([], function () {'use strict';
          */
         getOpenId: function() {
             return (typeof(openId) === "undefined") ? '' : openId;
+        },
+        /**
+         * 获取callBackEntryUrl
+         * @returns {string}
+         */
+        getCallBackEntryUrl: function() {
+            return callBackEntryUrl;
         }
     };
 

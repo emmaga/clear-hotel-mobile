@@ -2,6 +2,9 @@ define(['framework7'], function(framework7){
 
     var $$ = Dom7;
 
+    // 缓存
+    window.clearcrane = {};
+
     var renderTpl = function(markup,renderData){
         var compiledTemplate = Template7.compile(markup);
         return compiledTemplate(renderData);
@@ -117,14 +120,49 @@ define(['framework7'], function(framework7){
     手机号的正则检测（是否以数字1开头，是否是11位数字）
     */
     var checkMobile = function(str) {
-        var
-            re = /^1\d{10}$/
+        var re = /^1\d{10}$/
         if (re.test(str)) {
             return true;
         } else {
             return false;
         }
     }
+
+    /**
+     * 如果还有str返回true，否则返回false
+     * @str, @specifiedStr
+     */
+    var hasStr = function(str, specifiedStr) {
+        if (str.indexOf(specifiedStr) >= 0) {
+          return true;
+        }
+        else {
+           return false;
+        }
+    } 
+
+    /**
+     * 设置缓存
+     */
+    var setClearcraneStorage = function(name, val) {
+        window.clearcrane[name] = val;
+    }
+
+    /**
+     * 获取页面第一个指定标签的内容
+     * @eleType: img
+     */
+     var getFirstEleVal = function(eleType) {
+        var ret = '';
+        switch (eleType) {
+            case 'img':
+                if (document.getElementsByTagName("img")[0]) {
+                    ret = document.getElementsByTagName("img")[0].src;
+                }
+                break;
+        }
+        return ret;
+     }
 
     return {
         renderTpl: renderTpl,
@@ -137,6 +175,9 @@ define(['framework7'], function(framework7){
         timeToDate:timeToDate,
         addClass:addClass,
         checkMobile:checkMobile,
-        toCalendarDate:toCalendarDate
+        toCalendarDate:toCalendarDate,
+        hasStr: hasStr,
+        setClearcraneStorage: setClearcraneStorage
+        getFirstEleVal: getFirstEleVal
     };
 });

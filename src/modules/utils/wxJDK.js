@@ -1,5 +1,5 @@
 
-define(['xhr', 'config'], function (xhr, config) {'use strict';
+define(['xhr', 'config', 'appFunc'], function (xhr, config, appFunc) {'use strict';
 
     return {        
         /**
@@ -47,7 +47,7 @@ define(['xhr', 'config'], function (xhr, config) {'use strict';
                 data: data,
                 method: 'POST',
                 'success': function(data){
-                    if (rescode == 200) {
+                    if (data.rescode == 200) {
                       signature = data.signature;
                       wxSign();
                     }
@@ -60,14 +60,81 @@ define(['xhr', 'config'], function (xhr, config) {'use strict';
             function wxSign() {
                 wx.config({
                     debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
-                    appId: appId, // 必填，公众号的唯一标识
+                    appId: config.getAppId(), // 必填，公众号的唯一标识
                     timestamp: timestamp, // 必填，生成签名的时间戳
                     nonceStr: nonceStr, // 必填，生成签名的随机串
                     signature: signature,// 必填，签名，见附录1
-                    jsApiList: ['getNetworkType'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+                    jsApiList: ['getNetworkType', 'onMenuShareAppMessage', 'onMenuShareTimeline'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
                 });
             }
-        
+        },
+        /**
+         * wx 获取分享首页跳转地址
+         */
+        getWxRedirectUrl: function() {
+            var appId = config.getAppId(),
+                stateRedirectUriCode,
+                redirectUri = encodeURIComponent(config.getCallBackEntryUrl());
+
+            var page = window.location.pathname;
+            var pageHash = window.location.hash;
+            page = pageHash !== "" ? pageHash : page;
+
+            // index
+            if(appFunc.hasStr(page, 'index')) {
+                stateRedirectUriCode = '';
+            }
+
+            // room-reserve
+            else if(appFunc.hasStr(page, 'room-reserve')) {
+                var moduleId = appFunc.getSearchParameters().moduleId ? appFunc.getSearchParameters().moduleId : appFunc.getHashParameters().moduleId;
+                stateRedirectUriCode = '1,2,' + moduleId;
+            }
+
+            // hotel-intro-list-detail
+            else if(appFunc.hasStr(page, 'hotel-intro-list-detail')) {
+                var introListDetailID = appFunc.getSearchParameters().introListDetailID ? appFunc.getSearchParameters().introListDetailID : appFunc.getHashParameters().introListDetailID;
+                stateRedirectUriCode = '3,' + introListDetailID;
+            }
+
+            // hotel-intro-list
+            else if(appFunc.hasStr(page, 'hotel-intro-list')) {
+                var moduleId = appFunc.getSearchParameters().moduleId ? appFunc.getSearchParameters().moduleId : appFunc.getHashParameters().moduleId;
+                stateRedirectUriCode = '2,' + moduleId;
+            }
+
+            // hotel-intro-detail
+            else if(appFunc.hasStr(page, 'hotel-intro-detail')) {
+                var moduleId = appFunc.getSearchParameters().moduleId ? appFunc.getSearchParameters().moduleId : appFunc.getHashParameters().moduleId;
+                stateRedirectUriCode = '4,' + moduleId;
+            }
+
+            // movie-list-detail
+            else if(appFunc.hasStr(page, 'movie-list-detail')) {
+                var moduleId = appFunc.getSearchParameters().moduleId ? appFunc.getSearchParameters().moduleId : appFunc.getHashParameters().moduleId;
+                var movieId = appFunc.getSearchParameters().movieId ? appFunc.getSearchParameters().movieId : appFunc.getHashParameters().movieId;
+                stateRedirectUriCode = '6,' + moduleId + ',' + movieId;
+            }
+
+            // movie-list
+            else if(appFunc.hasStr(page, 'movie-list')) {
+                var moduleId = appFunc.getSearchParameters().moduleId ? appFunc.getSearchParameters().moduleId : appFunc.getHashParameters().moduleId;
+                stateRedirectUriCode = '5,' + moduleId;
+            }
+
+            // tv-list
+            else if(appFunc.hasStr(page, 'tv-list')) {
+                var moduleId = appFunc.getSearchParameters().moduleId ? appFunc.getSearchParameters().moduleId : appFunc.getHashParameters().moduleId;
+                stateRedirectUriCode = '7,' + moduleId;
+            }
+
+            var url = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + appId +
+                      '&redirect_uri=' + redirectUri +
+                      '&response_type=code&scope=snsapi_base' +
+                      '&state=ai=' + appId + 
+                      '+ru=' + stateRedirectUriCode + '#wechat_redirect';
+            
+            return url;
         }
     };
 

@@ -5,7 +5,15 @@ define(['framework7', 'wxJDK', 'config', 'appFunc', 'indexModule', 'briefModule'
 
         var router = {
             init: function() {
+
+                router.wxJDKInit();
+                
+                $$(document).on('pageAfterBack', function (e) {
+                    router.wxJDKInit();
+                });
+
                 $$(document).on('pageBeforeInit', function (e) {
+                    router.wxJDKInit();
                     var page = e.detail.page;
                     router.pageBeforeInit(page);
                 });
@@ -14,7 +22,56 @@ define(['framework7', 'wxJDK', 'config', 'appFunc', 'indexModule', 'briefModule'
                     router.pageBeforeAnimation(page);
                 });
             },
+            wxJDKInit: function() {
+                // wx 分享
+                wxJDK.wxConfig();
+        
+                wx.error(function(){
+                  wxJDK.wxConfig();
+                })
+
+                wx.ready(function(){
+                  // 分享给朋友
+                  wx.onMenuShareAppMessage(router.getWxMenuShareAppMessage()); 
+
+                  // 分享给朋友圈
+                  wx.onMenuShareTimeline(router.getWxMenuShareTimeline()); 
+                });
+            },
+            getWxMenuShareAppMessage: function() {
+                return {
+                  title: document.title, // 分享标题
+                  desc: window.location.hostname, // 分享描述
+                  link: wxJDK.getWxRedirectUrl(), // 分享链接
+                  imgUrl: appFunc.getFirstEleVal('img'), // 分享图标
+                  type: '', // 分享类型,music、video或link，不填默认为link
+                  dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                  success: function () { 
+                      // 用户确认分享后执行的回调函数
+                  },
+                  cancel: function () { 
+                      // 用户取消分享后执行的回调函数
+                  }
+                }
+            },
+            getWxMenuShareTimeline: function() {
+                return {
+                  title: document.title, // 分享标题
+                  desc: window.location.hostname, // 分享描述
+                  link: wxJDK.getWxRedirectUrl(), // 分享链接
+                  imgUrl: appFunc.getFirstEleVal('img'), // 分享图标
+                  type: '', // 分享类型,music、video或link，不填默认为link
+                  dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                  success: function () { 
+                      // 用户确认分享后执行的回调函数
+                  },
+                  cancel: function () { 
+                      // 用户取消分享后执行的回调函数
+                  }
+                }
+            },
             pageBeforeInit: function(page) {
+
                 var pageName = page.name;
                 if (pageName.indexOf("hotel-intro-list-detail") >= 0) {
                     pageName = "hotel-intro-list-detail";
@@ -72,7 +129,7 @@ define(['framework7', 'wxJDK', 'config', 'appFunc', 'indexModule', 'briefModule'
                         appFunc.hideToolbar();
                         break;
                     case 'movie-list-detail':
-                        wxJDK.wxConfig();
+                        // wxJDK.wxConfig();
                         var moduleId = page.query.moduleId;
                         moduleId = typeof(moduleId) === 'undefined' ? h.moduleId : moduleId;
 
@@ -83,7 +140,7 @@ define(['framework7', 'wxJDK', 'config', 'appFunc', 'indexModule', 'briefModule'
                         appFunc.hideToolbar();
                         break;
                     case 'tv-list':
-                        wxJDK.wxConfig();
+                        // wxJDK.wxConfig();
                         var moduleId = page.query.moduleId;
                         moduleId = typeof(moduleId) === 'undefined' ? h.moduleId : moduleId;
                         

@@ -1,10 +1,11 @@
-define(['framework7', 'config', 'xhr', 'errorFunc', 'router', 'appFunc', 'briefModule', 'roomModule','roomReserveModule', 'serviceModule','hotelIntroListModule', 'hotelIntroListDetailModule', 'hotelIntroDetailModule', 'movieListModule','movieListDetailModule','tvListModule','myModule','text!index/index.tpl.html'],
-  function(framework7, config, xhr, errorFunc, router, appFunc, briefModule, roomModule,roomReserveModule, serviceModule,hotelIntroListModule, hotelIntroListDetailModule, hotelIntroDetailModule, movieListModule, movieListDetailModule,tvListModule,myModule,template){
+define(['framework7', 'config', 'wxJDK', 'xhr', 'errorFunc', 'router', 'appFunc', 'briefModule', 'roomModule','roomReserveModule', 'serviceModule','hotelIntroListModule', 'hotelIntroListDetailModule', 'hotelIntroDetailModule', 'movieListModule','movieListDetailModule','tvListModule','myModule','text!index/index.tpl.html'],
+  function(framework7, config, wxJDK, xhr, errorFunc, router, appFunc, briefModule, roomModule,roomReserveModule, serviceModule,hotelIntroListModule, hotelIntroListDetailModule, hotelIntroDetailModule, movieListModule, movieListDetailModule,tvListModule,myModule,template){
 
     var $$ = Dom7;
 
     var index = {
       init: function(type,moduleId) {
+
         var data = {
           project_name: config.getAppId(),
           action: "GET",
@@ -64,23 +65,23 @@ define(['framework7', 'config', 'xhr', 'errorFunc', 'router', 'appFunc', 'briefM
                   break;
           }
       },
-        loadSelfData: function(type,moduleId,data) {
-            // 修改title
-            document.title = data.data.appTitle;
+      loadSelfData: function(type,moduleId,data) {
+          // 修改title
+          document.title = data.data.appTitle;
 
-            // 加载tabs
-            var renderData = data.data;
+          // 加载tabs
+          var renderData = data.data;
 
-            var output = appFunc.renderTpl(template, renderData);
-            $$('#index-views').html(output);
+          var output = appFunc.renderTpl(template, renderData);
+          $$('#index-views').html(output);
 
-            // Add views
-            window.viewMain = hotelApp.addView('.view-main', {domCache: true});
+          // Add views
+          window.viewMain = hotelApp.addView('.view-main', {domCache: true});
 
-            // 导航按钮切换
-            index.loadPage(type, moduleId);
+          // 导航按钮切换
+          index.loadPage(type, moduleId);
 
-        },
+      },
       loadData: function(type,moduleId,data) {
         // 修改title
         document.title = data.data.appTitle;
@@ -176,9 +177,7 @@ define(['framework7', 'config', 'xhr', 'errorFunc', 'router', 'appFunc', 'briefM
               break;
           }
         }
-
       }
-
     };
 
     return {
