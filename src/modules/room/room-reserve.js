@@ -61,7 +61,7 @@ define(['framework7','config','xhr','appFunc','errorFunc','i18nText','orderDetai
                 }
                 var preTotalPrice = Number($$('.total-price').attr('data-total-price'));
                 var lastTotalPrice = preTotalPrice * number;
-                $$('.total-price').html(i18nText.room.total_price+lastTotalPrice);
+                $$('.total-price').html('<li><div class="item-content item-inner">'+i18nText.room.total_price+lastTotalPrice+'</div></li>');
             });
             $$('#number-sub').on('click',function(){
                 var number = Number($$('.number').attr('value'));
@@ -78,7 +78,7 @@ define(['framework7','config','xhr','appFunc','errorFunc','i18nText','orderDetai
                 }
                 var preTotalPrice = Number($$('.total-price').attr('data-total-price'));
                 var lastTotalPrice = preTotalPrice * number;
-                $$('.total-price').html(i18nText.room.total_price+lastTotalPrice);
+                $$('.total-price').html('<li><div class="item-content item-inner">'+i18nText.room.total_price+lastTotalPrice+'</div></li>');
             })
         },
         loadData:function(moduleId,roomId,data,priceData,isFirst){
