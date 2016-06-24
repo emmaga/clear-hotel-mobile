@@ -85,7 +85,7 @@ i.tabbar-icon-my{
 }
 .service-list-order-time0{
   position: relative;
-  top: 7px;
+  top: 11px;
   margin: 0;
   margin-top: 7px;
   font-size: 12px;
@@ -121,7 +121,7 @@ i.tabbar-icon-my{
   content:' ';
   position: absolute;
   top: 5px;
-  right: 2px;
+  right: -11px;
   width: 6px;
   height: 6px;
   border-right:solid 1px #64636a;
@@ -129,18 +129,15 @@ i.tabbar-icon-my{
   transform: rotateZ(45deg);
 }
 
-.order-status1:before{
-  content: '...等待处理';
+.order-status1{
   opacity: .5;
   margin-right: 14px;
  }
-.order-status2:before{
-  content: '订房成功';
+.order-status2{
   color: rgb(0,200,50);
  margin-right: 14px;
  }
-.order-status3:before{
-  content: '订房失败';
+.order-status3{
   color: rgb(200,50,50);
   margin-right: 14px;
  }

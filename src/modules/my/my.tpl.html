@@ -11,13 +11,13 @@
                             <p class="service-list-order-num">×{{roomNumber}}</p>
                             <!-- <p class="service-list-order-status order-status{{orderStatus}}"></p>-->
                             {{#js_compare "this.orderStatus === '1'"}}
-                                <p>{{../../stateText1}}</p>
+                                <p class="service-list-order-status order-status1">{{../../stateText1}}</p>
                             {{/js_compare}}
                             {{#js_compare "this.orderStatus === '2'"}}
-                                <p>{{../../stateText2}}</p>
+                                <p class="service-list-order-status order-status2">{{../../stateText2}}</p>
                             {{/js_compare}}
                             {{#js_compare "this.orderStatus === '3'"}}
-                                <p>{{../../stateText3}}</p>
+                                <p class="service-list-order-status order-status3">{{../../stateText3}}</p>
                             {{/js_compare}}
                             <p class="service-list-order-time0">{{../../check_in_check_out}}</p>
                             <p class="service-list-order-time1 big-first-letter"><i style="opacity:0">d</i>{{check_in}}</p>
