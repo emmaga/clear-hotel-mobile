@@ -14,7 +14,9 @@ define(['xhr', 'config', 'appFunc'], function (xhr, config, appFunc) {'use stric
                         callback_t();
                     }
                     else {
-                        callback_f();
+                        if(callback_f) {
+                            callback_f();
+                        }
                     }
                 }
             });

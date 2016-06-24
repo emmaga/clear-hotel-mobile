@@ -22,6 +22,10 @@ define(['framework7','config', 'xhr','appFunc','errorFunc','i18nText','text!room
             var output = appFunc.renderTpl(template,renderData);
             $$('#tab_'+'room'+'_'+moduleId).html(output);
 
+            // for image lazy load
+            var pageWithLazyImages = $$('.page[data-page="index"]'); 
+            hotelApp.initImagesLazyLoad(pageWithLazyImages);
+
             //room.bindEvents(moduleId,data);
             room.initCalendar(moduleId,data);
         },
