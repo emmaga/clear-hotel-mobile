@@ -20,7 +20,7 @@ define(['framework7', 'i18nText', 'config', 'wxJDK', 'xhr', 'appFunc', 'router',
                     clearInterval(checkNetWorkInterval);
                 }
                 checkNetWorkInterval = setInterval(function() {
-                    if(window.pageName === 'movie-list-detail') {
+                    if(window.clearcrane.pageName === 'movie-list-detail') {
                         movieListDetail.checkNetWork();
                     }
                     else {

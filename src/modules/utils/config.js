@@ -4,7 +4,7 @@ define([], function () {'use strict';
     /**
      * 本地配置调试开关
      */
-    var useLocalConfig = true;
+    var useLocalConfig = false;
 
     var requestURL = useLocalConfig ? 'http://localhost/clear-hotel-mobile/src/api/' : 'http://mback.cleartv.cn/backend_terminal/v1/';
 

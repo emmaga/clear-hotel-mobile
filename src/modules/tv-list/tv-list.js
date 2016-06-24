@@ -23,7 +23,7 @@ define(['framework7','config', 'wxJDK', 'i18nText', 'xhr','appFunc','router','te
                     clearInterval(checkNetWorkInterval);
                 }
                 checkNetWorkInterval = setInterval(function() {
-                    if(window.pageName === 'tv-list') {
+                    if(window.clearcrane.pageName === 'tv-list') {
                         tvList.checkNetWork();
                     }
                     else {

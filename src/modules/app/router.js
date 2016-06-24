@@ -95,8 +95,8 @@ define(['framework7', 'wxJDK', 'config', 'appFunc', 'indexModule', 'briefModule'
                     pageName = "room-reserve";
                 }
 
-                window.pageName = pageName;
-                
+                appFunc.setClearcraneStorage('pageName', pageName);
+
                 var h = appFunc.getHashParameters();
                 
                 switch (pageName) {

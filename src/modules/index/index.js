@@ -20,6 +20,10 @@ define(['framework7', 'config', 'wxJDK', 'xhr', 'errorFunc', 'router', 'appFunc'
           'success': function(data){
             var rescode = data.rescode;
             if (rescode == 200) {
+
+                // 修改document title
+                index.setTitle(data.data.appTitle);
+
                 if(type===undefined){
                     index.loadData(type, moduleId, data);
                 }else {
@@ -32,6 +36,17 @@ define(['framework7', 'config', 'wxJDK', 'xhr', 'errorFunc', 'router', 'appFunc'
 
           }
         })
+      },
+      setTitle: function (title) {
+        var $$body = $$('body');
+        document.title = title;
+        // hack在微信等webview中无法修改document.title的情况
+        var $$iframe = $$('<iframe src="/favicon.ico"></iframe>');
+        $$iframe.on('load',function() {
+            setTimeout(function() {
+                $$iframe.off('load').remove();
+            }, 0);
+        }).appendTo($$body);
       },
       activeTab: function (type, moduleId) {
 
@@ -66,8 +81,6 @@ define(['framework7', 'config', 'wxJDK', 'xhr', 'errorFunc', 'router', 'appFunc'
           }
       },
       loadSelfData: function(type,moduleId,data) {
-          // 修改title
-          document.title = data.data.appTitle;
 
           // 加载tabs
           var renderData = data.data;
@@ -83,8 +96,6 @@ define(['framework7', 'config', 'wxJDK', 'xhr', 'errorFunc', 'router', 'appFunc'
 
       },
       loadData: function(type,moduleId,data) {
-        // 修改title
-        document.title = data.data.appTitle;
 
         // 加载tabs
         var renderData = data.data;

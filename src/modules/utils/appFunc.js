@@ -143,6 +143,7 @@ define(['framework7'], function(framework7){
 
     /**
      * 设置缓存
+     * 通过window.clearcrane.name获取
      */
     var setClearcraneStorage = function(name, val) {
         window.clearcrane[name] = val;
@@ -177,7 +178,7 @@ define(['framework7'], function(framework7){
         checkMobile:checkMobile,
         toCalendarDate:toCalendarDate,
         hasStr: hasStr,
-        setClearcraneStorage: setClearcraneStorage
+        setClearcraneStorage: setClearcraneStorage,
         getFirstEleVal: getFirstEleVal
     };
 });
