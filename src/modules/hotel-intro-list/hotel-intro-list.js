@@ -23,6 +23,10 @@ define(['framework7','config', 'xhr','appFunc','router','text!hotel-intro-list/h
                     $$('#page-hotel-intro-list_'+moduleId).html(output);
                     $$("div[data-page='hotel-intro-list']").attr('data-page', 'hotel-intro-list_'+moduleId);
                 }
+
+                // for image lazy load
+                var pageWithLazyImages = $$('.page[data-page="hotel-intro-list_'+moduleId+'"]'); 
+                hotelApp.initImagesLazyLoad(pageWithLazyImages);
             }
         }
 

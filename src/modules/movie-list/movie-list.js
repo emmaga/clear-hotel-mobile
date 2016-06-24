@@ -34,10 +34,14 @@ define(['framework7','config', 'xhr', 'appFunc', 'router', 'text!movie-list/movi
                 var pageSize = infData.length < 10 ? infData.length : 10;
                 var appId = config.getAppId();
                 for (var i = 0; i < pageSize; i++) {
-                    html += "<a href='movie-list-detail.html?appId="+appId+"&moduleId="+moduleId+"&movieId="+infData[i].movieId+"' class='col-100'><div class='movie-list'><img class='lazy movie-p1-img' src='"+infData[i].imgUrl+"'><h3 class='movie-p1-h3'>"+infData[i].name+"</h3><p class='movie-p1-p1'>"+infData[i].intro1+"</p><p class='movie-p1-p2'>"+infData[i].intro2+"</p> </div></a>";
+                    html += "<a href='movie-list-detail.html?appId="+appId+"&moduleId="+moduleId+"&movieId="+infData[i].movieId+"' class='col-100'><div class='movie-list'><img class='lazy movie-p1-img' data-src='"+infData[i].imgUrl+"'><h3 class='movie-p1-h3'>"+infData[i].name+"</h3><p class='movie-p1-p1'>"+infData[i].intro1+"</p><p class='movie-p1-p2'>"+infData[i].intro2+"</p> </div></a>";
                 }
                 // 添加新条目
                 $$('#movie-list-row_'+moduleId).append(html);
+
+                // for image lazy load
+                var pageWithLazyImages = $$('.page[data-page="movie-list_'+moduleId+'"]'); 
+                hotelApp.initImagesLazyLoad(pageWithLazyImages);
 
                 // 上次加载的序号
                 var lastIndex = $$('.movie-list').length;
@@ -68,11 +72,15 @@ define(['framework7','config', 'xhr', 'appFunc', 'router', 'text!movie-list/movi
                     var html = '';
                     for (var i = lastIndex ; i < lastIndex + itemsPerLoad; i++) {
                         //console.log(infData[i].movieId)
-                        html += "<a href='movie-p2.html?appId="+appId+"&movieId="+infData[i].movieId+"' class='col-100'><div class='movie-list' data-movieId='"+infData[i].movieId+"'><img class='lazy movie-p1-img' src='"+infData[i].imgUrl+"'><h3 class='movie-p1-h3'>"+infData[i].name+"</h3><p class='movie-p1-p1'>"+infData[i].intro1+"</p><p class='movie-p1-p2'>"+infData[i].intro2+"</p> </div></a>";
+                        html += "<a href='movie-p2.html?appId="+appId+"&movieId="+infData[i].movieId+"' class='col-100'><div class='movie-list' data-movieId='"+infData[i].movieId+"'><img class='lazy movie-p1-img' data-src='"+infData[i].imgUrl+"'><h3 class='movie-p1-h3'>"+infData[i].name+"</h3><p class='movie-p1-p1'>"+infData[i].intro1+"</p><p class='movie-p1-p2'>"+infData[i].intro2+"</p> </div></a>";
                     }
 
                     // 添加新条目
                     $$('#movie-list-row_'+moduleId).append(html);
+
+                    // for image lazy load
+                    var pageWithLazyImages = $$('.page[data-page="movie-list_'+moduleId+'"]'); 
+                    hotelApp.initImagesLazyLoad(pageWithLazyImages);
 
                     // 更新最后加载的序号
                     lastIndex = $$('.movie-list').length;
