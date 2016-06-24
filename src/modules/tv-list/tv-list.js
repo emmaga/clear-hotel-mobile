@@ -4,7 +4,8 @@ define(['framework7','config', 'wxJDK', 'i18nText', 'xhr','appFunc','router','te
         var $$ = Dom7,
             isUserAgreeUse2g3g = false,
             checkNetWorkInterval,
-            Media;
+            Media,
+            loadingInterval;
 
         var tvList = {
             bindEvents: function(moduleId) {
@@ -66,6 +67,20 @@ define(['framework7','config', 'wxJDK', 'i18nText', 'xhr','appFunc','router','te
                         function() {
                             if(Media.paused) {
                                 Media.play();
+                                $$('#tv-list-loading').html('loading...');
+                                if(loadingInterval){
+                                    clearInterval(loadingInterval);
+                                }
+                                loadingInterval = setInterval(function() {
+                                    if(window.clearcrane.pageName !== 'tv-list') {
+                                        clearInterval(loadingInterval);
+                                    }
+                                    //准备状态 Media.readyState; //1:HAVE_NOTHING 2:HAVE_METADATA 3.HAVE_CURRENT_DATA 4.HAVE_FUTURE_DATA 5.HAVE_ENOUGH_DATA
+                                    else if(Media.readyState > 2) {
+                                        clearInterval(loadingInterval);
+                                        $$('#tv-list-loading').html('');
+                                    }
+                                },1000)
                             }
                         }
                     ); 

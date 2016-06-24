@@ -3,7 +3,9 @@ define(['framework7', 'i18nText', 'config', 'wxJDK', 'xhr', 'appFunc', 'router',
         var $$ = Dom7,
             isUserAgreeUse2g3g = false,
             checkNetWorkInterval,
-            Media;
+            Media,
+            isFirstPlay,
+            loadingInterval;
 
         var movieListDetail = {
             bindEvents: function(movieId) {
@@ -11,6 +13,23 @@ define(['framework7', 'i18nText', 'config', 'wxJDK', 'xhr', 'appFunc', 'router',
 
                 // play()和autoplay开始播放时触发
                 Media.addEventListener('play', function() {
+                    if(isFirstPlay) {
+                        $$('#movie-list-detail-loading').html('loading...');
+                        if(loadingInterval){
+                            clearInterval(loadingInterval);
+                        }
+                        loadingInterval = setInterval(function() {
+                            if(window.clearcrane.pageName !== 'movie-list-detail') {
+                                clearInterval(loadingInterval);
+                            }
+                            //准备状态 Media.readyState; //1:HAVE_NOTHING 2:HAVE_METADATA 3.HAVE_CURRENT_DATA 4.HAVE_FUTURE_DATA 5.HAVE_ENOUGH_DATA
+                            else if(Media.readyState > 2) {
+                                clearInterval(loadingInterval);
+                                $$('#movie-list-detail-loading').html('');
+                                isFirstPlay = false;
+                            }
+                        },1000)
+                    }
                     movieListDetail.startCheckNetworkInterval();
                     movieListDetail.checkNetWork();
                 });
@@ -81,7 +100,7 @@ define(['framework7', 'i18nText', 'config', 'wxJDK', 'xhr', 'appFunc', 'router',
         }
 
         var init = function (moduleId, movieId, isFirst){
-
+            isFirstPlay = true;
             $$('#page-movie-list-detail').attr('id', 'page-movie-list-detail_'+moduleId);
 
             var data = {
