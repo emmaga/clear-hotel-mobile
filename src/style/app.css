@@ -370,6 +370,11 @@ i.tabbar-icon-my{
   font-weight: normal;
 }
 
+.room-tip-wrapper{
+  position: relative;
+  width: 81%;
+}
+
 .room-tip{
     border: 0.5px solid grey;
     border-radius: 3px ;
@@ -377,6 +382,7 @@ i.tabbar-icon-my{
     padding:3px 6px;
     color: gray;
     opacity: 0.8;
+    display: inline-block;
 }
 
 .room .price{
@@ -416,6 +422,14 @@ i.tabbar-icon-my{
 }
 .room .reserve[disabled=disabled]:after{
   display: none;
+}
+
+.my-orderlist-no-order{
+  text-align: center;
+  margin: 33%;
+  color: #6d6d72;
+  opacity: 0.8;
+  font-weight: normal;
 }
 
 /*icon*/

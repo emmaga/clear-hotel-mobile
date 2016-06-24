@@ -19,9 +19,11 @@
                 <div class="room-info-txt">
                     <h3 class="room-title">{{name}}</h3>
                     <!--<p>{{join tips delimiter=", "}}</p>-->
+                    <div class="room-tip-wrapper">
                     {{#each tips}}
                     <span class="room-tip">{{tip}}</span>
                     {{/each}}
+                    </div>
                     <p class="price">￥{{averagePrice}}</p>
 
                         <button class="reserve"{{#if this.soldOut}}disabled="disabled"{{/if}}>
