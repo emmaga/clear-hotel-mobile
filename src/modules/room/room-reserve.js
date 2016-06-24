@@ -154,6 +154,7 @@ define(['framework7','config','xhr','appFunc','errorFunc','i18nText','orderDetai
                 var mySwiper = window.hotelApp.swiper('#room-reserve-swiper_'+roomId, {
                     preloadImages: true,
                     lazyLoading: false,
+                    autoplay: 4000,
                     pagination:'.swiper-pagination'
                 });
             }

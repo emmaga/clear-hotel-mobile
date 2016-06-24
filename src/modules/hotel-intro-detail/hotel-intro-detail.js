@@ -26,6 +26,7 @@ define(['framework7','config', 'xhr','appFunc','router','text!hotel-intro-detail
                     var mySwiper = window.hotelApp.swiper('#hotel-intro-detail-swiper_'+moduleId, {
                         preloadImages: true,
                         lazyLoading: false,
+                        autoplay: 4000,
                         pagination:'.swiper-pagination'
                     });
                 }

@@ -15,6 +15,7 @@ define(['framework7','config', 'xhr','appFunc','text!brief/brief.tpl.html'],
                 var mySwiper = window.hotelApp.swiper('#brief-swiper_'+moduleId, {
                     preloadImages: true,
                     lazyLoading: false,
+                    autoplay: 4000,
                     pagination:'.swiper-pagination'
                 });
                 brief.bindEvents();
