@@ -28,14 +28,6 @@ define(['framework7','config', 'xhr','appFunc','router','text!hotel-intro-list/h
                         lazyLoading: false,
                         pagination:'.swiper-pagination'
                     });
-                    //根据开关显示/隐藏预定按钮
-                    var hasToolbar = renderData.switch;
-                    if(hasToolbar){
-                        $$('#hotel-intro-list-detail-toolbar_'+introListDetailID).removeClass('toolbar-hidden');
-                        $$('#hotel-intro-list-detail-toolbar_'+introListDetailID).css('display','block');
-                    }else{
-                        return;
-                    }
                 }
 
             }

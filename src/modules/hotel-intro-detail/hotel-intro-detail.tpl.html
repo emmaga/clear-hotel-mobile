@@ -22,11 +22,13 @@
             </div>
     </div>
     <!-- Bottom Tabbar-->
-    <div class="toolbar" id="hotel-intro-detail-toolbar_{{moduleId}}">
+    {{#if switch}}
+    <div class="toolbar">
         <div class="toolbar-inner no-padding">
             <a href="tel:{{tele}}" class="external button bottom_button button-max">
-                <span>电话预定</span>
+                <span>{{tele}}</span>
             </a>
         </div>
     </div>
+    {{/if}}
 <!-- </div> -->
