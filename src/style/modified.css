@@ -27,3 +27,38 @@
 .sub-title{
 	text-align: center;
 }
+
+.item-inner{
+	color: #64636a
+}
+
+.item-divider:before{
+  background: none !important;
+}
+
+.button-mod-plus{
+	position: relative;
+	background: none;
+	border: none;
+	padding-left: 24px;
+	width: 16px;
+    height: 16px;
+    margin: auto;
+    margin-right: 0;
+    background-image: url("data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' id='Capa_1' x='0px' y='0px' viewBox='0 0 489.8 489.8' style='enable-background:new 0 0 489.8 489.8;' fill='#64636a' xml:space='preserve'> <g> <g> <path d='M438.2,0H51.6C23.1,0,0,23.2,0,51.6v386.6c0,28.5,23.2,51.6,51.6,51.6h386.6c28.5,0,51.6-23.2,51.6-51.6V51.6 C489.8,23.2,466.6,0,438.2,0z M465.3,438.2c0,14.9-12.2,27.1-27.1,27.1H51.6c-14.9,0-27.1-12.2-27.1-27.1V51.6 c0-14.9,12.2-27.1,27.1-27.1h386.6c14.9,0,27.1,12.2,27.1,27.1V438.2z'/> <path d='M337.4,232.7h-80.3v-80.3c0-6.8-5.5-12.3-12.3-12.3s-12.3,5.5-12.3,12.3v80.3h-80.3c-6.8,0-12.3,5.5-12.3,12.2 c0,6.8,5.5,12.3,12.3,12.3h80.3v80.3c0,6.8,5.5,12.3,12.3,12.3s12.3-5.5,12.3-12.3v-80.3h80.3c6.8,0,12.3-5.5,12.3-12.3 C349.7,238.1,344.2,232.7,337.4,232.7z'/> </g> </g> </svg>");
+    background-repeat:no-repeat;
+    background-position: 14px;
+}
+
+.button-mod-min{
+	position: relative;
+	background: none;
+	border: none;
+    width: 16px;
+    height: 16px;
+    padding-left: 24px;
+    margin: auto;
+    background-image: url("data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' id='Capa_1' x='0px' y='0px' fill='#64636a' viewBox='0 0 612 612' style='enable-background:new 0 0 612 612;' xml:space='preserve'><g id='_x32__3_'> <g><path d='M420.75,286.875h-229.5c-10.557,0-19.125,8.568-19.125,19.125c0,10.557,8.568,19.125,19.125,19.125h229.5 c10.557,0,19.125-8.568,19.125-19.125C439.875,295.443,431.307,286.875,420.75,286.875z M535.5,0h-459C34.253,0,0,34.253,0,76.5 v459C0,577.747,34.253,612,76.5,612h459c42.247,0,76.5-34.253,76.5-76.5v-459C612,34.253,577.747,0,535.5,0z M573.75,535.5 c0,21.133-17.117,38.25-38.25,38.25h-459c-21.133,0-38.25-17.117-38.25-38.25v-459c0-21.133,17.117-38.25,38.25-38.25h459 c21.133,0,38.25,17.136,38.25,38.25V535.5z'/></g></g></svg>");
+    background-repeat:no-repeat;
+    background-position: 14px;
+}	

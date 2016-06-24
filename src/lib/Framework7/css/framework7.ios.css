@@ -2136,7 +2136,7 @@ i.icon.icon-plus {
 .content-block {
   margin: 35px 0;
   padding: 0 15px;
-  color: #6d6d72;
+  color: #64636a;
   box-sizing: border-box;
 }
 .content-block-title {
@@ -2148,7 +2148,7 @@ i.icon.icon-plus {
   font-size: 14px;
   text-transform: uppercase;
   line-height: 1;
-  color: #6d6d72;
+  color: #64636a;
   margin: 35px 15px 10px;
 }
 .content-block-title + .list-block,
@@ -3634,7 +3634,7 @@ html.pixel-ratio-3 .card-header:after {
 }
 .card-footer {
   border-radius: 0 0 2px 2px;
-  color: #6d6d72;
+  color: #64636a;
 }
 .card-footer:before {
   content: '';

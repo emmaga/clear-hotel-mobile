@@ -1,5 +1,5 @@
  <!--<div data-page="room-reserve" class="page">-->
-    <div class="page-content">
+    <div class="page-content" style="padding-bottom:0;">
         <!-- Slider container -->
         <div class="swiper-container" id="room-reserve-swiper_{{roomId}}">
             <!-- Slides wrapper -->
@@ -25,7 +25,9 @@
             <p class="text big-first-letter">{{intro}}</p>
             <p>{{order_message}}</p>
         </div>
-        <div class="content-block">
+
+
+        <!-- <div class="content-block">
             <div class="content-block-inner room-name">
                 {{roomName}}
             </div>
@@ -40,7 +42,35 @@
                 <input class="number" value="1" readonly="true"></span>
                 <button id="number-add">+</button>
             </div>
+        </div> -->
+
+        <div class="list-block">
+            <ul>
+                <li class="room-name">
+                    <div class="item-content item-inner">
+                    {{roomName}}
+                    </div>
+                </li>
+                <li class=" date row">
+                    <div class="item-content item-inner">
+                        <span class="date-in">{{date1}}</span>
+                        <span class="date-out">{{date2}}</span>
+                        <span class="" id="days">{{dayLength}}</span>
+                    </div>    
+                </li>
+                <li class=" roomNum">
+                    <div class="item-content item-inner">
+                       <span>{{roomNum}}</span>
+                      <button id="number-sub" class="button-mod-min"></button>
+                      <input class="number" value="1" readonly="true" style="border:none; background:none; text-align:center; font-size:16px; color: #64636a;"/>
+                      <button id="number-add" class="button-mod-plus"></button>
+                    </div>
+                </li>
+            </ul>
         </div>
+
+
+
         <form id="reserve-form" class="list-block">
             <ul>
                 <li>
@@ -67,24 +97,47 @@
                 </li>
             </ul>
         </form>
-        <div class="content-block">
-            <div class="content-block-inner price-detail">
+
+
+
+
+        <div class="list-block">
+            <ul class="content-block-inner price-detail">
                 {{#each priceList}}
-                <div>
-                    <span>{{date}}</span>
-                    <span>  ￥</span>
-                    <span class="each-price" data-price="{{price}}">{{price}}</span>
-                </div>
+                <li>
+                    <div class="item-content">
+                        <div class="item-inner">
+                            <span>{{date}}</span>
+                            <span>  </span>
+                            <span class="each-price" data-price="{{price}}">￥{{price}}</span>
+                        </div>
+                    </div>
+                </li>
                 {{/each}}
-            </div>
-            <div class="content-block-inner total-price" data-total-price="{{totalPriceNum}}">
-                {{totalPrice}}
-            </div>
-        </div>
+            </ul>
+            <ul class="content-block-inner total-price" data-total-price="{{totalPriceNum}}">
+                <li>
+                    <div class="item-content item-inner">
+                        {{totalPrice}}
+                    </div>
+                </li>
+            </ul>
+        </duv>
+
+
+
+
+
+
     </div>
+
+
+
+
+
      <div class="toolbar" id="room-reserve-toolbar">
-         <div class="toolbar-inner no-padding">
-             <a href="" class="button bottom_button button-max">
+         <div class="toolbar-inner no-padding" style="background: #DCBA62;">
+             <a href="" class="button bottom_button button-max"  style="background: #DCBA62;">
                  <button class="reserve submit"{{#if this.soldOut}}disabled="disabled"{{/if}}>
                  {{#if this.soldOut}}
                  {{unSubmit}}
