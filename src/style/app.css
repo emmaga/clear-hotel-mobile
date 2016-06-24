@@ -446,7 +446,19 @@ i.tabbar-icon-my{
   font-weight: normal;
 }
 
+.date-selector-txt-p{
+  margin:0;
+  font-size: 16px;
+  text-align: center;
+  display: block;
+}
 
+.date-selector-txt-a{
+  margin:0;
+  font-size: 12px;
+  text-align: center;
+  display: block;
+}
 
 /*icon*/
 .icon-location{

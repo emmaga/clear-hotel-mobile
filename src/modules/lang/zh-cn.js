@@ -99,8 +99,8 @@ define([], function () {'use strict';
 
         },
         room:{
-            date_in:'入住:',
-            date_out:'离店:',
+            date_in:'入住',
+            date_out:'离店',
             calendar_error:'请选择入住和离店时间',
             price:'均:￥',
             day1:'共',

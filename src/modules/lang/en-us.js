@@ -98,8 +98,8 @@ define([], function () {'use strict';
             not_found: '404, page not found'
         },
         room:{
-            date_in:'check in:',
-            date_out:'check out:',
+            date_in:'check in',
+            date_out:'check out',
             calendar_error:'Dates for check in and check out are both need',
             price:'average:￥',
             day1:'total',

@@ -1,10 +1,16 @@
 <div class="list-block page-content" id="room-list">
-  <ul>
-      <li style="position: relative;">
+  <ul style="margin-top:14px; margin-bottom:14px;">
+      <li style="position: relative; height: 53px; " >
           <div class="item-content">
               <div class="item-inner row">
-                  <span class="col-50" id="date-in">{{date_in}}{{data.check_in}}</span>
-                  <span class="col-50" id="date-out">{{date_out}}{{data.check_out}}</span>
+                  <span class="col-50" id="date-in">
+                    <p class="date-selector-txt-p">{{date_in}}</p>
+                    <a class="date-selector-txt-a">{{data.check_in}}</a>
+                  </span>
+                  <span class="col-50" id="date-out">
+                    <p  class="date-selector-txt-p">{{date_out}}</p>
+                    <a  class="date-selector-txt-a">{{data.check_out}}</a>
+                  </span>
               </div>
           </div>
           <div class="roo-calendar" id="calendar"></div>
