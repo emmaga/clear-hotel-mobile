@@ -36,7 +36,8 @@
                   <p class="price">￥{{averagePrice}}</p>
 
                       <button class="reserve"{{#if this.soldOut}}disabled="disabled"{{/if}}>
-                  {{#js_compare "this.soldOut === true"}}{{../../soldOut}}{{else}}{{../../reserve}}{{/js_compare}}
+                  <!-- {{#js_compare "this.soldOut === true"}}{{../../soldOut}}{{else}}{{../../reserve}}{{/js_compare}} -->
+                  {{#js_compare "this.soldOut === true"}}{{../../soldOut}}{{else}}{{/js_compare}}
                       </button>
               </div>
           </div>
