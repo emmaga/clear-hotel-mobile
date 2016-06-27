@@ -13,7 +13,7 @@ define(['framework7','config', 'xhr', 'appFunc', 'router', 'text!movie-list/movi
                 var output = appFunc.renderTpl(template,renderData);
                 if(isFirst) {
                     window.viewMain.router.load({
-                        content: '<div data-page="movie-list_'+moduleId+'" class="page"><div class="page-content infinite-scroll">' + output + '</div></div>',
+                        content: '<div data-page="movie-list_'+moduleId+'" class="page" style="padding-bottom: 0"><div class="page-content infinite-scroll"  style="padding-bottom: 0">' + output + '</div></div>',
                         pushState: false,
                         animatePages: false
                     })
@@ -64,7 +64,7 @@ define(['framework7','config', 'xhr', 'appFunc', 'router', 'text!movie-list/movi
                         // 加载完毕，则注销无限加载事件，以防不必要的加载
                         window.hotelApp.detachInfiniteScroll($$('.infinite-scroll'));
                         // 删除加载提示符
-                        $$('.infinite-scroll-preloader').remove();
+                        $$('.infinite-scroll-preloader').css('display','none');
                         return;
                     }
                     if(maxItems - lastIndex <= itemsPerLoad){

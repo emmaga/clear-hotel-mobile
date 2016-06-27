@@ -249,6 +249,12 @@ i.tabbar-icon-my{
 
 
 /*movie-P1*/
+.movie-list-content{
+    padding-bottom: 0;
+}
+.movie-infinite{
+    padding-bottom: 0;
+}
 /*影片图片*/
 .movie-p1-img{
     margin-top: 14px;
