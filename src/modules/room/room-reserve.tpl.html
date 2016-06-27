@@ -136,8 +136,10 @@
 
 
      <div class="toolbar" id="room-reserve-toolbar">
-         <div class="toolbar-inner no-padding" style="background: #DCBA62;">
-             <a href="" class="button bottom_button button-max"  style="background: #DCBA62;">
+
+         <div class="toolbar-inner no-padding {{#if this.soldOut}}grey{{else}}gold{{/if}}">
+             <a href="" class="button bottom_button button-max {{#if this.soldOut}}grey{{else}}gold{{/if}}">
+
                  <button class="reserve submit"{{#if this.soldOut}}disabled="disabled"{{/if}}>
                  {{#if this.soldOut}}
                  {{unSubmit}}

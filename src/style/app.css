@@ -162,6 +162,12 @@ i.tabbar-icon-my{
   background: none
 }
 
+.reserve[disable=disabled]{
+  background: grey;
+  pointer-events: none;
+}
+
+
 
 /*intro-p1*/
 .introMenu {
@@ -512,4 +518,47 @@ i.tabbar-icon-my{
   height: 100%;
   border-radius: 20px;
   box-shadow: inset 0px 0px 9px 3px rgba(255,255,255,.15);
+}
+
+
+.full-view-loading{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  background:rgba(255,255,255,.88);
+  padding-top: 30%;
+  visibility: hidden;
+  opacity: 0;
+  color: #64636a;
+  transition-duration: .5s;
+}
+
+.full-view-loading-show{
+  visibility: visible;
+  opacity: 1
+}
+
+.full-view-loading-title{
+  font-weight: normal;
+  text-align: center;
+}
+
+.full-view-loading .preloader{
+  position: absolute;
+  left: 50%;
+  margin-left: -21px;
+  width:42px;
+  height:42px
+}
+
+.gold{
+  background: #DCBA62;
+}
+
+.grey{
+  background: grey;
+
 }

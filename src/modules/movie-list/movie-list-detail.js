@@ -14,7 +14,7 @@ define(['framework7', 'i18nText', 'config', 'wxJDK', 'xhr', 'appFunc', 'router',
                 // play()和autoplay开始播放时触发
                 Media.addEventListener('play', function() {
                     if(isFirstPlay) {
-                        $$('#movie-list-detail-loading').html('loading...');
+                        $$('#movie-list-detail-loading').addClass('full-view-loading-show');
                         if(loadingInterval){
                             clearInterval(loadingInterval);
                         }
@@ -25,7 +25,7 @@ define(['framework7', 'i18nText', 'config', 'wxJDK', 'xhr', 'appFunc', 'router',
                             //准备状态 Media.readyState; //1:HAVE_NOTHING 2:HAVE_METADATA 3.HAVE_CURRENT_DATA 4.HAVE_FUTURE_DATA 5.HAVE_ENOUGH_DATA
                             else if(Media.readyState > 2) {
                                 clearInterval(loadingInterval);
-                                $$('#movie-list-detail-loading').html('');
+                                $$('#movie-list-detail-loading').removeClass('full-view-loading-show');
                                 isFirstPlay = false;
                             }
                         },1000)
@@ -82,6 +82,7 @@ define(['framework7', 'i18nText', 'config', 'wxJDK', 'xhr', 'appFunc', 'router',
             },
             loadData: function(data, isFirst, moduleId) {
                 var renderData = data.movie;
+                renderData.preparing = i18nText.global.preparing;
                 var output = appFunc.renderTpl(template,renderData);
                 
                 if(isFirst) {

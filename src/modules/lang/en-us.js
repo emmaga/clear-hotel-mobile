@@ -16,7 +16,8 @@ define([], function () {'use strict';
             day_ago:' days ago',
             just_now:'Just now',
             language:'Language',
-            switch_language:'Switching languages'
+            switch_language:'Switching languages',
+            preparing:'Preparing...'
         },
         index: {
             nothing_found: 'No matching results',
@@ -115,7 +116,8 @@ define([], function () {'use strict';
             soldOut:'sold out',
             price_detail:'price detail',
             tel_error:'Please input the correct phone number',
-            name_error:'The name of the booking person cannot be empty.'
+            name_error:'The name of the booking person cannot be empty.',
+            correct:'OK'
         },
         order:{
             order_message:'order message',

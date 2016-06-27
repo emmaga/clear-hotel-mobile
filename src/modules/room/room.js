@@ -65,7 +65,7 @@ define(['framework7','config', 'xhr','appFunc','errorFunc','i18nText','text!room
                 '<div class="toolbar calendar-custom-toolbar">' +
                 '<div class="toolbar-inner">' +
                 '<div class="left">' +
-                '<a href="#" class="link icon-only close-picker"><i class="icon icon-back"></i></a>' +
+                '<a href="#" class="link close-picker">'+i18nText.global.cancel+'</a>'+
                 '</div>' +
                 '<a href="#" class="link icon-only picker-calendar-prev-month">'+
                 '<i class="icon icon-prev"></i>'+
@@ -75,7 +75,7 @@ define(['framework7','config', 'xhr','appFunc','errorFunc','i18nText','text!room
                 '<i class="icon icon-next"></i>'+
                 '</a>'+
                 '<div class="right">' +
-                '<a href="#" class="link">OK&nbsp;&nbsp;</a>' +
+                '<a href="#" class="link">'+i18nText.global.done+'</a>' +
                 '</div>' +
                 '</div>' +
                 '</div>',

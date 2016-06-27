@@ -67,7 +67,7 @@ define(['framework7','config', 'wxJDK', 'i18nText', 'xhr','appFunc','router','te
                         function() {
                             if(Media.paused) {
                                 Media.play();
-                                $$('#tv-list-loading').html('loading...');
+                                $$('#tv-list-loading').addClass('full-view-loading-show');
                                 if(loadingInterval){
                                     clearInterval(loadingInterval);
                                 }
@@ -78,7 +78,7 @@ define(['framework7','config', 'wxJDK', 'i18nText', 'xhr','appFunc','router','te
                                     //准备状态 Media.readyState; //1:HAVE_NOTHING 2:HAVE_METADATA 3.HAVE_CURRENT_DATA 4.HAVE_FUTURE_DATA 5.HAVE_ENOUGH_DATA
                                     else if(Media.readyState > 2) {
                                         clearInterval(loadingInterval);
-                                        $$('#tv-list-loading').html('');
+                                        $$('#tv-list-loading').removeClass('full-view-loading-show');
                                     }
                                 },1000)
                             }
@@ -127,6 +127,7 @@ define(['framework7','config', 'wxJDK', 'i18nText', 'xhr','appFunc','router','te
             loadData: function(moduleId, data, isFirst) {
                 var renderData = data.TV;
                 renderData.moduleId = moduleId;
+                renderData.preparing = i18nText.global.preparing;
                 var output = appFunc.renderTpl(template,renderData);
                 if(isFirst) {
                     window.viewMain.router.load({

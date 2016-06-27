@@ -16,7 +16,8 @@ define([], function () {'use strict';
             day_ago: '天前',
             just_now: '刚刚',
             language: '切换语言',
-            switch_language: '切换语言'
+            switch_language: '切换语言',
+            preparing:'正在为您准备...'
         },
         index: {
             nothing_found: '未有匹配结果',
@@ -116,7 +117,8 @@ define([], function () {'use strict';
             soldOut:'已订完',
             price_detail:'价格详情',
             tel_error:'请输入正确的手机号',
-            name_error:'预订人姓名不能为空'
+            name_error:'预订人姓名不能为空',
+            correct:'确定'
         },
         order:{
             order_message:'订单信息',

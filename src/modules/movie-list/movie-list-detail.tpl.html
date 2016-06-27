@@ -1,5 +1,12 @@
+
+    <div id="movie-list-detail-loading" class="full-view-loading">
+        <h2 class="full-view-loading-title">{{preparing}}</h2>
+        <span class="preloader"></span>
+    </div>
+
+
+
 <div class="page-content">
-    <p id="movie-list-detail-loading"></p>
     <video id="movie-list-detail-{{movieId}}" width="100%" poster="{{imgUrl}}" controls="controls" preload="none" webkit-playsinline load="loaded" style="display: inline-block; background:black">
         <source src="{{url}}" type='video/mp4' />
     </video>

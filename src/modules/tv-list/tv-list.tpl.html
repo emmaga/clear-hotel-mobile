@@ -1,8 +1,19 @@
 <!--<div data-page="TV" class="page">-->
     <div class="page-content">
+
+
+        <div id="tv-list-loading" class="full-view-loading">
+            <h2 class="full-view-loading-title">{{preparing}}</h2>
+            <span class="preloader"></span>
+        </div>
+
+
         <div class="list-block">
             <div class="list-group">
-                <p id="tv-list-loading"></p>
+
+
+
+
                 <ul id="tv-list_{{moduleId}}">
                     {{#each TVList}}
                     <li class="TV-list-item">
