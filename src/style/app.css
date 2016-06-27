@@ -498,16 +498,20 @@ i.tabbar-icon-my{
   border:solid 1px rgba(255,255,255,.45);
   text-align: center;
   box-shadow: 0px 0px 9px 3px rgba(255,255,255,.15);
+  color: rgba(255,255,255,.8);
+  padding-top: 10px;
+  box-sizing: border-box;
+  font-size: 12px;
 }
 
-.full-view-button:before{
+/*.full-view-button:before{
   content: '360°';
   position: absolute;
   top: 11px;
   left: 6px;
   font-size: 12px;
   color:rgba(255,255,255,.8);
-}
+}*/
 
 .full-view-button:after{
   content: ' ';

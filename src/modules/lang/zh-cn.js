@@ -17,7 +17,9 @@ define([], function () {'use strict';
             just_now: '刚刚',
             language: '切换语言',
             switch_language: '切换语言',
-            preparing:'正在为您准备...'
+            preparing:'正在为您准备...',
+            pano:'全景'
+
         },
         index: {
             nothing_found: '未有匹配结果',

@@ -17,7 +17,8 @@ define([], function () {'use strict';
             just_now:'Just now',
             language:'Language',
             switch_language:'Switching languages',
-            preparing:'Preparing...'
+            preparing:'Preparing...',
+            pano:'PANO'
         },
         index: {
             nothing_found: 'No matching results',

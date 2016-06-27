@@ -1,5 +1,5 @@
-define(['framework7','config', 'xhr','appFunc','text!brief/brief.tpl.html'],
-    function(framework7,config, xhr,appFunc,template){
+define(['framework7','config','i18nText','xhr','appFunc','text!brief/brief.tpl.html'],
+    function(framework7,config,i18nText, xhr,appFunc,template){
         var $$ = Dom7;
 
         var brief = {
@@ -9,6 +9,7 @@ define(['framework7','config', 'xhr','appFunc','text!brief/brief.tpl.html'],
             loadData: function(moduleId,data) {
                 var renderData = data.brief;
                 renderData.moduleId = moduleId;
+                renderData.pano = i18nText.global.pano;
                 var output = appFunc.renderTpl(template,renderData);
                 $$('#tab_'+'brief'+'_'+moduleId).html(output);
                 //初始化swiper
