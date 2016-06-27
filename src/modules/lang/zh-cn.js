@@ -11,11 +11,9 @@ define([], function () {'use strict';
             search: '搜索',
             modal_title: '系统消息',
             modal_button_ok: '确定',
-            minute_ago: '天前',
             hour_ago: '小时前',
             day_ago: '天前',
             just_now: '刚刚',
-            language: '切换语言',
             switch_language: '切换语言',
             preparing:'正在为您准备...',
             pano:'全景'
