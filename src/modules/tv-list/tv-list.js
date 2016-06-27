@@ -2,10 +2,12 @@ define(['framework7','config', 'wxJDK', 'i18nText', 'xhr','appFunc','router','te
     function(framework7,config, wxJDK, i18nText, xhr,appFunc,router,template){
 
         var $$ = Dom7,
-            isUserAgreeUse2g3g = false,
+            isUserAgreeUse2g3g,
             checkNetWorkInterval,
             Media,
-            loadingInterval;
+            loadingInterval,
+            currMediaUrl,
+            mediaSrcs = new Array();
 
         var tvList = {
             bindEvents: function(moduleId) {
@@ -14,6 +16,8 @@ define(['framework7','config', 'wxJDK', 'i18nText', 'xhr','appFunc','router','te
                     //console.log(TVId);
                     var video = $$(this).prev();
                     Media = video[0];
+                    var number = video.attr("data-number");
+                    Media.src = mediaSrcs[number];
                     tvList.startCheckNetworkInterval();
                     tvList.checkNetWorkFirst();
 
@@ -38,7 +42,6 @@ define(['framework7','config', 'wxJDK', 'i18nText', 'xhr','appFunc','router','te
                 }
             },
             checkNetWorkFirst: function() {
-
                 //判断是否联网
                 if(!navigator.onLine) {
                     Media.pause();
@@ -50,40 +53,59 @@ define(['framework7','config', 'wxJDK', 'i18nText', 'xhr','appFunc','router','te
                     }
 
                 }
-                // 判断isUserAgreeUse2g3g
-                else if(!isUserAgreeUse2g3g) {
+                else {
                     // 判断是否是wifi环境
                     wxJDK.isNetworkTypeNotWifi(
                         function() {
-                            Media.pause();
-                            var message = i18nText.confirm.network_state;
-                            tvList.stopCheckNetworkInterval();
+                            
+                            // 用户未确认非wifi时启用流量观看时
+                            if(!isUserAgreeUse2g3g) {
+                                currMediaUrl = Media.src;
 
-                            if(confirm(message)) {
-                                isUserAgreeUse2g3g = true;
-                                Media.play();
+                                // stop Media 流量保护
+                                Media.pause();
+                                Media.src = "";
+
+                                var message = i18nText.confirm.network_state;
+                                tvList.stopCheckNetworkInterval();
+
+                                if(confirm(message)) {
+                                    isUserAgreeUse2g3g = true;
+                                    Media.src = currMediaUrl;
+                                    Media.play();
+                                }else{
+                                    Media.src = currMediaUrl;
+                                }
                             }
+                            else {
+                                play();
+                            }    
+
                         },
                         function() {
-                            if(Media.paused) {
-                                Media.play();
-                                $$('#tv-list-loading').addClass('full-view-loading-show');
-                                if(loadingInterval){
-                                    clearInterval(loadingInterval);
-                                }
-                                loadingInterval = setInterval(function() {
-                                    if(window.clearcrane.pageName !== 'tv-list') {
-                                        clearInterval(loadingInterval);
-                                    }
-                                    //准备状态 Media.readyState; //1:HAVE_NOTHING 2:HAVE_METADATA 3.HAVE_CURRENT_DATA 4.HAVE_FUTURE_DATA 5.HAVE_ENOUGH_DATA
-                                    else if(Media.readyState > 2) {
-                                        clearInterval(loadingInterval);
-                                        $$('#tv-list-loading').removeClass('full-view-loading-show');
-                                    }
-                                },1000)
-                            }
+                            play();
                         }
                     ); 
+                }
+
+                function play() {
+                    if(Media.paused) {
+                        Media.play();
+                        $$('#tv-list-loading').addClass('full-view-loading-show');
+                        if(loadingInterval){
+                            clearInterval(loadingInterval);
+                        }
+                        loadingInterval = setInterval(function() {
+                            if(window.clearcrane.pageName !== 'tv-list') {
+                                clearInterval(loadingInterval);
+                            }
+                            //准备状态 Media.readyState; //1:HAVE_NOTHING 2:HAVE_METADATA 3.HAVE_CURRENT_DATA 4.HAVE_FUTURE_DATA 5.HAVE_ENOUGH_DATA
+                            else if(Media.readyState > 2) {
+                                clearInterval(loadingInterval);
+                                $$('#tv-list-loading').removeClass('full-view-loading-show');
+                            }
+                        },1000)
+                    }
                 }
             },
             checkNetWork: function() {
@@ -109,15 +131,22 @@ define(['framework7','config', 'wxJDK', 'i18nText', 'xhr','appFunc','router','te
                     // 判断是否是wifi环境
                     wxJDK.isNetworkTypeNotWifi(
                         function() {
+                            currMediaUrl = Media.src;
+
+                            // stop Media 流量保护
                             Media.pause();
+                            Media.src = "";
+
                             var message = i18nText.confirm.network_state;
                             tvList.stopCheckNetworkInterval();
 
                             if(confirm(message)) {
                                 isUserAgreeUse2g3g = true;
+                                Media.src = currMediaUrl;
                                 Media.play();
                             }
                             else{
+                                Media.src = currMediaUrl;
                                 tvList.startCheckNetworkInterval();
                             }
                         }
@@ -126,6 +155,12 @@ define(['framework7','config', 'wxJDK', 'i18nText', 'xhr','appFunc','router','te
             },
             loadData: function(moduleId, data, isFirst) {
                 var renderData = data.TV;
+                //缓存live url
+                for(var i = 0; i < renderData.TVList.length; i++) {
+                    renderData.TVList[i].number = i;
+                    mediaSrcs[i] = renderData.TVList[i].url;
+                }
+
                 renderData.moduleId = moduleId;
                 renderData.preparing = i18nText.global.preparing;
                 var output = appFunc.renderTpl(template,renderData);
@@ -141,11 +176,12 @@ define(['framework7','config', 'wxJDK', 'i18nText', 'xhr','appFunc','router','te
                     $$("div[data-page='tv-list']").attr('data-page', 'tv-list_'+moduleId);
                     tvList.bindEvents(moduleId);
                 }
+
             }
         }
 
         var init = function (moduleId, isFirst){
-
+            isUserAgreeUse2g3g = false;
             $$('#page-tv-list').attr('id', 'page-tv-list_'+moduleId);
 
             var data = {

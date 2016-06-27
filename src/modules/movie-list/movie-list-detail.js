@@ -1,11 +1,12 @@
 define(['framework7', 'i18nText', 'config', 'wxJDK', 'xhr', 'appFunc', 'router', 'text!movie-list/movie-list-detail.tpl.html'],
     function(framework7, i18nText, config, wxJDK, xhr, appFunc, router, template){
         var $$ = Dom7,
-            isUserAgreeUse2g3g = false,
+            isUserAgreeUse2g3g,
             checkNetWorkInterval,
             Media,
             isFirstPlay,
-            loadingInterval;
+            loadingInterval,
+            currMediaUrl;
 
         var movieListDetail = {
             bindEvents: function(movieId) {
@@ -69,13 +70,21 @@ define(['framework7', 'i18nText', 'config', 'wxJDK', 'xhr', 'appFunc', 'router',
                 else if(!isUserAgreeUse2g3g) {
                     // 判断是否是wifi环境
                     wxJDK.isNetworkTypeNotWifi(function() {
+                        currMediaUrl = Media.src;
+
+                        // stop Media 流量保护
                         Media.pause();
+                        Media.src = "";
+
                         var message = i18nText.confirm.network_state;
                         movieListDetail.stopCheckNetworkInterval();
 
                         if(confirm(message)) {
                             isUserAgreeUse2g3g = true;
+                            Media.src = currMediaUrl;
                             Media.play();
+                        }else {
+                            Media.src = currMediaUrl;
                         }
                     }); 
                 }
@@ -102,6 +111,7 @@ define(['framework7', 'i18nText', 'config', 'wxJDK', 'xhr', 'appFunc', 'router',
 
         var init = function (moduleId, movieId, isFirst){
             isFirstPlay = true;
+            isUserAgreeUse2g3g = false;
             $$('#page-movie-list-detail').attr('id', 'page-movie-list-detail_'+moduleId);
 
             var data = {
