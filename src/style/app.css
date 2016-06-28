@@ -170,6 +170,10 @@ i.tabbar-icon-my{
 
 
 /*intro-p1*/
+.intro{
+  text-align: justify;
+}
+
 .introMenu {
     background: #fff;
     text-align: center;
