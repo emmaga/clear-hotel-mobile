@@ -125,6 +125,8 @@ define(['framework7','config','xhr','appFunc','errorFunc','i18nText','orderDetai
                 preTel:i18nText.room.pre_tel,
                 submit:i18nText.room.submit,
                 order_message:i18nText.order.order_message,
+                contacts:i18nText.order.contacts,
+                price_detail:i18nText.room.price_detail,
                 unSubmit:i18nText.room.soldOut
             };
             var orderData = {

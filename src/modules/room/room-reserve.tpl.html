@@ -15,17 +15,19 @@
             <!-- Pagination, if required -->
             <div class="swiper-pagination"></div>
         </div>
-        <div class="intro content-block">
+
+        <div class="intro content-block bg-white no-margin padding-1em">
             <h3 class="room-title">{{roomName}}</h3>
             <!--<p>{{join tips delimiter=", "}}</p>-->
             {{#each tips}}
             <span class="room-tip">{{tip}}</span>
             {{/each}}
-            <p class="price">￥{{averagePrice}}</p>
-            <p class="text big-first-letter">{{intro}}</p>
-            <p>{{order_message}}</p>
+            <p class="price room-reserve-price">￥{{averagePrice}}</p>
         </div>
 
+        <div class="room-reserve-intro content-block no-margin">
+            <p class="intro ">{{intro}}</p>
+        </div>
 
         <!-- <div class="content-block">
             <div class="content-block-inner room-name">
@@ -44,6 +46,7 @@
             </div>
         </div> -->
 
+        <div class="content-block-title">{{order_message}}</div>
         <div class="list-block">
             <ul>
                 <li class="room-name">
@@ -70,7 +73,7 @@
         </div>
 
 
-
+        <div class="content-block-title">{{contacts}}</div>
         <form id="reserve-form" class="list-block">
             <ul>
                 <li>
@@ -100,7 +103,7 @@
 
 
 
-
+        <div class="content-block-title">{{price_detail}}</div>
         <div class="list-block">
             <ul class="content-block-inner price-detail">
                 {{#each priceList}}

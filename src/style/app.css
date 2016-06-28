@@ -395,6 +395,7 @@ i.tabbar-icon-my{
   margin:0;
   margin-right: 54px;
   color: #64636a;
+  font-size: 1.17rem;
   font-weight: normal;
 }
 
@@ -418,7 +419,7 @@ i.tabbar-icon-my{
     top: -57px;
     left: -14px;
     margin: 0px;
-    background-color: #DCBA62;
+    background-color: #39383E;
     color: white;
     padding: 3px 12px 3px 9px;
 }
@@ -459,6 +460,58 @@ i.tabbar-icon-my{
 /*.room .reserve[disabled=disabled]:after{
   display: none;
 }*/
+
+.room-reserve-price{
+  font-size: 22px;
+  float: right;
+  position: relative;
+  color: #DCBA62;
+  top: -29px;
+  margin: 0
+}
+
+.room-reserve-intro{
+  position: relative;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  background: white;
+}
+
+.room-reserve-intro:before{
+      content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: auto;
+    right: auto;
+    height: 1px;
+    width: 100%;
+    background-color: #c8c7cc;
+    display: block;
+    z-index: 15;
+    -webkit-transform-origin: 50% 0;
+    transform-origin: 50% 0;
+    -webkit-transform: scaleY(.5);
+    transform: scaleY(.5);
+ }
+
+ .room-reserve-intro:after{
+      content: '';
+    position: absolute;
+    left: 0;
+    top: auto;
+    bottom: 0;
+    right: auto;
+    height: 1px;
+    width: 100%;
+    background-color: #c8c7cc;
+    display: block;
+    z-index: 15;
+    -webkit-transform-origin: 50% 0;
+    transform-origin: 50% 0;
+    -webkit-transform: scaleY(.5);
+    transform: scaleY(.5);
+ }
 
 .my-orderlist-no-order{
   text-align: center;
