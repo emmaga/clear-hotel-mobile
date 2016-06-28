@@ -31,6 +31,12 @@ define(['framework7','config', 'xhr','appFunc','router','text!hotel-intro-detail
                     });
                 }
 
+                // hack 显示底部toolbar
+                if( $$('#hotel-intro-detail-toolball_'+moduleId).length > 0 ) {
+                    $$('#hotel-intro-detail-toolball_'+moduleId).removeClass('toolbar-hidden');
+                    $$('#hotel-intro-detail-toolball_'+moduleId).show();
+                }
+
             }
         }
 
