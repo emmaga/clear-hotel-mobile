@@ -6,12 +6,12 @@
 .big-first-letter:first-letter{
   font-size: 2em;
   line-height: 1;
-  text-indent: 2em;
+  /*text-indent: 2em;*/
 }
 
 .text{
 	margin-top: 2em;
-	text-indent: 1em;
+	/*text-indent: 1em;*/
 }
 
 .no-padding{
@@ -78,3 +78,34 @@
  .padding-1em{
   padding: 1em
  }
+
+.font-white{
+  color: white !important;
+}
+
+.gold{
+  background-color: #DCBA62;
+}
+
+.grey{
+  background-color: grey;
+}
+
+.bold{
+  font-weight: bold;
+}
+
+.no-top-line:before{
+  display: none;
+  opacity: 0;
+}
+
+.no-bottom-line:after{
+  display: none;
+  opacity:0;
+}
+
+.fix-bottom{
+  position: fixed;
+  bottom: 0px;
+}

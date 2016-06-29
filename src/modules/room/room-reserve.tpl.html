@@ -57,6 +57,7 @@
                 <li class=" date row">
                     <div class="item-content item-inner">
                         <span class="date-in">{{date1}}</span>
+                        <span>-</span>
                         <span class="date-out">{{date2}}</span>
                         <span class="" id="days">{{dayLength}}</span>
                     </div>    
@@ -105,7 +106,7 @@
 
         <div class="content-block-title">{{price_detail}}</div>
         <div class="list-block">
-            <ul class="content-block-inner price-detail">
+            <ul class="content-block-inner price-detail no-bottom-line">
                 {{#each priceList}}
                 <li>
                     <div class="item-content">
@@ -120,8 +121,10 @@
             </ul>
             <ul class="content-block-inner total-price" data-total-price="{{totalPriceNum}}">
                 <li>
-                    <div class="item-content item-inner">
-                        {{totalPrice}}
+                    <div class="item-content item-inner bold">
+                        <span>{{totalPriceTitle}}</span>
+                        <span>￥{{totalPrice}}</span>
+                        
                     </div>
                 </li>
             </ul>
@@ -138,7 +141,7 @@
 
 
 
-     <div class="toolbar" id="room-reserve-toolbar">
+     <div class="toolbar fix-bottom" id="room-reserve-toolbar">
 
          <div class="toolbar-inner no-padding {{#if this.soldOut}}grey{{else}}gold{{/if}}">
              <a href="" class="button bottom_button button-max {{#if this.soldOut}}grey{{else}}gold{{/if}}">

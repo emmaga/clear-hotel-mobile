@@ -7,7 +7,7 @@
         "name":"餐饮服务",
         "subMenu":[
           {
-            "name":"餐厅预定",
+            "name":"餐厅预订",
             "ModuleName":"hotel-intro-list",
             "ContentModuleInstanceID":"1",
             "icon":"http://localhost/clear-hotel-mobile/src/api/meeting.png"
