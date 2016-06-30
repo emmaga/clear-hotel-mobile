@@ -418,6 +418,7 @@ i.tabbar-icon-my{
     color: gray;
     opacity: 0.8;
     display: inline-block;
+    margin-bottom: 4px;
 }
 
 .room .price{
@@ -504,12 +505,13 @@ i.tabbar-icon-my{
 }
 
 .room-reserve-price{
-  font-size: 22px;
-  float: right;
-  position: relative;
-  color: #DCBA62;
-  top: -29px;
-  margin: 0
+      font-size: 22px;
+    /* top: 0; */
+    position: absolute;
+    color: #DCBA62;
+    top: 14px;
+    margin: 0;
+    right: 16px
 }
 
 .room-reserve-intro{
