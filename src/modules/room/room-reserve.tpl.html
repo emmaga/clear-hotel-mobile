@@ -128,33 +128,27 @@
                     </div>
                 </li>
             </ul>
-        </duv>
-
-
-
-
-
-
+        </div>
     </div>
 
 
 
 
 
-     <div class="toolbar fix-bottom" id="room-reserve-toolbar">
+    <div class="toolbar" id="room-reserve-toolbar">
 
-         <div class="toolbar-inner no-padding {{#if this.soldOut}}grey{{else}}gold{{/if}}">
-             <a href="" class="button bottom_button button-max {{#if this.soldOut}}grey{{else}}gold{{/if}}">
+     <div class="toolbar-inner no-padding {{#if this.soldOut}}grey{{else}}gold{{/if}}">
+         <a href="" class="button bottom_button button-max {{#if this.soldOut}}grey{{else}}gold{{/if}}">
 
-                 <button class="reserve submit"{{#if this.soldOut}}disabled="disabled"{{/if}}>
-                 {{#if this.soldOut}}
-                 {{unSubmit}}
-                 {{else}}
-                 {{submit}}
-                 {{/if}}
+             <button class="reserve submit"{{#if this.soldOut}}disabled="disabled"{{/if}}>
+             {{#if this.soldOut}}
+             {{unSubmit}}
+             {{else}}
+             {{submit}}
+             {{/if}}
 
-                 </button>
-             </a>
-         </div>
+             </button>
+         </a>
      </div>
+    </div>
  <!--</div>-->
