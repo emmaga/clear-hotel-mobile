@@ -61,7 +61,13 @@ define(['framework7','config','xhr','appFunc','errorFunc','i18nText','orderDetai
                 }
                 var preTotalPrice = Number($$('.total-price').attr('data-total-price'));
                 var lastTotalPrice = preTotalPrice * number;
-                $$('.total-price').html('<li><div class="item-content item-inner">'+i18nText.room.total_price+lastTotalPrice+'</div></li>');
+                var str = '<li>' +
+                            '<div class="item-content item-inner bold">' +
+                                '<span>' + i18nText.room.total_price + '</span>' +
+                                '<span>' + lastTotalPrice + '</span>' +
+                            '</div>' +
+                        '</li>';
+                $$('.total-price').html(str);
             });
             $$('#number-sub').on('click',function(){
                 var number = Number($$('.number').attr('value'));
@@ -78,7 +84,13 @@ define(['framework7','config','xhr','appFunc','errorFunc','i18nText','orderDetai
                 }
                 var preTotalPrice = Number($$('.total-price').attr('data-total-price'));
                 var lastTotalPrice = preTotalPrice * number;
-                $$('.total-price').html('<li><div class="item-content item-inner">'+i18nText.room.total_price+lastTotalPrice+'</div></li>');
+                var str = '<li>' +
+                            '<div class="item-content item-inner bold">' +
+                                '<span>' + i18nText.room.total_price + '</span>' +
+                                '<span>' + lastTotalPrice + '</span>' +
+                            '</div>' +
+                        '</li>';
+                $$('.total-price').html(str);
             })
         },
         loadData:function(moduleId,roomId,data,priceData,isFirst){
